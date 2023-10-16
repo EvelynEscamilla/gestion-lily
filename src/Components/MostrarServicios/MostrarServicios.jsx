@@ -36,7 +36,7 @@ export const MostrarServicios = () => {
             >
               <div className="bg-gray-200 h-36 rounded-3xl  w-80 relative">
                 <div className=" bg-turqueza bg-opacity-90 h-14 bottom-0 absolute inset-x-0  rounded-b-3xl">
-                  <p className=" mx-2 absolute text-white bottom-2">
+                  <p className=" mx-2 absolute text-white bottom-2 text-xl">
                     {item.nombre}
                   </p>
                 </div>
@@ -81,7 +81,7 @@ export const MostrarServicios = () => {
             <div>
               <p className=" text-3xl px-10">$250.00</p>
             </div>
-            <button className=" bg-turqueza rounded-3xl px-10 py-5">
+            <button className=" bg-turqueza rounded-3xl px-10 py-5 text-xl text-white">
               RESERVA YA
             </button>
           </div>
