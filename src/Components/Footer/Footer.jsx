@@ -6,7 +6,7 @@ import Mapa from "../../assets/Mapa.svg";
 
 const Footer = () => {
   return (
-    <div className="Navbar w-screen h-72 flex items-center justify-between bg-azulClaro text-white">
+    <div className="Navbar w-screen h-60 flex items-center justify-between bg-azulClaro text-white">
       <div className="Logo w-1/3 h-60  justify-center items-center flex">
         <div className="flex flex-col items-center">
           <div>
