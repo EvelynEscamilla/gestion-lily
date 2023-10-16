@@ -5,7 +5,7 @@ import './Navbar.css';
 
 const Navbar = () => {
   return (
-    <div className="Navbar w-screen h-32 relative shadow flex items-center justify-between bg-azulNav">
+    <div className="Navbar w-screen h-30 relative shadow flex items-center justify-between bg-azulNav">
       <div className="Logo w-[260px] h-20 left-[69px]  justify-center items-center inline-flex">
         <div className="Imagen21 h-20 pl-[2.64px] pr-[2.37px]   justify-center items-center gap-[6.54px] inline-flex">
           <img className="Logo h-20" src={Logo} />
