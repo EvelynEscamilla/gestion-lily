@@ -5,7 +5,7 @@ export const NosotrosScreen = () => {
         <>
         
             
-                <div className="InfoComponent m-24 mt-8">
+                <div className="InfoComponent m-4 lg:m-24 lg:mt-8 sm:m-8 sm:mt-4">
                     <div className="LabelCont bg-turqueza w-72 h-12 rounded-r-lg text-center pt-1">
                         <label className="text-white text-3xl font-medium ">Quiénes Somos</label>
                     </div>
@@ -17,7 +17,7 @@ export const NosotrosScreen = () => {
                     </div>
                 </div>
 
-                <div className="InfoComponent m-24 mt-8">
+                <div className="InfoComponent m-4 lg:m-24 lg:mt-8 sm:m-8 sm:mt-4">
                     <div className="LabelCont bg-turqueza w-72 h-12 rounded-r-lg text-center pt-1">
                         <label className="text-white text-3xl font-medium ">Historia</label>
                     </div>
@@ -29,7 +29,7 @@ export const NosotrosScreen = () => {
                     </div>
                 </div>
 
-                <div className="InfoComponent m-24 mt-8">
+                <div className="InfoComponent lg:m-24 lg:mt-8 sm:m-8 sm:mt-4">
                     <div className="LabelCont bg-turqueza w-72 h-12 rounded-r-lg text-center pt-1">
                         <label className="text-white text-3xl font-medium ">Instalaciones</label>
                     </div>
