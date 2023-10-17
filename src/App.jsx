@@ -1,11 +1,11 @@
 
-import NosotrosScreen from "./Components/NosotrosScreen/NosotrosScreen"
+import CrearCuenta from "./Components/CrearCuenta/CrearCuenta"
 
 function App() {
 
   return (
     <>
-    <NosotrosScreen/>
+  <CrearCuenta></CrearCuenta>
      
      
      
