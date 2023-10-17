@@ -12,22 +12,22 @@ const Navbar = () => {
         </div>
       </div>
       <div className="Group25 h-20 flex justify-center items-center">
-        <div className="Servicios px-10 text-center text-black text-base font-normal font-['Roboto Condensed']">
+        <a href="#" className="Servicios px-10 text-center text-black text-base font-normal font-['Roboto Condensed']">
           SERVICIOS
-        </div>
+        </a>
         <div className="Line2 w-0 h-5 origin-top-left  border border-black"></div>
-        <div className="Contacto  px-10 text-center text-black text-base font-normal font-['Roboto Condensed']">
+        <a href="#" className="Contacto  px-10 text-center text-black text-base font-normal font-['Roboto Condensed']">
           CONTACTO
-        </div>
+        </a>
         <div className="Line2 w-0 h-5 origin-top-left  border border-black"></div>
-        <div className="Reservaciones px-10 text-center text-black text-base font-normal font-['Roboto Condensed']">
+        <a href="#" className="Reservaciones px-10 text-center text-black text-base font-normal font-['Roboto Condensed']">
           RESERVACIONES
-        </div>
+        </a>
       </div>
       <div className="IS w-[260px] h-20 flex items-center space-x-2 justify-center ">
-        <div className="IniciarSesion text-center text-black text-base font-normal font-['Roboto Condensed']">
+        <a href="#" className="IniciarSesion text-center text-black text-base font-normal font-['Roboto Condensed']">
           INICIAR SESION
-        </div>
+        </a>
         <img
           className="Logoi1  h-12 "
           src={login}
