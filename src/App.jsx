@@ -1,4 +1,4 @@
-import { NosotrosScreen } from "./components/Nosotros/NosotrosScreen"
+import NosotrosScreen from "./components/Nosotros/NosotrosScreen"
 function App() {
 
   return (
