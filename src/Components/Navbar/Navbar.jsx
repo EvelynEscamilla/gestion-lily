@@ -1,6 +1,6 @@
 
-import Logo from "../../assets/Logo.svg";
-import login from "../../assets/login.png";
+import Logo from "../../assets/Nav/Logo.svg";
+import login from "../../assets/Nav/login.png";
 import './Navbar.css';
 
 const Navbar = () => {
