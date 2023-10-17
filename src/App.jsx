@@ -1,9 +1,9 @@
-import NosotrosScreen from "./components/Nosotros/NosotrosScreen"
+
 function App() {
 
   return (
     <>
-      <NosotrosScreen></NosotrosScreen>
+      
     </>
   )
 }
