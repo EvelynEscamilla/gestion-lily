@@ -3,9 +3,9 @@ import "./Servicios.css";
 const Servicios = ({ nombre, imagen }) => {
   return (
     <div className="col-span-1 flex justify-center items-center h-40 relative p-3">
-      <div className="bg-gray-200 h-36 rounded-3xl  w-52 relative">
-        <div className="bg-morado bg-opacity-90 h-14 bottom-0 absolute inset-x-0  rounded-b-3xl">
-          <p className=" mx-2 absolute text-white bottom-2 text-xl leading-none">
+      <div className="bg-gray-200 h-36 rounded-3xl  w-80 relative">
+        <div className=" bg-turqueza bg-opacity-90 h-14 bottom-0 absolute inset-x-0  rounded-b-3xl">
+          <p className=" mx-2 absolute text-white bottom-2 text-xl">
             {nombre}
           </p>
         </div>
