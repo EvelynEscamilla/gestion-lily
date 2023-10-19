@@ -5,30 +5,34 @@ import LogoHor from './Images/Lily-hor.png'
 const Login = () => {
     return (
         <>
-            <div className="container">
-                <div className="image-container">
+            <div className="flex justify-center ">
+                <div className="image-container flex justify-center">
+                    <div className='w-5/6'>
                     <img src={Wpr} alt="Descripción de la imagen"></img>
-                    <div className="text-overlay">
+                    </div>
+                    <div className="text-overlay w-1/3">
                         <br></br>
+                        <div className='flex justify-center'>
                         <img src={LogoHor} alt="Logo Lily" className="logo"></img>
+                        </div>
                         <br></br>
                         <br></br>
                         <br></br>
-                        <div className="texto-fuente2">
+                        <div className="texto-fuente2 text-center">
                             <p>
-                                Iniciar Sesion
+                                Iniciar Sesión
                             </p>
                         </div>
                         <br></br>
                         <br></br>
                         <form>
-                            <input className="datos" type="text" placeholder="Correo electronico"></input>
+                            <input className="datos" type="text" placeholder="Correo electrónico"></input>
                             <br></br>
                             <br></br>
                             <input className="datos" type="text" placeholder="Contraseña"></input>
                             <br></br>
                             <br></br>
-                            <p className="texto-fuente">
+                            <p className="texto-fuente text-center">
                                 <a href="">
                                     ¿Has olvidado tu contraseña?
                                 </a>
@@ -42,6 +46,7 @@ const Login = () => {
                                 </a>
                                 <input type="submit" value="Iniciar Sesion" className="custom-submit2"/>
                             </p>
+                            
                         </form>
                     </div>
                 </div>
