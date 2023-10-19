@@ -43,3 +43,5 @@ export const NosotrosScreen = () => {
         </>
     )
 }
+
+export default NosotrosScreen

@@ -1,6 +1,5 @@
-import Inicio from './ComponentInicio/Inicio'
+import Inicio from './Components/ComponentInicio/Inicio'
 
-import NosotrosScreen from "./Components/NosotrosScreen/NosotrosScreen"
 
 function App() {
 
