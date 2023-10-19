@@ -1,11 +1,13 @@
+import CancelarCita from "./Components/CancelarCita/CancelarCita"
+
 
 
 function App() {
 
   return (
     <>
-    <NosotrosScreen/>
-     
+    
+     <CancelarCita/>
      
      
     </>
