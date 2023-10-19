@@ -3,6 +3,7 @@ import GaleriaTipos from "./GaleriaTipos";
 import imagenes from "./Imagenes";
 import ImagenesTipos from "./ImagenesTipos";
 import Servicios from "./Servicios";
+import Navbar from "../Navbar/Navbar"
 
 import { useState } from "react";
 export const MostrarServicios = () => {
@@ -24,6 +25,8 @@ export const MostrarServicios = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="flex justify-center">
       <div className=" w-1/2 p-3 pl-20">
         <div>
@@ -68,6 +71,7 @@ export const MostrarServicios = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
