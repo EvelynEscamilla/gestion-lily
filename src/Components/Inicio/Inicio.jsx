@@ -1,14 +1,18 @@
 import React from 'react'
-import CaImg1 from './Images/Ca-img1.jpg'
-import CaImg2 from './Images/Ca-img2.jpg'
-import CaImg3 from './Images/Ca-img3.jpg'
-import MpImg1 from './Images/Mp-img1.jpg'
-import MpImg2 from './Images/Mp-img2.jpg'
-import MpImg3 from './Images/Mp-img3.jpg'
+import CaImg1 from '../../assets/Inicio/Ca-img1.jpg'
+import CaImg2 from '../../assets/Inicio/Ca-img2.jpg'
+import CaImg3 from '../../assets/Inicio/Ca-img3.jpg'
+import MpImg1 from '../../assets/Inicio/Mp-img1.jpg'
+import MpImg2 from '../../assets/Inicio/Mp-img2.jpg'
+import MpImg3 from '../../assets/Inicio/Mp-img3.jpg'
+import './Inicio.css'
+import Navbar from "../Navbar/Navbar"
+import Footer from "../Footer/Footer"
 
 const Inicio = () => {
   return (
     <>
+    <Navbar/>
     <br></br>
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
@@ -59,6 +63,8 @@ const Inicio = () => {
           </div>
       </div>
       </div>
+      <br></br><br></br>
+      <Footer/>
       </>
   )
 }

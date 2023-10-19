@@ -1,4 +1,5 @@
-import Inicio from './Components/ComponentInicio/Inicio'
+import Inicio from "./Components/Inicio/Inicio"
+
 
 
 function App() {
