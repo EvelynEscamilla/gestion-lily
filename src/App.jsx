@@ -1,17 +1,14 @@
 
-import CancelarCita from "./Components/CancelarCita/CancelarCita"
-
-
-
+import NosotrosScreen from "./Components/NosotrosScreen/NosotrosScreen"
 
 function App() {
 
   return (
     <>
-
-    
-     <CancelarCita/>
-    
+    <NosotrosScreen/>
+     
+     
+     
     </>
   )
 }
