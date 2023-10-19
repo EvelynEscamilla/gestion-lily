@@ -1,11 +1,12 @@
 
-import NosotrosScreen from "./Components/NosotrosScreen/NosotrosScreen"
+import Calendario from "./Components/Calendario/Calendario"
+
 
 function App() {
 
   return (
     <>
-    <NosotrosScreen/>
+    <Calendario></Calendario>
      
      
      
