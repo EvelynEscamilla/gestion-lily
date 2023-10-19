@@ -1,5 +1,5 @@
 import Servicios from "../Servicios/Servicios";
-import imagenes from "../Imagenes/Imagenes";
+import imagenes from "./Imagenes";
 function Galeria({EnviarDatos}) {
   const handleDFC = (data) => {
     console.log('Datos recibidos desde Galeria', data)

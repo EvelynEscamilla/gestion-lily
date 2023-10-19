@@ -23,7 +23,7 @@ const imagenes = [
     imagen: Carboxiterapia,
   },
   {
-    nombre: "Cavitacion",
+    nombre: "Cavitación",
     descripcion: "La cavitación es un procedimiento no quirúrgico que utiliza ultrasonidos de baja frecuencia para romper las células de grasa en el cuerpo. Se emplea para reducir la grasa corporal y remodelar áreas problemáticas.",
     precio: "$300",
     imagen: Cavitacion,
@@ -35,25 +35,25 @@ const imagenes = [
     imagen: Diatermia,
   },
   {
-    nombre: "Desintoxicacion Ionica",
+    nombre: "Desintoxicación Iónica",
     descripcion: "Este tratamiento implica sumergir los pies en un baño de agua con sales minerales y utilizar una máquina que emite una corriente eléctrica débil. Se promociona como una forma de eliminar toxinas del cuerpo a través de los poros de los pies, aunque la eficacia de este procedimiento es controvertida.",
     precio: "$300",
     imagen: DesintoxicacionI,
   },
   {
-    nombre: "Drenaje Linfatico",
+    nombre: "Drenaje Linfático",
     descripcion: "El drenaje linfático es un masaje terapéutico suave que se realiza para estimular el sistema linfático. Se utiliza para reducir la retención de líquidos, mejorar la circulación linfática y promover la eliminación de toxinas del cuerpo.",
     precio: "$600",
     imagen: Drenaje,
   },
   {
-    nombre: "Eliminacion de Tatuajes",
+    nombre: "Eliminación de Tatuajes",
     descripcion: "Este tratamiento implica el uso de láseres o procedimientos quirúrgicos para eliminar tatuajes no deseados de la piel. Los láseres rompen las partículas de tinta para que el cuerpo pueda eliminarlas gradualmente.",
     precio: "Depende",
     imagen: EliminacionT,
   },
   {
-    nombre: "Eliminacion de Verrugas",
+    nombre: "Eliminación de Verrugas",
     descripcion: " La eliminación de verrugas implica la extirpación o destrucción de verrugas cutáneas, comúnmente mediante crioterapia (congelación), electrocauterización o cirugía.",
     precio: "Depende",
     imagen: EliminacionV,

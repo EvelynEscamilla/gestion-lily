@@ -1,9 +1,8 @@
 import "./MostrarServicios.css";
-import Galeria from "../Galeria/Galeria";
-import GaleriaTipos from "../Galeria/GaleriaTipos";
-import imagenes from "../Imagenes/Imagenes";
-import ImagenesTipos from "../Imagenes/ImagenesTipos";
-import Servicios from "../Servicios/Servicios";
+import GaleriaTipos from "./GaleriaTipos";
+import imagenes from "./Imagenes";
+import ImagenesTipos from "./ImagenesTipos";
+import Servicios from "./Servicios";
 
 import { useState } from "react";
 export const MostrarServicios = () => {
@@ -43,7 +42,7 @@ export const MostrarServicios = () => {
       </div>
       <div className="w-1/2">
         <div className="p-3 pr-14">
-          <div className=" py-4 flex justify-center items-center">
+          <div className=" mr-10 py-4 flex justify-center items-center">
           <img
               src={imagenSer}
               alt="Mi Imagen"
@@ -51,10 +50,10 @@ export const MostrarServicios = () => {
             />
           </div>
           <div>
-            <p className=" text-6xl py-2"> {nombre}</p>
+            <p className="mr-10 text-center text-6xl py-2"> {nombre}</p>
           </div>
           <div>
-            <p className=" text-lg py-2 leading-none">
+            <p className="mr-10 text-justify text-lg py-2 leading-none">
               {descripcion}
             </p>
           </div>
@@ -62,7 +61,7 @@ export const MostrarServicios = () => {
             <div>
               <p className=" text-3xl px-10">{precio}</p>
             </div>
-            <button className=" bg-turqueza rounded-3xl px-10 py-2 text-xl text-white">
+            <button className="mr-10 bg-turqueza rounded-3xl px-10 py-2 text-xl text-white hover:-translate-y-1 hover:scale-110 duration-200">
               RESERVA YA
             </button>
           </div>
@@ -71,3 +70,5 @@ export const MostrarServicios = () => {
     </div>
   );
 };
+
+export default MostrarServicios

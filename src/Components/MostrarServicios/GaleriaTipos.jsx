@@ -1,4 +1,5 @@
-import TiposServicios from "../Servicios/TiposServicios.jsx"
+import TiposServicios from "./TiposServicios.jsx"
+
 function Galeria({ imagenesTipos }) {
   return (
     <div className=" grid grid-cols-2 place-content-center py-2">
