@@ -5,7 +5,7 @@ const Programadas = ({Lista}) => {
   
     return (
         <>
-        <div className="rounded-2xl justify-center w-1/2 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
+        <div className="rounded-2xl border-2 border-azulClaro justify-center w-1/2 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
             <div className="flex justify-items-stretch mb-5">
                 <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
                     <p className="font-bold text-xl text-white">FECHA</p>
