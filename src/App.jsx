@@ -1,4 +1,6 @@
-import Inicio from "./Components/Inicio/Inicio"
+
+import CancelarCita from "./Components/CancelarCita/CancelarCita"
+
 
 
 
@@ -7,8 +9,9 @@ function App() {
   return (
     <>
 
-      <Inicio></Inicio>
-
+    
+     <CancelarCita/>
+    
     </>
   )
 }
