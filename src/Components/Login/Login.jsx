@@ -5,12 +5,12 @@ import LogoHor from './Images/Lily-hor.png'
 const Login = () => {
     return (
         <>
-            <div className="flex justify-center ">
-                <div className="image-container flex justify-center">
-                    <div className='w-5/6'>
-                    <img src={Wpr} alt="Descripción de la imagen"></img>
+            <div className="flex justify-center w-screen ">
+                <div className="image-container flex justify-center w-screen">
+                    <div >
+                    <img className=' w-screen' src={Wpr} alt="Descripción de la imagen"></img>
                     </div>
-                    <div className="text-overlay w-1/3">
+                    <div className=" absolute text-overlay w-1/3">
                         <br></br>
                         <div className='flex justify-center'>
                         <img src={LogoHor} alt="Logo Lily" className="logo"></img>
