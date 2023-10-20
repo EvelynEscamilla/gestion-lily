@@ -2,6 +2,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import React, { useState } from 'react';
 
+
 const Carousel = () => {
     const meses = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE']; // Los colores de los cuadros
     const [currentIndex, setCurrentIndex] = useState(0); // El índice del cuadro que se muestra actualmente
@@ -23,13 +24,35 @@ const Carousel = () => {
         <button className="p-2 bg-gray-300 rounded-full mr-4" onClick={goLeft}>←</button>
         <div className="flex justify-center w-2/5 h-96 bg-azulNav rounded-lg"><p className="mt-5">{meses[currentIndex]}</p></div>
         <button className="p-2 bg-gray-300 rounded-full ml-4" onClick={goRight}>→</button>
-        <div className="flex justify-center w-1/3 h-96 bg-azulNav ml-8 rounded-lg"><p className="mt-5">Servicios disponibles:</p></div>
+        <div className="w-1/3 h-96 bg-azulNav ml-8 rounded-lg justify-self-center ">
+        <div className="flex justify-center">
+          <p className="mt-5">Servicios disponibles:</p>
+          </div>
+          <ListaServ/>
+      </div>
       </div>
       </div>
     );
   };
   
+const ListaServ = () => {
 
+  return(
+    <>
+    <div>
+      <form className="flex justify-center">
+        <label className="p-4">
+          <input
+          type="radio"
+          value="opcion"
+          />
+          Servicio 1
+        </label>
+      </form>
+    </div>
+    </>
+  );
+};
 
 
 function Calendario() {
