@@ -1,6 +1,7 @@
 import React from 'react'
 import Wpr from './Images/Spa-img2.jpg'
 import LogoHor from './Images/Lily-hor.png'
+import './Components/CrearCuenta/CrearCuenta.css'
 
 const CrearCuenta = () => {
   return (
