@@ -1,10 +1,10 @@
-import MostrarServicios from "./Components/MostrarServicios/MostrarServicios"
+import Inicio from "./Components/Inicio/Inicio"
 
 function App() {
 
   return (
     <>
-<MostrarServicios/>
+      <Inicio/>
     </>
   )
 }
