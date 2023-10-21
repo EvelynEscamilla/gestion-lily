@@ -6,14 +6,13 @@ import Servicios from "./Servicios";
 import Navbar from "../Navbar/Navbar"
 
 import { useState } from "react";
-export const MostrarServicios = () => {
+export const MostrarServicios = ({handleScreen}) => {
   const primera = (imagenes[0])
 
   const [nombre, setNombre] = useState(primera.nombre);
   const [descripcion, setdescripcion] = useState(primera.descripcion);
   const [precio, setprecio] = useState(primera.precio);
   const [imagenSer, setimagenSer] = useState(primera.imagen);
-
 
 
   const handleDFC = (data) => {
@@ -26,7 +25,7 @@ export const MostrarServicios = () => {
 
   return (
     <>
-    <Navbar/>
+    <Navbar handleScreen={handleScreen}/>
     <div className="flex justify-center">
       <div className=" w-1/2 p-3 pl-20">
         <div>

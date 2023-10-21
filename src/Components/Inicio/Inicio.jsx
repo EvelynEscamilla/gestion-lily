@@ -9,10 +9,10 @@ import './Inicio.css'
 import Navbar from "../Navbar/Navbar"
 import Footer from "../Footer/Footer"
 
-const Inicio = () => {
+const Inicio = ({handleScreen}) => {
   return (
     <>
-    <Navbar/>
+    <Navbar handleScreen={handleScreen}/>
     <br></br>
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
@@ -35,7 +35,7 @@ const Inicio = () => {
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="texto1">
+      <div class="texto1 text-black">
         Tratamientos mas populares
       </div>
       <br></br>
