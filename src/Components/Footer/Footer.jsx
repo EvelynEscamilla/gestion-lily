@@ -1,12 +1,12 @@
 import "./Footer.css";
-import Logo2 from "../../assets/Logo2.svg";
-import Fb from "../../assets/fb.svg";
-import Ig from "../../assets/ig.svg";
-import Mapa from "../../assets/Mapa.svg";
+import Logo2 from "../../assets/Footer/Logo2.svg";
+import Fb from "../../assets/Footer/fb.svg";
+import Ig from "../../assets/Footer/ig.svg";
+import Mapa from "../../assets/Footer/Mapa.svg";
 
 const Footer = () => {
   return (
-    <div className="Navbar w-screen h-60 flex items-center justify-between bg-azulClaro text-white">
+    <div className="Navbar w-fullh-60 flex items-center justify-between bg-azulClaro text-white">
       <div className="Logo w-1/3 h-60  justify-center items-center flex">
         <div className="flex flex-col items-center">
           <div>
