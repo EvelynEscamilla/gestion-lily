@@ -6,7 +6,7 @@ import './Navbar.css';
 const Navbar = ({handleScreen}) => {
   return (
     <div className="Navbar w-full h-24 relative shadow flex items-center justify-between bg-azulNav">
-      <div className="Logo w-[260px] h-20 left-[69px]  justify-center items-center inline-flex cursor-pointer" onClick={() => handleScreen("inicio")}>
+      <div className="Logo w-[260px] h-20 left-[69px]  justify-center items-center inline-flex cursor-pointer" onClick={() => handleScreen("Inicio")}>
         <div className="Imagen21 h-20 pl-[2.64px] pr-[2.37px]   justify-center items-center gap-[6.54px] inline-flex">
           <img className="Logo h-20" src={Logo} />
         </div>
@@ -25,7 +25,7 @@ const Navbar = ({handleScreen}) => {
         </p>
       </div>
       <div className="IS w-[260px] h-20 flex items-center space-x-2 justify-center ">
-        <p className="IniciarSesion text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" onClick={() => handleScreen("CancelarCita")}>
+        <p className="IniciarSesion text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" onClick={() => handleScreen("Login2")}>
           INICIAR SESION
         </p>
         <img
