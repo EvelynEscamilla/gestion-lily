@@ -2,7 +2,7 @@ import React from 'react'
 import Wpr from './Images/Spa-img2.jpg'
 import LogoHor from './Images/Lily-hor.png'
 
-const Login = () => {
+const Login = ({handleScreen}) => {
     return (
         <>
             <div className="flex justify-center w-screen ">
@@ -41,9 +41,9 @@ const Login = () => {
                             <br />
                             <br />
                             <p className="texto-fuente3">
-                                <a href="">
+                                <button onClick={() => handleScreen("CrearCuenta")}>
                                     Crear cuenta
-                                </a>
+                                </button>
                                 <input type="submit" value="Iniciar Sesion" className="custom-submit2"/>
                             </p>
                             

@@ -5,13 +5,14 @@ import NosotrosScreen from "./Components/NosotrosScreen/NosotrosScreen"
 import MostrarServicios from "./Components/MostrarServicios/MostrarServicios"
 import CancelarCita from "./Components/CancelarCita/CancelarCita"
 import {useState} from "react"
+import CrearCuenta from "./Components/CrearCuenta/CrearCuenta"
 
 
 
 
 function App() {
 
-  const [activeScreen, setActiveScreen] = useState('inicio')
+  const [activeScreen, setActiveScreen] = useState('Inicio')
 
   const handleScreen = (screen) => {
     setActiveScreen(screen)
@@ -24,6 +25,7 @@ function App() {
     {activeScreen === 'MostrarServicios' && <MostrarServicios handleScreen={handleScreen} />}
     {activeScreen === 'CancelarCita' && <CancelarCita handleScreen={handleScreen} />}
     {activeScreen === 'Login2' && <Login2 handleScreen={handleScreen} />}
+    {activeScreen === 'CrearCuenta' && <CrearCuenta handleScreen={handleScreen} />}
 
     </>
   )

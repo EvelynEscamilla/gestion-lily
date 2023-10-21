@@ -40,7 +40,7 @@ const Login2 = ({handleScreen}) => {
           <div className="flex py-3">
             <div className=" w-1/2 ">
               <p className=" text-2xl text-turqueza py-2">
-                <a href="">Crear cuenta</a>
+                <button onClick={() => handleScreen("CrearCuenta")}>Crear cuenta</button>
               </p>
             </div>
             <div className=" w-1/2 ">

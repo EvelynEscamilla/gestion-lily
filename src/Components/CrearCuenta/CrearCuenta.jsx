@@ -2,11 +2,14 @@ import React from 'react'
 import Wpr from './Images/Spa-img2.jpg'
 import LogoHor from './Images/Lily-hor.png'
 import './CrearCuenta.css'
+import Navbar from '../Navbar/Navbar'
+import Footer from '../Footer/Footer'
 
-const CrearCuenta = () => {
+
+const CrearCuenta = ({handleScreen}) => {
   return (
     <>
-    
+    <Navbar handleScreen={handleScreen}/>
      <div className="container">
                 <div className="image-container">
                     <img src={Wpr} alt="Descripción de la imagen"></img>
@@ -52,6 +55,7 @@ const CrearCuenta = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
     </>
   )
 }
