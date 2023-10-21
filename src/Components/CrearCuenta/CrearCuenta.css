@@ -39,12 +39,7 @@ img {
 .logo{
     width: 65%;
     right: 50%;
-    text-align: center;
     align-items: center;
-    align-content: center;
-    align-self: center;
-    align-tracks: center;
-    
 }
 
 .datos{
