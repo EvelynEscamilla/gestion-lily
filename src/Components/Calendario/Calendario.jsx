@@ -22,7 +22,7 @@ const Carousel = () => {
           <div className="ml-4">
          <p className="mt-10 ml-52 font-medium text-xl">Selecciona la fecha de tu cita</p>
          </div>
-      <div className="flex items-center mb-10 mt-5 ml-10">
+      <div className="flex items-center mb-4 mt-5 ml-10">
         <button className="p-2 bg-gray-300 rounded-full mr-4 hover:-translate-y-1 hover:scale-110 duration-200" onClick={goLeft}>←</button>
         <div className="w-2/5 h-96 bg-azulNav rounded-lg border-2 border-azul"><p className="flex justify-center text-2xl bg-azulClaro text-white font-bold">{meses[currentIndex]}</p>
         <div className="mt-5 grid grid-cols-7 gap-4 p-4">
@@ -45,15 +45,15 @@ const Carousel = () => {
           <div className="mt-2 w-1/2"><ServCorporal/></div>
           <div className="mt-2 w-1/2"><ServFacial/></div>
           </div>
-         <div className="flex justify-right">
-         <button className="mr-4 mt-5 mb-10 rounded-2xl bg-turqueza text-white font-bold px-4 py-2">RESERVAR</button>
-        
-         </div>
+         
           
           </div>
-      
+         
       </div>
-      
+      <div className="flex justify-end mr-36 mb-10">
+         <button className="rounded-2xl bg-turqueza text-white font-bold px-4 py-2">RESERVAR</button>
+        
+         </div>
 
       </>
     );
