@@ -6,10 +6,12 @@
 
 /* Estilos para el contenedor */
 .contenedor {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     height: 400px; /* Ajustado a 400px de altura para las imágenes */
+    
 }
 
 /* Estilos para el contenedor de imágenes */
@@ -64,5 +66,7 @@
     font-size: 24px; /* Tamaño del texto (ajusta según tus necesidades) */
     
 }
+
+
 
 /* Estilos para el texto dentro del div */

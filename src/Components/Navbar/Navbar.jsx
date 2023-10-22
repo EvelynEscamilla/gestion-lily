@@ -17,16 +17,16 @@ const Navbar = ({handleScreen}) => {
         </a>
         <div className="Line2 w-0 h-5 origin-top-left  border border-black"></div>
         <p className="Contacto  px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" onClick={() => handleScreen("NosotrosScreen")}>
-          CONTACTO
+          NOSOTROS
         </p>
         <div className="Line2 w-0 h-5 origin-top-left  border border-black"></div>
         <p className="Reservaciones px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" onClick={() => handleScreen("CancelarCita")}>
-          RESERVACIONES
+          CITAS
         </p>
       </div>
       <div className="IS w-[260px] h-20 flex items-center space-x-2 justify-center ">
         <p className="IniciarSesion text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" onClick={() => handleScreen("Login2")}>
-          INICIAR SESION
+          INICIAR SESIÓN
         </p>
         <img
           className="Logoi1  h-12 "
