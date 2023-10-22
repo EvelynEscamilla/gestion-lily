@@ -5,6 +5,9 @@ import CaImg3 from '../../assets/Inicio/Ca-img3.jpg'
 import MpImg1 from '../../assets/Inicio/Mp-img1.jpg'
 import MpImg2 from '../../assets/Inicio/Mp-img2.jpg'
 import MpImg3 from '../../assets/Inicio/Mp-img3.jpg'
+import LChatbot from '../../assets/Inicio/Logo-Texto.png'
+import LChatbot2 from '../../assets/Inicio/Logo-Circulo.png'
+
 import './Inicio.css'
 import Navbar from "../Navbar/Navbar"
 import Footer from "../Footer/Footer"
@@ -61,6 +64,7 @@ const Inicio = ({handleScreen}) => {
                   </div>
               </div>
           </div>
+          <img className=" fixed bottom-0 right-0 h-24 mx-2 my-40" src={LChatbot2} alt="Mi Imagen Fija"></img>
       </div>
       </div>
       <br></br><br></br>
