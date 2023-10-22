@@ -86,7 +86,7 @@ const Citas = ({ListaCitas}) => {
                     </div>
                 </div>
                 <div className="flex justify-end mr-4 mb-4">
-                <button className="mr-4 border-2 rounded-2xl bg-white text-red-700 text-bold p-2">cancelar</button> 
+                <button className="mr-4 border-2 rounded-2xl bg-white text-red-700 text-bold p-2">Cancelar</button> 
                 </div>
                 </div>
 
