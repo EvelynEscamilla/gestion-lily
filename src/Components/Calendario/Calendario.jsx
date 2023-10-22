@@ -24,17 +24,17 @@ const Carousel = () => {
          </div>
       <div className="flex items-center mb-10 mt-5 ml-10">
         <button className="p-2 bg-gray-300 rounded-full mr-4 hover:-translate-y-1 hover:scale-110 duration-200" onClick={goLeft}>←</button>
-        <div className="w-2/5 h-96 bg-azulNav rounded-lg border-2 border-azul"><p className="flex justify-center text-2xl bg-azulClaro text-white text-bold">{meses[currentIndex]}</p>
+        <div className="w-2/5 h-96 bg-azulNav rounded-lg border-2 border-azul"><p className="flex justify-center text-2xl bg-azulClaro text-white font-bold">{meses[currentIndex]}</p>
         <div className="mt-5 grid grid-cols-7 gap-4 p-4">
           {dias.map(dia => (
-            <div key={dia} className="bg-morado text-center rounded shadow drop-shadow-md p-2 hover:-translate-y-1 hover:scale-110 duration-200">
+            <div key={dia} className="bg-morado text-center text-white rounded shadow drop-shadow-md p-2 hover:-translate-y-1 hover:scale-110 duration-200">
               <p>{dia}</p>
             </div>
           ))}
         </div></div>
         <button className="p-2 bg-gray-300 rounded-full ml-4 hover:-translate-y-1 hover:scale-110 duration-200" onClick={goRight}>→</button>
         <div className="w-2/5 h-96 bg-azulNav ml-8 rounded-lg border-2 border-azul">
-        <div className="flex justify-center bg-azulClaro text-white text-bold">
+        <div className="flex justify-center bg-azulClaro text-white font-bold">
           <p className="mt-2 text-2xl">Servicios disponibles:</p>
           </div>
           <div className="flex">
