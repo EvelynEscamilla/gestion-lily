@@ -15,7 +15,7 @@ export const NosotrosScreen = ({handleScreen}) => {
                         <p className="parrafo1 absolute font-semibold mt-6 ml-5 text-lg w-8/12">
                             La clínica de belleza Lily es un negocio dedicado a brindar tratamientos corporales y faciales...
                         </p>
-                        <img src="/gestion-lily/src/assets/spa1.png" className="info h-full w-full object-cover  rounded-3xl" />
+                        <img src="/gestion-lily/src/assets/Nosotros/spa1.png" className="info h-full w-full object-cover  rounded-3xl" />
                     </div>
                 </div>
 
@@ -27,7 +27,7 @@ export const NosotrosScreen = ({handleScreen}) => {
                         <p className="parrafo1 absolute font-semibold mt-6 ml-5 text-lg w-8/12">
                             La clínica de belleza Lily se creó a partir de...
                         </p>
-                        <img src="/gestion-lily/src/assets/spa2.jpg" className="info h-full w-full object-cover  rounded-3xl" />
+                        <img src="/gestion-lily/src/assets/Nosotros/spa2.jpg" className="info h-full w-full object-cover  rounded-3xl" />
                     </div>
                 </div>
 
@@ -37,8 +37,8 @@ export const NosotrosScreen = ({handleScreen}) => {
                     </div>
                     <div className="divInfo w-full h-full mt-8">
                         
-                        <img src="/gestion-lily/src/assets/clinica.jpg" className="info h-full w-full object-cover rounded-3xl" />
-                        <img src="/gestion-lily/src/assets/clinica1.jpg" className="info h-full w-full object-cover mt-8 rounded-3xl" />
+                        <img src="/gestion-lily/src/assets/Nosotros/clinica.jpg" className="info h-full w-full object-cover rounded-3xl" />
+                        <img src="/gestion-lily/src/assets/Nosotros/clinica1.jpg" className="info h-full w-full object-cover mt-8 rounded-3xl" />
                     </div>
                 </div>
                 <Footer/>
@@ -46,4 +46,5 @@ export const NosotrosScreen = ({handleScreen}) => {
     )
 }
 
-export default NosotrosScreen
+export default NosotrosScreen;
+
