@@ -14,6 +14,8 @@ const Carousel = () => {
     const goRight = () => {
       setCurrentIndex(currentIndex === meses.length - 1 ? 0 : currentIndex + 1);
     };
+
+    const dias = Array.from({length: 30}, (_, i) => i + 1);
   
     return (
       <div>
@@ -22,7 +24,14 @@ const Carousel = () => {
          </div>
       <div className="flex items-center mb-10 mt-5 ml-10">
         <button className="p-2 bg-gray-300 rounded-full mr-4" onClick={goLeft}>←</button>
-        <div className="flex justify-center w-2/5 h-96 bg-azulNav rounded-lg"><p className="mt-5">{meses[currentIndex]}</p></div>
+        <div className="w-2/5 h-96 bg-azulNav rounded-lg border-2 border-azul"><p className="flex justify-center text-2xl bg-azulClaro text-white text-bold">{meses[currentIndex]}</p>
+        <div className="mt-5 grid grid-cols-7 gap-4 p-4">
+          {dias.map(dia => (
+            <div key={dia} className="bg-morado text-center rounded shadow  drop-shadow-md p-2">
+              <p>{dia}</p>
+            </div>
+          ))}
+        </div></div>
         <button className="p-2 bg-gray-300 rounded-full ml-4" onClick={goRight}>→</button>
         <div className="w-2/5 h-96 bg-azulNav ml-8 rounded-lg border-2 border-azul">
         <div className="flex justify-center bg-azulClaro text-white text-bold">
