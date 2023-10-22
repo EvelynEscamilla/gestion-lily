@@ -41,10 +41,10 @@ const Carousel = () => {
           <div className="ml-4">
          <p className="mt-10 ml-52 font-medium text-xl">Selecciona la fecha de tu cita</p>
          </div>
-      <div className="flex items-center mb-4 mt-5 ml-4 w-full">
+      <div className="flex items-center mb-16 mt-2 ml-4 w-full">
         <button className="p-2 bg-gray-300 rounded-full mr-2 hover:-translate-y-1 hover:scale-110 duration-200" onClick={goLeft}>←</button>
-        <div className="w-2/5 h-96 bg-azulNav rounded-lg border-2 border-azul"><p className="flex justify-center text-2xl bg-azulClaro text-white font-bold">{meses[currentIndex]}</p>
-        <div className="mt-5 grid grid-cols-7 gap-4 p-4">
+        <div className="w-2/5 h-[25rem] bg-azulNav rounded-lg border-2 border-azul"><p className="flex justify-center text-2xl bg-azulClaro text-white font-bold">{meses[currentIndex]}</p>
+        <div className="mt-2 grid grid-cols-7 gap-4 p-4">
           {dias.map(dia => (
             <div key={dia} className="bg-morado text-center text-white rounded shadow drop-shadow-md p-2 hover:-translate-y-1 hover:scale-110 duration-200">
               <p>{dia}</p>
