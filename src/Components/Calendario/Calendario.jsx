@@ -34,15 +34,17 @@ const Carousel = () => {
       </div>
     );
   };
+
+  
   
 const ListaServ = () => {
 
   return(
     <>
     <div>
-      <form className="flex justify-center">
+      <form className="flex justify-left ml-16">
         <label className="p-4">
-          <input
+          <input className="mr-4"
           type="radio"
           value="opcion"
           />
