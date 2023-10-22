@@ -53,10 +53,9 @@ const Programadas = ({ Lista }) => {
 const Advertencia = () => {
   return (
     <>
-      <div className="flex items-center w-1/3 h-[35rem] ml-32 mt-5 mb-20 text-center">
+      <div className="flex items-center w-1/3 h-[35rem] ml-32 mt-5 mb-20 text-center border-2 border-azul bg-azulNav">
         <p className="text-4xl">
-          Recuerda que una vez cancelada la cita NO HABRÁ REMBOLSO del anticipo
-          dado
+          Recuerda cancelar tu cita con al menos un día de anticipación
         </p>
       </div>
     </>

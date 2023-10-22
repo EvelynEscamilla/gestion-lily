@@ -45,26 +45,26 @@ const Inicio = ({handleScreen}) => {
       <div>
         <div class="contenedor">
           <div class="imagen-contenedor">
-              <div class="imagen-redonda">
+              <div class="imagen-redonda hover:-translate-y-1 hover:scale-110 duration-200">
                   <img src={MpImg1} alt="Imagen 1"></img>
                   <div class="cuadro-morado">
                       <p>Botox Facial</p>
                   </div>
               </div>
-              <div class="imagen-redonda">
+              <div class="imagen-redonda hover:-translate-y-1 hover:scale-110 duration-200">
                   <img src={MpImg2} alt="Imagen 2"></img>
                   <div class="cuadro-morado">
                       <p>Oxigeneo</p>
                   </div>
               </div>
-              <div class="imagen-redonda">
+              <div class="imagen-redonda hover:-translate-y-1 hover:scale-110 duration-200">
                   <img src={MpImg3} alt="Imagen 3"></img>
                   <div class="cuadro-morado">
                       <p>Carboxiterapia</p>
                   </div>
               </div>
           </div>
-          <img className=" fixed bottom-0 right-0 h-24 mx-2 my-40" src={LChatbot2} alt="Mi Imagen Fija"></img>
+          <img className=" fixed bottom-0 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200" src={LChatbot2} alt="Mi Imagen Fija"></img>
       </div>
       </div>
       <br></br><br></br>
