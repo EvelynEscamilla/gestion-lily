@@ -6,21 +6,17 @@ const Citas = ({ListaCitas}) => {
   
     return (
         <>
-        <div className="rounded-2xl justify-center w-1/2 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
-            <div className="flex justify-items-stretch mb-5">
-                <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
-                    <p className="font-bold text-xl text-white">FECHA</p>
-                </div>
-                <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
-                    <p className="font-bold text-xl text-white">HORA</p>
-                </div>
-                <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
-                    <p className="font-bold text-xl text-white">CONTACTO</p>
-                </div>
-                <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
-                    <p className="font-bold text-xl text-white">CLIENTE</p>
-                </div>
-                <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
+        <div className="rounded-2xl border-azulClaro border-2 justify-center w-2/5 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
+            <div className="flex justify-items-center mb-5">
+                <div className="border-2 rounded-2xl bg-morado p-2 mt-5 flex items-center mx-2">
+                    <p className="font-bold text-xl text-white mr-4">FECHA </p>
+                    <p className="font-bold text-xl text-white mr-4"> |</p>
+                    <p className="font-bold text-xl text-white mr-4">  HORA</p>
+                    <p className="font-bold text-xl text-white mr-4"> |</p>
+                    <p className="font-bold text-xl text-white mr-4">CONTACTO</p>
+                    <p className="font-bold text-xl text-white mr-4"> |</p>
+                    <p className="font-bold text-xl text-white mr-4">CLIENTE</p>
+                    <p className="font-bold text-xl text-white mr-4"> |</p>
                     <p className="font-bold text-xl text-white">SERVICIOS</p>
                 </div>
             </div>
@@ -28,18 +24,15 @@ const Citas = ({ListaCitas}) => {
         <div className="scroll-m-0 overflow-y-scroll h-[30rem]"> 
             {ListaCitas.map(ListaCita => (
                 <div>
-                <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 mt-5 flex items-center mb-2 mr-4 ml-4">
+                <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 mt-5  mb-2 mr-4 ml-4">
                     <div className="bg-white p-2 flex items-center mr-2">
-                        <p className="font-bold text-justify text-lg">{ListaCita.fecha} | </p>
-                    </div>
-                    <div className="bg-white p-2 flex items-center mr-2">
-                        <p className="font-bold text-justify text-lg">{ListaCita.hora} | </p>
-                    </div>
-                    <div className="bg-white p-2 flex items-center mr-2">
-                        <p className="font-bold text-justify text-lg">{ListaCita.contacto} | </p>
-                    </div>
-                    <div className="bg-white p-2 flex items-center mr-2">
-                        <p className="font-bold text-justify text-lg">{ListaCita.cliente} | </p>
+                    <p className="font-bold text-justify text-lg mr-2">{ListaCita.fecha}</p>
+                        <p className="font-bold text-justify text-lg mr-2"> | </p>
+                        <p className="font-bold text-justify text-lg mr-2">{ListaCita.hora} </p>
+                        <p className="font-bold text-justify text-lg mr-2"> | </p>
+                        <p className="font-bold text-justify text-lg mr-2">{ListaCita.contacto}  </p>
+                        <p className="font-bold text-justify text-lg mr-2"> | </p>
+                        <p className="font-bold text-justify text-lg">{ListaCita.cliente}</p>
                     </div>
                     <div className="bg-white p-2 flex items-center mr-2">
                         <p className="font-bold text-justify text-lg">{ListaCita.servicio}</p>
@@ -68,40 +61,25 @@ const Citas = ({ListaCitas}) => {
   
     return (
         <>
-        <div className="rounded-2xl justify-center w-1/2 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
+        <div className="rounded-2xl border-azulClaro border-2 justify-center w-2/5 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
             <div className="flex justify-items-stretch mb-5">
                 <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
-                    <p className="font-bold text-xl text-white">FECHA</p>
-                </div>
-                <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
-                    <p className="font-bold text-xl text-white">HORA</p>
-                </div>
-                <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
-                    <p className="font-bold text-xl text-white">CONTACTO</p>
-                </div>
-                <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
-                    <p className="font-bold text-xl text-white">CLIENTE</p>
-                </div>
-                <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
-                    <p className="font-bold text-xl text-white">SERVICIOS</p>
+                    <p className="font-bold text-xl text-white">Datos de la cita</p>
                 </div>
             </div>
             <hr/>
         <div className="scroll-m-0 overflow-y-scroll h-[30rem]"> 
             {Acept.map(Acept => (
                 <div>
-                <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 mt-5 flex items-center mb-2 mr-4 ml-4">
+                <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 mt-5 items-center mb-2 mr-2 ml-2">
                     <div className="bg-white p-2 flex items-center mr-2">
-                        <p className="font-bold text-justify text-lg">{Acept.fecha} | </p>
-                    </div>
-                    <div className="bg-white p-2 flex items-center mr-2">
-                        <p className="font-bold text-justify text-lg">{Acept.hora} | </p>
-                    </div>
-                    <div className="bg-white p-2 flex items-center mr-2">
-                        <p className="font-bold text-justify text-lg">{Acept.contacto} | </p>
-                    </div>
-                    <div className="bg-white p-2 flex items-center mr-2">
-                        <p className="font-bold text-justify text-lg">{Acept.cliente} | </p>
+                        <p className="font-bold text-justify text-lg mr-2">{Acept.fecha}</p>
+                        <p className="font-bold text-justify text-lg mr-2"> | </p>
+                        <p className="font-bold text-justify text-lg mr-2">{Acept.hora} </p>
+                        <p className="font-bold text-justify text-lg mr-2"> | </p>
+                        <p className="font-bold text-justify text-lg mr-2">{Acept.contacto}  </p>
+                        <p className="font-bold text-justify text-lg mr-2"> | </p>
+                        <p className="font-bold text-justify text-lg">{Acept.cliente}</p>
                     </div>
                     <div className="bg-white p-2 flex items-center mr-2">
                         <p className="font-bold text-justify text-lg">{Acept.servicio}</p>
@@ -124,8 +102,8 @@ const Citas = ({ListaCitas}) => {
   const ListadoCitas = () => {
     const ListaCitas = [
         { id: 1, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Masaje'},
-        { id: 2, fecha: '23/10/2023', hora: '13:00 pm', cliente: 'Sofía Maldonado', contacto: 1234567890,servicio: 'Masaje'},
-        { id: 3, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Masaje'},
+        { id: 2, fecha: '23/10/2023', hora: '13:00 pm', cliente: 'Sofía Maldonado', contacto: 1234567890,servicio: 'Masaje, Tratamiento de acné'},
+        { id: 3, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Masaje, botox, eliminación de tatuajes'},
         { id: 4, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Masaje'},
         { id: 5, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Masaje'},
         { id: 6, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Masaje'},
@@ -138,9 +116,9 @@ const Citas = ({ListaCitas}) => {
 
 const Aceptadas = () => {
     const Acept = [
-        { id: 1, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Masaje'},
+        { id: 1, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Masaje, Tratamiento de acné'},
         { id: 2, fecha: '23/10/2023', hora: '13:00 pm', cliente: 'Sofía Maldonado', contacto: 1234567890,servicio: 'Masaje'},
-        { id: 3, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Masaje'},
+        { id: 3, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Valoración'},
         { id: 4, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Masaje'},
         { id: 5, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Masaje'},
         { id: 6, fecha: '18/10/2023', hora: '10:00 am', cliente: 'Ana Rodriguez', contacto: 1234567890,servicio: 'Masaje'}
@@ -153,12 +131,14 @@ const Aceptadas = () => {
     return (
         <>
       <Navbar/>
-      <div className="flex">
-      <div className="flex justify-center w-1/2 ml-8 mt-10"><p className="font-medium justify-center text-4xl">Citas solicitadas</p></div>
-      <div className="flex justify-center w-1/2 ml-8 mt-10"><p className="font-medium justify-center text-4xl">Citas aceptadas</p></div>
+      <div className="flex justify-center">
+      <div className="flex justify-center ml-6 w-2/5 mt-10"><p className="font-medium justify-center text-4xl">Citas solicitadas</p></div>
+      <div className="mx-16"></div>
+      <div className="flex justify-center w-2/5 mt-10"><p className="font-medium justify-center text-4xl">Citas aceptadas</p></div>
       </div>
-      <div className="flex">
+      <div className="flex justify-center">
       <ListadoCitas/>
+      <div className="mx-8"></div>
       <Aceptadas/>
       </div>
       
