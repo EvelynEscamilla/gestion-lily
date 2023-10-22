@@ -18,7 +18,7 @@ const Carousel = () => {
     const dias = Array.from({length: 30}, (_, i) => i + 1);
   
     return (
-      <div>
+      <>
           <div className="ml-4">
          <p className="mt-10 ml-52 font-medium text-xl">Selecciona la fecha de tu cita</p>
          </div>
@@ -45,10 +45,17 @@ const Carousel = () => {
           <div className="mt-2 w-1/2"><ServCorporal/></div>
           <div className="mt-2 w-1/2"><ServFacial/></div>
           </div>
+         <div className="flex justify-right">
+         <button className="mr-4 mt-5 mb-10 rounded-2xl bg-turqueza text-white font-bold px-4 py-2">RESERVAR</button>
+        
+         </div>
+          
           </div>
       
       </div>
-      </div>
+      
+
+      </>
     );
   };
 
@@ -161,11 +168,11 @@ const Faciales = ({ServFacial}) => {
 function Calendario() {
 
   return (
-    <div>
+    <>
     <Navbar/>  
     <Carousel/>
     <Footer/>
-    </div>
+    </>
   );
 }
 
