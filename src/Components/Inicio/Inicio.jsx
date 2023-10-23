@@ -1,4 +1,3 @@
-import React from 'react'
 import CaImg1 from '../../assets/Inicio/Ca-img1.jpg'
 import CaImg2 from '../../assets/Inicio/Ca-img2.jpg'
 import CaImg3 from '../../assets/Inicio/Ca-img3.jpg'
@@ -7,12 +6,23 @@ import MpImg2 from '../../assets/Inicio/Mp-img2.jpg'
 import MpImg3 from '../../assets/Inicio/Mp-img3.jpg'
 import LChatbot from '../../assets/Inicio/Logo-Texto.png'
 import LChatbot2 from '../../assets/Inicio/Logo-Circulo.png'
-
+import React, { useState } from 'react';
 import './Inicio.css'
 import Navbar from "../Navbar/Navbar"
 import Footer from "../Footer/Footer"
 
 const Inicio = ({handleScreen}) => {
+
+  const [infoDiv, setInfoDiv] = useState(1);
+
+    const handleClick = () => {
+        setInfoDiv(infoDiv + 1);
+    }
+
+    const handleClick1 = () => {
+      setInfoDiv(infoDiv - 1);
+  }
+
   return (
     <>
     <Navbar handleScreen={handleScreen}/>
@@ -64,8 +74,24 @@ const Inicio = ({handleScreen}) => {
                   </div>
               </div>
           </div>
-          <img className=" fixed bottom-0 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200" src={LChatbot2} alt="Mi Imagen Fija"></img>
-      </div>
+          {infoDiv == 1 ?
+          <img className=" fixed bottom-0 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200" src={LChatbot2} alt="Mi Imagen Fija" onClick ={() => handleClick()}></img>
+          :
+
+          <div className='chatScreen absolute bottom-0 right-0  m-2 rounded-xl shadow-2xl border-2 h-[20rem] w-80 bg-azulNav border-turqueza text-white' onClick ={() => handleClick1()}>
+    <p className='bg-turqueza p-1 m-3 rounded-lg w-36' >
+        ¡Hola! ¿En qué puedo ayudarte?
+    </p>
+    <div className='Preg absolute bottom-0 bg-turqueza rounded-b-xl w-full h-28'>
+        <p>Preguntas Frecuentes:</p>
+        <p className=' border rounded-xl'>¿Donde se ubica la clinica?</p>
+        <p className=' border rounded-xl'>¿Que metodos de pago se aceptan?</p>
+        <p className=' border rounded-xl    '>¿Que servicios ofrecen?</p>
+    </div>
+    
+    </div>
+     }
+          </div>
       </div>
       <br></br><br></br>
       <Footer/>
