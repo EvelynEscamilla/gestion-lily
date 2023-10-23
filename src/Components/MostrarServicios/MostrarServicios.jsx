@@ -5,6 +5,7 @@ import ImagenesTipos from "./ImagenesTipos";
 import Servicios from "./Servicios";
 import Navbar from "../Navbar/Navbar"
 import { useState } from "react";
+import Footer from "../Footer/Footer";
 
 
 export const MostrarServicios = ({handleScreen}) => {
@@ -71,6 +72,7 @@ export const MostrarServicios = ({handleScreen}) => {
         </div>
       </div>
     </div>
+    <Footer/>
     </>
   );
 };

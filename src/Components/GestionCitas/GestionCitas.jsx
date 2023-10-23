@@ -130,7 +130,7 @@ const Aceptadas = () => {
   const GestionCitas = () => {
     return (
         <>
-      <Navbar/>
+      <Navbar handleScreen={handleScreen} />
       <div className="flex justify-center">
       <div className="flex justify-center ml-6 w-2/5 mt-10"><p className="font-medium justify-center text-4xl">Citas solicitadas</p></div>
       <div className="mx-16"></div>
