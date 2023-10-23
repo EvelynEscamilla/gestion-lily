@@ -127,7 +127,7 @@ const Aceptadas = () => {
     return <CitasA Acept={Acept} />;
 };
   
-  const GestionCitas = () => {
+  const GestionCitas = ({handleScreen}) => {
     return (
         <>
       <Navbar handleScreen={handleScreen} />
