@@ -50,11 +50,11 @@ const Programadas = ({ Lista }) => {
   );
 };
 
-const Advertencia = () => {
+const Advertencia = ({handleScreen}) => {
   return (
     <>
-      <div className="flex items-center w-1/3 h-[35rem] ml-32 mt-5 mb-20 text-center border-2 border-azul bg-azulNav">
-        <p className="text-4xl">
+      <div className="flex items-center mt-64 w-1/3 h-[8rem] ml-32 mb-20 text-justify border-2 border-azul bg-azulNav">
+        <p className="text-2xl px-6 cursor-pointer" onClick={() => handleScreen("GestionCitas")}>
           Recuerda cancelar tu cita con al menos un día de anticipación
         </p>
       </div>
@@ -83,7 +83,7 @@ const CancelarCita = ({ handleScreen }) => {
       </div>
       <div className="flex">
         <CitasP />
-        <Advertencia />
+        <Advertencia handleScreen={handleScreen}/>
       </div>
       <Footer />
     </>

@@ -3,7 +3,7 @@ import Footer from "../Footer/Footer";
 import React, { useState, useEffect } from 'react';
 
 
-const Carousel = () => {
+const Carousel = ({handleScreen}) => {
     const meses = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE']; // Los colores de los cuadros
     const [currentIndex, setCurrentIndex] = useState(0); // El índice del cuadro que se muestra actualmente
   
@@ -20,11 +20,8 @@ const Carousel = () => {
   const [datos, setDatos] = useState([]);
   const [seleccionado, setSeleccionado] = useState('');
 
-  // Simula la obtención de datos de otra función
   useEffect(() => {
     const obtenerDatos = async () => {
-      // Aquí es donde llamarías a tu otra función para obtener los datos
-      // Para este ejemplo, simplemente usaremos un conjunto de datos fijo
       const datosObtenidos = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '18:00'];
       setDatos(datosObtenidos);
     };
@@ -41,8 +38,9 @@ const Carousel = () => {
           <div className="ml-4">
          <p className="mt-10 ml-52 font-medium text-xl">Selecciona la fecha de tu cita</p>
          </div>
-      <div className="flex items-center mb-16 mt-2 ml-4 w-full">
-        <button className="p-2 bg-gray-300 rounded-full mr-2 hover:-translate-y-1 hover:scale-110 duration-200" onClick={goLeft}>←</button>
+      <div className="flex items-center mb-16 mt-2 w-full ">
+
+        <button className="p-2 ml-4 bg-gray-300 rounded-full mr-2 hover:-translate-y-1 hover:scale-110 duration-200" onClick={goLeft}>←</button>
         <div className="w-2/5 h-[25rem] bg-azulNav rounded-lg border-2 border-azul"><p className="flex justify-center text-2xl bg-azulClaro text-white font-bold">{meses[currentIndex]}</p>
         <div className="mt-2 grid grid-cols-7 gap-4 p-4">
           {dias.map(dia => (
@@ -52,37 +50,40 @@ const Carousel = () => {
           ))}
         </div></div>
         <button className="p-2 bg-gray-300 rounded-full ml-2 hover:-translate-y-1 hover:scale-110 duration-200" onClick={goRight}>→</button>
-        <div className="w-2/5 h-96 bg-azulNav ml-2 rounded-lg border-2 border-azul">
+       
+        <div className="w-[32rem] h-[25rem] bg-azulNav ml-4 rounded-lg border-2 border-azul">
         <div className="flex justify-center bg-azulClaro text-white font-bold">
           <p className="mt-2 text-2xl">Servicios disponibles:</p>
           </div>
           <div className="flex">
-          <div className="mt-5 w-1/2 flex justify-center bg-azul text-white text-bold">Corporales</div>
-          <div className="mt-5 w-1/2 flex justify-center bg-azul text-white text-bold">Faciales</div>
+          <div className="mt-4 w-1/2 flex justify-center bg-azul text-white text-bold">Corporales</div>
+          <div className="mt-4 w-1/2 flex justify-center bg-azul text-white text-bold">Faciales</div>
           </div>
           <div className="flex">
           <div className="mt-2 w-1/2"><ServCorporal/></div>
           <div className="mt-2 w-1/2"><ServFacial/></div>
           </div>
           </div>
-          <div className="w-1/12 h-96 bg-azulNav ml-2 rounded-lg border-2 border-azul flex flex-col justify-between">
-  <div className="mb-10">
+          <div className="w-1/12 h-[25rem] bg-azulNav ml-4 rounded-lg border-2 border-azul flex flex-col justify-between">
+  <div className="mb-10 ">
+    <div className="flex justify-center">
     <select 
       onChange={handleSelectChange} 
-      className="rounded-2xl bg-azulClaro text-white font-bold px-4 py-2 mt-2 mx-1"
+      className="rounded-2xl bg-azulClaro text-white font-bold px-3 py-2 mt-2"
     >
       <option value="">Horario</option>
       {datos.map((dato, index) => (
         <option key={index} value={dato}>{dato}</option>
       ))}
     </select>
-    <p className={`rounded-2xl bg-azul text-center text-white font-bold px-4 py-2 mt-2 mx-2 ${seleccionado ? '' : 'hidden'}`}>
+    </div>
+    <p className={`rounded-2xl bg-azul text-center text-white font-bold px-2 py-2 mt-2 mx-2 ${seleccionado ? '' : 'hidden'}`}>
       Hora confirmada {seleccionado}
     </p>
   </div>
 
-  <div className="flex justify-center mb-4">
-    <button className="rounded-2xl bg-turqueza text-white font-bold px-4 py-2">RESERVAR</button>
+  <div className="flex justify-center mb-2">
+    <button className="rounded-2xl bg-turqueza text-white font-bold px-3 py-2 hover:-translate-y-1 hover:scale-100 duration-200" onClick={() => handleScreen("CancelarCita")}>RESERVAR</button>
   </div>
 </div>
 
@@ -200,12 +201,12 @@ const Faciales = ({ServFacial}) => {
   );
 };
 
-function Calendario() {
+function Calendario({handleScreen}) {
 
   return (
     <>
-    <Navbar/>  
-    <Carousel/>
+    <Navbar handleScreen={handleScreen}/> 
+    <Carousel handleScreen={handleScreen}/>
     <Footer/>
     </>
   );

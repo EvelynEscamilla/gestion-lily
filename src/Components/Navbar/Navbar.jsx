@@ -20,7 +20,7 @@ const Navbar = ({handleScreen}) => {
           NOSOTROS
         </p>
         <div className="Line2 w-0 h-5 origin-top-left  border border-black"></div>
-        <p className="Reservaciones px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" onClick={() => handleScreen("CancelarCita")}>
+        <p className="Reservaciones px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" onClick={() => handleScreen("Calendario")}>
           CITAS
         </p>
       </div>
