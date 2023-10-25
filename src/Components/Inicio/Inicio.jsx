@@ -4,8 +4,7 @@ import CaImg3 from '../../assets/Inicio/Ca-img3.jpg'
 import MpImg1 from '../../assets/Inicio/Mp-img1.jpg'
 import MpImg2 from '../../assets/Inicio/Mp-img2.jpg'
 import MpImg3 from '../../assets/Inicio/Mp-img3.jpg'
-import LChatbot from '../../assets/Inicio/Logo-Texto.png'
-import LChatbot2 from '../../assets/Inicio/Logo-Circulo.png'
+import LChatbot2 from '../../assets/logosolito.svg'
 import React, { useState } from 'react';
 import './Inicio.css'
 import Navbar from "../Navbar/Navbar"
@@ -75,7 +74,7 @@ const Inicio = ({handleScreen}) => {
               </div>
           </div>
           {infoDiv == 1 ?
-          <img className=" fixed bottom-0 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200" src={LChatbot2} alt="Mi Imagen Fija" onClick ={() => handleClick()}></img>
+          <img className=" fixed bottom-0 rounded-full bg-azulNav border-2 shadow-lg p-2 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200" src={LChatbot2} alt="Mi Imagen Fija" onClick ={() => handleClick()}></img>
           :
 
           <div className='chatScreen absolute bottom-0 right-0  m-2 rounded-xl shadow-2xl border-2 h-[20rem] w-80 bg-azulNav border-turqueza text-white' onClick ={() => handleClick1()}>
