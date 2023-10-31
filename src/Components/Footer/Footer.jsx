@@ -30,7 +30,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="Logo w-1/3 h-40  justify-center items-center inline-flex">
-        <div className="flex  items-center space-x-4">
+        <div className="flex items-center space-x-4">
           <div className="flex flex-col items-center whitespace-pre-line">
             <div className=" font-bold">Encuentranos en:</div>
             <div>

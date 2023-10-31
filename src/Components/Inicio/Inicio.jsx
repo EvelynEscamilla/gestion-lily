@@ -75,17 +75,17 @@ const Inicio = ({handleScreen}) => {
               </div>
           </div>
           {infoDiv == 1 ?
-          <img className=" fixed bottom-0 rounded-full bg-azulNav border-2 shadow-lg p-2 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200" src={LChatbot2} alt="Mi Imagen Fija" onClick ={() => handleClick()}></img>
+          <img className=" fixed bottom-0 rounded-full bg-azulNav border-3 border-morado shadow-lg p-2 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200 " src={LChatbot2} alt="Mi Imagen Fija" onClick ={() => handleClick()}></img>
           :
 
           <div className=' z-50'>
-              <img className=" fixed bottom-[19rem] rounded-full p-2 right-0 w-12 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200" src={ChatbotClose} alt="Mi Imagen Fija" onClick={() => handleClick1()}></img>
-              <div className='chatScreen fixed bottom-0 right-0 m-2 rounded-xl shadow-2xl border-2 h-[20rem] w-80 bg-azulNav border-turqueza text-white' >
+              <img className=" fixed bottom-[19rem] rounded-full p-2 right-0 w-12 mx-2 mb-[2rem] hover:-translate-y-1 hover:scale-110 duration-200 bg-azulClaro" src={ChatbotClose} alt="Mi Imagen Fija" onClick={() => handleClick1()}></img>
+              <div className='chatScreen fixed bottom-0 right-0 m-2 rounded-xl shadow-2xl border-3 h-[20rem] w-80 bg-azulNav border-morado text-white' >
                 <p className='bg-turqueza p-1 m-3 rounded-lg w-36 selection:bg-morado' >
                   ¡Hola! ¿En qué puedo ayudarte?
                 </p>
                 <div className='Preg absolute bottom-0 bg-azulClaro rounded-b-xl w-full h-21'>
-                  <p>Preguntas Frecuentes:</p>
+                  <p className=' ml-1'>Preguntas Frecuentes:</p>
                   <div className='flex flex-row pb-2'>
                     <select className='pregFrec bg-azulClaro selection:bg-morado rounded-2xl p-1 w-48'>
                       
