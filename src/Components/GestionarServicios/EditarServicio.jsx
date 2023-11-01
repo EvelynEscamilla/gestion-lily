@@ -21,12 +21,14 @@ const EditarServicio = ({ handleScreen, item }) => {
                   <div className=" items-center space-x-2 justify-center text-center">
                     <img src={logo} alt="" className=" w-full  " />
                   </div>
-                  <button
-                    type="button"
-                    className="px-4 py-2 rounded-3xl  inline-block bg-morado text-white text-xl"
-                  >
-                    Cambiar
-                  </button>
+                  <div className="flex h-full justify-center items-center">
+                    <button
+                      type="button"
+                      className="px-4 py-2 rounded-3xl  inline-block bg-morado text-white text-xl"
+                    >
+                      Cambiar
+                    </button>
+                  </div>
                 </div>
               </div>
               <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
