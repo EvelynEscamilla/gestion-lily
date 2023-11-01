@@ -13,9 +13,25 @@ const GestionarServicios = ({ handleScreen }) => {
 
       <div>
         <div className=" pt-12 mx-auto px-4 pb-4  text-white ">
-          <h2 className="mb-4 text-2xl text-black">Servicios</h2>
+          <h2 className="mb-4 text-5xl text-center text-black">Servicios</h2>
+          <div className=" w-screen flex justify-between">
+        <div className=" w-1/2">
+          <div className=" p-3 ">
+            <button className=" shadow-md rounded-3xl border border-black text-black font-semibold" onClick={() => handleScreen("AgregarServicio")}>
+              <div className="  flex p-3 justify-center items-center">
+                <p className=" text-2xl px-2">+</p>
+                <p>Agregar Servicio</p>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div className=" w-1/2">2</div>
+      </div>
+      <div>
+        <div>o</div>
+      </div>
           <div className="overflow-x-auto">
-            <table className="min-w-full  ">
+            <table className="min-w-full border-2 border-azulClaro ">
               <thead className=" bg-turqueza text-base  ">
                 <colgroup>
                   <col />
@@ -26,14 +42,15 @@ const GestionarServicios = ({ handleScreen }) => {
                   <col className=" w-24" />
                 </colgroup>
                 <tr className="text-left">
-                  <th className="p-3">No. de Servicio</th>
-                  <th className="p-3">Imagen</th>
+                  <th className="p-3 text-center ">No. de Servicio</th>
+                  
+                  <th className="p-3 text-center border-x-2 border-azulClaro">Imagen</th>
 
-                  <th className="p-3">Nombre de Servicio</th>
-                  <th className="p-3">Descripcion y Tipo</th>
-                  <th className="p-3">Duracion y Personas</th>
-                  <th className="p-3 text-right">Precio</th>
-                  <th className="p-3 text-center">Editar</th>
+                  <th className="p-3 text-center">Nombre de Servicio</th>
+                  <th className="p-3 text-center border-x-2 border-azulClaro">Descripcion y Tipo</th>
+                  <th className="p-3 text-center">Duracion y Personas</th>
+                  <th className="p-3 text-center border-x-2 border-azulClaro">Precio</th>
+                  <th className="p-3 text-center">Opciones</th>
                 </tr>
               </thead>
               <tbody>

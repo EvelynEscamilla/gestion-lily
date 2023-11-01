@@ -1,6 +1,10 @@
 import React from "react";
+import Navbar from '../Navbar/Navbar'
+import Footer from '../Footer/Footer'
 
-const AgregarServicio = () => {
+import logo from '../../assets/logosolito.svg'
+
+const AgregarServicio = ({handleScreen}) => {
   return (
     <>
       <div>

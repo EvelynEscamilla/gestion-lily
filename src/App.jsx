@@ -8,12 +8,14 @@ import Calendario from "./Components/Calendario/Calendario"
 import GestionCitas from "./Components/GestionCitas/GestionCitas"
 import GestionarServicios from "./Components/GestionarServicios/GestionarServicios"
 import EditarServicio from "./Components/GestionarServicios/EditarServicio"
+import AgregarServicio from "./Components/GestionarServicios/AgregarServicio"
+
 import {useState} from "react"
 
 
 function App() {
-
-  const [activeScreen, setActiveScreen] = useState('Inicio')
+  
+  const [activeScreen, setActiveScreen] = useState('GestionServicios')
 
   const handleScreen = (screen) => {
     setActiveScreen(screen)
@@ -32,6 +34,8 @@ function App() {
     {activeScreen === 'GestionCitas' && <GestionCitas handleScreen={handleScreen} />}
     {activeScreen === 'GestionServicios' && <GestionarServicios handleScreen={handleScreen} />}
     {activeScreen === 'EditarServicio' && (<EditarServicio handleScreen={handleScreen} />)}
+    
+    {activeScreen === 'AgregarServicio' && (<AgregarServicio handleScreen={handleScreen} />)}
     </>
   )
 }
