@@ -15,13 +15,14 @@ const CrearCuenta = ({ handleScreen }) => {
                     <img src={Wpr} alt="Descripción de la imagen" className="w-full h-auto"></img>
                     <div className="text-overlay absolute top-0 right-0 bottom-0 w-1/2 bg-opacity-70 bg-blue-100 text-black p-1 text-center flex flex-col justify-center items-center">
                         <img className="w-1/2 mx-auto py-7 " src={LogoHor}></img>
-                        <div className="texto-fuente2">
+                        <div className="text-[30px]">
                             <p>Crea una cuenta en nuestro sitio</p>
                         </div>
                         <form className="text-center">
-                            <input className="datos w-3/4 h-10 rounded-full mb-4" type="text" placeholder="Correo electrónico"></input>
-                            <input className="datos w-3/4 h-10 rounded-full mb-4" type="text" placeholder="Contraseña"></input>
-                            <input className="datos w-3/4 h-10 rounded-full mb-4" type="text" placeholder="Confirmar Contraseña"></input>
+                            <input className=" w-[300px] h-10 bg-azulNav text-center rounded-full mb-4" type="text" placeholder="Correo electrónico"></input>
+                            <br />
+                            <input className="w-[300px] h-10 bg-azulNav text-center  rounded-full mb-4" type="text" placeholder="Contraseña"></input>
+                            <input className="w-[300px] h-10 bg-azulNav text-center  rounded-full mb-4" type="text" placeholder="Confirmar Contraseña"></input>
                             <p className="texto-fuente">
                                 Utiliza mínimo ocho caracteres combinados
                             </p>
@@ -32,12 +33,12 @@ const CrearCuenta = ({ handleScreen }) => {
                                 <input
                                     type="submit"
                                     value="Cancelar"
-                                    className="custom-submit2 bg-morado m-2 rounded-full cursor-pointer float-left"
+                                    className="text-[20px] text-white bg-morado m-2 px-4 py-2  rounded-full cursor-pointer float-left"
                                 ></input>
                                 <input
                                     type="submit"
                                     value="Crear Cuenta"
-                                    className="custom-submit2 bg-morado m-2 rounded-full cursor-pointer float-right"
+                                    className="text-[20px] text-white bg-morado m-2 px-4 py-2 rounded-full cursor-pointer float-right"
                                 ></input>
                             </div>
                         </form>
