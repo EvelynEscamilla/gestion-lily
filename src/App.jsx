@@ -7,7 +7,6 @@ import CrearCuenta from "./Components/CrearCuenta/CrearCuenta"
 import Calendario from "./Components/Calendario/Calendario"
 import GestionCitas from "./Components/GestionCitas/GestionCitas"
 import {useState} from "react"
-import HistorialCliente from "./Components/HistorialCliente/HistorialCliente"
 
 
 function App() {
@@ -20,7 +19,15 @@ function App() {
 
   return (
     <>
-<HistorialCliente/>
+
+    {activeScreen === 'Inicio' && <Inicio handleScreen={handleScreen} />}
+    {activeScreen === 'NosotrosScreen' && <NosotrosScreen handleScreen={handleScreen} />}
+    {activeScreen === 'MostrarServicios' && <MostrarServicios handleScreen={handleScreen} />}
+    {activeScreen === 'CancelarCita' && <CancelarCita handleScreen={handleScreen} />}
+    {activeScreen === 'Login2' && <Login2 handleScreen={handleScreen} />}
+    {activeScreen === 'CrearCuenta' && <CrearCuenta handleScreen={handleScreen} />}
+    {activeScreen === 'Calendario' && <Calendario handleScreen={handleScreen} />}
+    {activeScreen === 'GestionCitas' && <GestionCitas handleScreen={handleScreen} />}
     </>
   )
 }
