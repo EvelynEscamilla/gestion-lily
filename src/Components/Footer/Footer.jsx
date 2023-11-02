@@ -1,12 +1,15 @@
-import "./Footer.css";
-import Logo2 from "../../assets/Footer/Logo2.svg";
-import Fb from "../../assets/Footer/fb.svg";
-import Ig from "../../assets/Footer/ig.svg";
-import Mapa from "../../assets/Footer/Mapa.svg";
+import React from 'react'
+
+import "./Footer.css"
+import Logo2 from "../../assets/Footer/Logo2.svg"
+import Fb from "../../assets/Footer/fb.svg"
+import Ig from "../../assets/Footer/ig.svg"
+import Mapa from "../../assets/Footer/Mapa.svg"
+
 
 const Footer = () => {
   return (
-    <div className="Navbar w-full h-60 flex items-center justify-between bg-azulClaro text-white">
+    <footer className="Navbar w-full h-60 flex items-center justify-between bg-azulClaro text-white">
       <div className="Logo w-1/3 h-60  justify-center items-center flex">
         <div className="flex flex-col items-center">
           <div>
@@ -24,8 +27,9 @@ const Footer = () => {
             <p>Siguenos en Nuestras Redes Sociales:</p>
           </div>
           <div className="flex justify-between space-x-7 ">
-            <img className="Logo h-16" src={Fb} />
-            <img className="Logo h-16" src={Ig} />
+            <a href="https://www.facebook.com/clinicadebellezaenmorelia"><img className="Logo h-14" src={Fb} /></a>
+            <a href="https://www.instagram.com/clinica_de_belleza_lily"><img className="Logo h-14" src={Ig} /></a>
+
           </div>
         </div>
       </div>
@@ -41,12 +45,12 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <img className="Logo h-40" src={Mapa} />
+            <a href="https://www.google.com/maps/place/Thomas+Alva+Edison+335,+Electricistas,+58290+Morelia,+Mich."><img className="Logo h-40" src={Mapa} /></a>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+    </footer>
+  )
+}
 
 export default Footer;
