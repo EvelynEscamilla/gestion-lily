@@ -53,21 +53,21 @@ const Inicio = ({handleScreen}) => {
 <br></br>
 <div class="contenedor flex justify-center items-end h-96">
   <div class="imagen-contenedor flex justify-between max-w-screen-lg w-full">
-    <div class="imagen-redonda w-1/3 h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
-      <img src={MpImg1} alt="Imagen 1" class="w-full h-full object-cover"></img>
-      <div class="cuadro-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full">
+    <div class="rounded-[10%] overflow-hidden bg-morado  h-96 relative hover:-translate-y-1 hover:scale-110 duration-200 w-[30%]">
+      <img  src={MpImg1} alt="Imagen 1" class=" w-full h-full object-cover"></img>
+      <div class="bg-morado bg-opacity-70  text-white text-center p-2 absolute bottom-0 left-0 w-full">
         <p class="text-lg font-bold">Botox Facial</p>
       </div>
     </div>
-    <div class="imagen-redonda w-1/3 h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
+    <div class="rounded-[10%] overflow-hidden w-[30%] h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
       <img src={MpImg2} alt="Imagen 2" class="w-full h-full object-cover"></img>
-      <div class="cuadro-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full">
+      <div class="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full">
         <p class="text-lg font-bold">Oxígeno</p>
       </div>
     </div>
-    <div class="imagen-redonda w-1/3 h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
+    <div class="rounded-[10%] overflow-hidden w-[30%] h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
       <img src={MpImg3} alt="Imagen 3" class="w-full h-full object-cover"></img>
-      <div class="cuadro-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full">
+      <div class="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full">
         <p class="text-lg font-bold">Carboxiterapia</p>
       </div>
     </div>
