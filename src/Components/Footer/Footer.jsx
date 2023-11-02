@@ -45,7 +45,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <a href="https://www.google.com/maps/place/Thomas+Alva+Edison+335,+Electricistas,+58290+Morelia,+Mich."><img className="Logo h-40" src={Mapa} /></a>
+            <a href="https://www.google.com/maps/place/Thomas+Alva+Edison+335,+Electricistas,+58290+Morelia,+Mich."><img className="Logo h-40 hover:-translate-y-1 hover:scale-110 duration-200" src={Mapa} /></a>
           </div>
         </div>
       </div>
