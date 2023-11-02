@@ -15,7 +15,7 @@ const CrearCuenta = ({ handleScreen }) => {
                     <img src={Wpr} alt="Descripción de la imagen" className="w-full h-auto"></img>
                     <div className="text-overlay absolute top-0 right-0 bottom-0 w-1/2 bg-opacity-70 bg-blue-100 text-black p-1 text-center flex flex-col justify-center items-center">
                         <img className="w-1/2 mx-auto py-7 " src={LogoHor}></img>
-                        <div className="text-[30px]">
+                        <div className="text-[30px] mb-4">
                             <p>Crea una cuenta en nuestro sitio</p>
                         </div>
                         <form className="text-center">
