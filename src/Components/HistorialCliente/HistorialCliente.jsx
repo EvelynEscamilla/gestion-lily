@@ -12,7 +12,7 @@ const Pasadas = ({ Lista }) => {
         <div className="scroll-m-0 overflow-y-scroll h-[30rem]">
           {Lista.map((Lista) => (
             <div>
-              <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 mt-5 mb-2 mr-4 ml-4">
+              <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 mt-5 mb-4 mr-4 ml-4">
                 <div className="bg-white p-2">
                   <p className="font-bold mx-2 text-justify text-lg">
                     {Lista.fecha}
