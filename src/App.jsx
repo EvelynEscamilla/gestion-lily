@@ -6,12 +6,13 @@ import CancelarCita from "./Components/CancelarCita/CancelarCita"
 import CrearCuenta from "./Components/CrearCuenta/CrearCuenta"
 import Calendario from "./Components/Calendario/Calendario"
 import GestionCitas from "./Components/GestionCitas/GestionCitas"
+import HistorialMes from "./Components/HistorialMes/HistorialMes"
 import {useState} from "react"
 
 
 function App() {
 
-  const [activeScreen, setActiveScreen] = useState('Inicio')
+  const [activeScreen, setActiveScreen] = useState('HistorialMes')
 
   const handleScreen = (screen) => {
     setActiveScreen(screen)
@@ -28,6 +29,7 @@ function App() {
     {activeScreen === 'CrearCuenta' && <CrearCuenta handleScreen={handleScreen} />}
     {activeScreen === 'Calendario' && <Calendario handleScreen={handleScreen} />}
     {activeScreen === 'GestionCitas' && <GestionCitas handleScreen={handleScreen} />}
+    {activeScreen === 'HistorialMes' && <HistorialMes handleScreen={handleScreen} />}
     </>
   )
 }
