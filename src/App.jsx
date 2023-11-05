@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>
-
+    {activeScreen === 'EditarAdmin' && <EditarAdmin handleScreen={handleScreen} />}
     {activeScreen === 'Inicio' && <Inicio handleScreen={handleScreen} />}
     {activeScreen === 'NosotrosScreen' && <NosotrosScreen handleScreen={handleScreen} />}
     {activeScreen === 'MostrarServicios' && <MostrarServicios handleScreen={handleScreen} />}
@@ -30,7 +30,7 @@ function App() {
     {activeScreen === 'CrearCuenta' && <CrearCuenta handleScreen={handleScreen} />}
     {activeScreen === 'Calendario' && <Calendario handleScreen={handleScreen} />}
     {activeScreen === 'GestionCitas' && <GestionCitas handleScreen={handleScreen} />}
-    {activeScreen === 'EditarAdmin' && <EditarAdmin handleScreen={handleScreen} />}
+    
     </>
   )
 }
