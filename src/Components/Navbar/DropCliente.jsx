@@ -9,6 +9,7 @@ function Dropdown() {
     { value: "option1", label: "Perfil" },
     { value: "option2", label: "Citas Programadas" },
     { value: "option3", label: "Historial de Citas" },
+    { value: "option4", label: "Cerrar Sesion" },
   ];
 
   const toggleDropdown = () => setIsOpen(!isOpen);

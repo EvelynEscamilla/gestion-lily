@@ -7,7 +7,7 @@ import MpImg3 from '../../assets/Inicio/Mp-img3.jpg'
 import LChatbot2 from '../../assets/logosolito.svg'
 import React, { useState } from 'react';
 import './Inicio.css'
-import Navbar from "../Navbar/Navbar"
+import Navbar from "../Navbar/NavbarCliente"
 import Footer from "../Footer/Footer"
 
 const Inicio = ({handleScreen}) => {
