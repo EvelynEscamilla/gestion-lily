@@ -6,6 +6,7 @@ import CancelarCita from "./Components/CancelarCita/CancelarCita"
 import CrearCuenta from "./Components/CrearCuenta/CrearCuenta"
 import Calendario from "./Components/Calendario/Calendario"
 import GestionCitas from "./Components/GestionCitas/GestionCitas"
+import { PerfilCliente } from "./Components/PerfilCliente/PerfilCliente"
 import {useState} from "react"
 
 
@@ -28,6 +29,7 @@ function App() {
     {activeScreen === 'CrearCuenta' && <CrearCuenta handleScreen={handleScreen} />}
     {activeScreen === 'Calendario' && <Calendario handleScreen={handleScreen} />}
     {activeScreen === 'GestionCitas' && <GestionCitas handleScreen={handleScreen} />}
+    {activeScreen === 'PerfilCliente' && <PerfilCliente handleScreen={handleScreen} />}
     </>
   )
 }

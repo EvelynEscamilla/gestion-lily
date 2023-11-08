@@ -44,7 +44,7 @@ const Login2 = ({handleScreen}) => {
               </p>
             </div>
             <div className=" w-1/2 ">
-              <button className=" bg-morado px-4 rounded-3xl text-2xl py-2 text-white">
+              <button onClick={() => handleScreen("PerfilCliente")} className=" bg-morado px-4 rounded-3xl text-2xl py-2 text-white">
                 Iniciar Sesión
               </button>
             </div>
