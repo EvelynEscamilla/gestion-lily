@@ -7,7 +7,7 @@ import CrearCuenta from "./Components/CrearCuenta/CrearCuenta"
 import Calendario from "./Components/Calendario/Calendario"
 import GestionCitas from "./Components/GestionCitas/GestionCitas"
 import HistorialCliente from "./Components/HistorialCliente/HistorialCliente"
-import { PerfilCliente } from "./Components/PerfilCliente/PerfilCliente"
+import PerfilCliente from "./Components/PerfilCliente/PerfilCliente"
 import {useState} from "react"
 
 
