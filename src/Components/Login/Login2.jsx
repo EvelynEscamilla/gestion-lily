@@ -21,7 +21,7 @@ const Login2 = ({handleScreen}) => {
           <p className=" text-3xl py-3">Inicio de Sesión</p>
           <div className="py-3">
             <input
-              className="datos text-3xl py-3 w-3/4 text-center rounded-3xl"
+              className="text-3xl py-3 w-3/4 text-center rounded-3xl"
               type="text"
               placeholder="Correo electrónico"
             ></input>
