@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Perfil from '../../assets/PerfilCliente/IMG_Perfil.jpg'
 
-export const PerfilCliente = ({ handleScreen }) => {
+ const PerfilCliente = ({ handleScreen }) => {
     return (
         <>
             <Navbar handleScreen={handleScreen} />
@@ -40,3 +40,5 @@ export const PerfilCliente = ({ handleScreen }) => {
         </>
     )
 }
+
+export default PerfilCliente

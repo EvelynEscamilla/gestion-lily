@@ -29,49 +29,49 @@ const Inicio = ({handleScreen}) => {
     <>
     <Navbar handleScreen={handleScreen}/>
     <br></br>
-<div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src={CaImg1} class="d-block w-100" alt="Ca 1"></img>
+<div id="carouselExample" className="carousel slide">
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img src={CaImg1} className="d-block w-100" alt="Ca 1"></img>
     </div>
-    <div class="carousel-item">
-      <img src={CaImg2} class="d-block w-100" alt="Ca 2"></img>
+    <div className="carousel-item">
+      <img src={CaImg2} className="d-block w-100" alt="Ca 2"></img>
     </div>
-    <div class="carousel-item">
-      <img src={CaImg3} class="d-block w-100" alt="Ca 3"></img>
+    <div className="carousel-item">
+      <img src={CaImg3} className="d-block w-100" alt="Ca 3"></img>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+  <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
   </button>
 </div>
-<div class="texto1 bg-blue-100 p-4 text-2xl text-center text-black">
+<div className="texto1 bg-blue-100 p-4 text-2xl text-center text-black">
   Tratamientos más populares
 </div>
 <br></br>
-<div class="contenedor flex justify-center items-end h-96">
-  <div class="imagen-contenedor flex justify-between max-w-screen-lg w-full">
-    <div class="rounded-[10%] overflow-hidden bg-morado  h-96 relative hover:-translate-y-1 hover:scale-110 duration-200 w-[30%]">
+<div className="contenedor flex justify-center items-end h-96">
+  <div className="imagen-contenedor flex justify-between max-w-screen-lg w-full">
+    <div className="rounded-[10%] overflow-hidden bg-morado  h-96 relative hover:-translate-y-1 hover:scale-110 duration-200 w-[30%]">
       <img  src={MpImg1} alt="Imagen 1" class=" w-full h-full object-cover"></img>
-      <div class="bg-morado bg-opacity-70  text-white text-center p-2 absolute bottom-0 left-0 w-full">
-        <p class="text-lg font-bold">Botox Facial</p>
+      <div className="bg-morado bg-opacity-70  text-white text-center p-2 absolute bottom-0 left-0 w-full">
+        <p className="text-lg font-bold">Botox Facial</p>
       </div>
     </div>
-    <div class="rounded-[10%] overflow-hidden w-[30%] h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
-      <img src={MpImg2} alt="Imagen 2" class="w-full h-full object-cover"></img>
-      <div class="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full">
-        <p class="text-lg font-bold">Oxígeno</p>
+    <div className="rounded-[10%] overflow-hidden w-[30%] h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
+      <img src={MpImg2} alt="Imagen 2" className="w-full h-full object-cover"></img>
+      <div className="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full">
+        <p className="text-lg font-bold">Oxígeno</p>
       </div>
     </div>
-    <div class="rounded-[10%] overflow-hidden w-[30%] h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
-      <img src={MpImg3} alt="Imagen 3" class="w-full h-full object-cover"></img>
-      <div class="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full">
-        <p class="text-lg font-bold">Carboxiterapia</p>
+    <div className="rounded-[10%] overflow-hidden w-[30%] h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
+      <img src={MpImg3} alt="Imagen 3" className="w-full h-full object-cover"></img>
+      <div className="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full">
+        <p className="text-lg font-bold">Carboxiterapia</p>
       </div>
     </div>
   </div>
