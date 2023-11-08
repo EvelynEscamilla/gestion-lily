@@ -4,7 +4,7 @@ import logo from "./Images/Lily-hor.png";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
-const Login2 = ({ handleScreen }) => {
+const Login2 = ({handleScreen}) => {
   const divStyle = {
     backgroundImage: `url(${Wpr})`,
   };
@@ -51,9 +51,11 @@ const Login2 = ({ handleScreen }) => {
           </div>
         </div>
       </div>
-      <Footer />
+    </div>
+    <Footer/>
     </>
   );
 };
 
 export default Login2;
+
