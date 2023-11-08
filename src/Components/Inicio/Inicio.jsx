@@ -8,6 +8,8 @@ import LChatbot2 from '../../assets/logosolito.svg'
 import React, { useState } from 'react';
 import './Inicio.css'
 import Navbar from "../Navbar/Navbar"
+import NavbarCliente from "../Navbar/NavbarCliente"
+import NavbarAdministrador from "../Navbar/NavbarAdministrador"
 import Footer from "../Footer/Footer"
 
 const Inicio = ({handleScreen}) => {
@@ -24,7 +26,7 @@ const Inicio = ({handleScreen}) => {
 
   return (
     <>
-    <Navbar handleScreen={handleScreen}/>
+    <NavbarAdministrador handleScreen={handleScreen}/>
     <br></br>
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">

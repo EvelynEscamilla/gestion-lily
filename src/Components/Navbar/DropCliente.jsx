@@ -22,7 +22,7 @@ function Dropdown() {
   return (
     <div className="dropdown w-[260px] h-20 flex items-center space-x-2 justify-center">
       <button
-        className="dropdown__toggle relative flex justify-end pr-2"
+        className="dropdown__toggle relative flex justify-end pr-2 ml-24"
         onClick={toggleDropdown}
       >
         {<img className="Logoi1  h-20  " src={login} />}

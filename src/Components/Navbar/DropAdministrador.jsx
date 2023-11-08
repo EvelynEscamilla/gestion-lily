@@ -9,13 +9,8 @@ function Dropdown() {
     { value: "option1", label: "Citas Programadas" },
     { value: "option2", label: "Historial de Citas" },
     { value: "option3", label: "Administrar servicios" },
-    { value: "option4", label: "Administrar encargados" },
-    { value: "option5", label: "Administrar citas" },
+    { value: "option4", label: "Administrar citas" },
   ];
-
-
-
-
 
 
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -28,7 +23,7 @@ function Dropdown() {
   return (
     <div className="dropdown w-[260px] h-20 flex items-center space-x-2 justify-center">
       <button
-        className="dropdown__toggle relative flex justify-end pr-2"
+        className="dropdown__toggle relative flex justify-end pr-2 ml-24"
         onClick={toggleDropdown}
       >
         {<img className="Logoi1  h-20  " src={login} />}

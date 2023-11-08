@@ -11,7 +11,7 @@ const Navbar = ({ handleScreen }) => {
         className="Logo w-[260px] h-20 left-[69px]  justify-center items-center inline-flex cursor-pointer"
         onClick={() => handleScreen("Inicio")}
       >
-        <div className="Imagen21 h-20 pl-[2.64px] pr-[2.37px]   justify-center items-center gap-[6.54px] inline-flex">
+        <div className="Imagen21 h-20 pl-[2.64px] pr-[2.37px] items-center gap-[6.54px] inline-flex">
           <img className="Logo h-20" src={Logo} />
         </div>
       </div>
