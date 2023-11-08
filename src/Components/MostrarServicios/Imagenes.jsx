@@ -15,6 +15,10 @@ const imagenes = [
       " La auriculoterapia es una técnica de acupuntura que se centra en estimular puntos específicos en la oreja externa. Se cree que estos puntos están relacionados con diferentes partes del cuerpo y se utilizan para aliviar el dolor, reducir el estrés y tratar una variedad de condiciones médicas.",
     precio: "$250",
     imagen: Auriculoterapia,
+    tipo: "Corporal",
+    numero: 1,
+    duracion: "1 Hora",
+    max: 2
   },
   {
     nombre: "Carboxiterapia",
