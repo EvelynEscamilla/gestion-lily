@@ -105,33 +105,7 @@ const Inicio = ({handleScreen}) => {
               </div>
             </div>
      }
-          </div>
-
-    </div>
-    <div class="rounded-[10%] overflow-hidden w-[30%] h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
-      <img src={MpImg3} alt="Imagen 3" class="w-full h-full object-cover"></img>
-      <div class="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full">
-        <p class="text-lg font-bold">Carboxiterapia</p>
-      </div>
-    </div>
-  </div>
-  {infoDiv == 1 ?
-    <img class="fixed bottom-0 rounded-full bg-azulNav border-2 shadow-lg p-2 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200" src={LChatbot2} alt="Mi Imagen Fija" onClick={() => handleClick()}></img>
-    :
-    <div class='chatScreen absolute bottom-0 right-0 m-2 rounded-xl shadow-2xl border-2 h-80 w-80 bg-azulNav border-turqueza text-white' onClick={() => handleClick1()}>
-      <p class='bg-turqueza p-1 m-3 rounded-lg w-36'>
-        ¡Hola! ¿En qué puedo ayudarte?
-      </p>
-      <div class='Preg absolute bottom-0 bg-turqueza rounded-b-xl w-full h-28'>
-        <p>Preguntas Frecuentes:</p>
-        <p class='border rounded-xl'>¿Dónde se ubica la clínica?</p>
-        <p class='border rounded-xl'>¿Qué métodos de pago se aceptan?</p>
-        <p class='border rounded-xl'>¿Qué servicios ofrecen?</p>
-
-      </div>
-    </div>
-  }
-</div>
+       </div>
 <br></br><br></br>
 
       <Footer/>
