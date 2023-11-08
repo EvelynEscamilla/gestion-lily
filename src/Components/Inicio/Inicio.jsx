@@ -26,7 +26,7 @@ const Inicio = ({handleScreen}) => {
 
   return (
     <>
-    <NavbarAdministrador handleScreen={handleScreen}/>
+    <Navbar handleScreen={handleScreen}/>
     <br></br>
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
