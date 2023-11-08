@@ -98,9 +98,6 @@ const Inicio = ({handleScreen}) => {
                     </select>
                     <button className=' bg-morado hover:bg-[#6f789f] p-3 rounded-2xl text-lg w-full mx-2'>Enviar</button>
                   </div>
-                  {/*   <p className=' border rounded-xl'>¿Donde se ubica la clinica?</p>
-                <p className=' border rounded-xl'>¿Que metodos de pago se aceptan?</p>
-                <p className=' border rounded-xl    '>¿Que servicios ofrecen?</p> */}
                 </div>
 
               </div>
