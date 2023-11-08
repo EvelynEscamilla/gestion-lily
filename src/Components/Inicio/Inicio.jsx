@@ -75,6 +75,7 @@ const Inicio = ({handleScreen}) => {
       </div>
     </div>
   </div>
+
           {infoDiv == 1 ?
           <img className=" fixed bottom-0 rounded-full bg-azulNav border-3 border-morado shadow-lg p-2 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200 " src={LChatbot2} alt="Mi Imagen Fija" onClick ={() => handleClick()}></img>
           :
