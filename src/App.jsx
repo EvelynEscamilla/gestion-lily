@@ -6,10 +6,12 @@ import CancelarCita from "./Components/CancelarCita/CancelarCita"
 import CrearCuenta from "./Components/CrearCuenta/CrearCuenta"
 import Calendario from "./Components/Calendario/Calendario"
 import GestionCitas from "./Components/GestionCitas/GestionCitas"
+import EditarAdmin from "./Components/EditarAdmin/EditarAdmin"
 import HistorialMes from "./Components/HistorialMes/HistorialMes"
 import HistorialCliente from "./Components/HistorialCliente/HistorialCliente"
 import PerfilCliente from "./Components/PerfilCliente/PerfilCliente"
 import {useState} from "react"
+
 
 
 function App() {
@@ -22,7 +24,7 @@ function App() {
 
   return (
     <>
-
+    {activeScreen === 'EditarAdmin' && <EditarAdmin handleScreen={handleScreen} />}
     {activeScreen === 'Inicio' && <Inicio handleScreen={handleScreen} />}
     {activeScreen === 'NosotrosScreen' && <NosotrosScreen handleScreen={handleScreen} />}
     {activeScreen === 'MostrarServicios' && <MostrarServicios handleScreen={handleScreen} />}
