@@ -12,7 +12,7 @@ import {useState} from "react"
 
 function App() {
 
-  const [activeScreen, setActiveScreen] = useState('HistorialMes')
+  const [activeScreen, setActiveScreen] = useState('Inicio')
 
   const handleScreen = (screen) => {
     setActiveScreen(screen)
