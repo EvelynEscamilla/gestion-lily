@@ -29,7 +29,7 @@ const Navbar = ({handleScreen}) => {
           INICIAR SESIÓN
         </p>
         <img
-          className="Logoi1  h-12 "
+          className="Logoi1  h-20 "
           src={login}
         />
       </div>
