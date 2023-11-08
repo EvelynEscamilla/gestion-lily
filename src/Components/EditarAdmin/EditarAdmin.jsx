@@ -8,12 +8,12 @@ const EditarAdmin = ({ handleScreen }) => {
     return (
         <>
             <Navbar handleScreen={handleScreen}></Navbar>
-            <div className="flex justify-center ml-8 mt-10">
+            <div className="flex justify-center ml-8 mt-24">
                 <p className="font-medium justify-center text-4xl">Editar informacion de Administrador</p>
             </div>
 
             <div>
-                <section className="p-6  text-black">
+                <section className="p-6  text-black mb-24">
                     <form
                         action=""
                         className="container flex flex-col mx-auto space-y-12"
