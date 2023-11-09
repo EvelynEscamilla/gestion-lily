@@ -15,7 +15,7 @@ import {useState} from "react"
 
 function App() {
   
-  const [activeScreen, setActiveScreen] = useState('GestionServicios')
+  const [activeScreen, setActiveScreen] = useState('Inicio')
 
   const handleScreen = (screen) => {
     setActiveScreen(screen)
