@@ -26,7 +26,7 @@ const AgregarServicio = ({ handleScreen }) => {
                       type="button"
                       className="px-4 py-2 rounded-3xl  inline-block bg-morado text-white text-xl"
                     >
-                      Cambiar
+                      Subir Imagen
                     </button>
                   </div>
                 </div>
@@ -87,7 +87,7 @@ const AgregarServicio = ({ handleScreen }) => {
                     type="button"
                     className="px-4 py-2 rounded-3xl   inline-block bg-morado text-white text-xl absolute bottom-0 w-full"
                   >
-                    Editar
+                    Agregar
                   </button>
                 </div>
               </div>

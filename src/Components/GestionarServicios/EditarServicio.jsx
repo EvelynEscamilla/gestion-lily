@@ -26,7 +26,7 @@ const EditarServicio = ({ handleScreen, item }) => {
                       type="button"
                       className="px-4 py-2 rounded-3xl  inline-block bg-morado text-white text-xl"
                     >
-                      Cambiar
+                      Cambiar Imagen
                     </button>
                   </div>
                 </div>
@@ -82,13 +82,21 @@ const EditarServicio = ({ handleScreen, item }) => {
                     className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 p-2"
                   />
                 </div>
-                <div className="col-span-full sm:col-span-2 relative">
+                <div className="col-span-full sm:col-span-2 relative w-full">
+                  <div className="absolute bottom-0 justify-between w-full flex">
                   <button
                     type="button"
-                    className="px-4 py-2 rounded-3xl   inline-block bg-morado text-white text-xl absolute bottom-0 w-full"
+                    className="px-4 py-2 rounded-3xl   inline-block bg-morado text-white text-xl w-2/5 "
                   >
                     Editar
                   </button>
+                  <button
+                    className="px-4 py-2 rounded-3xl   inline-block bg-red-500 text-white text-xl w-1/2"
+                  >
+                    <span>Eliminar</span>
+                  </button>
+                  </div>
+
                 </div>
               </div>
             </fieldset>

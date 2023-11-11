@@ -34,12 +34,7 @@ function Servicio({ sendDataToParent, item, handleScreen }) {
           >
             <span>Editar</span>
           </button>
-          <button
-            className="px-4 py-2 font-semibold rounded-3xl bg-red-500 text-white"
-            onClick={() => handleScreen("EditarServicio", item)}
-          >
-            <span>Eliminar</span>
-          </button>
+
           </div>
         </td>
       </tr>
