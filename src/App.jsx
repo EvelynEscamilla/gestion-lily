@@ -13,6 +13,8 @@ import EditarAdmin from "./Components/EditarAdmin/EditarAdmin"
 import HistorialMes from "./Components/HistorialMes/HistorialMes"
 import HistorialCliente from "./Components/HistorialCliente/HistorialCliente"
 import PerfilCliente from "./Components/PerfilCliente/PerfilCliente"
+import EditarCliente from './Components/EditarCliente/EditarCliente'
+import EliminarCuenta from './Components/EliminarCuenta/EliminarCuenta'
 import {useState} from "react"
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
     {activeScreen === 'AgregarServicio' && (<AgregarServicio handleScreen={handleScreen} />)}
     {activeScreen === 'HistorialMes' && <HistorialMes handleScreen={handleScreen} />}
     {activeScreen === 'PerfilCliente' && <PerfilCliente handleScreen={handleScreen} />}
+    {activeScreen === 'EditarCliente' && <EditarCliente handleScreen={handleScreen} />}
+    {activeScreen === 'EliminarCuenta' && <EliminarCuenta handleScreen={handleScreen} />}
     </>
   )
 }
