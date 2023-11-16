@@ -15,11 +15,12 @@ import HistorialCliente from "./Components/HistorialCliente/HistorialCliente"
 import PerfilCliente from "./Components/PerfilCliente/PerfilCliente"
 import EditarCliente from './Components/EditarCliente/EditarCliente'
 import EliminarCuenta from './Components/EliminarCuenta/EliminarCuenta'
+import Navbar from "./Components/Navbar/NavbarAdministrador"
 import {useState} from "react"
 
 function App() {
   
-  const [activeScreen, setActiveScreen] = useState('GestionServicios')
+  const [activeScreen, setActiveScreen] = useState('Inicio')
 
   const handleScreen = (screen) => {
     setActiveScreen(screen)
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <>
+    {activeScreen === 'Navbar' && <Navbar handleScreen={handleScreen} />}
     {activeScreen === 'EditarAdmin' && <EditarAdmin handleScreen={handleScreen} />}
     {activeScreen === 'Inicio' && <Inicio handleScreen={handleScreen} />}
     {activeScreen === 'NosotrosScreen' && <NosotrosScreen handleScreen={handleScreen} />}
