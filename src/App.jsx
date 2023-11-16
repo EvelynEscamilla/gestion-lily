@@ -1,24 +1,31 @@
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import PagInicio from "./routes/Inicio"
-import Nosotros from './routes/Nosotros'
+import LayoutPrincipal from "./routes/LayoutPrincipal"
+import Inicio from './Components/Inicio/Inicio'
+import NosotrosScreen from './Components/NosotrosScreen/NosotrosScreen'
 
 function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/gestion-lily/",
-      element: <PagInicio />
+      path: "/gestion-lily",
+      element: <LayoutPrincipal />,
+      children: [
+        {
+          path: "/gestion-lily",
+          element: <Inicio />
+        },
+        {
+          path: "/gestion-lily/nosotros",
+          element: <NosotrosScreen />
+        }
+      ]
     },
-    {
-      path: "/gestion-lily/Nosotros",
-      element: <Nosotros />
-    }
   ])
 
   return (
     <>
-      <RouterProvider router={router } />
+      <RouterProvider router={router} />
     </>
   )
 }

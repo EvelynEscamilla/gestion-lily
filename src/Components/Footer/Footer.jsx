@@ -29,7 +29,6 @@ const Footer = () => {
           <div className="flex justify-between space-x-7 ">
             <a href="https://www.facebook.com/clinicadebellezaenmorelia"><img className="Logo h-14" src={Fb} /></a>
             <a href="https://www.instagram.com/clinica_de_belleza_lily"><img className="Logo h-14" src={Ig} /></a>
-
           </div>
         </div>
       </div>
