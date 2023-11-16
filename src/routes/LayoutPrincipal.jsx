@@ -7,7 +7,7 @@ const LayoutPrincipal = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full h-screen bg-white">
+      <div className="w-full min-h-screen bg-white">
         <Outlet />
       </div>
       <Footer />

@@ -1,7 +1,7 @@
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LayoutPrincipal from "./routes/LayoutPrincipal"
-import Inicio from './Components/Inicio/Inicio'
+import Inicio from "./routes/Inicio"
 import NosotrosScreen from './Components/NosotrosScreen/NosotrosScreen'
 
 function App() {
