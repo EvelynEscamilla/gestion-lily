@@ -2,10 +2,10 @@
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/Nav/Logo.svg";
 import login from "../../assets/Nav/login.png";
+import { Link } from 'react-router-dom'
 
 
-
-const Navbar = ({handleScreen}) => {
+const Navbar = ({ handleScreen }) => {
   const navigate = useNavigate();
 
   return (
@@ -16,9 +16,9 @@ const Navbar = ({handleScreen}) => {
         </div>
       </div>
       <div className="Group25 h-20 flex justify-center items-center">
-        <a className="Servicios px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" href="/gestion-lily/Nosotros">
+        <Link className="Servicios px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" to="/gestion-lily/Nosotros">
           SERVICIOS
-        </a>
+        </Link>
         <div className="Line2 w-0 h-5 origin-top-left  border border-black"></div>
         <p className="Contacto  px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" onClick={() => navigate("/gestion-lily/Nosotros")}>
           NOSOTROS
@@ -37,7 +37,7 @@ const Navbar = ({handleScreen}) => {
           src={login}
         />
       </div>
-    </div>
+    </div >
   );
 };
 
