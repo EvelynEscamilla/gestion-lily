@@ -1,13 +1,8 @@
 import React from 'react'
 
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
-
-
 const EditarAdmin = ({ handleScreen }) => {
     return (
         <>
-            <Navbar handleScreen={handleScreen}></Navbar>
             <div className="flex justify-center ml-8 mt-24">
                 <p className="font-medium justify-center text-4xl">Editar informacion de Administrador</p>
             </div>
@@ -60,7 +55,6 @@ const EditarAdmin = ({ handleScreen }) => {
                     </form>
                 </section>
             </div>
-            <Footer></Footer>
         </>
     )
 }

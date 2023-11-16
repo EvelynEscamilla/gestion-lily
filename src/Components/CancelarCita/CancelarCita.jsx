@@ -1,5 +1,3 @@
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 
 const Programadas = ({ Lista }) => {
   return (
@@ -77,7 +75,6 @@ const CitasP = () => {
 const CancelarCita = ({ handleScreen }) => {
   return (
     <>
-      <Navbar handleScreen={handleScreen} />
       <div className="flex justify-center w-1/2 ml-8 mt-10">
         <p className="font-medium justify-center text-4xl">Citas programadas</p>
       </div>
@@ -85,7 +82,6 @@ const CancelarCita = ({ handleScreen }) => {
         <CitasP />
         <Advertencia handleScreen={handleScreen}/>
       </div>
-      <Footer />
     </>
   );
 };

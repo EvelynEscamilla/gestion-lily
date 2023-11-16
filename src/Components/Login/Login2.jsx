@@ -1,8 +1,6 @@
 import React from "react";
-import Wpr from "./Images/Spa-img2.jpg";
-import logo from "./Images/Lily-hor.png";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+import Wpr from "../../assets/Login/Spa-img2.jpg";
+import logo from "../../assets/Login/Lily-hor.png";
 
 const Login2 = ({handleScreen}) => {
   const divStyle = {
@@ -10,7 +8,6 @@ const Login2 = ({handleScreen}) => {
   };
   return (
   <>
-    <Navbar handleScreen={handleScreen}/>
     <div className=" flex justify-center items-center">
       <div
         className=" w-5/6 h-screen justify-end flex bg-cover bg-center"
@@ -52,7 +49,6 @@ const Login2 = ({handleScreen}) => {
         </div>
       </div>
     </div>
-    <Footer/>
     </>
   );
 };

@@ -3,9 +3,7 @@ import GaleriaTipos from "./GaleriaTipos";
 import imagenes from "./Imagenes";
 import ImagenesTipos from "./ImagenesTipos";
 import Servicios from "./Servicios";
-import Navbar from "../Navbar/Navbar"
 import { useState } from "react";
-import Footer from "../Footer/Footer";
 
 
 export const MostrarServicios = ({handleScreen}) => {
@@ -27,7 +25,6 @@ export const MostrarServicios = ({handleScreen}) => {
 
   return (
     <>
-    <Navbar handleScreen={handleScreen}/>
     <div className="flex justify-center">
       <div className=" w-1/2 p-3 pl-20">
         <div>
@@ -72,7 +69,6 @@ export const MostrarServicios = ({handleScreen}) => {
         </div>
       </div>
     </div>
-    <Footer/>
     </>
   );
 };

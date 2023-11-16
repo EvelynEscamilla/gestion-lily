@@ -8,7 +8,6 @@ const AgregarServicio = ({ handleScreen }) => {
 
   return (
     <>
-      <Navbar handleScreen={handleScreen}></Navbar>
       <div>
         <section className="p-6  text-black">
           <form
@@ -95,7 +94,6 @@ const AgregarServicio = ({ handleScreen }) => {
           </form>
         </section>
       </div>
-      <Footer></Footer>
     </>
   );
 };

@@ -8,10 +8,6 @@ import MpImg3 from '../../assets/Inicio/Mp-img3.jpg'
 import LChatbot2 from '../../assets/logosolito.svg'
 import React, { useState } from 'react';
 import './Inicio.css'
-import Navbar from "../Navbar/Navbar"
-import NavbarCliente from "../Navbar/NavbarCliente"
-import NavbarAdministrador from "../Navbar/NavbarAdministrador"
-import Footer from "../Footer/Footer"
 
 const Inicio = ({handleScreen}) => {
 
@@ -27,7 +23,6 @@ const Inicio = ({handleScreen}) => {
 
   return (
     <>
-    <Navbar handleScreen={handleScreen}/>
     <br></br>
 <div id="carouselExample" className="carousel slide">
   <div className="carousel-inner">
@@ -105,8 +100,6 @@ const Inicio = ({handleScreen}) => {
      }
        </div>
 <br></br><br></br>
-
-      <Footer/>
       </>
   )
 }

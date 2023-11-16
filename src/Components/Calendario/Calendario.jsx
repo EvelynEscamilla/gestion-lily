@@ -1,11 +1,9 @@
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 import React, { useState, useEffect } from 'react';
 
 
 const Carousel = ({handleScreen}) => {
     const meses = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE']; // Los colores de los cuadros
-    const [currentIndex, setCurrentIndex] = useState(0); // El índice del cuadro que se muestra actualmente
+    const [currentIndex, setCurrentIndex] = useState(0); 
   
     const goLeft = () => {
       setCurrentIndex(currentIndex === 0 ? meses.length - 1 : currentIndex - 1);
@@ -205,9 +203,8 @@ function Calendario({handleScreen}) {
 
   return (
     <>
-    <Navbar handleScreen={handleScreen}/> 
     <Carousel handleScreen={handleScreen}/>
-    <Footer/>
+   
     </>
   );
 }

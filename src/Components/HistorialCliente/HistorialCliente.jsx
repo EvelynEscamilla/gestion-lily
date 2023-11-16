@@ -52,12 +52,10 @@ const Citas = () => {
 const HistorialCliente = ({ handleScreen }) => {
   return (
     <>
-      <Navbar handleScreen={handleScreen} />
       <div className="flex justify-center ml-8 mt-10">
         <p className="font-medium justify-center text-4xl">Historial de citas</p>
       </div>
       <Citas/>
-      <Footer />
     </>
   );
 };

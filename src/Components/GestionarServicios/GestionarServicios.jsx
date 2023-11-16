@@ -9,8 +9,6 @@ const GestionarServicios = ({ handleScreen }) => {
   };
   return (
     <>
-      <Navbar handleScreen={handleScreen} />
-
       <div>
         <div className=" pt-12 mx-auto px-4 pb-4  text-white ">
           <h2 className="mb-4 text-5xl text-center text-black">Servicios</h2>
@@ -68,7 +66,6 @@ const GestionarServicios = ({ handleScreen }) => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

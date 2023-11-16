@@ -1,9 +1,13 @@
 
+import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/Nav/Logo.svg";
 import login from "../../assets/Nav/login.png";
-import './Navbar.css';
+
+
 
 const Navbar = ({handleScreen}) => {
+  const navigate = useNavigate();
+
   return (
     <div className="Navbar w-full h-24 relative shadow flex items-center justify-between bg-azulNav">
       <div className="Logo w-[260px] h-20 left-[69px]  justify-center items-center inline-flex cursor-pointer" onClick={() => handleScreen("Inicio")}>
@@ -12,11 +16,11 @@ const Navbar = ({handleScreen}) => {
         </div>
       </div>
       <div className="Group25 h-20 flex justify-center items-center">
-        <a className="Servicios px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" onClick={() => handleScreen("MostrarServicios")}>
+        <a className="Servicios px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" href="/gestion-lily/Nosotros">
           SERVICIOS
         </a>
         <div className="Line2 w-0 h-5 origin-top-left  border border-black"></div>
-        <p className="Contacto  px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" onClick={() => handleScreen("NosotrosScreen")}>
+        <p className="Contacto  px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer" onClick={() => navigate("/gestion-lily/Nosotros")}>
           NOSOTROS
         </p>
         <div className="Line2 w-0 h-5 origin-top-left  border border-black"></div>

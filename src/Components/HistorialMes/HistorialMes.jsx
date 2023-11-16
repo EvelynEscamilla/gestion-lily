@@ -1,17 +1,11 @@
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
-
-
 
 const HistorialMes = ({ handleScreen }) => {
     return (
         <>
-            <Navbar handleScreen={handleScreen} />
             <div className="flex justify-center ml-8 mt-10">
                 <p className="font-medium justify-center text-4xl">Historial de citas por mes</p>
             </div>
             <Citas />
-            <Footer />
         </>
     );
 };

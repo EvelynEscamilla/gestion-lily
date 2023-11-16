@@ -35,7 +35,6 @@ const PerfilCliente = ({ handleScreen }) => {
 
     return (
         <>
-            <Navbar handleScreen={handleScreen} />
             <body className="bg-gray-100 flex justify-center items-center h-screen">
                 <div className="bg-white rounded-lg p-4 shadow-lg items-center">
                     <div className='flex items-center p-4'>
@@ -129,7 +128,6 @@ const PerfilCliente = ({ handleScreen }) => {
                     </div>
                 </div>
             </body>
-            <Footer />
         </>
     )
 }

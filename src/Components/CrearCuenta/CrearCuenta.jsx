@@ -1,15 +1,11 @@
 import React from 'react'
-import Wpr from './Images/Spa-img2.jpg'
-import LogoHor from './Images/Lily-hor.png'
-import './CrearCuenta.css'
-import Navbar from '../Navbar/Navbar'
-import Footer from '../Footer/Footer'
+import Wpr from '../../assets/CrearCuenta/Spa-img2.jpg'
+import LogoHor from '../../assets/CrearCuenta/Lily-hor.png'
 
 
 const CrearCuenta = ({ handleScreen }) => {
     return (
         <>
-            <Navbar handleScreen={handleScreen} />
             <div className="container flex justify-center items-center w-auto h-80% ">
                 <div className="relative overflow-hidden w-auto h-80%">
                     <img src={Wpr} alt="Descripción de la imagen" className="w-full h-auto"></img>
@@ -45,8 +41,6 @@ const CrearCuenta = ({ handleScreen }) => {
                     </div>
                 </div>
             </div>
-
-            <Footer />
         </>
     )
 }

@@ -8,7 +8,6 @@ const EditarServicio = ({ handleScreen, item }) => {
   console.log(item);
   return (
     <>
-      <Navbar handleScreen={handleScreen}></Navbar>
       <div>
         <section className="p-6  text-black">
           <form
@@ -103,7 +102,6 @@ const EditarServicio = ({ handleScreen, item }) => {
           </form>
         </section>
       </div>
-      <Footer></Footer>
     </>
   );
 };
