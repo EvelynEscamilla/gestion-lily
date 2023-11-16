@@ -1,4 +1,3 @@
-import "./Servicios.css";
 
 const Servicios = ({ nombre, imagen }) => {
   return (

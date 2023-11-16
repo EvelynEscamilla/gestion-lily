@@ -1,5 +1,3 @@
-import "./Servicios.css";
-
 function Servicios({ sendDataToParent, item }) {
   const enviarDatosServicios = (data) => {
     sendDataToParent(data);

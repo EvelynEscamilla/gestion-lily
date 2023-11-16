@@ -1,4 +1,3 @@
-import "./MostrarServicios.css";
 import GaleriaTipos from "./GaleriaTipos";
 import imagenes from "./Imagenes";
 import ImagenesTipos from "./ImagenesTipos";
