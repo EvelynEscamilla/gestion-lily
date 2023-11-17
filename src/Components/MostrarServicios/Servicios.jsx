@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
 function Servicios({ sendDataToParent, item }) {
   const enviarDatosServicios = (data) => {
     sendDataToParent(data);
