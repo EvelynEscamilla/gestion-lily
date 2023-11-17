@@ -1,10 +1,9 @@
 import React from "react";
-import Wpr from "../../assets/Login/Spa-img2.jpg";
-import logo from "../../assets/Login/Lily-hor.png";
+import { Link } from 'react-router-dom'
 
 const Login2 = ({handleScreen}) => {
   const divStyle = {
-    backgroundImage: `url(${Wpr})`,
+    backgroundImage: `url("Images/Login/Spa-img2.jpg")`,
   };
   return (
   <>
@@ -14,7 +13,7 @@ const Login2 = ({handleScreen}) => {
         style={divStyle}
       >
         <div className="w-1/2 bg-azulNav bg-opacity-90  text-center p-8">
-          <img className="w-1/2 mx-auto py-7 " src={logo}></img>
+          <img className="w-1/2 mx-auto py-7 " src="Images/Login/Lily-hor.png"></img>
           <p className=" text-3xl py-3">Inicio de Sesión</p>
           <div className="py-3">
             <input
@@ -36,9 +35,10 @@ const Login2 = ({handleScreen}) => {
           </p>
           <div className="flex py-3">
             <div className=" w-1/2 ">
+              <Link to="/gestion-lily/Crear-Cuenta">
               <p className=" text-2xl text-turqueza py-2">
-                <button onClick={() => handleScreen("CrearCuenta")}>Crear cuenta</button>
-              </p>
+                <button >Crear cuenta</button>
+              </p></Link>
             </div>
             <div className=" w-1/2 ">
               <button onClick={() => handleScreen("PerfilCliente")} className=" bg-morado px-4 rounded-3xl text-2xl py-2 text-white">

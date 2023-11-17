@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 
-const Carousel = ({handleScreen}) => {
+const Carousel = () => {
     const meses = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE']; // Los colores de los cuadros
     const [currentIndex, setCurrentIndex] = useState(0); 
   
@@ -81,14 +81,10 @@ const Carousel = ({handleScreen}) => {
   </div>
 
   <div className="flex justify-center mb-2">
-    <button className="rounded-2xl bg-turqueza text-white font-bold px-3 py-2 hover:-translate-y-1 hover:scale-100 duration-200" onClick={() => handleScreen("CancelarCita")}>RESERVAR</button>
+    <button className="rounded-2xl bg-turqueza text-white font-bold px-3 py-2 hover:-translate-y-1 hover:scale-100 duration-200">RESERVAR</button>
   </div>
-</div>
-
-         
+</div> 
       </div>
-      
-
       </>
     );
   };

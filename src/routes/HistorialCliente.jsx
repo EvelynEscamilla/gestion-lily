@@ -1,5 +1,3 @@
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 
 const Pasadas = ({ Lista }) => {
   return (
@@ -49,7 +47,7 @@ const Citas = () => {
   return <Pasadas Lista={Lista} />;
 };
 
-const HistorialCliente = ({ handleScreen }) => {
+const HistorialCliente = () => {
   return (
     <>
       <div className="flex justify-center ml-8 mt-10">

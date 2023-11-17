@@ -1,10 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
-import Perfil from '../../assets/PerfilCliente/IMG_Perfil.jpg'
 
-const PerfilCliente = ({ handleScreen }) => {
+const EditarCliente = () => {
     // Estado para almacenar el valor del input
     const [NombreUsuario, setValorNombre] = useState('Nombre de usuario cool');
     const [CorreoElectronico, setValorCorreo] = useState('CorreoElectronico@Gmail.com');
@@ -39,7 +36,7 @@ const PerfilCliente = ({ handleScreen }) => {
                 <div className="bg-white rounded-lg p-4 shadow-lg items-center">
                     <div className='flex items-center p-4'>
                         <div className='items-center text-center'>
-                            <img src={Perfil} className="hover:-translate-y-1 hover:scale-110 duration-200 border-[5px] border-morado w-64 h-64 rounded-full" alt="Imagen de perfil" />
+                            <img src="Images/PerfilCliente/IMG_Perfil.jpg" className="hover:-translate-y-1 hover:scale-110 duration-200 border-[5px] border-morado w-64 h-64 rounded-full" alt="Imagen de perfil" />
                             <input className="pt-4" type="file" name="archivo" id="archivo" accept=".jpg, .jpeg, .png"></input>
                         </div>
                         <div className="ml-4 text-white bg-morado px-5 py-2 rounded-md ">
@@ -132,4 +129,4 @@ const PerfilCliente = ({ handleScreen }) => {
     )
 }
 
-export default PerfilCliente
+export default EditarCliente

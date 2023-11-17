@@ -1,10 +1,6 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 
-import logo from "../../assets/logosolito.svg";
-
-const AgregarServicio = ({ handleScreen }) => {
+const AgregarServicio = () => {
 
   return (
     <>
@@ -18,7 +14,7 @@ const AgregarServicio = ({ handleScreen }) => {
               <div className=" col-span-full lg:col-span-1 justify-center ">
                 <div className="flex flex-col  h-full">
                   <div className=" items-center space-x-2 justify-center text-center">
-                    <img src={logo} alt="" className=" w-full  " />
+                    <img src="Images/Inicio/logosolito.svg" alt="" className=" w-full  " />
                   </div>
                   <div className="flex h-full justify-center items-center">
                     <button

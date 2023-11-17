@@ -1,14 +1,13 @@
 import { useState } from "react";
-
-import login from "../../assets/Nav/login.png";
+import { Link } from 'react-router-dom'
 
 function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
   const options = [
-    { value: "option1", label: "Perfil" },
-    { value: "option2", label: "Citas Programadas" },
-    { value: "option3", label: "Historial de Citas" },
+    { value: "/gestion-lily/Perfil", label: "Perfil" },
+    { value: "/gestion-lily/Citas-Programadas", label: "Citas Programadas" },
+    { value: "/gestion-lily/Historial", label: "Historial de Citas" },
     { value: "option4", label: "Cerrar Sesion" },
   ];
 
@@ -25,19 +24,17 @@ function Dropdown() {
         className="dropdown__toggle relative flex justify-end pr-2 ml-24"
         onClick={toggleDropdown}
       >
-        {<img className="Logoi1  h-20  " src={login} />}
+        {<img className="Logoi1  h-20  " src="Images/Nav/login.png" />}
 
         {isOpen && (
           <div className="absolute block top-full  justify-end w-[200px] bg-white shadow-md mt-1 rounded transition ">
             <ul className="dropdown__menu text-left border rounded">
               {options.map((option) => (
-                <li
-                  key={option.value}
-                  className="dropdown__menu-item px-4 py-1 hover:bg-gray-100 border-b"
-                  onClick={() => handleOptionClick(option)}
-                >
+                <Link to={`${option.value}`}>
+                <li key={option.value} className="dropdown__menu-item px-4 py-1 hover:bg-gray-100 border-b">
                   {option.label}
                 </li>
+                </Link>
               ))}
             </ul>
           </div>

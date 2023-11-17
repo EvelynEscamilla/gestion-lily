@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 function Servicio({ sendDataToParent, item, handleScreen }) {
   const enviarDatosServicios = (data) => {
@@ -32,7 +34,7 @@ function Servicio({ sendDataToParent, item, handleScreen }) {
             className="px-4 py-2 font-semibold rounded-3xl bg-morado text-white my-auto"
             onClick={() => handleScreen("EditarServicio", item)}
           >
-            <span>Editar</span>
+            <Link to="/gestion-lily/Editar-Servicios">Editar</Link>
           </button>
 
           </div>

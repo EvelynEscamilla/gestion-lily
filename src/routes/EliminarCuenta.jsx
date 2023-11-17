@@ -1,9 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 
-const PerfilCliente = ({ handleScreen }) => {
+const EliminarCuenta = () => {
     // Estado para almacenar el valor del input
     const [NombreUsuario, setValorNombre] = useState('');
     const [Contraseña, setValorContraseña] = useState('');
@@ -76,4 +74,4 @@ const PerfilCliente = ({ handleScreen }) => {
     )
 }
 
-export default PerfilCliente
+export default EliminarCuenta

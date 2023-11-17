@@ -1,5 +1,3 @@
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 import React, { useState } from 'react';
 
 const Citas = ({ListaCitas}) => {

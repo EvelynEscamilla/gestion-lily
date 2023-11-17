@@ -1,9 +1,8 @@
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
-import imagenes from "../MostrarServicios/Imagenes";
-import Servicio from "./Servicio";
+import imagenes from "../Components/MostrarServicios/Imagenes";
+import Servicio from "../Components/GestionarServicios/Servicio";
+import { Link } from 'react-router-dom'
 
-const GestionarServicios = ({ handleScreen }) => {
+const GestionarServicios = () => {
   const handleDFC = (data) => {
     console.log("Datos recibidos desde Mostrar Servicios", data);
   };
@@ -15,12 +14,14 @@ const GestionarServicios = ({ handleScreen }) => {
           <div className=" w-full flex justify-between">
         <div className=" w-1/2">
           <div className=" p-3 ">
-            <button className=" shadow-md rounded-3xl border border-black text-black font-semibold" onClick={() => handleScreen("AgregarServicio")}>
+            <Link to="/gestion-lily/agregar-servicios">
+            <button className=" shadow-md rounded-3xl border border-black text-black font-semibold">
               <div className="  flex p-3 justify-center items-center">
                 <p className=" text-2xl px-2">+</p>
                 <p>Agregar Servicio</p>
               </div>
             </button>
+            </Link>
           </div>
         </div>
         <div className=" w-1/2">2</div>
@@ -57,8 +58,7 @@ const GestionarServicios = ({ handleScreen }) => {
                     key={index}
                     sendDataToParent={handleDFC}
                     item={item}
-                    
-                    handleScreen={handleScreen}
+                  
                   ></Servicio>
                 ))}
               </tbody>

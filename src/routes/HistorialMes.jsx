@@ -1,5 +1,5 @@
 
-const HistorialMes = ({ handleScreen }) => {
+const HistorialMes = () => {
     return (
         <>
             <div className="flex justify-center ml-8 mt-10">

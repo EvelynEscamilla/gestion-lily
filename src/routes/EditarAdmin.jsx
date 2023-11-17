@@ -1,6 +1,6 @@
 import React from 'react'
 
-const EditarAdmin = ({ handleScreen }) => {
+const EditarAdmin = () => {
     return (
         <>
             <div className="flex justify-center ml-8 mt-24">
