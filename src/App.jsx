@@ -26,7 +26,7 @@ function App() {
 //2.- Hacer carpetas en rutas, para hacer una mejor gestion y se organice mejor el proyecto
 //3.- NO USAR BR NI HR
 //4.- Ya haganlo responsive
-
+//5.- CARPETAS EN MINUSCULAS TAMBIEN, Componentes empiezan en mayuscula, todo lo otro es con camelCase, rutas en minusculas con guiones separando las palabras
   const router = createBrowserRouter([
     {
       path: "/gestion-lily",
