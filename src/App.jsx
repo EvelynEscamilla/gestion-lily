@@ -21,6 +21,12 @@ import PerfilCliente from './routes/PerfilCliente'
 
 function App() {
 
+// Sugerencias rapidas, 
+//1.- Las rutas se ponen en minusculas, no en mayusculas
+//2.- Hacer carpetas en rutas, para hacer una mejor gestion y se organice mejor el proyecto
+//3.- NO USAR BR NI HR
+//4.- Ya haganlo responsive
+
   const router = createBrowserRouter([
     {
       path: "/gestion-lily",
