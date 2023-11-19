@@ -4,6 +4,7 @@ import { createContext, useEffect } from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
 import { passwordValidation } from '../validations/user.validations'
+import { postUser } from '../controllers/user.controller'
 
 export const authContext = createContext()
 
@@ -23,14 +24,12 @@ export const AuthProvider = ({ children }) => {
     const signUp = async (userData, email, password) => {
         try {
             await createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredentials) => {
-                    console.log(userCredentials.user.uid)
-                    //La info del uid, hacer la base de datos
-                    //Funcion de post user
+                .then(async (userCredentials) => {
+                    await postUser({...userData, rol : "cliente"}, userCredentials.user.uid)
                 })
         } catch (error) {
             console.log(error)
-            throw new Error(error.message)
+            throw new Error(error.name)
         }
     }
 

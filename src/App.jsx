@@ -47,10 +47,12 @@ function App() {
           element: <AgregarServicio />
         },
         {
+          //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/Calendario",
           element: <Calendario />
         },
         {
+          //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/Citas-Programadas",
           element: <CancelarCita />
         },
@@ -62,31 +64,62 @@ function App() {
           path: "/gestion-lily/EditarAdmin",
           element: <EditarAdmin />
         },
+
+
+
+
+        // Estos dos siguientes son casi la misma misma mamada, modificar
+
+
+
+
+
+
+
         {
+          //Error, volvieron a declarar body dentro del componente
           path: "/gestion-lily/Editar-Datos",
           element: <EditarCliente />
+        },
+        {
+          //Error, volvieron a declarar body dentro del componente
+          path: "/gestion-lily/Perfil",
+          element: <PerfilCliente />
         },
         {
           path: "/gestion-lily/Editar-Servicios",
           element: <EditarServicio />
         },
         {
+          //Error, volvieron a declarar body dentro del componente
           path: "/gestion-lily/Eliminar-Cuenta",
           element: <EliminarCuenta />
         },
         {
+          //Col group dentro de thead, solucionar
           path: "/gestion-lily/Gestion-Servicios",
           element: <GestionarServicios />
         },
         {
+          //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/Gestion-Citas",
           element: <GestionCitas />
         },
+
+
+
+        // Estos dos siguientes son casi la misma misma mamada, modificar
+
+
+
+
         {
+          //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/Historial",
           element: <HistorialCliente />
         },
         {
+          //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/Historial-Mes",
           element: <HistorialMes />
         },
@@ -97,10 +130,6 @@ function App() {
         {
           path: "/gestion-lily/Servicios",
           element: <MostrarServicios />
-        },
-        {
-          path: "/gestion-lily/Perfil",
-          element: <PerfilCliente />
         },
       ]
     },

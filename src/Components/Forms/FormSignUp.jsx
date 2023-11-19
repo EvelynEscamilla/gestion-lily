@@ -9,15 +9,20 @@ const FormSignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await signUp("", formData.email, formData.password)
+        const userData = {
+            nombreCompleto: formData.nombreCompleto,
+            telefono: formData.telefono,
+            email: formData.email
+        }
+        await signUp(userData, formData.email, formData.password)
     }
 
     return (
         <form onSubmit={handleSubmit} className="text-center">
-            <input onChange={handleFormDataChange} name='nombreCompleto' className=" w-[300px] h-10 bg-azulNav text-center rounded-full mb-4" type="text" placeholder="Nombre completo"/>
-            <input onChange={handleFormDataChange} name='telefono' className=" w-[300px] h-10 bg-azulNav text-center rounded-full mb-4" type="tel" placeholder="Numero de celular"/>
-            <input onChange={handleFormDataChange} name='email' className=" w-[300px] h-10 bg-azulNav text-center rounded-full mb-4" type="email" placeholder="Correo electrónico"/>
-            <input onChange={handleFormDataChange} name='password' className="w-[300px] h-10 bg-azulNav text-center  rounded-full mb-4" type="password" placeholder="Contraseña"/>
+            <input onChange={handleFormDataChange} name='nombreCompleto' className=" w-[300px] h-10 bg-azulNav text-center rounded-full mb-4" type="text" placeholder="Nombre completo" />
+            <input onChange={handleFormDataChange} name='telefono' className=" w-[300px] h-10 bg-azulNav text-center rounded-full mb-4" type="tel" placeholder="Numero de celular" />
+            <input onChange={handleFormDataChange} name='email' className=" w-[300px] h-10 bg-azulNav text-center rounded-full mb-4" type="email" placeholder="Correo electrónico" />
+            <input onChange={handleFormDataChange} name='password' className="w-[300px] h-10 bg-azulNav text-center  rounded-full mb-4" type="password" placeholder="Contraseña" />
             <input onChange={handleFormDataChange} name='passwordConfirmation' className="w-[300px] h-10 bg-azulNav text-center  rounded-full mb-4" type="password" placeholder="Confirmar Contraseña"></input>
             <p className="texto-fuente">
                 Utiliza mínimo ocho caracteres combinados
