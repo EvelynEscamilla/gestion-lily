@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 
-const Login2 = ({handleScreen}) => {
+const Login2 = () => {
   const divStyle = {
     backgroundImage: `url("Images/Login/Spa-img2.jpg")`,
   };
   return (
-  <>
     <div className=" flex justify-center items-center">
       <div
         className=" w-5/6 h-screen justify-end flex bg-cover bg-center"
@@ -29,19 +28,18 @@ const Login2 = ({handleScreen}) => {
               placeholder="Contraseña"
             ></input>
           </div>
-
           <p className="texto-fuente text-center py-3  text-turqueza text-xl">
             <a href="">¿Has olvidado tu contraseña?</a>
           </p>
           <div className="flex py-3">
             <div className=" w-1/2 ">
               <Link to="/gestion-lily/Crear-Cuenta">
-              <p className=" text-2xl text-turqueza py-2">
-                <button >Crear cuenta</button>
-              </p></Link>
+                <p className=" text-2xl text-turqueza py-2">
+                  <button >Crear cuenta</button>
+                </p></Link>
             </div>
             <div className=" w-1/2 ">
-              <button onClick={() => handleScreen("PerfilCliente")} className=" bg-morado px-4 rounded-3xl text-2xl py-2 text-white">
+              <button className=" bg-morado px-4 rounded-3xl text-2xl py-2 text-white">
                 Iniciar Sesión
               </button>
             </div>
@@ -49,7 +47,6 @@ const Login2 = ({handleScreen}) => {
         </div>
       </div>
     </div>
-    </>
   );
 };
 
