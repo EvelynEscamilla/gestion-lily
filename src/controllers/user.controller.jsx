@@ -15,8 +15,18 @@ IMAGEN == UID
 }
 */
 
-export const postUser = async (userData) => {
+import { doc, setDoc } from 'firebase/firestore'
+import { db } from '../firebase'
 
+const reference = "usuarios"
+
+export const postUser = async (userData, uid) => {
+    try {
+        await setDoc(doc(db, reference, uid), userData)
+    } catch (error) {
+        console.log(error)
+        throw new Error(error.message)
+    }
 }
 
 export const deleteUser = async () => {

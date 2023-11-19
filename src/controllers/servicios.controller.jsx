@@ -12,6 +12,15 @@ IMAGEN == ID
 }
 */
 
-export const postServicio = async (servicioData) => {
+import { addDoc, doc } from 'firebase/firestore'
+import { db } from '../firebase'
 
+const reference = "servicios"
+export const postServicio = async (servicioData) => {
+    try {
+        await addDoc(doc(db, reference), servicioData)
+    } catch (error) {
+        console.log(error)
+        throw new Error(error.message)
+    }
 }
