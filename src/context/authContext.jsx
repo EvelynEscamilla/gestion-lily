@@ -21,23 +21,16 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     const signUp = async (userData, email, password) => {
-        //Ejemplo
-        // userData = {
-        //     nombreCompleto: "David Gonzalez",
-        //     numero: "4433994806"
-        // }
-        if (passwordValidation(password)) {
-            try {
-                await createUserWithEmailAndPassword(auth, email, password)
-                    .then((userCredentials) => {
-                        console.log(userCredentials.user.uid)
-                        //La info del uid, hacer la base de datos
-                        //Funcion de post user
-                    })
-            } catch (error) {
-                console.log(error)
-                throw new Error(error.message)
-            }
+        try {
+            await createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredentials) => {
+                    console.log(userCredentials.user.uid)
+                    //La info del uid, hacer la base de datos
+                    //Funcion de post user
+                })
+        } catch (error) {
+            console.log(error)
+            throw new Error(error.message)
         }
     }
 
