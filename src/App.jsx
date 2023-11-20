@@ -19,6 +19,7 @@ import Login2 from './routes/Login2'
 import MostrarServicios from './routes/MostrarServicios'
 import PerfilCliente from './routes/PerfilCliente'
 import { AuthProvider } from './context/authContext'
+import Pruebas from './routes/Pruebas'
 
 function App() {
 
@@ -130,6 +131,10 @@ function App() {
         {
           path: "/gestion-lily/Servicios",
           element: <MostrarServicios />
+        },
+        {
+          path: "/gestion-lily/pruebas",
+          element: <Pruebas />
         },
       ]
     },
