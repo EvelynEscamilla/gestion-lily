@@ -5,12 +5,12 @@ const PerfilCliente = () => {
     return (
         <>
             <body className="bg-gray-100 flex justify-center items-center h-screen">
-                <div className="bg-white rounded-lg p-4 shadow-lg items-center">
-                    <div className='flex items-center p-4'>
-                        <div>
-                            <img src="Images/PerfilCliente/IMG_Perfil.jpg" className="hover:-translate-y-1 hover:scale-110 duration-200 border-[5px] border-morado w-64 h-64 rounded-full" alt="Imagen de perfil" />
+                <div className="bg-white rounded-lg p-1 lg:p-3 shadow-lg items-center justify-center">
+                    <div className='grid grid-rows-2 lg:flex justify-center items-center p-4'>
+                        <div className='flex items-center justify-center'>
+                            <img src="Images/PerfilCliente/IMG_Perfil.jpg" className=" hover:-translate-y-1 hover:scale-110 duration-200 border-[5px] border-morado w-64 h-64 rounded-full" alt="Imagen de perfil" />
                         </div>
-                        <div className="ml-4 text-white bg-morado px-5 py-2 rounded-md">
+                        <div className="ml-4 text-white bg-morado px-3 lg:px-5 py-2 rounded-md">
                             <div className='py-3'>
                                 <p className="text-xl   font-bold">Nombre de Usuario Cool</p>
                             </div>
