@@ -1,8 +1,16 @@
+<<<<<<< HEAD:src/routes/MostrarServicios.jsx
 import { Link } from "react-router-dom";
 import GaleriaTipos from "../Components/MostrarServicios/GaleriaTipos";
 import imagenes from "../Components/MostrarServicios/Imagenes";
 import ImagenesTipos from "../Components/MostrarServicios/ImagenesTipos";
 import Servicios from "../Components/MostrarServicios/Servicios";
+=======
+import GaleriaTipos from "./GaleriaTipos";
+import imagenes from "./Imagenes";
+import ImagenesTipos from "./ImagenesTipos";
+import Servicios from "./Servicios";
+import Navbar from "../Navbar/Navbar"
+>>>>>>> main:src/Components/MostrarServicios/MostrarServicios.jsx
 import { useState } from "react";
 
 
