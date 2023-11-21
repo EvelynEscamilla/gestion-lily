@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import TextField from "../Components/TextField/TextField";
+import Boton from "../Components/boton/Boton";
 
 const Login2 = () => {
   const divStyle = {
@@ -11,6 +13,7 @@ const Login2 = () => {
         className=" w-5/6 h-screen justify-end flex bg-cover bg-center"
         style={divStyle}
       >
+
         <div className="w-[100%] bg-azulNav bg-opacity-70 lg:bg-opacity-90 text-center p-8 lg:w-1/2">
           <img className="lg:w-1/2 mx-auto py-7 w-3/4 " src="Images/Login/Lily-hor.png"></img>
           <p className=" text-3xl py-3">Inicio de Sesión</p>
@@ -28,20 +31,23 @@ const Login2 = () => {
               placeholder="Contraseña"
             ></input>
           </div>
+
           <p className="texto-fuente text-center py-3  text-turqueza text-xl">
             <a href="">¿Has olvidado tu contraseña?</a>
           </p>
           <div className="flex py-3">
             <div className=" w-1/2 ">
+
               <Link to="/gestion-lily/crear-cuenta">
                 <p className=" text-2xl text-turqueza py-2">
                   <button >Crear cuenta</button>
                 </p></Link>
+
             </div>
             <div className=" w-1/2 ">
-              <button className=" bg-morado px-4 rounded-3xl text-2xl py-2 text-white">
-                Iniciar Sesión
-              </button>
+              <Boton BG="morado" TC="white">
+          Iniciar Sesion
+        </Boton>
             </div>
           </div>
         </div>
@@ -51,4 +57,3 @@ const Login2 = () => {
 };
 
 export default Login2;
-
