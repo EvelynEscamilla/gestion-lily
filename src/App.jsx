@@ -48,20 +48,20 @@ function App() {
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
-          path: "/gestion-lily/Calendario",
+          path: "/gestion-lily/calendario",
           element: <Calendario />
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
-          path: "/gestion-lily/Citas-Programadas",
+          path: "/gestion-lily/citas-programadas",
           element: <CancelarCita />
         },
         {
-          path: "/gestion-lily/Crear-Cuenta",
+          path: "/gestion-lily/crear-cuenta",
           element: <CrearCuenta />
         },
         {
-          path: "/gestion-lily/EditarAdmin",
+          path: "/gestion-lily/editar-admin",
           element: <EditarAdmin />
         },
 
@@ -78,31 +78,31 @@ function App() {
 
         {
           //Error, volvieron a declarar body dentro del componente
-          path: "/gestion-lily/Editar-Datos",
+          path: "/gestion-lily/editar-datos",
           element: <EditarCliente />
         },
         {
           //Error, volvieron a declarar body dentro del componente
-          path: "/gestion-lily/Perfil",
+          path: "/gestion-lily/perfil",
           element: <PerfilCliente />
         },
         {
-          path: "/gestion-lily/Editar-Servicios",
+          path: "/gestion-lily/editar-servicios",
           element: <EditarServicio />
         },
         {
           //Error, volvieron a declarar body dentro del componente
-          path: "/gestion-lily/Eliminar-Cuenta",
+          path: "/gestion-lily/eliminar-cuenta",
           element: <EliminarCuenta />
         },
         {
           //Col group dentro de thead, solucionar
-          path: "/gestion-lily/Gestion-Servicios",
+          path: "/gestion-lily/gestion-servicios",
           element: <GestionarServicios />
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
-          path: "/gestion-lily/Gestion-Citas",
+          path: "/gestion-lily/gestion-citas",
           element: <GestionCitas />
         },
 
@@ -115,20 +115,20 @@ function App() {
 
         {
           //Error en el componente, pasar keys en componentes que se repitan
-          path: "/gestion-lily/Historial",
+          path: "/gestion-lily/historial",
           element: <HistorialCliente />
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
-          path: "/gestion-lily/Historial-Mes",
+          path: "/gestion-lily/historial-mes",
           element: <HistorialMes />
         },
         {
-          path: "/gestion-lily/Login",
+          path: "/gestion-lily/login",
           element: <Login2 />
         },
         {
-          path: "/gestion-lily/Servicios",
+          path: "/gestion-lily/servicios",
           element: <MostrarServicios />
         },
       ]

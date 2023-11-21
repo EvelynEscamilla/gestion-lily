@@ -33,7 +33,7 @@ const Login2 = () => {
           </p>
           <div className="flex py-3">
             <div className=" w-1/2 ">
-              <Link to="/gestion-lily/Crear-Cuenta">
+              <Link to="/gestion-lily/crear-cuenta">
                 <p className=" text-2xl text-turqueza py-2">
                   <button >Crear cuenta</button>
                 </p></Link>

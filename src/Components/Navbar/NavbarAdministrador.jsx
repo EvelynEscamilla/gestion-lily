@@ -12,15 +12,15 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="Group25 h-20 flex justify-center items-center">
-        <Link to="/gestion-lily/Servicios" className="Servicios px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer">
+        <Link to="/gestion-lily/servicios" className="Servicios px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer">
           SERVICIOS
         </Link>
         <div className="Line2 w-0 h-5 origin-top-left  border border-black"></div>
-        <Link to="/gestion-lily/Nosotros" className="Contacto  px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer">
+        <Link to="/gestion-lily/nosotros" className="Contacto  px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer">
           NOSOTROS
         </Link>
         <div className="Line2 w-0 h-5 origin-top-left  border border-black"></div>
-        <Link to="/gestion-lily/Calendario" className="Reservaciones px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer">
+        <Link to="/gestion-lily/calendario" className="Reservaciones px-10 text-center text-black text-base font-normal font-['Roboto Condensed'] cursor-pointer">
           CITAS
         </Link>
       </div>
