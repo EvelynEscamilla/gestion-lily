@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import GaleriaTipos from "../Components/MostrarServicios/GaleriaTipos";
-import imagenes from "../Components/MostrarServicios/Imagenes";
-import ImagenesTipos from "../Components/MostrarServicios/ImagenesTipos";
-import Servicios from "../Components/MostrarServicios/Servicios";
+import GaleriaTipos from "../../Components/MostrarServicios/GaleriaTipos";
+import imagenes from "../../Components/MostrarServicios/Imagenes";
+import ImagenesTipos from "../../Components/MostrarServicios/ImagenesTipos";
+import Servicios from "../../Components/MostrarServicios/Servicios";
 import { useState } from "react";
 
 
@@ -62,7 +62,7 @@ export const MostrarServicios = ({handleScreen}) => {
             <div>
               <p className=" text-3xl px-10">{precio}</p>
             </div>
-            <Link to="/gestion-lily/Calendario">
+            <Link to="/gestion-lily/calendario">
             <button className="mr-10 bg-turqueza rounded-3xl px-10 py-2 text-xl text-white hover:-translate-y-1 hover:scale-110 duration-200" >
               RESERVA YA
             </button>

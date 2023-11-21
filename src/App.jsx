@@ -3,31 +3,31 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LayoutPrincipal from "./routes/LayoutPrincipal"
 import Inicio from "./routes/Inicio"
 import Nosotros from "./routes/Nosotros"
-import AgregarServicio from './routes/AgregarServicio'
+import AgregarServicio from './routes/servicios/AgregarServicio'
 import Calendario from './routes/Calendario'
-import CancelarCita from './routes/CancelarCita'
+import CancelarCita from './routes/usuario/CancelarCita'
 import CrearCuenta from './routes/CrearCuenta'
-import EditarAdmin from './routes/EditarAdmin'
-import EditarCliente from './routes/EditarCliente'
-import EditarServicio from './routes/EditarServicio'
-import EliminarCuenta from './routes/EliminarCuenta'
-import GestionarServicios from './routes/GestionarServicios'
-import GestionCitas from './routes/GestionCitas'
-import HistorialCliente from './routes/HistorialCliente'
-import HistorialMes from './routes/HistorialMes'
+import EditarAdmin from './routes/administrador/EditarAdmin'
+import EditarCliente from './routes/usuario/EditarCliente'
+import EditarServicio from './routes/servicios/EditarServicio'
+import EliminarCuenta from './routes/usuario/EliminarCuenta'
+import GestionarServicios from './routes/servicios/GestionarServicios'
+import GestionCitas from './routes/administrador/GestionCitas'
+import HistorialCliente from './routes/usuario/HistorialCliente'
+import HistorialMes from './routes/administrador/HistorialMes'
 import Login2 from './routes/Login2'
-import MostrarServicios from './routes/MostrarServicios'
-import PerfilCliente from './routes/PerfilCliente'
+import MostrarServicios from './routes/servicios/MostrarServicios'
+import PerfilCliente from './routes/usuario/PerfilCliente'
 import { AuthProvider } from './context/authContext'
 import Pruebas from './routes/Pruebas'
 
 function App() {
 
   // Sugerencias rapidas, 
-  //1.- Las rutas se ponen en minusculas, no en mayusculas
-  //2.- Hacer carpetas en rutas, para hacer una mejor gestion y se organice mejor el proyecto
-  //3.- NO USAR BR NI HR
-  //4.- Ya haganlo responsive
+  //1.- Las rutas se ponen en minusculas, no en mayusculas HECHO
+  //2.- Hacer carpetas en rutas, para hacer una mejor gestion y se organice mejor el proyecto HECHO
+  //3.- NO USAR BR NI HR HECHO
+  //4.- Ya haganlo responsive EN PROCESO
   //5.- CARPETAS EN MINUSCULAS TAMBIEN, Componentes empiezan en mayuscula, todo lo otro es con camelCase, rutas en minusculas con guiones separando las palabras
   //6.- No rutas innecesarias, CRUD (servicios) SI CREAR Opciones: MODALS
   const router = createBrowserRouter([
@@ -49,20 +49,20 @@ function App() {
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
-          path: "/gestion-lily/Calendario",
+          path: "/gestion-lily/calendario",
           element: <Calendario />
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
-          path: "/gestion-lily/Citas-Programadas",
+          path: "/gestion-lily/citas-programadas",
           element: <CancelarCita />
         },
         {
-          path: "/gestion-lily/Crear-Cuenta",
+          path: "/gestion-lily/crear-cuenta",
           element: <CrearCuenta />
         },
         {
-          path: "/gestion-lily/EditarAdmin",
+          path: "/gestion-lily/editar-admin",
           element: <EditarAdmin />
         },
 
@@ -79,31 +79,31 @@ function App() {
 
         {
           //Error, volvieron a declarar body dentro del componente
-          path: "/gestion-lily/Editar-Datos",
+          path: "/gestion-lily/editar-datos",
           element: <EditarCliente />
         },
         {
           //Error, volvieron a declarar body dentro del componente
-          path: "/gestion-lily/Perfil",
+          path: "/gestion-lily/perfil",
           element: <PerfilCliente />
         },
         {
-          path: "/gestion-lily/Editar-Servicios",
+          path: "/gestion-lily/editar-servicios",
           element: <EditarServicio />
         },
         {
           //Error, volvieron a declarar body dentro del componente
-          path: "/gestion-lily/Eliminar-Cuenta",
+          path: "/gestion-lily/eliminar-cuenta",
           element: <EliminarCuenta />
         },
         {
           //Col group dentro de thead, solucionar
-          path: "/gestion-lily/Gestion-Servicios",
+          path: "/gestion-lily/gestion-servicios",
           element: <GestionarServicios />
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
-          path: "/gestion-lily/Gestion-Citas",
+          path: "/gestion-lily/gestion-citas",
           element: <GestionCitas />
         },
 
@@ -116,20 +116,20 @@ function App() {
 
         {
           //Error en el componente, pasar keys en componentes que se repitan
-          path: "/gestion-lily/Historial",
+          path: "/gestion-lily/historial",
           element: <HistorialCliente />
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
-          path: "/gestion-lily/Historial-Mes",
+          path: "/gestion-lily/historial-mes",
           element: <HistorialMes />
         },
         {
-          path: "/gestion-lily/Login",
+          path: "/gestion-lily/login",
           element: <Login2 />
         },
         {
-          path: "/gestion-lily/Servicios",
+          path: "/gestion-lily/servicios",
           element: <MostrarServicios />
         },
         {

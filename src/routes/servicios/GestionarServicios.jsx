@@ -1,5 +1,5 @@
-import imagenes from "../Components/MostrarServicios/Imagenes";
-import Servicio from "../Components/GestionarServicios/Servicio";
+import imagenes from "../../Components/MostrarServicios/Imagenes";
+import Servicio from "../../Components/GestionarServicios/Servicio";
 import { Link } from 'react-router-dom'
 
 const GestionarServicios = () => {
@@ -10,7 +10,7 @@ const GestionarServicios = () => {
     <>
       <div>
         <div className=" pt-12 mx-auto px-4 pb-4  text-white ">
-          <h2 className="mb-4 text-5xl text-center text-black">Servicios</h2>
+          <p className="mb-4 text-5xl text-center text-black">Servicios</p>
           <div className=" w-full flex justify-between">
         <div className=" w-1/2">
           <div className=" p-3 ">
