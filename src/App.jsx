@@ -3,27 +3,27 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LayoutPrincipal from "./routes/LayoutPrincipal"
 import Inicio from "./routes/Inicio"
 import Nosotros from "./routes/Nosotros"
-import AgregarServicio from './routes/AgregarServicio'
+import AgregarServicio from './routes/servicios/AgregarServicio'
 import Calendario from './routes/Calendario'
-import CancelarCita from './routes/CancelarCita'
+import CancelarCita from './routes/usuario/CancelarCita'
 import CrearCuenta from './routes/CrearCuenta'
-import EditarAdmin from './routes/EditarAdmin'
-import EditarCliente from './routes/EditarCliente'
-import EditarServicio from './routes/EditarServicio'
-import EliminarCuenta from './routes/EliminarCuenta'
-import GestionarServicios from './routes/GestionarServicios'
-import GestionCitas from './routes/GestionCitas'
-import HistorialCliente from './routes/HistorialCliente'
-import HistorialMes from './routes/HistorialMes'
+import EditarAdmin from './routes/administrador/EditarAdmin'
+import EditarCliente from './routes/usuario/EditarCliente'
+import EditarServicio from './routes/servicios/EditarServicio'
+import EliminarCuenta from './routes/usuario/EliminarCuenta'
+import GestionarServicios from './routes/servicios/GestionarServicios'
+import GestionCitas from './routes/administrador/GestionCitas'
+import HistorialCliente from './routes/usuario/HistorialCliente'
+import HistorialMes from './routes/administrador/HistorialMes'
 import Login2 from './routes/Login2'
-import MostrarServicios from './routes/MostrarServicios'
-import PerfilCliente from './routes/PerfilCliente'
+import MostrarServicios from './routes/servicios/MostrarServicios'
+import PerfilCliente from './routes/usuario/PerfilCliente'
 import { AuthProvider } from './context/authContext'
 
 function App() {
 
   // Sugerencias rapidas, 
-  //1.- Las rutas se ponen en minusculas, no en mayusculas
+  //1.- Las rutas se ponen en minusculas, no en mayusculas HECHO
   //2.- Hacer carpetas en rutas, para hacer una mejor gestion y se organice mejor el proyecto
   //3.- NO USAR BR NI HR
   //4.- Ya haganlo responsive
