@@ -5,35 +5,34 @@ const Citas = ({ListaCitas}) => {
     return (
         <>
         <div className="rounded-2xl border-azulClaro border-2 justify-center w-2/5 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
-            <div className="flex justify-items-center mb-5">
-                <div className="border-2 rounded-2xl bg-morado p-2 mt-5 flex items-center mx-2">
-                    <p className="font-bold text-xl text-white mr-4">FECHA </p>
-                    <p className="font-bold text-xl text-white mr-4"> |</p>
-                    <p className="font-bold text-xl text-white mr-4">  HORA</p>
-                    <p className="font-bold text-xl text-white mr-4"> |</p>
-                    <p className="font-bold text-xl text-white mr-4">CONTACTO</p>
-                    <p className="font-bold text-xl text-white mr-4"> |</p>
-                    <p className="font-bold text-xl text-white mr-4">CLIENTE</p>
-                    <p className="font-bold text-xl text-white mr-4"> |</p>
-                    <p className="font-bold text-xl text-white">SERVICIOS</p>
+            <div className="flex justify-center bg-morado mb-5">
+                <div className="p-2 mt-4 mb-4 flex items-center mx-2">
+                    <p className="font-bold text-base text-white mr-2">FECHA </p>
+                    <p className="font-bold text-base text-white mr-2"> |</p>
+                    <p className="font-bold text-base text-white mr-2">  HORA</p>
+                    <p className="font-bold text-base text-white mr-2"> |</p>
+                    <p className="font-bold text-base text-white mr-2">CONTACTO</p>
+                    <p className="font-bold text-base text-white mr-2"> |</p>
+                    <p className="font-bold text-base text-white mr-2">CLIENTE</p>
+                    <p className="font-bold text-base text-white mr-2"> |</p>
+                    <p className="font-bold text-base text-white">SERVICIOS</p>
                 </div>
             </div>
-            <hr/>
         <div className="scroll-m-0 overflow-y-scroll h-[30rem]"> 
             {ListaCitas.map(ListaCita => (
                 <div>
-                <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 mt-5  mb-2 mr-4 ml-4">
+                <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 mb-2 mr-4 ml-4">
                     <div className="bg-white p-2 flex items-center mr-2">
-                    <p className="font-bold text-justify text-lg mr-2">{ListaCita.fecha}</p>
-                        <p className="font-bold text-justify text-lg mr-2"> | </p>
-                        <p className="font-bold text-justify text-lg mr-2">{ListaCita.hora} </p>
-                        <p className="font-bold text-justify text-lg mr-2"> | </p>
-                        <p className="font-bold text-justify text-lg mr-2">{ListaCita.contacto}  </p>
-                        <p className="font-bold text-justify text-lg mr-2"> | </p>
-                        <p className="font-bold text-justify text-lg">{ListaCita.cliente}</p>
+                    <p className="text-justify text-base mr-2">{ListaCita.fecha}</p>
+                        <p className="text-justify text-xl mr-2"> | </p>
+                        <p className="text-justify text-base mr-2">{ListaCita.hora} </p>
+                        <p className="text-justify text-xl mr-2"> | </p>
+                        <p className="text-justify text-base mr-2">{ListaCita.contacto}  </p>
+                        <p className="text-justify text-xl mr-2"> | </p>
+                        <p className="text-justify text-base">{ListaCita.cliente}</p>
                     </div>
                     <div className="bg-white p-2 flex items-center mr-2">
-                        <p className="font-bold text-justify text-lg">{ListaCita.servicio}</p>
+                        <p className="text-justify text-base">{ListaCita.servicio}</p>
                     </div>
                 </div>
                 <div className="flex justify-end mr-4 mb-4">
@@ -60,27 +59,26 @@ const Citas = ({ListaCitas}) => {
     return (
         <>
         <div className="rounded-2xl border-azulClaro border-2 justify-center w-2/5 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
-            <div className="flex justify-items-stretch mb-5">
-                <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
+            <div className="flex justify-center bg-morado mb-5">
+                <div className="p-2 mt-4 mb-4 mx-4 flex items-center mr-6">
                     <p className="font-bold text-xl text-white">Datos de la cita</p>
                 </div>
             </div>
-            <hr/>
         <div className="scroll-m-0 overflow-y-scroll h-[30rem]"> 
             {Acept.map(Acept => (
                 <div>
-                <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 mt-5 items-center mb-2 mr-2 ml-2">
+                <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 items-center mb-2 mr-2 ml-2">
                     <div className="bg-white p-2 flex items-center mr-2">
-                        <p className="font-bold text-justify text-lg mr-2">{Acept.fecha}</p>
-                        <p className="font-bold text-justify text-lg mr-2"> | </p>
-                        <p className="font-bold text-justify text-lg mr-2">{Acept.hora} </p>
-                        <p className="font-bold text-justify text-lg mr-2"> | </p>
-                        <p className="font-bold text-justify text-lg mr-2">{Acept.contacto}  </p>
-                        <p className="font-bold text-justify text-lg mr-2"> | </p>
-                        <p className="font-bold text-justify text-lg">{Acept.cliente}</p>
+                        <p className="text-justify text-base mr-2">{Acept.fecha}</p>
+                        <p className="text-justify text-lg mr-2"> | </p>
+                        <p className="text-justify text-base mr-2">{Acept.hora} </p>
+                        <p className="text-justify text-lg mr-2"> | </p>
+                        <p className="text-justify text-base mr-2">{Acept.contacto}  </p>
+                        <p className="text-justify text-lg mr-2"> | </p>
+                        <p className="text-justify text-base">{Acept.cliente}</p>
                     </div>
                     <div className="bg-white p-2 flex items-center mr-2">
-                        <p className="font-bold text-justify text-lg">{Acept.servicio}</p>
+                        <p className="text-justify text-base">{Acept.servicio}</p>
                     </div>
                 </div>
                 <div className="flex justify-end mr-4 mb-4">

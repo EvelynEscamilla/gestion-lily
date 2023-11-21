@@ -41,8 +41,7 @@ const Inicio = () => {
             <div className="texto1 bg-blue-100 p-4 text-2xl text-center text-black">
                 Tratamientos más populares
             </div>
-            <br></br>
-            <div className="contenedor flex justify-center items-end h-96">
+            <div className="contenedor flex justify-center items-end h-96 mt-8 mb-16">
                 <div className="imagen-contenedor flex justify-between max-w-screen-lg w-full">
                     <div className="rounded-[10%] overflow-hidden bg-morado  h-96 relative hover:-translate-y-1 hover:scale-110 duration-200 w-[30%]">
                         <img src="Images/Inicio/Mp-img1.jpg"  alt="Imagen 1" className=" w-full h-full object-cover"></img>
@@ -87,7 +86,7 @@ const Inicio = () => {
                     </div>
                 }
             </div>
-            <br></br><br></br>
+           
         </>
     )
 }

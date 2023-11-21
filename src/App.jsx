@@ -24,9 +24,9 @@ function App() {
 
   // Sugerencias rapidas, 
   //1.- Las rutas se ponen en minusculas, no en mayusculas HECHO
-  //2.- Hacer carpetas en rutas, para hacer una mejor gestion y se organice mejor el proyecto
-  //3.- NO USAR BR NI HR
-  //4.- Ya haganlo responsive
+  //2.- Hacer carpetas en rutas, para hacer una mejor gestion y se organice mejor el proyecto HECHO
+  //3.- NO USAR BR NI HR HECHO
+  //4.- Ya haganlo responsive EN PROCESO
   //5.- CARPETAS EN MINUSCULAS TAMBIEN, Componentes empiezan en mayuscula, todo lo otro es con camelCase, rutas en minusculas con guiones separando las palabras
   //6.- No rutas innecesarias, CRUD (servicios) SI CREAR Opciones: MODALS
   const router = createBrowserRouter([

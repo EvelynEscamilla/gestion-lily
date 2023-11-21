@@ -30,12 +30,8 @@ const Pasadas = ({ Lista }) => {
                             <option value="11">Noviembre</option>
                             <option value="12">Diciembre</option>
                         </select>
-   
                     </div>
-                    
-
                 </div>
-                <hr />
                 <div className="scroll-m-0 overflow-y-scroll h-[30rem]">
                     {Lista.map((Lista) => (
                         <div>
@@ -63,9 +59,6 @@ const Pasadas = ({ Lista }) => {
                                         ${Lista.precio}
                                     </p>
                                 </div>
-
-
-
                             </div>
                         </div>
                     ))}
