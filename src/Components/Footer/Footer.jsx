@@ -27,8 +27,9 @@ const Footer = () => {
             <p>Siguenos en Nuestras Redes Sociales:</p>
           </div>
           <div className="flex justify-between space-x-7 ">
-            <a href="https://www.facebook.com/clinicadebellezaenmorelia"><img className="Logo h-14" src={Fb} /></a>
-            <a href="https://www.instagram.com/clinica_de_belleza_lily"><img className="Logo h-14" src={Ig} /></a>
+            <a href="https://www.facebook.com/clinicadebellezaenmorelia"><img className="Logo h-10 sm:h-12 lg:h-14" src={Fb} /></a>
+            <a href="https://www.instagram.com/clinica_de_belleza_lily"><img className="Logo h-10 sm:h-12 lg:h-14" src={Ig} /></a>
+
           </div>
         
       </div>
