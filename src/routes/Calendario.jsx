@@ -2,19 +2,39 @@ import React, { useState, useEffect } from 'react';
 
 
 const Carousel = () => {
-    const meses = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE']; // Los colores de los cuadros
-    const [currentIndex, setCurrentIndex] = useState(0); 
-  
-    const goLeft = () => {
-      setCurrentIndex(currentIndex === 0 ? meses.length - 1 : currentIndex - 1);
-    };
-  
-    const goRight = () => {
-      setCurrentIndex(currentIndex === meses.length - 1 ? 0 : currentIndex + 1);
-    };
+  const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 
-    const dias = Array.from({length: 30}, (_, i) => i + 1);
-    
+  const [currentIndex, setCurrentIndex] = useState(new Date().getMonth());
+  const fechaActual = new Date();
+  const diaActual = fechaActual.getDate();
+  const añoActual = fechaActual.getFullYear();
+  const [año, setAño] = useState(añoActual);
+
+  const goLeft = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? meses.length - 1 : prevIndex - 1));
+    if (currentIndex === 0) {
+      setAño((prevAño) => prevAño - 1);
+    }
+  };
+
+  const goRight = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === meses.length - 1 ? 0 : prevIndex + 1));
+    if (currentIndex === meses.length - 1) {
+      setAño((prevAño) => prevAño + 1);
+    }
+  };
+
+  const esAñoBisiesto = (año) => {
+    return (año % 4 === 0 && año % 100 !== 0) || (año % 400 === 0);
+  };
+
+  const obtenerDiasDelMes = (mes, año) => {
+    const ultimoDia = new Date(año, mes + 1, 0).getDate();
+    return Array.from({ length: ultimoDia }, (_, i) => i + 1);
+  };
+
+  const diasDelMes = obtenerDiasDelMes(currentIndex, año);
+  
   const [datos, setDatos] = useState([]);
   const [seleccionado, setSeleccionado] = useState('');
 
@@ -38,17 +58,26 @@ const Carousel = () => {
          </div>
       <div className="flex items-center mb-16 mt-2 w-full ">
 
-        <button className="p-2 ml-4 bg-gray-300 rounded-full mr-2 hover:-translate-y-1 hover:scale-110 duration-200" onClick={goLeft}>←</button>
-        <div className="w-2/5 h-[25rem] bg-azulNav rounded-lg border-2 border-azul"><p className="flex justify-center text-2xl bg-azulClaro text-white font-bold">{meses[currentIndex]}</p>
-        <div className="mt-2 grid grid-cols-7 gap-4 p-4">
-          {dias.map(dia => (
-            <div key={dia} className="bg-morado text-center text-white rounded shadow drop-shadow-md p-2 hover:-translate-y-1 hover:scale-110 duration-200">
+      <button className="p-2 ml-4 bg-gray-300 rounded-full mr-2 hover:-translate-y-1 hover:scale-110 duration-200" onClick={goLeft}>
+        ←
+      </button>
+      <div className={`w-2/5 h-[25rem] bg-azulNav rounded-lg border-2 border-azul transition-transform transform ${currentIndex === 0 ? 'animate-slideLeft' : 'animate-slideRight'}`}>
+        <div className="flex justify-center text-2xl bg-azulClaro text-white font-bold">
+          {meses[currentIndex]} {año}
+        </div>
+        <div container className="mt-2 grid grid-cols-7 gap-4 p-4">
+          {diasDelMes.map((dia, index) => (
+            <div key={index} item xs={1} className={`text-center p-2 ${dia === diaActual ? 'bg-azulClaro text-white rounded shadow drop-shadow-md p-2 hover:-translate-y-1 hover:scale-110 duration-200' : 'bg-morado text-center text-white rounded shadow drop-shadow-md p-2 hover:-translate-y-1 hover:scale-110 duration-200'}`}>
               <p>{dia}</p>
             </div>
           ))}
-        </div></div>
-        <button className="p-2 bg-gray-300 rounded-full ml-2 hover:-translate-y-1 hover:scale-110 duration-200" onClick={goRight}>→</button>
-       
+        </div>
+      </div>
+      <button className="p-2 bg-gray-300 rounded-full ml-2 hover:-translate-y-1 hover:scale-110 duration-200" onClick={goRight}>
+        →
+      </button>
+    
+     
         <div className="w-[32rem] h-[25rem] bg-azulNav ml-4 rounded-lg border-2 border-azul">
         <div className="flex justify-center bg-azulClaro text-white font-bold">
           <p className="mt-2 text-2xl">Servicios disponibles:</p>
