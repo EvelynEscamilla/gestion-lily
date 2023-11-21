@@ -38,30 +38,32 @@ const Inicio = () => {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
-            <div className="texto1 bg-blue-100 p-4 text-2xl text-center text-black">
+            <div className="bg-blue-100 p-4 text-2xl text-center text-black ">
                 Tratamientos más populares
             </div>
-            <div className="contenedor flex justify-center items-end h-96 mt-8 mb-16">
-                <div className="imagen-contenedor flex justify-between max-w-screen-lg w-full">
-                    <div className="rounded-[10%] overflow-hidden bg-morado  h-96 relative hover:-translate-y-1 hover:scale-110 duration-200 w-[30%]">
-                        <img src="Images/Inicio/Mp-img1.jpg"  alt="Imagen 1" className=" w-full h-full object-cover"></img>
-                        <div className="bg-morado bg-opacity-70  text-white text-center p-2 absolute bottom-0 left-0 w-full">
+            <br></br>
+            <div className="flex justify-center text-center items-center h-full w-full">
+                <div className=" justify-center items-center text-center max-w-screen-lg w-full grid grid-rows-3 gap-y-6 lg:grid-cols-3 lg:grid-rows-1 lg:gap-[11%]">
+                    <div className="text-center rounded-[10%] overflow-hidden bg-morado h-96 relative hover:-translate-y-1 hover:scale-110 duration-200 w-64">
+                        <img src="Images/Inicio/Mp-img1.jpg" alt="Imagen 1" className="w-full h-full object-cover" />
+                        <div className="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full flex justify-center items-center">
                             <p className="text-lg font-bold">Botox Facial</p>
                         </div>
                     </div>
-                    <div className="rounded-[10%] overflow-hidden w-[30%] h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
-                        <img src="Images/Inicio/Mp-img2.jpg"  alt="Imagen 2" className="w-full h-full object-cover"></img>
-                        <div className="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full">
+                    <div className="rounded-[10%] overflow-hidden w-64 h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
+                        <img src="Images/Inicio/Mp-img2.jpg" alt="Imagen 2" className="w-full h-full object-cover" />
+                        <div className="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full flex justify-center items-center">
                             <p className="text-lg font-bold">Oxígeno</p>
                         </div>
                     </div>
-                    <div className="rounded-[10%] overflow-hidden w-[30%] h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
-                        <img src="Images/Inicio/Mp-img3.jpg"  alt="Imagen 3" className="w-full h-full object-cover"></img>
-                        <div className="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full">
+                    <div className="rounded-[10%] overflow-hidden w-64 h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
+                        <img src="Images/Inicio/Mp-img3.jpg" alt="Imagen 3" className="w-full h-full object-cover" />
+                        <div className="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full flex justify-center items-center">
                             <p className="text-lg font-bold">Carboxiterapia</p>
                         </div>
                     </div>
                 </div>
+
                 {infoDiv == 1 ?
                     <img className=" fixed bottom-0 rounded-full bg-azulNav border-3 border-morado shadow-lg p-2 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200 " src="Images/Inicio/logosolito.svg" alt="Mi Imagen Fija" onClick={() => handleClick()}></img>
                     :
@@ -86,7 +88,7 @@ const Inicio = () => {
                     </div>
                 }
             </div>
-           
+            <br></br><br></br>
         </>
     )
 }
