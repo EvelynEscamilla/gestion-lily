@@ -9,38 +9,45 @@ import Mapa from "../../assets/Footer/Mapa.svg"
 
 const Footer = () => {
   return (
-    <footer className="Navbar w-auto h-auto px-2 flex flex-col sm:flex-row items-center sm:text-sm lg:text-base justify-between bg-azulClaro text-white">
-      <div className="Logo flex w-full h-full pb-3 sm:w-1/3 sm:h-60 justify-center items-center ">
-        <div className="flex flex-col items-center">
-            <img className="Logo h-32 sm:h-40" src={Logo2} />
-            <p className=" font-bold">Lilia Ramos S.</p>
+    <footer className="Navbar w-full h-auto  flex flex-col items-center sm:text-sm lg:text-base  bg-azulClaro text-white">
+      <div className='w-full flex flex-col px-2 sm:flex-row items-center'>
+        <div className="flex sm:flex-col w-full h-full sm:w-1/3 sm:h-60 justify-center items-center ">
+
+          <img className="Logo h-28 sm:h-32 lg:h-40 w-full" src={Logo2} />
+          <div className='w-full flex flex-col items-center'>
+            <p className="font-bold">Lilia Ramos S.</p>
             <p>Cosmiatra</p>
+          </div>
+
         </div>
-      </div>
-      <div className="Logo w-full py-3 sm:w-1/3 sm:h-40 flex-col space-y-3 justify-center items-center inline-flex sm:px-3">
-          <div>
-            <p>Siguenos en Nuestras Redes Sociales:</p>
+        <div className="Logo w-full py-3 sm:w-1/3 sm:h-40 flex-col space-y-3 justify-center items-center inline-flex sm:px-3">
+
+          <p className=' pb-2 font-semibold'>Siguenos en Nuestras Redes Sociales:</p>
+
+          <div className="flex flex-row w-full items-center ">
+            <div className=' flex items-center justify-center pl-[20%] w-full'><a href="https://www.facebook.com/clinicadebellezaenmorelia" ><img className="Logo h-11  sm:h-12 lg:h-14" src={Fb} /></a></div>
+            <div className=' flex items-center justify-center pr-[20%] w-full'><a href="https://www.instagram.com/clinica_de_belleza_lily" ><img className="Logo h-11  sm:h-12 lg:h-14" src={Ig} /></a></div>
           </div>
-          <div className="flex justify-between space-x-7 ">
-            <a href="https://www.facebook.com/clinicadebellezaenmorelia"><img className="Logo h-10 sm:h-12 lg:h-14" src={Fb} /></a>
-            <a href="https://www.instagram.com/clinica_de_belleza_lily"><img className="Logo h-10 sm:h-12 lg:h-14" src={Ig} /></a>
+        </div>
+        <div className="Ubic flex flex-row w-full py-3 sm:w-4/12 sm:h-40 items-center ">
+
+          <div className="flex flex-col items-center pr-2 w-full">
+            <p className=" font-bold">Encuentranos en:</p>
+
+            <p>Thomas Alva Edison No. 335</p>
+            <p>Col. Electricistas, C.P. 58290</p>
+            <p className=" pt-6">Morelia, Michoacan</p>
+            <p>44 35 87 60 57</p>
+
           </div>
-      </div>
-      <div className="Logo w-full py-3 sm:w-1/3 sm:h-40 justify-center items-center inline-flex">
-        <div className="flex items-center space-x-4">
-          <div className="flex flex-col items-center whitespace-pre-line">
-            <div className=" font-bold">Encuentranos en:</div>
-            <div>
-              <p>Thomas Alva Edison No. 335</p>
-              <p>Col. Electricistas, C.P. 58290</p>
-              <p className=" pt-6">Morelia, Michoacan</p>
-              <p>44 35 87 60 57</p>
-            </div>
-          </div>
-          <div>
+          <div className='w-full flex items-center justify-center'>
             <a href="https://www.google.com/maps/place/Thomas+Alva+Edison+335,+Electricistas,+58290+Morelia,+Mich."><img className="Logo h-40 hover:-translate-y-1 hover:scale-110 duration-200" src={Mapa} /></a>
           </div>
+
         </div>
+      </div>
+      <div className=" text-xs md:text-sm w-full h-auto text-center bg-turqueza">
+        <p className="w-full h-1/3" >2023 © Clinica de Belleza Lily. todos los derechos reservados</p>
       </div>
     </footer>
   )

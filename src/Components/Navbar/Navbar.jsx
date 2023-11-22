@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     
-    <div className="Navbar w-full h-24 relative shadow flex items-center text-[11px] md:text-sm lg:text-base justify-between bg-azulNav">
+    <div className="Navbar w-full h-24 relative shadow flex items-center text-[11px] sm:text-[11px] md:text-sm lg:text-base justify-between bg-azulNav">
       <Link className="Logo w-[23%] sm:w-[20%] h-20  justify-center items-center inline-flex cursor-pointer" to="/gestion-lily/">
         <img className="Logo h-[5rem]" src="Images/Nav/Logo.svg" />
       </Link>
@@ -22,12 +22,12 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-      <div className="IS w-[23%] sm:w-[20%] h-20 flex items-center  justify-center ">
+      <div className="IS w-[23%] sm:w-[20%] h-20 flex items-center text-[10px] sm:text-[11px] md:text-sm lg:text-base justify-center ">
         <Link className="IniciarSesion text-center text-black font-normal cursor-pointer" to="/gestion-lily/login">
           INICIAR SESIÓN
         </Link>
         <img
-          className="Logoi1 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 "
+          className="Logoi1 w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 "
           src="Images/Nav/login.png"
         />
       </div>
