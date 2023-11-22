@@ -21,7 +21,7 @@ const FormSignUp = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-[100%] bg-azulNav bg-opacity-70 lg:bg-opacity-90 text-center p-8 lg:w-1/2"
+      className="w-full bg-azulNav bg-opacity-70 lg:bg-opacity-90 text-center p-8 lg:w-1/2 flex flex-col justify-center items-center"
     >
       <img
         className="lg:w-1/2 mx-auto py-7 w-3/4 "
@@ -41,11 +41,11 @@ const FormSignUp = () => {
 
       <p className="texto-fuente">Utiliza mínimo ocho caracteres combinados</p>
       <p className="texto-fuente">Letras, números y símbolos</p>
-      <div className="flex py-3">
-        <div className=" w-1/2 ">
-          <Link to="/gestion-lily/crear-cuenta">
+      <div className="flex py-3 w-full">
+        <div className=" w-1/2 justify-between ">
+          <Link to="/gestion-lily/login">
             <Boton BG="morado" TC="white">
-              Cancelar
+              Iniciar Sesion
             </Boton>
           </Link>
         </div>
