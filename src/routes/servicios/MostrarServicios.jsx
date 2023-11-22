@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import GaleriaTipos from "../../Components/MostrarServicios/GaleriaTipos";
-import imagenes from "../../Components/MostrarServicios/Imagenes";
-import ImagenesTipos from "../../Components/MostrarServicios/ImagenesTipos";
-import Servicios from "../../Components/MostrarServicios/Servicios";
+import GaleriaTipos from "../../Components/mostrarServicios/GaleriaTipos";
+import imagenes from "../../Components/mostrarServicios/Imagenes";
+import ImagenesTipos from "../../Components/mostrarServicios/ImagenesTipos";
+import Servicios from "../../Components/mostrarServicios/Servicios";
 import { useState } from "react";
 
 

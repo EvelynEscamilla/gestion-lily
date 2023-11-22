@@ -1,6 +1,6 @@
 import React from "react";
 import Boton from "../Components/boton/Boton";
-import TextField from "../Components/TextField/TextField";
+import TextField from "../Components/textField/TextField";
 import { useState } from "react";
 
 const Pruebas = () => {

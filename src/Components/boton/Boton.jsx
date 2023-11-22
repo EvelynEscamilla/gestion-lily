@@ -1,6 +1,6 @@
 import React from "react";
 
-const Boton = ({ BG, children, TC }) => {
+const Boton = ({ BG, children, TC, type }) => {
   const buttonClasses = `
         group
         relative
@@ -10,14 +10,14 @@ const Boton = ({ BG, children, TC }) => {
         py-2 
         rounded-3xl 
         overflow-hidden
-        text-xl 
+        lg:text-xl 
         hover:-translate-y-1 
         hover:scale-110 
         duration-200 
         cursor-pointer
         border-2
         border-${BG}
-        
+        md:text-base
         `;
 
   const divClasses = `
@@ -37,7 +37,7 @@ const Boton = ({ BG, children, TC }) => {
             `;
 
   return (
-    <button className={buttonClasses}>
+    <button className={buttonClasses} type={type}>
       <div className={divClasses}></div>
       <span className={divSpan}>{children}</span>
     </button>
