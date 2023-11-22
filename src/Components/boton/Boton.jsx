@@ -1,6 +1,6 @@
 import React from "react";
 
-const Boton = ({ BG, children, TC, type }) => {
+const Boton = ({ BG, children, TC, type = "submit" }) => {
   const buttonClasses = `
         group
         relative

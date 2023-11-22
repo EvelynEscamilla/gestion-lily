@@ -18,6 +18,7 @@ import HistorialMes from './routes/administrador/HistorialMes'
 import Login2 from './routes/Login2'
 import MostrarServicios from './routes/servicios/MostrarServicios'
 import PerfilCliente from './routes/usuario/PerfilCliente'
+import ClientProtectedRoute from './routes/auth/ClientProtectedRoute'
 import { AuthProvider } from './context/authContext'
 import Pruebas from './routes/Pruebas'
 
@@ -85,7 +86,7 @@ function App() {
         {
           //Error, volvieron a declarar body dentro del componente
           path: "/gestion-lily/perfil",
-          element: <PerfilCliente />
+          element: <ClientProtectedRoute><PerfilCliente /></ClientProtectedRoute>
         },
         {
           path: "/gestion-lily/editar-servicios",

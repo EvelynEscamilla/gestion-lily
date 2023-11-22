@@ -4,13 +4,13 @@ import { Navigate } from 'react-router-dom'
 
 const ProtectedRoute = ({children}) => {
 
-    const { user, loading } = useAuth()
+    const { user, loading, userData } = useAuth()
 
     if (loading) return <div>Loading...</div>
 
-    if (!user) return <Navigate to={"/gestion-lily/inicio"}/>
+    if (!user) return <Navigate to={"/gestion-lily/"}/>
 
-
+    if(userData.rol!="cliente") return <Navigate to={"/gestion-lily/login"}/>
     
     return (children)
 }

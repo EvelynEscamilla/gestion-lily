@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const PerfilCliente = () => {
     return (
         <>
-            <body className="bg-gray-100 flex justify-center items-center h-screen">
+            <div className="bg-gray-100 flex justify-center items-center h-screen">
                 <div className="bg-white rounded-lg p-1 lg:p-3 shadow-lg items-center justify-center">
                     <div className='grid grid-rows-2 lg:flex justify-center items-center p-4'>
                         <div className='flex items-center justify-center'>
@@ -41,7 +41,7 @@ const PerfilCliente = () => {
                         </Link>
                     </div>
                 </div>
-            </body>
+            </div>
         </>
     )
 }

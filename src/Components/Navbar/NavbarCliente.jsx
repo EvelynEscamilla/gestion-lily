@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import DropCliente from "./DropCliente";
+import DropCliente from './DropCliente'
 
-const Navbar = () => {
+const NavbarCliente = () => {
   return (
-    <div className="Navbar w-full h-24 relative shadow flex items-center text-[11px] md:text-sm lg:text-base justify-between bg-azulNav">
+    <nav className="Navbar w-full h-24 relative shadow flex items-center text-[11px] md:text-sm lg:text-base justify-between bg-azulNav">
       <div Link to="/gestion-lily/" className="Logo w-[23%] sm:w-[20%] h-20  justify-center items-center inline-flex cursor-pointer">
         <img className="Logo h-[5rem]" src="Images/Nav/Logo.svg" />
       </div>
@@ -23,10 +23,10 @@ const Navbar = () => {
         </div>
       </div>
       <div className="IS w-[23%] sm:w-[20%] h-20 flex items-center justify-end z-10 ">
-        <DropCliente></DropCliente>
+        <DropCliente />
       </div>
-    </div>
+    </nav>
   );
 };
 
-export default Navbar;
+export default NavbarCliente;

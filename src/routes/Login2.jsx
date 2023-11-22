@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TextField from "../Components/textField/TextField";
+import TextField from "../Components/TextField/TextField";
 import Boton from "../Components/boton/Boton";
 import FormLogin from "../Components/Forms/FormLogin";
+import { useAuth } from '../context/authContext'
 
 const Login2 = () => {
+
+
   const divStyle = {
     backgroundImage: `url("Images/Login/Spa-img2.jpg")`,
   };
@@ -14,7 +17,7 @@ const Login2 = () => {
         className=" w-5/6 h-screen justify-end flex bg-cover bg-center"
         style={divStyle}
       >
-        <FormLogin></FormLogin>
+        <FormLogin />
       </div>
     </div>
   );
