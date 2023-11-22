@@ -1,5 +1,5 @@
-import imagenes from "../../Components/MostrarServicios/Imagenes";
-import Servicio from "../../Components/GestionarServicios/Servicio";
+import imagenes from "../../Components/mostrarServicios/Imagenes";
+import Servicio from "../../Components/gestionarServicios/Servicio";
 import { Link } from 'react-router-dom'
 
 const GestionarServicios = () => {

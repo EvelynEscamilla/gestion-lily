@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FormSignUp from '../Components/Forms/FormSignUp'
+import FormSignUp from '../Components/forms/FormSignUp'
 
 const CrearCuenta = () => {
 
