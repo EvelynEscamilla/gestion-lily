@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TextField from "../Components/TextField/TextField";
+import TextField from "../Components/textField/TextField";
 import Boton from "../Components/boton/Boton";
 import FormLogin from "../Components/Forms/FormLogin";
 

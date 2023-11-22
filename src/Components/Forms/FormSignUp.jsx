@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import useForm from "../../hooks/useForm";
 import Boton from "../boton/Boton";
-import TextField from "../TextField/TextField";
+import TextField from "../textField/TextField";
 
 const FormSignUp = () => {
   const { signUp } = useAuth();

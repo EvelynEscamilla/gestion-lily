@@ -3,7 +3,7 @@ import DropAdministrador from "./DropAdministrador"
 
 const Navbar = () => {
   return (
-    <div className="Navbar w-full h-24 relative shadow flex items-center text-[11px] md:text-sm lg:text-base justify-between bg-azulNav z-10">
+    <div className="Navbar w-full h-24 relative shadow flex items-center text-[11px] md:text-sm lg:text-base justify-between bg-azulNav">
       <Link to="/gestion-lily/" className="Logo w-[23%] sm:w-[20%] h-20  justify-center items-center inline-flex cursor-pointer">
         <img className="Logo h-[5rem]" src="Images/Nav/Logo.svg" />
       </Link>
@@ -22,7 +22,7 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-      <div className="IS w-[23%] sm:w-[20%] h-20 flex items-center  justify-end">
+      <div className="IS w-[23%] sm:w-[20%] h-20 flex items-center  justify-end z-10">
         <DropAdministrador></DropAdministrador>
       </div>
     </div>
