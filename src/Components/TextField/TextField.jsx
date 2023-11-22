@@ -10,10 +10,11 @@ const TextField = ({ name, type, placeholder, value, onChange }) => {
        w-full
        px-4
         py-2
-       text-xl
+       lg:text-xl
        bg-azulNav
        text-center
-         rounded-full 
+         rounded-full
+         md:text-base 
       "
       type={type}
       placeholder={placeholder}
