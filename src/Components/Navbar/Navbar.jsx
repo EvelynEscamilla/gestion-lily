@@ -42,7 +42,6 @@ const Navbar = ({ rol }) => {
         }
       </div>
     </nav>
-
   );
 };
 
