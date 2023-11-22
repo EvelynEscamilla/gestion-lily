@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import useForm from "../../hooks/useForm";
 import Boton from "../boton/Boton";
-import TextField from "../textField/TextField";
+import TextField from "../TextField/TextField";
 
-const FormSignUp = () => {
+const FormLogin = () => {
   const { signUp } = useAuth();
   const { formData, handleFormDataChange } = useForm();
 
@@ -27,31 +27,28 @@ const FormSignUp = () => {
         className="lg:w-1/2 mx-auto py-7 w-3/4 "
         src="Images/Login/Lily-hor.png"
       ></img>
-      <p className=" text-3xl py-3">Crea una cuenta en nuestro sitio</p>
+      <p className=" text-3xl py-3">Inicio de Sesión</p>
       <div className=" w-full justify-center items-center flex">
         <div className=" lg:w-4/5 block">
-          <TextField name="nombreCompleto" type="text" placeholder="Nombre Completo" />
-          <TextField name="telefono" type="tel" placeholder="Numero de Celular" />
-          <TextField name="email" type="email" placeholder="Correo electronico" />
-          <TextField name="password" type="password" placeholder="Contraseña" />
-          <TextField name="passwordOt" type="password" placeholder="Confirmar Contraseña"
-          />
+          <TextField name="Correo" type="email" placeholder="Correo" />
+          <TextField name="Contra" type="password" placeholder="Contraseña" />
         </div>
       </div>
 
-      <p className="texto-fuente">Utiliza mínimo ocho caracteres combinados</p>
-      <p className="texto-fuente">Letras, números y símbolos</p>
+      <p className="texto-fuente text-center py-3 md:text-base text-turqueza lg:text-xl">
+        <a href="">¿Has olvidado tu contraseña?</a>
+      </p>
       <div className="flex py-3">
         <div className=" w-1/2 ">
           <Link to="/gestion-lily/crear-cuenta">
-            <Boton BG="morado" TC="white">
-              Cancelar
+            <Boton BG="" TC="turqueza">
+              Crear Cuenta
             </Boton>
           </Link>
         </div>
         <div className=" w-1/2 ">
-          <Boton BG="morado" TC="white" type="submit">
-            Crear Cuenta
+          <Boton BG="morado" TC="white">
+            Iniciar Sesion
           </Boton>
         </div>
       </div>
@@ -59,4 +56,4 @@ const FormSignUp = () => {
   );
 };
 
-export default FormSignUp;
+export default FormLogin;
