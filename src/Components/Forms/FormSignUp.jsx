@@ -4,6 +4,7 @@ import { useAuth } from "../../context/authContext";
 import useForm from "../../hooks/useForm";
 import Boton from "../boton/Boton";
 import TextField from "../TextField/TextField";
+import BtnLink from "../btnLink/BtnLink";
 
 const FormSignUp = () => {
   const { signUp } = useAuth();
@@ -30,11 +31,35 @@ const FormSignUp = () => {
       <p className=" text-3xl py-3">Crea una cuenta en nuestro sitio</p>
       <div className=" w-full justify-center items-center flex">
         <div className=" lg:w-4/5 block">
-          <TextField onChange={handleFormDataChange} name="nombreCompleto" type="text" placeholder="Nombre Completo" />
-          <TextField onChange={handleFormDataChange} name="telefono" type="tel" placeholder="Numero de Celular" />
-          <TextField onChange={handleFormDataChange} name="email" type="email" placeholder="Correo electronico" />
-          <TextField onChange={handleFormDataChange} name="password" type="password" placeholder="Contraseña" />
-          <TextField onChange={handleFormDataChange} name="passwordConfirmation" type="password" placeholder="Confirmar Contraseña"
+          <TextField
+            onChange={handleFormDataChange}
+            name="nombreCompleto"
+            type="text"
+            placeholder="Nombre Completo"
+          />
+          <TextField
+            onChange={handleFormDataChange}
+            name="telefono"
+            type="tel"
+            placeholder="Numero de Celular"
+          />
+          <TextField
+            onChange={handleFormDataChange}
+            name="email"
+            type="email"
+            placeholder="Correo electronico"
+          />
+          <TextField
+            onChange={handleFormDataChange}
+            name="password"
+            type="password"
+            placeholder="Contraseña"
+          />
+          <TextField
+            onChange={handleFormDataChange}
+            name="passwordConfirmation"
+            type="password"
+            placeholder="Confirmar Contraseña"
           />
         </div>
       </div>
@@ -43,11 +68,9 @@ const FormSignUp = () => {
       <p className="texto-fuente">Letras, números y símbolos</p>
       <div className="flex py-3 w-full">
         <div className=" w-1/2 justify-between ">
-          <Link to="/gestion-lily/login">
-            <Boton BG="morado" TC="white">
-              Iniciar Sesion
-            </Boton>
-          </Link>
+          <BtnLink BG="morado" TC="white" direccion="/gestion-lily/login">
+            Iniciar Sesion
+          </BtnLink>
         </div>
         <div className=" w-1/2 ">
           <Boton BG="morado" TC="white" type="submit">
