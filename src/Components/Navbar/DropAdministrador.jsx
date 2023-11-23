@@ -1,50 +1,49 @@
-import { useState } from "react";
-import { Link } from 'react-router-dom'
-
+import { useState, Fragment } from "react";
+import LinkNavbar from "./LinkNavbar";
+import BtnLogOut from "./BtnLogOut";
+import { Popover, Transition } from "@headlessui/react";
 
 function DropAdministrador() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const options = [
-    { value: "/gestion-lily/Gestion-Citas", label: "Citas Programadas" },
-    { value: "/gestion-lily/Historial-Mes", label: "Historial de Citas" },
-    { value: "/gestion-lily/Gestion-Servicios", label: "Administrar servicios" },
-    { value: "/gestion-lily/Gestion-Citas", label: "Administrar citas" },
-    { value: "/gestion-lily/EditarAdmin", label: "Editar datos"},
-  ];
-
-
-  const toggleDropdown = () => setIsOpen(!isOpen);
-
-  const handleOptionClick = (option) => {
-
-    setIsOpen(false);
-  };
-
   return (
-    
-      <button
-        className="dropdown__toggle relative flex justify-end pr-2"
-        onClick={toggleDropdown}
-      >
-        {<img className="Logoi1  h-20  " src="Images/Nav/login.png" />}
+    <>
+      <Popover>
+        <Popover.Button className="relative flex justify-end  duration-150 z-10">
+          {<img className="Logoi1  h-20  " src="Images/Nav/login.png" />}
+        </Popover.Button>
 
-        {isOpen && (
-          <div className="absolute block top-full  justify-end w-[220px] bg-white shadow-md mt-1 rounded transition ">
-            <ul className="dropdown__menu text-left border rounded">
-              {options.map((option) => (
-                 <Link to={`${option.value}`}>
-                <li key={option.value} className="dropdown__menu-item px-4 py-1 hover:bg-gray-100 border-b" onClick={() => handleOptionClick(option)}
-                >
-                  {option.label}
-                </li>
-                </Link>
-              ))}
-            </ul>
-          </div>
-        )}
-      </button>
-    
+        <Transition
+          as={Fragment}
+          enter="transition ease-out duration-200"
+          enterFrom="opacity-0 translate-y-1"
+          enterTo="opacity-100 translate-y-0"
+          leave="transition ease-in duration-150"
+          leaveFrom="opacity-100 translate-y-0"
+          leaveTo="opacity-0 translate-y-1"
+        >
+          <Popover.Group>
+            <div className=" absolute  top-full right-0    w-[200px] bg-white shadow-md mt-1 rounded transition flex flex-col items-center z-20">
+              <LinkNavbar direccion={"/gestion-lily/Gestion-Citas"}>
+                Citas Programadas
+              </LinkNavbar>
+              <LinkNavbar direccion={"/gestion-lily/Historial-Mes"}>
+                Historial de Citas
+              </LinkNavbar>
+              <LinkNavbar direccion={"/gestion-lily/Gestion-Servicios"}>
+                Administrar servicios
+              </LinkNavbar>
+              <LinkNavbar direccion={"/gestion-lily/Gestion-Citas"}>
+                Administrar citas
+              </LinkNavbar>
+              <LinkNavbar direccion={"/gestion-lily/EditarAdmin"}>
+                Editar datos
+              </LinkNavbar>
+
+              <BtnLogOut />
+            </div>
+          </Popover.Group>
+        </Transition>
+      </Popover>
+    </>
   );
 }
 

@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
-import BtnLink from "../btnLink/BtnLink";
 import { Link } from "react-router-dom";
 import Boton from "../boton/Boton";
 
