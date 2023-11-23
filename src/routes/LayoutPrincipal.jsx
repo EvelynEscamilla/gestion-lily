@@ -1,6 +1,6 @@
 
 import Footer from "../Components/footer/Footer"
-import Navbar from "../Components/navbar/Navbar"
+import Navbar from "../Components/navbar/NavbarCliente"
 import { Outlet } from "react-router-dom"
 
 const LayoutPrincipal = () => {

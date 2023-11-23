@@ -33,10 +33,7 @@ const EditarCliente = () => {
             <body className="bg-gray-100 lg:flex justify-center items-center h-[200%] lg:h-screen ">
                 <div className="bg-white rounded-lg  p-1 lg:p-3 shadow-lg items-center w-sreen">
                     <div className='grid grid-rows-1 gap-y-3 lg:flex items-center p-4'>
-                        <div className='grid grid-rows-1 items-center justify-center text-center'>
-                            <img src="Images/PerfilCliente/IMG_Perfil.jpg" className="hover:-translate-y-1 hover:scale-110 duration-200 border-[5px] border-morado w-64 h-64 rounded-full" alt="Imagen de perfil" />
-                            <input className="pt-4" type="file" name="archivo" id="archivo" accept=".jpg, .jpeg, .png"></input>
-                        </div>
+                        <p>Perfil</p>
                         <div className=" lg:ml-4 text-white bg-morado px-2 lg:px-5 lg:py-2 rounded-md items-center justify-center text-center">
                             <div className='lg:flex grid grid-rows-2'>
                                 <div className=''>
