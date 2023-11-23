@@ -4,7 +4,7 @@ import { createContext, useEffect } from 'react'
 import { useContext } from 'react'
 import { useState } from 'react'
 import { passwordValidation } from '../validations/user.validations'
-import { postUser } from '../controllers/user.controller'
+import { postUser, getUser } from '../controllers/user.controller'
 
 export const authContext = createContext()
 
@@ -20,12 +20,13 @@ export const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [userData, setUserData] = useState(null)
 
     const signUp = async (userData, email, password) => {
         try {
             await createUserWithEmailAndPassword(auth, email, password)
                 .then(async (userCredentials) => {
-                    await postUser({...userData, rol : "cliente"}, userCredentials.user.uid)
+                    await postUser({ ...userData, rol: "cliente" }, userCredentials.user.uid)
                 })
         } catch (error) {
             console.log(error)
@@ -42,8 +43,13 @@ export const AuthProvider = ({ children }) => {
     //Un use Effect se ejecuta cada vez que se detecta un cambio en el valor de los [], retorna una desuscripcion
     useEffect(() => {
 
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             setUser(currentUser)
+            if (currentUser) {
+                setUserData(await getUser(currentUser.uid))
+            } else { 
+                setUser(null)
+            }
             setLoading(false)
             console.log(currentUser)
         })
@@ -54,5 +60,5 @@ export const AuthProvider = ({ children }) => {
     }, [])
 
 
-    return <authContext.Provider value={{ user, loading, logIn, logOut, signUp }}>{children}</authContext.Provider>
+    return <authContext.Provider value={{ user, loading, logIn, logOut, signUp, userData }}>{children}</authContext.Provider>
 }

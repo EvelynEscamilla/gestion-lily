@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import useForm from "../../hooks/useForm";
 import Boton from "../boton/Boton";
-import TextField from "../textField/TextField";
+import TextField from "../TextField/TextField";
 
 const FormSignUp = () => {
   const { signUp } = useAuth();
@@ -30,11 +30,11 @@ const FormSignUp = () => {
       <p className=" text-3xl py-3">Crea una cuenta en nuestro sitio</p>
       <div className=" w-full justify-center items-center flex">
         <div className=" lg:w-4/5 block">
-          <TextField name="nombreCompleto" type="text" placeholder="Nombre Completo" />
-          <TextField name="telefono" type="tel" placeholder="Numero de Celular" />
-          <TextField name="email" type="email" placeholder="Correo electronico" />
-          <TextField name="password" type="password" placeholder="Contraseña" />
-          <TextField name="passwordOt" type="password" placeholder="Confirmar Contraseña"
+          <TextField onChange={handleFormDataChange} name="nombreCompleto" type="text" placeholder="Nombre Completo" />
+          <TextField onChange={handleFormDataChange} name="telefono" type="tel" placeholder="Numero de Celular" />
+          <TextField onChange={handleFormDataChange} name="email" type="email" placeholder="Correo electronico" />
+          <TextField onChange={handleFormDataChange} name="password" type="password" placeholder="Contraseña" />
+          <TextField onChange={handleFormDataChange} name="passwordConfirmation" type="password" placeholder="Confirmar Contraseña"
           />
         </div>
       </div>

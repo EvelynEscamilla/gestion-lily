@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from 'react-router-dom'
 
 
-function Dropdown() {
+function DropAdministrador() {
   const [isOpen, setIsOpen] = useState(false);
 
   const options = [
@@ -48,4 +48,4 @@ function Dropdown() {
   );
 }
 
-export default Dropdown;
+export default DropAdministrador;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom'
 
-function Dropdown() {
+function DropCliente() {
   const [isOpen, setIsOpen] = useState(false);
 
   const options = [
@@ -17,6 +17,10 @@ function Dropdown() {
 
     setIsOpen(false);
   };
+
+
+  //const {logOut} = useAuth()
+  //onClick {logOut}
 
   return (
 
@@ -44,4 +48,4 @@ function Dropdown() {
   );
 }
 
-export default Dropdown;
+export default DropCliente;

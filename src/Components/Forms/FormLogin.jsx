@@ -6,18 +6,14 @@ import Boton from "../boton/Boton";
 import TextField from "../TextField/TextField";
 
 const FormLogin = () => {
-  const { signUp } = useAuth();
+  const { logIn } = useAuth();
   const { formData, handleFormDataChange } = useForm();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userData = {
-      nombreCompleto: formData.nombreCompleto,
-      telefono: formData.telefono,
-      email: formData.email,
-    };
-    await signUp(userData, formData.email, formData.password);
-  };
+    await logIn(formData.email, formData.password);
+  }
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -30,13 +26,13 @@ const FormLogin = () => {
       <p className=" text-3xl py-3">Inicio de Sesión</p>
       <div className=" w-full justify-center items-center flex">
         <div className=" lg:w-4/5 block">
-          <TextField name="Correo" type="email" placeholder="Correo" />
-          <TextField name="Contra" type="password" placeholder="Contraseña" />
+          <TextField onChange={handleFormDataChange} name="email" type="email" placeholder="Correo" />
+          <TextField onChange={handleFormDataChange} name="password" type="password" placeholder="Contraseña" />
         </div>
       </div>
 
       <p className="texto-fuente text-center py-3 md:text-base text-turqueza lg:text-xl">
-        <a href="">¿Has olvidado tu contraseña?</a>
+        <Link to="">¿Has olvidado tu contraseña?</Link>
       </p>
       <div className="flex py-3">
         <div className=" w-1/2 ">

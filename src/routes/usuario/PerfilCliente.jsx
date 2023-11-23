@@ -39,7 +39,7 @@ const PerfilCliente = () => {
                         </Link>
                     </div>
                 </div>
-            </body>
+            </div>
         </>
     )
 }
