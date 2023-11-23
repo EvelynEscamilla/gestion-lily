@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const PerfilCliente = () => {
     return (
         <>
-            <body className="bg-gray-100 flex justify-center items-center h-screen">
+            <div className="bg-gray-100 flex justify-center items-center h-screen">
                 <div className="bg-white rounded-lg p-1 lg:p-3 shadow-lg items-center justify-center pb-2">
                     <div className='grid grid-rows-1 lg:flex justify-center items-center p-8 pb-2'>
                         
