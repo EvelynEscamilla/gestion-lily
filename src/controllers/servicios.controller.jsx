@@ -12,15 +12,39 @@ IMAGEN == ID
 }
 */
 
-import { addDoc, doc } from 'firebase/firestore'
-import { db } from '../firebase'
+import { addDoc, collection, getDocs, getDoc, query } from 'firebase/firestore'
+import { db, storage } from '../firebase'
+import { ref, uploadBytes } from 'firebase/storage'
 
-const reference = "servicios"
-export const postServicio = async (servicioData) => {
+const reference = "Servicios"
+const storageReference = "Servicios"
+
+// POST SUBIR
+// GET JALAR DATOS
+// PUT ACTUALIZAR
+// DELETE BORRAR
+
+export const postServicio = async ({ descripcion, duracion, maximoClientes, tipo, precio, nombre, file }) => {
     try {
-        await addDoc(doc(db, reference), servicioData)
+        const { id } = await addDoc(collection(db, reference), { descripcion, duracion, maximoClientes, tipo, precio, nombre })
+        await postServicioImage(file, id)
     } catch (error) {
         console.log(error)
         throw new Error(error.message)
+    }
+}
+
+const postServicioImage = async (file, id) => {
+    await uploadBytes(ref(storage, storageReference + "/" + id), file)
+        .then((snapshot) => console.log(snapshot.ref))
+}
+
+export const getServicios = async () => {
+    try {
+        const { docs } = await getDocs(collection(db, reference))
+        const allServicios = docs.map((doc) => doc.data())
+        return allServicios
+    } catch (error) {
+        console.log(error)
     }
 }
