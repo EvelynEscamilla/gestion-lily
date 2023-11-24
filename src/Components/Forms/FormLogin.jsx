@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { useAuth } from "../../context/authContext";
 import useForm from "../../hooks/useForm";
 import Boton from "../boton/Boton";
 import TextField from "../TextField/TextField";
+import BtnLink from "../btnLink/BtnLink";
 
 const FormLogin = () => {
   const { logIn } = useAuth();
@@ -17,7 +18,7 @@ const FormLogin = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-[100%] bg-azulNav bg-opacity-70 lg:bg-opacity-90 text-center p-8 lg:w-1/2"
+      className="w-full bg-azulNav bg-opacity-70 lg:bg-opacity-90 text-center p-8 lg:w-1/2 flex flex-col justify-center items-center"
     >
       <img
         className="lg:w-1/2 mx-auto py-7 w-3/4 "
@@ -32,15 +33,15 @@ const FormLogin = () => {
       </div>
 
       <p className="texto-fuente text-center py-3 md:text-base text-turqueza lg:text-xl">
-        <Link to="">¿Has olvidado tu contraseña?</Link>
+       
       </p>
-      <div className="flex py-3">
+      <div className="flex py-3 w-full items-center">
         <div className=" w-1/2 ">
-          <Link to="/gestion-lily/crear-cuenta">
-            <Boton BG="" TC="turqueza">
+          
+        <BtnLink BG="" TC="turqueza" direccion="/gestion-lily/crear-cuenta">
               Crear Cuenta
-            </Boton>
-          </Link>
+            </BtnLink>
+          
         </div>
         <div className=" w-1/2 ">
           <Boton BG="morado" TC="white">

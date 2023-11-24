@@ -11,9 +11,9 @@ const CrearCuenta = () => {
     backgroundImage: `url("Images/Login/Spa-img2.jpg")`,
   };
   return (
-    <div className=" flex justify-center items-center">
+    <div className=" flex justify-center items-center min-h-screen">
       <div
-        className=" w-5/6 h-fit xl:h-screen justify-end flex bg-cover bg-center"
+        className=" w-5/6 min-h-screen justify-end flex bg-cover bg-center"
         style={divStyle}
       >
         <FormSignUp></FormSignUp>
