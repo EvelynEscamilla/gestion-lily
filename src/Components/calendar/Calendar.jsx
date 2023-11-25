@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { esES } from "@mui/x-date-pickers/locales";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
 
 const theme = createTheme(
@@ -15,38 +15,53 @@ const theme = createTheme(
         contrastText: "#fff",
       },
     },
+    components: {
+      MuiPickersDay: {
+        styleOverrides: {
+
+        },
+      },
+    },
   },
   esES
 );
 const Calendar = () => {
+  const [fechaSeleccionada, setfechaSeleccionada] = useState(new Date());
+  console.log(fechaSeleccionada);
   return (
     <>
-    <div className="  flex justify-center lg:p-10 sm:p-5 py-3">
-      <div className="w-fit  rounded-lg border-2 border-azul  bg-azulNav  flex flex-col text-center  ">
-        <div className=" bg-azul">
-          <p className=" font-medium text-xl p-3">
-            Selecciona la fecha de tu cita
-          </p>
+      <div className="  flex justify-center lg:p-10 sm:p-5 py-3">
+        <div className="w-fit  rounded-lg border-2 border-azul  bg-azulNav  flex flex-col text-center  ">
+          <div className=" bg-azul">
+            <p className=" font-medium text-xl p-3">
+              Selecciona la fecha de tu cita
+            </p>
+          </div>
+          <ThemeProvider theme={theme}>
+            <LocalizationProvider
+              dateAdapter={AdapterDateFns}
+              localeText={esES}
+            >
+              <StaticDatePicker
+                disablePast={true}
+                autoFocus={true}
+                value={fechaSeleccionada}
+                onChange={setfechaSeleccionada}
+                sx={{
+                  bgcolor: "#EDF8F8",
+                }}
+                slotProps={{
+                  actionBar: {
+                    actions: ["today"],
+                  },
+                  toolbar: {
+                    hidden: true,
+                  },
+                }}
+              />
+            </LocalizationProvider>
+          </ThemeProvider>
         </div>
-        <ThemeProvider theme={theme} >
-          <LocalizationProvider dateAdapter={AdapterDayjs} >
-            <StaticDatePicker
-              sx={{
-                bgcolor: "#EDF8F8"
-                
-              }}
-              slotProps={{
-                actionBar: {
-                  actions: ["today"],
-                },
-                toolbar: {
-                  hidden: true,
-                },
-              }}
-            />
-          </LocalizationProvider>
-        </ThemeProvider>
-      </div>
       </div>
     </>
   );
