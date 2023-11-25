@@ -19,6 +19,7 @@ import Login2 from './routes/Login2'
 import MostrarServicios from './routes/MostrarServicios'
 import PerfilCliente from './routes/PerfilCliente'
 import RecuperarContraseña from './routes/RecuperarContraseña'
+import CambiarContraseñaRecuperada from './routes/CambiarContraseñaRecuperada'
 import { AuthProvider } from './context/authContext'
 
 function App() {
@@ -109,6 +110,10 @@ function App() {
         {
           path: "/gestion-lily/RecuperarContraseña",
           element: <RecuperarContraseña />
+        },
+        {
+          path: "/gestion-lily/Recuperacion-CambiarContraseña",
+          element: <CambiarContraseñaRecuperada />
         },
         
 
