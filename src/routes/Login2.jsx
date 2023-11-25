@@ -28,9 +28,11 @@ const Login2 = () => {
               placeholder="Contraseña"
             ></input>
           </div>
+        <Link to='/gestion-lily/RecuperarContraseña'>
           <p className="texto-fuente text-center py-3  text-turqueza text-xl">
             <a href="">¿Has olvidado tu contraseña?</a>
           </p>
+        </Link>
           <div className="flex py-3">
             <div className=" w-1/2 ">
               <Link to="/gestion-lily/Crear-Cuenta">

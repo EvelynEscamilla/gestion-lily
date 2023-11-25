@@ -18,6 +18,7 @@ import HistorialMes from './routes/HistorialMes'
 import Login2 from './routes/Login2'
 import MostrarServicios from './routes/MostrarServicios'
 import PerfilCliente from './routes/PerfilCliente'
+import RecuperarContraseña from './routes/RecuperarContraseña'
 import { AuthProvider } from './context/authContext'
 
 function App() {
@@ -105,6 +106,11 @@ function App() {
           path: "/gestion-lily/Gestion-Citas",
           element: <GestionCitas />
         },
+        {
+          path: "/gestion-lily/RecuperarContraseña",
+          element: <RecuperarContraseña />
+        },
+        
 
 
 
