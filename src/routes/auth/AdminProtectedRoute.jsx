@@ -1,18 +1,17 @@
-import React from 'react'
-import { useAuth } from '../../context/authContext'
-import { Navigate } from 'react-router-dom'
+import React from "react";
+import { useAuth } from "../../context/authContext";
+import { Navigate } from "react-router-dom";
 
 const AdminProtectedRoute = ({ children }) => {
+  const { user, loading, userData } = useAuth();
 
-    const { user, loading } = useAuth()
+  if (loading) return <div>Loading...</div>;
 
-    if (loading) return <div>Loading...</div>
+  if (!user) return <Navigate to={"/gestion-lily/"} />;
 
-    if (!user) return <Navigate to={"/gestion-lily/inicio"} />
+  if (userData.rol != "admin") return <Navigate to={"/gestion-lily/login"} />;
 
-    // if (!rol == "Admin") return <Navigate to={"/gestion-lily/inicio"} />
+  return children;
+};
 
-    return (children)
-}
-
-export default AdminProtectedRoute
+export default AdminProtectedRoute;

@@ -38,14 +38,7 @@ const GestionarServicios = () => {
           <div className="overflow-x-auto">
             <table className="min-w-full border-2 border-azulClaro ">
               <thead className=" bg-turqueza text-base  ">
-                <colgroup>
-                  <col />
-                  <col />
-                  <col />
-                  <col />
-                  <col />
-                  <col className=" w-24" />
-                </colgroup>
+
                 <tr className="text-left">
                   <th className="p-3 text-center ">No. de Servicio</th>
 

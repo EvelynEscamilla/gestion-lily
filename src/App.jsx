@@ -1,30 +1,29 @@
-
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import LayoutPrincipal from "./routes/LayoutPrincipal"
-import Inicio from "./routes/Inicio"
-import Nosotros from "./routes/Nosotros"
-import AgregarServicio from './routes/servicios/AgregarServicio'
-import Calendario from './routes/Calendario'
-import CancelarCita from './routes/usuario/CancelarCita'
-import CrearCuenta from './routes/CrearCuenta'
-import EditarAdmin from './routes/administrador/EditarAdmin'
-import EditarCliente from './routes/usuario/EditarCliente'
-import EditarServicio from './routes/servicios/EditarServicio'
-import EliminarCuenta from './routes/usuario/EliminarCuenta'
-import GestionarServicios from './routes/servicios/GestionarServicios'
-import GestionCitas from './routes/administrador/GestionCitas'
-import HistorialCliente from './routes/usuario/HistorialCliente'
-import HistorialMes from './routes/administrador/HistorialMes'
-import Login2 from './routes/Login2'
-import MostrarServicios from './routes/servicios/MostrarServicios'
-import PerfilCliente from './routes/usuario/PerfilCliente'
-import ClientProtectedRoute from './routes/auth/ClientProtectedRoute'
-import { AuthProvider } from './context/authContext'
-import Pruebas from './routes/Pruebas'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import LayoutPrincipal from "./routes/LayoutPrincipal";
+import Inicio from "./routes/Inicio";
+import Nosotros from "./routes/Nosotros";
+import AgregarServicio from "./routes/servicios/AgregarServicio";
+import Calendario from "./routes/Calendario";
+import CancelarCita from "./routes/usuario/CancelarCita";
+import CrearCuenta from "./routes/CrearCuenta";
+import EditarAdmin from "./routes/administrador/EditarAdmin";
+import EditarCliente from "./routes/usuario/EditarCliente";
+import EditarServicio from "./routes/servicios/EditarServicio";
+import EliminarCuenta from "./routes/usuario/EliminarCuenta";
+import GestionarServicios from "./routes/servicios/GestionarServicios";
+import GestionCitas from "./routes/administrador/GestionCitas";
+import HistorialCliente from "./routes/usuario/HistorialCliente";
+import HistorialMes from "./routes/administrador/HistorialMes";
+import Login2 from "./routes/Login2";
+import MostrarServicios from "./routes/servicios/MostrarServicios";
+import PerfilCliente from "./routes/usuario/PerfilCliente";
+import ClientProtectedRoute from "./routes/auth/ClientProtectedRoute";
+import AdminProtectedRoute from "./routes/auth/AdminProtectedRoute";
+import { AuthProvider } from "./context/authContext";
+import Pruebas from "./routes/Pruebas";
 
 function App() {
-
-  // Sugerencias rapidas, 
+  // Sugerencias rapidas,
   //1.- Las rutas se ponen en minusculas, no en mayusculas HECHO
   //2.- Hacer carpetas en rutas, para hacer una mejor gestion y se organice mejor el proyecto HECHO
   //3.- NO USAR BR NI HR HECHO
@@ -38,121 +37,127 @@ function App() {
       children: [
         {
           path: "/gestion-lily",
-          element: <Inicio />
+          element: <Inicio />,
         },
         {
           path: "/gestion-lily/nosotros",
-          element: <Nosotros />
+          element: <Nosotros />,
         },
         {
           path: "/gestion-lily/agregar-servicios",
-          element: <AgregarServicio />
+          element: <AgregarServicio />,
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/calendario",
-          element: <Calendario />
+          element: <Calendario />,
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/citas-programadas",
-          element: <CancelarCita />
+          element: (
+            <ClientProtectedRoute>
+              <CancelarCita />
+            </ClientProtectedRoute>
+          ),
         },
         {
           path: "/gestion-lily/crear-cuenta",
-          element: <CrearCuenta />
+          element: <CrearCuenta />,
         },
         {
           path: "/gestion-lily/editar-admin",
-          element: <EditarAdmin />
+          element: <EditarAdmin />,
         },
 
-
-
-
         // Estos dos siguientes son casi la misma misma mamada, modificar
-
-
-
-
-
-
 
         {
           //Error, volvieron a declarar body dentro del componente
           path: "/gestion-lily/editar-datos",
-          element: <EditarCliente />
+          element: <EditarCliente />,
         },
         {
           //Error, volvieron a declarar body dentro del componente
           path: "/gestion-lily/perfil",
-          element: <ClientProtectedRoute><PerfilCliente /></ClientProtectedRoute>
+          element: (
+            <ClientProtectedRoute>
+              <PerfilCliente />
+            </ClientProtectedRoute>
+          ),
         },
         {
           path: "/gestion-lily/editar-servicios",
-          element: <EditarServicio />
+          element: <EditarServicio />,
         },
         {
           //Error, volvieron a declarar body dentro del componente
           path: "/gestion-lily/eliminar-cuenta",
-          element: <EliminarCuenta />
+          element: <EliminarCuenta />,
         },
         {
           //Col group dentro de thead, solucionar
           path: "/gestion-lily/gestion-servicios",
-          element: <GestionarServicios />
+          element:<AdminProtectedRoute>
+          <GestionarServicios />
+        </AdminProtectedRoute> ,
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/gestion-citas",
-          element: <GestionCitas />
+          element: (
+            <AdminProtectedRoute>
+              <GestionCitas />
+            </AdminProtectedRoute>
+          ),
         },
 
-
-
         // Estos dos siguientes son casi la misma misma mamada, modificar
-
-
-
 
         {
           //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/historial",
-          element: <HistorialCliente />
+          element: (
+            <ClientProtectedRoute>
+              <HistorialCliente />
+            </ClientProtectedRoute>
+          ),
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/historial-mes",
-          element: <HistorialMes />
+          element: (
+            <AdminProtectedRoute>
+              <HistorialMes />
+            </AdminProtectedRoute>
+          ),
         },
         {
           path: "/gestion-lily/login",
-          element: <Login2 />
+          element: <Login2 />,
         },
         {
           path: "/gestion-lily/servicios",
-          element: <MostrarServicios />
+          element: <MostrarServicios />,
         },
         {
           path: "/gestion-lily/pruebas",
-          element: <Pruebas />
+          element: <Pruebas />,
         },
-      ]
+      ],
     },
-  ])
+  ]);
 
   //Rutas normales: inicio, servicios, nosotros, iniciar sesion, crear cuenta
   //Protegidas: ADMIN Y USER
   //ADMIN: Historial mes, gestion citas, editar datos admin, editar servicios, agregar servicios, gestionar servicios, calendario
   //USER: Calendario,perfil cliente, editar datos, eliminar cuenta, historial citas, cancelar citas
 
-
   return (
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
-  )
+  );
 }
 
-export default App
-
+export default App;

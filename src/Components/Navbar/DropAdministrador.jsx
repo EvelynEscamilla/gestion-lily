@@ -22,20 +22,17 @@ function DropAdministrador() {
         >
           <Popover.Group>
             <div className=" absolute  top-full right-0    w-[200px] bg-white shadow-md mt-1 rounded transition flex flex-col items-center z-20">
-              <LinkNavbar direccion={"/gestion-lily/Gestion-Citas"}>
+              <LinkNavbar direccion={"/gestion-lily/gestion-citas"}>
                 Citas Programadas
               </LinkNavbar>
               <LinkNavbar direccion={"/gestion-lily/historial-mes"}>
                 Historial de Citas
               </LinkNavbar>
-              <LinkNavbar direccion={"/gestion-lily/Gestion-Servicios"}>
+              <LinkNavbar direccion={"/gestion-lily/gestion-servicios"}>
                 Administrar servicios
               </LinkNavbar>
-              <LinkNavbar direccion={"/gestion-lily/Gestion-Citas"}>
+              <LinkNavbar direccion={"/gestion-lily/gestion-citas"}>
                 Administrar citas
-              </LinkNavbar>
-              <LinkNavbar direccion={"/gestion-lily/EditarAdmin"}>
-                Editar datos
               </LinkNavbar>
 
               <BtnLogOut />

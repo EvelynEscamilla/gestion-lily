@@ -22,11 +22,13 @@ function DropCliente() {
         >
           <Popover.Group>
             <div className=" absolute  top-full right-0    w-[200px] bg-white shadow-md mt-1 rounded transition flex flex-col items-center z-20">
-              <LinkNavbar direccion={"/gestion-lily/Perfil"}>Perfil</LinkNavbar>
-              <LinkNavbar direccion={"/gestion-lily/Citas-Programadas"}>
+              <LinkNavbar direccion={"/gestion-lily/perfil"}>
+                Perfil
+                </LinkNavbar>
+              <LinkNavbar direccion={"/gestion-lily/citas-programadas"}>
                 Citas Programadas
               </LinkNavbar>
-              <LinkNavbar direccion={"/gestion-lily/Historial"}>
+              <LinkNavbar direccion={"/gestion-lily/historial"}>
                 Historial de Citas
               </LinkNavbar>
 
