@@ -15,10 +15,10 @@ IMAGEN == UID
 }
 */
 
-import { doc, setDoc } from 'firebase/firestore'
+import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { db } from '../firebase'
 
-const reference = "usuarios"
+const reference = "Clientes"
 
 export const postUser = async (userData, uid) => {
     try {
@@ -26,6 +26,20 @@ export const postUser = async (userData, uid) => {
     } catch (error) {
         console.log(error)
         throw new Error(error.message)
+    }
+}
+
+export const getUser = async (uid) => {
+    try {
+        const docSnap = await getDoc(doc(db, `${reference}/${uid}`))
+        if (docSnap.exists()) {
+            console.log(docSnap.data())
+            return docSnap.data()
+        }else{
+            throw new Error("No se encontro el documento")
+        }
+    } catch (error) {
+        console.log(error)
     }
 }
 
@@ -37,9 +51,6 @@ export const updateUser = async () => {
 
 }
 
-export const getUser = async () => {
-
-}
 
 export const getUsers = async () => {
 

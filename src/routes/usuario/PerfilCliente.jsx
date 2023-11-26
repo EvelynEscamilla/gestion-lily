@@ -4,15 +4,13 @@ import { Link } from 'react-router-dom'
 const PerfilCliente = () => {
     return (
         <>
-            <body className="bg-gray-100 flex justify-center items-center h-screen">
-                <div className="bg-white rounded-lg p-4 shadow-lg items-center">
-                    <div className='flex items-center p-4'>
-                        <div>
-                            <img src="Images/PerfilCliente/IMG_Perfil.jpg" className="hover:-translate-y-1 hover:scale-110 duration-200 border-[5px] border-morado w-64 h-64 rounded-full" alt="Imagen de perfil" />
-                        </div>
-                        <div className="ml-4 text-white bg-morado px-5 py-2 rounded-md">
+            <div className="bg-gray-100 flex justify-center items-center h-screen">
+                <div className="bg-white rounded-lg p-1 lg:p-3 shadow-lg items-center justify-center pb-2">
+                    <div className='grid grid-rows-1 lg:flex justify-center items-center p-8 pb-2'>
+                        
+                        <div className=" text-white bg-morado px-6 lg:px-5 py-4 rounded-md">
                             <div className='py-3'>
-                                <p className="text-xl   font-bold">Nombre de Usuario Cool</p>
+                                <p className="text-xl font-bold">Nombre de Usuario Cool</p>
                             </div>
                             <div className='py-3'>
                                 <span className=" mr-2 text-xl font-bold">Correo electronico: </span>
@@ -24,7 +22,7 @@ const PerfilCliente = () => {
                             </div>
                         </div>
                     </div>
-                    <div className=" px-4 flex justify-end">
+                    <div className=" px-4 flex justify-center space-x-2">
                         <Link to="/gestion-lily/Editar-Datos">
                         <button className="bg-blue-500 text-white px-4 py-2 rounded-full hover:rounded-lg inset-y-0">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -41,7 +39,7 @@ const PerfilCliente = () => {
                         </Link>
                     </div>
                 </div>
-            </body>
+            </div>
         </>
     )
 }
