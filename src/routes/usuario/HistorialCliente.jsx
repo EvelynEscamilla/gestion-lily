@@ -1,8 +1,7 @@
-
 const Pasadas = ({ Lista }) => {
   return (
     <>
-      <div className="rounded-2xl border-2 mx-auto border-azulClaro w-1/2 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
+      <div className="rounded-2xl border-2 mx-auto border-azulClaro md:w-1/2 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
           <div className="border-2 rounded-2xl text-center bg-morado p-2 w-full h-1/6">
             <p className="font-bold text-3xl mt-3 text-white">Citas completadas</p>
           </div>
@@ -59,4 +58,3 @@ const HistorialCliente = () => {
 };
 
 export default HistorialCliente;
-

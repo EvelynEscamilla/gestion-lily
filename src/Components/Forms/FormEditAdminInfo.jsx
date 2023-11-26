@@ -3,10 +3,9 @@ import { useState } from 'react';
 import Boton from '../boton/Boton';
 
 
-const FormEditClient = () => {
+const FormEditAdminInfo = () => {
     const [NombreUsuario, setValorNombre] = useState('Nombre de usuario cool');
     const [CorreoElectronico, setValorCorreo] = useState('CorreoElectronico@Gmail.com');
-    const [NumeroTelefono, setValorNumero] = useState('4412345678');
     const [Contraseña, setValorContraseña] = useState('');
     const [ConfContraseña, setValorConfContraseña] = useState('');
 
@@ -16,10 +15,6 @@ const FormEditClient = () => {
 
     const handleChangeCorr = (event) => {
         setValorCorreo(event.target.value);
-    };
-
-    const handleChangeNum = (event) => {
-        setValorNumero(event.target.value);
     };
 
     const handleChangeCon = (event) => {
@@ -62,19 +57,7 @@ const FormEditClient = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className=' lg:text-left '>
-                            <span className="text-xl   font-bold">Modificar Numero de Telefono</span>
-                            <div className='pt-2'>
-                                <input
-                                    className="w-[300px] text-black h-10 bg-azulNav text-center  rounded-full mb-4"
-                                    type="text"
-                                    placeholder='Nuevo numero de telefono'
-                                    onChange={handleChangeNum}
-                                    value={NumeroTelefono}
-                                ></input>
-                            </div>
-                        </div>
-
+                        
                         <div className='lg:flex grid grid-rows-2'>
                             <div className=''>
                                 <p className="text-xl   font-bold">Nueva contraseña</p>
@@ -121,4 +104,4 @@ const FormEditClient = () => {
     )
 }
 
-export default FormEditClient
+export default FormEditAdminInfo
