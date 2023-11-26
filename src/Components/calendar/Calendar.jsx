@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
-
+//cambio 1
 const theme = createTheme(
   {
     palette: {
