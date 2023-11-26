@@ -18,8 +18,9 @@ const Inicio = () => {
         <>
             <br></br>
             <div id="carouselExample" className="carousel slide">
-                <div className="carousel-inner">
+            <div className="carousel-inner">
                     <div className="carousel-item active">
+
                     <img src="Images/Inicio/Ca-img1.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 1"></img>
                     </div>
                     <div className="carousel-item">
@@ -36,7 +37,19 @@ const Inicio = () => {
                     </div>
                     <div className="carousel-item ">
                         <img src="Images/Inicio/ins3.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 6"></img>
+
                     </div>
+                    <div className="carousel-item">
+                        <img src="Images/Inicio/Ca-img3.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 3"></img>
+                    </div>
+                    <div className="carousel-item">
+                        <img src="Images/Inicio/ins9.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 1"></img>
+                    </div>
+
+                    <div className="carousel-item ">
+                        <img src="Images/Inicio/Ca-img1.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 1"></img>
+                    </div>
+
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
