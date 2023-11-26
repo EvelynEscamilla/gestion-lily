@@ -27,19 +27,17 @@ const theme = createTheme(
   esES
 );
 const Calendar = ({ actualizarFecha}) => {
-  const [nuevaFecha, setNuevaFecha] = useState(new Date());
-  const handleInputChange = (event) => {
-    setNuevaFecha(event.target.value);
-  };
+  const [nuevaFecha, setNuevaFecha] = useState(null);
+
   const handleActualizarFecha = () => {
     actualizarFecha(nuevaFecha);
   };
 
   return (
     <>
-      <div className=" flex justify-center lg:p-10 sm:p-5 py-3">
-        <div className="w-fit rounded-lg border-2 border-azul  bg-azulNav  flex flex-col text-center">
-          <div className=" bg-azulClaro">
+      <div className=" flex justify-center h-full ">
+        <div className="w-fit rounded-lg border-2 border-azul h-full  bg-azulNav  flex flex-col text-center justify-center items-center">
+          <div className=" bg-azulClaro w-full ">
             <p className=" font-bold text-xl text-white p-3">
               Selecciona la fecha de tu cita
             </p>
@@ -68,7 +66,7 @@ const Calendar = ({ actualizarFecha}) => {
               />
             </LocalizationProvider>
           </ThemeProvider>
-          <BotonCalendario BG="turqueza" TC="white" onClick={handleActualizarFecha}>Guardar Fecha</BotonCalendario>
+          <BotonCalendario BG="turqueza" TC="white" oC={handleActualizarFecha}>Guardar Fecha</BotonCalendario>
         </div>
       </div>
     </>

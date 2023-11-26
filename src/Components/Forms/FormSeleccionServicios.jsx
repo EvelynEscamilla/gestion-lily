@@ -138,7 +138,7 @@ const FormSeleccionServicios = ({ actualizarServicio }) => {
   };
   return (
     <div className="flex items-center lg:flex justify-center">
-      <div className="w-[40rem] h-[28rem] bg-azulNav rounded-lg border-2 border-azul">
+      <div className="w-[40rem] bg-azulNav rounded-lg border-2 border-azul">
         <div className="flex justify-center bg-azulClaro text-white font-bold">
           <label className="mt-2 text-2xl">Servicios disponibles:</label>
         </div>
@@ -153,7 +153,7 @@ const FormSeleccionServicios = ({ actualizarServicio }) => {
         <div className="flex">
           <Serv />
         </div>
-        <BotonCalendario BG="turqueza" TC="white" onClick={handleActualizarServicio}>Guardar Servicio</BotonCalendario>
+        <BotonCalendario BG="turqueza" TC="white" oC={handleActualizarServicio}>Guardar Servicio</BotonCalendario>
       </div>
     </div>
   );

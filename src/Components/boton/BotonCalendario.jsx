@@ -1,7 +1,7 @@
 import React from "react";
 
-const BotonCalendario = ({ BG, children, TC, type = "button", onClick }) => {
-    const buttonClasses = `
+const BotonCalendario = ({ BG, children, TC, type = "button", oC }) => {
+  const buttonClasses = `
           group
           relative
           bg-${BG} 
@@ -18,8 +18,8 @@ const BotonCalendario = ({ BG, children, TC, type = "button", onClick }) => {
           cursor-pointer
           md:text-sm 
           `;
-  
-    const divClasses = `
+
+  const divClasses = `
           absolute 
           inset-0 
           w-0 
@@ -29,18 +29,21 @@ const BotonCalendario = ({ BG, children, TC, type = "button", onClick }) => {
           ease-out 
           group-hover:w-full
           `;
-  
-    const divSpan = `
+
+  const divSpan = `
           relative 
           group-hover:text-white
               `;
-  
-    return (
-      <button className={buttonClasses} type={type} onClick={onClick}>
+
+            
+  return (
+    <div className="p-2">
+      <button className={buttonClasses} type={type} onClick={oC}>
         <div className={divClasses}></div>
         <span className={divSpan}>{children}</span>
       </button>
-    );
-  };
+    </div>
+  );
+};
 
 export default BotonCalendario;

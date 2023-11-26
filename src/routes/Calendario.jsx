@@ -4,7 +4,7 @@ import FormSeleccionServicios from "../Components/forms/FormSeleccionServicios";
 import FormHorario from "../Components/forms/FormHorario";
 import CalendarComponent from "../Components/calendar/CalendarComponent";
 const Calendario = () => {
-  const [fecha, setFecha] = useState(new Date());
+  const [fecha, setFecha] = useState("");
   const [servicio, setServicio] = useState("");
   const [hora, setHora] = useState("");
 
@@ -22,22 +22,21 @@ const Calendario = () => {
   };
   return (
     <>
-      <div></div>
-      <div className="w-full lg:flex sm:block justify-center items-center min-h-screen ">
-        <div className=" lg:1/2">
+      <div className="w-full lg:flex sm:block justify-center items-center min-h-screen bg-gray-900 ">
+        <div className=" lg:w-2/6">
           <Calendar
             actualizarFecha={handleActualizarFecha}
             fechaActual={fecha}
           />
         </div>
 
-        <div className=" lg:1/2 ">
+        <div className=" lg:w-1/2 ">
           <FormSeleccionServicios
             actualizarServicio={handleActualizarServicio}
             servicioActual={servicio}
           />
         </div>
-        <div className="lg:1/2">
+        <div className="lg:w-1/6">
           <FormHorario
             actualizarHora={handleActualizarHora}
             horaActual={hora}
