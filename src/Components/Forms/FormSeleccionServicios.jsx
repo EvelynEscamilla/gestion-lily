@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BotonCalendario from "../boton/BotonCalendario";
 
 const FormSeleccionServicios = ({ actualizarServicio }) => {
   const [nuevoServicio, setNuevoServicio] = useState("");
@@ -152,7 +153,7 @@ const FormSeleccionServicios = ({ actualizarServicio }) => {
         <div className="flex">
           <Serv />
         </div>
-        <button onClick={handleActualizarServicio}>Guardar Servicio</button>
+        <BotonCalendario BG="turqueza" TC="white" onClick={handleActualizarServicio}>Guardar Servicio</BotonCalendario>
       </div>
     </div>
   );
