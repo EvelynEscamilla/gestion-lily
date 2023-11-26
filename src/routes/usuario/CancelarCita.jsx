@@ -1,16 +1,15 @@
-
 const Programadas = ({ Lista }) => {
   return (
     <>
-      <div className="rounded-2xl border-2 border-azulClaro justify-center w-1/2 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
+      <div className="rounded-2xl border-2 border-azulClaro justify-center lg:w-[80%] w-screen h-[35rem] bg-azulNav lg:ml-8 mt-5 mb-20 overflow-hidden">
         <div className="flex justify-items-stretch mb-5">
-          <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
+          <div className="border-2 rounded-2xl bg-morado p-2 mt-5 lg:mx-4 mx-2 flex items-center lg:mr-6">
             <p className="font-bold text-xl text-white">FECHA</p>
           </div>
-          <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
+          <div className="border-2 rounded-2xl bg-morado p-2 mt-5 lg:mx-4 mx-2 flex items-center lg:mr-6">
             <p className="font-bold text-xl text-white">HORA</p>
           </div>
-          <div className="border-2 rounded-2xl bg-morado p-2 mt-5 mx-4 flex items-center mr-6">
+          <div className="border-2 rounded-2xl bg-morado p-2 mt-5 lg:mx-4 mx-2 flex items-center lg:mr-6">
             <p className="font-bold text-xl text-white">SERVICIOS</p>
           </div>
         </div>
@@ -20,17 +19,17 @@ const Programadas = ({ Lista }) => {
             <div>
               <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 mt-5 flex items-center mb-2 mr-4 ml-4">
                 <div className="bg-white p-2 flex items-center mr-2">
-                  <p className="font-bold text-justify text-lg">
+                  <p className="font-bold text-justify md:text-lg text-sm ">
                     {Lista.fecha} |{" "}
                   </p>
                 </div>
                 <div className="bg-white p-2 flex items-center mr-2">
-                  <p className="font-bold text-justify text-lg">
+                  <p className="font-bold text-justify md:text-lg text-sm">
                     {Lista.hora} |{" "}
                   </p>
                 </div>
                 <div className="bg-white p-2 flex items-center mr-2">
-                  <p className="font-bold text-justify text-lg">
+                  <p className="font-bold text-justify md:text-lg text-sm">
                     {Lista.servicio}
                   </p>
                 </div>
@@ -51,7 +50,7 @@ const Programadas = ({ Lista }) => {
 const Advertencia = () => {
   return (
     <>
-      <div className="flex items-center mt-64 w-1/3 h-[8rem] ml-32 mb-20 text-justify border-2 border-azul bg-azulNav">
+      <div className="flex items-center lg:mt-64 w-full h-[8rem] lg:mb-20 mb-5 text-justify border-2 border-azul bg-azulNav">
         <p className="text-2xl px-6 cursor-pointer" >
           Recuerda cancelar tu cita con al menos un día de anticipación
         </p>
@@ -78,13 +77,16 @@ const CancelarCita = () => {
       <div className="flex justify-center w-1/2 ml-8 mt-10">
         <p className="font-medium justify-center text-4xl">Citas programadas</p>
       </div>
-      <div className="flex">
-        <CitasP />
-        <Advertencia />
+      <div className="lg:flex grid grid-rows-1">
+        <div className="w-full">
+          <CitasP />
+        </div>
+        <div className="w-full lg:w-1/2 lg:mr-11"> 
+          <Advertencia />
+        </div>
       </div>
     </>
   );
 };
 
 export default CancelarCita;
-

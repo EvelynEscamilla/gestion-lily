@@ -6,7 +6,7 @@ import { Popover, Transition } from "@headlessui/react";
 function DropAdministrador() {
   return (
     <>
-      <Popover>
+      <Popover >
         <Popover.Button className="relative flex justify-end  duration-150 z-10">
           {<img className="Logoi1  h-20  " src="Images/Nav/login.png" />}
         </Popover.Button>

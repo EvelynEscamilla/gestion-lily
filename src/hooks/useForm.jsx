@@ -9,7 +9,14 @@ const useForm = () => {
         console.log(formData)
     }
 
-    return {handleFormDataChange, formData}
+    const handleFormFileChange = ({ target: { name, files } }) => {
+        setFormData({ ...formData, [name]: files[0] })
+        console.log(formData)
+    }
+
+    const resetForm = () => setFormData(null)
+
+    return { handleFormDataChange, formData, handleFormFileChange, resetForm }
 
 }
 

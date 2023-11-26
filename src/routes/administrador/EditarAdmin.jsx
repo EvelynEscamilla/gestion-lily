@@ -1,9 +1,9 @@
 import React from 'react'
-import FormEditUserInfo from '../../Components/Forms/FormEditUserInfo';
+import FormEditAdminInfo from '../../Components/Forms/FormEditAdminInfo';
 
 const EditarAdmin = () => {
     return (
-        <FormEditUserInfo/>
+        <FormEditAdminInfo/>
     )
 }
 
