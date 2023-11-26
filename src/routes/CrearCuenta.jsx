@@ -5,7 +5,6 @@ import TextField from "../Components/TextField/TextField";
 import Boton from "../Components/boton/Boton";
 import FormSignUp from "../Components/Forms/FormSignUp";
 
-
 const CrearCuenta = () => {
   const divStyle = {
     backgroundImage: `url("Images/Login/Spa-img2.jpg")`,
@@ -21,5 +20,6 @@ const CrearCuenta = () => {
     </div>
   );
 };
+
 
 export default CrearCuenta;
