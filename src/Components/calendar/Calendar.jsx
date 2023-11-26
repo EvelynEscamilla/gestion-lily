@@ -25,7 +25,17 @@ const theme = createTheme(
   },
   esES
 );
-const Calendar = () => {
+const Calendar = ({ actualizarFecha,  fechaActual}) => {
+  const [nuevaFecha, setNuevaFecha] = useState(new Date());
+  const handleInputChange = (event) => {
+    setNuevaFecha(event.target.value);
+  };
+  const handleActualizarFecha = () => {
+    actualizarFecha(nuevaFecha);
+    setNuevaFecha(''); // Limpiar el campo de entrada después de la actualización
+  };
+
+
   const [fechaSeleccionada, setfechaSeleccionada] = useState(new Date());
   console.log(fechaSeleccionada);
   return (
@@ -46,7 +56,7 @@ const Calendar = () => {
                 disablePast={true}
                 autoFocus={true}
                 value={fechaSeleccionada}
-                onChange={setfechaSeleccionada}
+                onChange={handleInputChange}
                 sx={{
                   bgcolor: "#EDF8F8",
                 }}
@@ -61,6 +71,7 @@ const Calendar = () => {
               />
             </LocalizationProvider>
           </ThemeProvider>
+          <button onClick={handleActualizarFecha}>Guardar Fecha</button>
         </div>
       </div>
     </>
