@@ -23,7 +23,7 @@ const Calendario = () => {
   };
   return (
     <>
-      <div className="w-full lg:flex sm:block justify-center items-center min-h-screen bg-gray-900 ">
+      <div className="w-full lg:flex sm:block justify-center items-center min-h-screen">
         <div className=" lg:w-2/6">
           <Calendar
             actualizarFecha={handleActualizarFecha}
@@ -31,7 +31,7 @@ const Calendario = () => {
           />
         </div>
 
-        <div className=" lg:w-1/2 ">
+        <div className=" lg:w-1/2">
           <FormSeleccionServicios
             actualizarServicio={handleActualizarServicio}
             servicioActual={servicio}

@@ -19,7 +19,7 @@ const FormSeleccionServicios = ({ actualizarServicio }) => {
     return (
       <>
         <div className="mt-2 w-1/2">
-          <div className="overflow-auto h-[20rem]">
+          <div className="overflow-auto h-80">
             {ServCorporal.map((servicio) => (
               <div className="flex justify-left ml-6" key={servicio.id}>
                 <label className="p-2 text-justify">
@@ -37,7 +37,7 @@ const FormSeleccionServicios = ({ actualizarServicio }) => {
           </div>
         </div>
         <div className="mt-2 w-1/2">
-          <div className="overflow-auto h-[20rem]">
+          <div className="overflow-auto h-80">
             {ServFacial.map((servicio) => (
               <div className="flex justify-left ml-6" key={servicio.id}>
                 <label className="p-2 text-justify">
@@ -138,7 +138,7 @@ const FormSeleccionServicios = ({ actualizarServicio }) => {
   };
   return (
     <div className="flex items-center lg:flex justify-center">
-      <div className="w-[40rem] bg-azulNav rounded-lg border-2 border-azul">
+      <div className="w-11/12 bg-azulNav rounded-lg border-2 border-azul ">
         <div className="flex justify-center bg-azulClaro text-white font-bold">
           <label className="mt-2 text-2xl">Servicios disponibles:</label>
         </div>
@@ -150,10 +150,12 @@ const FormSeleccionServicios = ({ actualizarServicio }) => {
             Faciales
           </label>
         </div>
-        <div className="flex">
+        <div className="flex mb-4">
           <Serv />
         </div>
+        <div className="flex justify-center"> 
         <BotonCalendario BG="turqueza" TC="white" oC={handleActualizarServicio}>Guardar Servicio</BotonCalendario>
+      </div>
       </div>
     </div>
   );

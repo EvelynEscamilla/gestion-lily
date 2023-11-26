@@ -35,10 +35,10 @@ const Calendar = ({ actualizarFecha}) => {
 
   return (
     <>
-      <div className=" flex justify-center h-full ">
-        <div className="w-fit rounded-lg border-2 border-azul h-full  bg-azulNav  flex flex-col text-center justify-center items-center">
+      <div className=" flex justify-center">
+        <div className="w-fit rounded-lg border-2 border-azul bg-azulNav  flex flex-col text-center justify-center items-center">
           <div className=" bg-azulClaro w-full ">
-            <p className=" font-bold text-xl text-white p-3">
+            <p className=" font-bold text-2xl text-white p-3">
               Selecciona la fecha de tu cita
             </p>
           </div>
