@@ -30,10 +30,10 @@ const Calendar = () => {
   console.log(fechaSeleccionada);
   return (
     <>
-      <div className="  flex justify-center lg:p-10 sm:p-5 py-3">
-        <div className="w-fit  rounded-lg border-2 border-azul  bg-azulNav  flex flex-col text-center  ">
+      <div className=" flex justify-center lg:p-10 sm:p-5 py-3">
+        <div className="w-fit rounded-lg border-2 border-azul  bg-azulNav  flex flex-col text-center">
           <div className=" bg-azulClaro">
-            <p className=" font-medium text-xl p-3">
+            <p className=" font-bold text-xl text-white p-3">
               Selecciona la fecha de tu cita
             </p>
           </div>
