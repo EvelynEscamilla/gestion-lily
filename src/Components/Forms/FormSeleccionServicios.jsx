@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 
 const FormSeleccionServicios  = () => { 
     return (
@@ -23,48 +24,70 @@ const FormSeleccionServicios  = () => {
 
   
   
-const Corporales = ({ServCorporal}) => {
-
-  return(
-    <>
-    <div className="overflow-auto h-[20rem]">
-    {ServCorporal.map(ServCorporal => (
-      <form className="flex justify-left ml-6">
-        <label className="p-2 text-justify">
-          <input className="mr-4"
-          id="corporal"
-          type="radio"
-          value="opcion"
-          />
-          {ServCorporal.servicio}
-        </label>
-      </form>
-      ))}
-    </div>
-    </>
-  );
-};
+  const Corporales = ({ ServCorporal }) => {
+    const [seleccionado, setSeleccionado] = useState(null);
+  
+    const handleSeleccion = (servicio) => {
+      if (seleccionado === null) {
+        setSeleccionado(servicio);
+      }
+    };
+  
+    return (
+      <>
+        <div className="overflow-auto h-[20rem]">
+          {ServCorporal.map((servicio, index) => (
+            <form className="flex justify-left ml-6" key={index}>
+              <label className="p-2 text-justify">
+                <input
+                  className="mr-4"
+                  id="corporal"
+                  type="radio"
+                  value={servicio.servicio}
+                  onChange={() => handleSeleccion(servicio.servicio)}
+                  disabled={seleccionado !== null && seleccionado !== servicio.servicio}
+                />
+                {servicio.servicio}
+              </label>
+            </form>
+          ))}
+        </div>
+      </>
+    );
+  };
 
 
 
 const Faciales = ({ServFacial}) => {
 
+  const [seleccionado, setSeleccionado] = useState(null);
+  const handleSeleccion = (servicio) => {
+    if (seleccionado === null) {
+      setSeleccionado(servicio);
+    }
+  };
   return(
+    
     <>
-    <div className="overflow-auto h-[20rem]">
-    {ServFacial.map(ServFacial => (
-      <form className="flex justify-left ml-6">
+
+  <div className="overflow-auto h-[20rem]">
+    {ServFacial.map((servicio, index) => (
+      <form className="flex justify-left ml-6" key={index}>
         <label className="p-2 text-justify">
-          <input className="mr-4"
-          id="facial"
-          type="radio"
-          value="opcion"
+          <input
+            className="mr-4"
+            type="radio"
+            name="grupoFacial"
+            value={servicio.servicio}
+            onChange={() => handleSeleccion(servicio.servicio)}
+            disabled={seleccionado !== null && seleccionado !== servicio.servicio}
           />
-          {ServFacial.servicio}
+          {servicio.servicio}
         </label>
       </form>
-      ))}
-    </div>
+    ))}
+  </div>
+
     </>
   );
 };
