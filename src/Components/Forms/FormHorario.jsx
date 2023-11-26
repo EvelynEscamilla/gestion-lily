@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import BotonCalendario from "../boton/BotonCalendario";
 
 const FormHorario = ({ actualizarHora }) => {
   const [datos, setDatos] = useState([]);
@@ -61,11 +62,10 @@ const FormHorario = ({ actualizarHora }) => {
           </div>
 
           <div className="flex justify-center mb-2">
-            <button className="rounded-2xl w-[9rem] bg-turqueza text-white font-bold px-3 py-2 hover:-translate-y-1 hover:scale-100 duration-200">
-              RESERVAR
-            </button>
+
           </div>
-          <button onClick={handleActualizarHora}>Guardar Hora</button>
+          <BotonCalendario BG="turqueza" TC="white" oC={handleActualizarHora}>Guardar Hora</BotonCalendario>
+     
         </div>
       </div>
     </>
