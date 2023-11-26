@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 
-const inputImage = ({ id }) => {
+const inputImage = ({ id, onChange }) => {
+    
     const [imagePreview, setImagePreview] = useState(null)
     const handleFileChange = (e) => {
+        onChange(e)
         const file = e.target.files[0]
         if (file) {
             const reader = new FileReader()
@@ -14,6 +16,7 @@ const inputImage = ({ id }) => {
             setImagePreview(null)
         }
     }
+
     return (
         <>
             <div className="mx-auto w-7/12 lg:w-full  h-full  ">
@@ -28,7 +31,7 @@ const inputImage = ({ id }) => {
                         <div className="flex  items-center text-2xl"><p>Selecciona o arrastra aquí  </p></div>
                         <p className=" text-white 1xl">Sube tu imagen</p>
                     </div>
-                    <input id={id} onChange={handleFileChange} accept='image/png,image/jpeg' type="file" className="sr-only" />
+                    <input name='file' id={id} onChange={handleFileChange} accept='image/png,image/jpeg' type="file" className="sr-only" />
                 </label>
                 <div className='flex flex-col items-center justify-center'>
                     {imagePreview && (
