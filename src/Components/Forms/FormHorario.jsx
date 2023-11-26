@@ -17,7 +17,6 @@ const FormHorario  = () => {
   const handleSelectChange = (event) => {
     setSeleccionado(event.target.value);
   };
-  console.log(seleccionado)
     return (
       <>
       <div className="flex items-center lg:flex justify-center ">

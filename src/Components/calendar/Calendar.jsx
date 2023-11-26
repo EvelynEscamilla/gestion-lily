@@ -25,19 +25,15 @@ const theme = createTheme(
   },
   esES
 );
-const Calendar = ({ actualizarFecha,  fechaActual}) => {
+const Calendar = ({ actualizarFecha}) => {
   const [nuevaFecha, setNuevaFecha] = useState(new Date());
   const handleInputChange = (event) => {
     setNuevaFecha(event.target.value);
   };
   const handleActualizarFecha = () => {
     actualizarFecha(nuevaFecha);
-    setNuevaFecha(''); // Limpiar el campo de entrada después de la actualización
   };
 
-
-  const [fechaSeleccionada, setfechaSeleccionada] = useState(new Date());
-  console.log(fechaSeleccionada);
   return (
     <>
       <div className=" flex justify-center lg:p-10 sm:p-5 py-3">
@@ -55,8 +51,8 @@ const Calendar = ({ actualizarFecha,  fechaActual}) => {
               <StaticDatePicker
                 disablePast={true}
                 autoFocus={true}
-                value={fechaSeleccionada}
-                onChange={handleInputChange}
+                value={nuevaFecha}
+                onChange={setNuevaFecha}
                 sx={{
                   bgcolor: "#EDF8F8",
                 }}
