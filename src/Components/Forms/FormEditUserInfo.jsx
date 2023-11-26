@@ -33,7 +33,7 @@ const FormEditClient = () => {
     return (
         <>
             <form className="bg-gray-100 flex flex-col justify-center items-center h-[200%] lg:h-screen ">
-                <div className="bg-white rounded-lg p-8 lg:p-10 shadow-lg w-fit">
+                <div className="bg-white rounded-lg pb-2 lg:p-10 shadow-lg ">
 
                     <div className="  text-white bg-morado px-2 lg:px-5 lg:py-2 rounded-md items-center justify-center text-center">
                         <div className='lg:flex grid grid-rows-2'>
