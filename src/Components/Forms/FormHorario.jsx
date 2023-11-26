@@ -17,14 +17,15 @@ const FormHorario  = () => {
   const handleSelectChange = (event) => {
     setSeleccionado(event.target.value);
   };
-  
+  console.log(seleccionado)
     return (
       <>
-      <form className="flex items-center lg:flex justify-center ">
+      <div className="flex items-center lg:flex justify-center ">
           <div className="w-[10rem] h-[28rem] bg-azulNav rounded-lg border-2 border-azul flex flex-col justify-between">
             <div className="mb-10 ">
                 <div className="flex justify-center">
                 <select 
+                name="hora"
                 onChange={handleSelectChange} 
                 className="w-[9rem] rounded-2xl bg-azulClaro text-white font-bold px-3 py-2 mt-2"
                 >
@@ -43,7 +44,7 @@ const FormHorario  = () => {
                 <button className="rounded-2xl w-[9rem] bg-turqueza text-white font-bold px-3 py-2 hover:-translate-y-1 hover:scale-100 duration-200">RESERVAR</button>
             </div>
             </div>
-            </form> 
+            </div> 
       
       </>
     );
