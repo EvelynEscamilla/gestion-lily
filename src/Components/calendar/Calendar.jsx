@@ -68,7 +68,7 @@ const Calendar = ({ actualizarFecha}) => {
               />
             </LocalizationProvider>
           </ThemeProvider>
-          <BotonCalendario onClick={handleActualizarFecha}>Guardar Fecha</BotonCalendario>
+          <BotonCalendario BG="turqueza" TC="white" onClick={handleActualizarFecha}>Guardar Fecha</BotonCalendario>
         </div>
       </div>
     </>
