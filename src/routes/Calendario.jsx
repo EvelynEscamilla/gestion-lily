@@ -1,42 +1,49 @@
 import React, { useState } from "react";
-import useForm from "../hooks/useForm";
-import CalendarComp from "../Components/calendar/CalendarComp";
 
-
+import Calendar from "../Components/calendar/Calendar";
+import FormSeleccionServicios from "../Components/forms/FormSeleccionServicios";
+import FormHorario from "../Components/forms/FormHorario";
+import CalendarComponent from "../Components/calendar/CalendarComponent";
 const Calendario = () => {
-  const { formData, handleFormDataChange } = useForm();
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(formData);
+  const [fecha, setFecha] = useState("");
+  const [servicio, setServicio] = useState("");
+  const [hora, setHora] = useState("");
+
+  const handleActualizarFecha = (nuevaFecha) => {
+    console.log("Fecha desde el padre: " + fecha);
+    setFecha(nuevaFecha);
+  };
+  const handleActualizarServicio = (nuevoServicio) => {
+    setServicio(nuevoServicio);
+    console.log("servicio desde el padre: " + servicio);
+  };
+  const handleActualizarHora = (nuevaHora) => {
+    console.log('Hora desde el padre: '+hora)
+    setHora(nuevaHora);
   };
   return (
     <>
-      <div >
-      <CalendarComp></CalendarComp>
-        <form onSubmit={(e) =>{e.preventDefault}} className=" w-full lg:flex sm:block justify-center items-center min-h-screen ">
-          <div className=" lg:w-1/2 ">
-          
-          </div>
-          <div className=" lg:w-2/6 bg-blue-200">
-            {" "}
-            <input
-              name="Servicios"
-              type="text"
-              onChange={handleFormDataChange}
-              placeholder="Servicios"
-            />
-          </div>
-          <div className="lg:w-1/6 bg-slate-400">
-            {" "}
-            <input
-              name="Hora"
-              type="text"
-              onChange={handleFormDataChange}
-              placeholder="Hora"
-            />
-          </div>
-          <button type="submit">WAOS</button>
-        </form>
+      <div className="w-full lg:flex sm:block justify-center items-center min-h-screen bg-gray-900 ">
+        <div className=" lg:w-2/6">
+          <Calendar
+            actualizarFecha={handleActualizarFecha}
+            fechaActual={fecha}
+          />
+        </div>
+
+        <div className=" lg:w-1/2 ">
+          <FormSeleccionServicios
+            actualizarServicio={handleActualizarServicio}
+            servicioActual={servicio}
+          />
+        </div>
+        <div className="lg:w-1/6">
+          <FormHorario
+            actualizarHora={handleActualizarHora}
+            horaActual={hora}
+          />
+        </div>
+
       </div>
     </>
   );
