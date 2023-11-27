@@ -1,16 +1,12 @@
-import imagenes from "../../Components/mostrarServicios/Imagenes";
 import Servicio from "../../Components/gestionarServicios/Servicio";
 import { Link } from 'react-router-dom'
 import useServicios from "../../hooks/useServicios";
-import useServiciosImagen from "../../hooks/useServiciosImagen";
 
 const GestionarServicios = () => {
 
   const { servicios} = useServicios()
-  const {imagen}= useServiciosImagen()
 const serv=servicios
   console.log(servicios)
-  console.log(imagen)
   
 
   const handleDFC = (data) => {

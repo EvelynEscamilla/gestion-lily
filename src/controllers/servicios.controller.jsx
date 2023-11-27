@@ -12,10 +12,9 @@ IMAGEN == ID
 }
 */
 
-import { addDoc, collection, getDocs, getDoc, query } from 'firebase/firestore'
+import { addDoc, collection, getDocs } from 'firebase/firestore'
 import { db, storage } from '../firebase'
-import { ref, uploadBytes } from 'firebase/storage'
-import { listAll } from 'firebase/storage'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 
 const reference = "Servicios"
 const storageReference = "Servicios"
@@ -40,16 +39,10 @@ const postServicioImage = async (file, id) => {
         .then((snapshot) => console.log(snapshot.ref))
 }
 
-export const getServicioImages = async (id) => {
+export const getServicioImage = async (id) => {
     try {
-        const storageRef = ref(storage, storageReference + "/Servicios");
-        const listResult = await listAll(storageRef);
-        const images = {};
-        for (const item of listResult.items) {
-            const url = await getDownloadURL(item);
-            images[item.name] = url;
-        }
-        return images;
+        const url = await getDownloadURL(ref(storage, `Servicios/${id}`))
+        return url
     } catch (error) {
         console.log(error)
     }
@@ -58,7 +51,11 @@ export const getServicioImages = async (id) => {
 export const getServicios = async () => {
     try {
         const { docs } = await getDocs(collection(db, reference))
-        const allServicios = docs.map((doc) => doc.data())
+        const serviciosFirst = docs.map(async (doc) => {
+            return { ...doc.data(), url: await getServicioImage(doc.id) }
+        })
+
+        const allServicios = await Promise.all(serviciosFirst)
         return allServicios
     } catch (error) {
         console.log(error)

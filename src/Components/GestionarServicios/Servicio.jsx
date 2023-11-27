@@ -13,7 +13,7 @@ function Servicio({ sendDataToParent, item, handleScreen }) {
           <p>{item.numero}</p>
         </td>
         <td className="p-3 text-center">
-          <img className=" h-16" src={"item.imagen"} />
+          <img className=" h-16" src={item.url} />
         </td>
         <td className="p-3">
           <p>{item.nombre}</p>
