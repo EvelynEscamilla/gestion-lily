@@ -10,6 +10,12 @@ ID DEL DOCUMENTO === GENERADO AUTOMATICAMENTE
     numeroClientes: Numero de clientes
 }
 */
+import { addDoc, collection, getDocs, getDoc, query } from 'firebase/firestore'
+import { db, storage } from '../firebase'
+import { ref, uploadBytes } from 'firebase/storage'
+
+const reference = "Servicios"
+const storageReference = "Servicios"
 
 export const postCita = async (citaData) => { 
     

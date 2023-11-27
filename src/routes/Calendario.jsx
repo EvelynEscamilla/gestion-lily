@@ -4,7 +4,10 @@ import Calendar from "../Components/calendar/Calendar";
 import FormSeleccionServicios from "../Components/forms/FormSeleccionServicios";
 import FormHorario from "../Components/forms/FormHorario";
 import CalendarComponent from "../Components/calendar/CalendarComponent";
+import useServicios from "../hooks/useServicios";
 const Calendario = () => {
+  const {serviciosP} = useServicios()
+  console.log(serviciosP)
   const [fecha, setFecha] = useState("");
   const [servicio, setServicio] = useState("");
   const [hora, setHora] = useState("");

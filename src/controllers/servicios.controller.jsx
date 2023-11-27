@@ -48,3 +48,14 @@ export const getServicios = async () => {
         console.log(error)
     }
 }
+
+export const getServiciosPrecio = async () => {
+    try {
+        const { docs } = await getDocs(collection(db, reference))
+        const allServiciosP = docs.map((doc) =>  doc.data().nombre)
+        return allServiciosP
+    } catch (error) {
+        console.log(error)
+    }
+}
+
