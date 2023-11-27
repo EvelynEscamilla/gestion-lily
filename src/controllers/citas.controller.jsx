@@ -10,13 +10,34 @@ ID DEL DOCUMENTO === GENERADO AUTOMATICAMENTE
     numeroClientes: Numero de clientes
 }
 */
-import { addDoc, collection, getDocs, getDoc, query } from 'firebase/firestore'
-import { db, storage } from '../firebase'
-import { ref, uploadBytes } from 'firebase/storage'
+import { addDoc, collection, getDocs, getDoc, query } from "firebase/firestore";
+import { db, storage } from "../firebase";
+import { ref, uploadBytes } from "firebase/storage";
 
-const reference = "Servicios"
-const storageReference = "Servicios"
+const reference = "Citas";
 
-export const postCita = async (citaData) => { 
-    
-}
+export const postCita = async ({
+  Fecha,
+  Servicio,
+  
+  Cliente,
+  Contacto,
+  Estado,
+  Numero_cliente,
+  Total,
+}) => {
+  try {
+    const { id } = await addDoc(collection(db, reference), {
+      Fecha,
+      Servicio,
+      
+      Cliente,
+      Contacto,
+      Estado,
+      Numero_cliente,
+      Total,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -1,20 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import { getServicios, getServiciosPrecio } from '../controllers/servicios.controller'
+import React, { useEffect, useState } from "react";
+import {
+  getServicios,
+  getServiciosPrecioCorporal,
+  getServiciosPrecioFacial,
+} from "../controllers/servicios.controller";
 
 const useServicios = () => {
+  const [servicios, setServicios] = useState([]);
+  const [serviciosPrecioCor, setServiciosPC] = useState([]);
+  const [serviciosPrecioFac, setServiciosPF] = useState([]);
 
-    const [servicios, setServicios] = useState(null)
-    const [serviciosP, setServiciosP] = useState(null)
+  useEffect(() => {
+    getServicios().then((allServicios) => setServicios(allServicios));
+  }, []);
+  useEffect(() => {
+    getServiciosPrecioCorporal().then((allServicios) =>
+      setServiciosPC(allServicios)
+    );
+  }, []);
+  useEffect(() => {
+     getServiciosPrecioFacial().then((allServicios) =>
+      setServiciosPF(allServicios)
+    );
+  }, []);
 
-    useEffect(() => {
-        getServicios().then((allServicios) => setServicios(allServicios))
-    }, [])
+  return { servicios, serviciosPrecioCor, serviciosPrecioFac };
+};
 
-    useEffect(() => {
-        getServiciosPrecio().then((allServicios) => setServiciosP(allServicios))
-    }, [])
-
-    return { servicios, serviciosP }
-}
-
-export default useServicios
+export default useServicios;
