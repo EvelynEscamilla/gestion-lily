@@ -7,19 +7,21 @@ import { postCita } from "../controllers/citas.controller";
 import moment from "moment/moment";
 import { useAuth } from "../context/authContext";
 import ModUsr from "../Components/modals/modUsr";
+import useCitasFechas from "../hooks/useCitasFechas";
 
 const Calendario = () => {
   const { userData } = useAuth();
-  const [Fecha, setFecha] = useState("");
-  const [Servicio, setServicio] = useState("");
+  const [Fecha, setFecha] = useState(null);
+  const [Servicio, setServicio] = useState(null);
   const [hora, setHora] = useState("");
   const [Cliente, setCliente] = useState(null);
   const [Contacto, setContacto] = useState(null);
   const [Estado, setEstado] = useState("En Espera");
   const [Numero_cliente, setNumero_cliente] = useState("1");
   const [Total, setTotal] = useState("");
-  const [usuario, setusuario] = useState("");
 
+  const {citasFechaServicio} = useCitasFechas(Fecha, Servicio)
+console.log(citasFechaServicio)
   const handleActualizarFecha = (nuevaFecha) => {
     setFecha(nuevaFecha);
   };
@@ -42,9 +44,9 @@ const Calendario = () => {
   useEffect(() => {
     if (userData) {
       setCliente(userData.nombreCompleto);
-      setContacto(userData.telefono)
+      setContacto(userData.telefono);
     }
-  }, [userData]); 
+  }, [userData]);
   const handleActualizarHora = (nuevaHora) => {
     console.log(
       Fecha +
@@ -66,7 +68,6 @@ const Calendario = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("se sube desde aqui");
     //Funcion de subir
     await postCita({
       Fecha,
@@ -80,10 +81,9 @@ const Calendario = () => {
 
     e.target.reset();
   };
-
   return (
     <>
-    {!userData && <ModUsr />}
+      {!userData && <ModUsr />}
       <form
         onSubmit={handleSubmit}
         className="w-full lg:flex sm:block justify-center items-center min-h-screen "
@@ -105,6 +105,7 @@ const Calendario = () => {
           <FormHorario
             actualizarHora={handleActualizarHora}
             horaActual={hora}
+            citasFechaServicio={citasFechaServicio}
           />
         </div>
         <button>Halo</button>
