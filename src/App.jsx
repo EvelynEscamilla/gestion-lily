@@ -38,6 +38,7 @@ function App() {
         {
           path: "/gestion-lily",
           element: <Inicio />,
+          
         },
         {
           path: "/gestion-lily/nosotros",
@@ -88,6 +89,7 @@ function App() {
         },
         {
           path: "/gestion-lily/editar-servicios",
+
           element: <EditarServicio />,
         },
         {

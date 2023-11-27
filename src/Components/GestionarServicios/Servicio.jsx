@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 function Servicio({ sendDataToParent, item, handleScreen }) {
   const enviarDatosServicios = (data) => {
     sendDataToParent(data);
+    
   };
   return (
     <>
@@ -12,7 +13,7 @@ function Servicio({ sendDataToParent, item, handleScreen }) {
           <p>{item.numero}</p>
         </td>
         <td className="p-3 text-center">
-          <img className=" h-16" src={item.imagen} />
+          <img className=" h-16" src={"item.imagen"} />
         </td>
         <td className="p-3">
           <p>{item.nombre}</p>
@@ -30,12 +31,13 @@ function Servicio({ sendDataToParent, item, handleScreen }) {
         </td>
         <td className="p-3 text-center ">
           <div className="flex gap-3 items-center justify-center">
-          <button
-            className="px-4 py-2 font-semibold rounded-3xl bg-morado text-white my-auto"
-            onClick={() => handleScreen("EditarServicio", item)}
-          >
-            <Link to="/gestion-lily/Editar-Servicios">Editar</Link>
-          </button>
+            <button
+              className="px-4 py-2 font-semibold rounded-3xl bg-morado text-white my-auto">
+              <Link to={{
+                pathname: "/gestion-lily/Editar-Servicios",
+                state: { objeto: item }
+              }}>Editar</Link>
+            </button>
 
           </div>
         </td>

@@ -15,6 +15,7 @@ IMAGEN == ID
 import { addDoc, collection, getDocs, getDoc, query } from 'firebase/firestore'
 import { db, storage } from '../firebase'
 import { ref, uploadBytes } from 'firebase/storage'
+import { listAll } from 'firebase/storage'
 
 const reference = "Servicios"
 const storageReference = "Servicios"
@@ -37,6 +38,21 @@ export const postServicio = async ({ descripcion, duracion, maximoClientes, tipo
 const postServicioImage = async (file, id) => {
     await uploadBytes(ref(storage, storageReference + "/" + id), file)
         .then((snapshot) => console.log(snapshot.ref))
+}
+
+export const getServicioImages = async (id) => {
+    try {
+        const storageRef = ref(storage, storageReference + "/Servicios");
+        const listResult = await listAll(storageRef);
+        const images = {};
+        for (const item of listResult.items) {
+            const url = await getDownloadURL(item);
+            images[item.name] = url;
+        }
+        return images;
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const getServicios = async () => {
