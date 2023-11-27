@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import BotonCalendario from "../boton/BotonCalendario";
 
-const FormHorario = ({ actualizarHora }) => {
+const FormHorario = ({ actualizarHora, citasFechaServicio }) => {
   const [datos, setDatos] = useState([]);
   const [seleccionado, setSeleccionado] = useState("");
   const handleActualizarHora = () => {
     actualizarHora(seleccionado);
   };
-
   useEffect(() => {
     const obtenerDatos = async () => {
       const datosObtenidos = [
@@ -33,6 +32,7 @@ const FormHorario = ({ actualizarHora }) => {
   const handleSelectChange = (event) => {
     setSeleccionado(event.target.value);
   };
+
   return (
     <>
       <div className="flex items-center lg:flex justify-center p-5 ">
