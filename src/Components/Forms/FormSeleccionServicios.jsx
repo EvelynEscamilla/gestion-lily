@@ -1,147 +1,24 @@
 import React, { useState } from "react";
 import BotonCalendario from "../boton/BotonCalendario";
 import useServicios from "../../hooks/useServicios";
+import { getUser } from "../../controllers/user.controller";
 
-const FormSeleccionServicios = ({ actualizarServicio }) => {
-
+const FormSeleccionServicios = ({ actualizarServicio, actualizarPrecio }) => {
   const { serviciosPrecioCor } = useServicios();
-  const servCor = serviciosPrecioCor
-  const [nuevoServicio, setNuevoServicio] = useState("");
-
+  const { serviciosPrecioFac } = useServicios();
   const [seleccionado, setSeleccionado] = useState(null);
-
+  const [precio, setPrecio] = useState(null);
+  const servCor = serviciosPrecioCor;
+  const servFac = serviciosPrecioFac;
   const handleSeleccion = (servicio) => {
-    setSeleccionado(servicio === seleccionado ? null : servicio);
-  };
-  const handleInputChange = (event) => {
-    setNuevoServicio(event.target.value);
+    setSeleccionado(servicio.nombre);
+    setPrecio(servicio.precio)
   };
   const handleActualizarServicio = () => {
     actualizarServicio(seleccionado);
-  };
-  const Servi = ({ ServCorporal, ServFacial }) => {
-    return (
-      <>
-        <div className="mt-2 w-1/2">
-          <div className="overflow-auto h-[20rem]">
-
-
-            {servCor.map((servicio, index) => (
-              <div className="flex justify-left ml-6" key={index}>
-                <label className="p-2 text-justify">
-                  <input
-                    type="radio"
-                    name="grupoServicios"
-                    value={servicio.nombre}
-                    onChange={() => handleSeleccion(servicio.nombre)}
-                    checked={servicio.nombre === seleccionado}
-                  />
-                  {servicio.nombre}
-                </label>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="mt-2 w-1/2">
-          <div className="overflow-auto h-[20rem]">
-            {ServFacial.map((servicio) => (
-              <div className="flex justify-left ml-6" key={servicio.id}>
-                <label className="p-2 text-justify">
-                  <input
-                    type="radio"
-                    name="grupoServicios"
-                    value={servicio.servicio}
-                    onChange={() => handleSeleccion(servicio.servicio)}
-                    checked={servicio.servicio === seleccionado}
-                  />
-                  {servicio.servicio}
-                </label>
-              </div>
-            ))}
-          </div>
-        </div>
-      </>
-    );
+    actualizarPrecio(precio);
   };
 
-  const Serv = () => {
-    const ServCorporal = [
-      { id: 1, servicio: "Auriculoterapia" },
-      { id: 2, servicio: "Carboxiterapia" },
-      { id: 3, servicio: "Cavitación" },
-      { id: 4, servicio: "Diatermia" },
-      { id: 5, servicio: "Desintoxicación Iónica" },
-      { id: 6, servicio: "Drenaje Linfatico" },
-      { id: 7, servicio: "Eliminación de tatuajes" },
-      { id: 8, servicio: "Elimiación de verrugas" },
-      { id: 9, servicio: "Envolturas cuerpo completo" },
-      { id: 10, servicio: "Envolturas espalda" },
-      { id: 11, servicio: "Envolturas piernas y glúteo" },
-      { id: 12, servicio: "Enzimas" },
-      { id: 13, servicio: "Emszero sesión" },
-      { id: 14, servicio: "Hi-Fu" },
-      {
-        id: 15,
-        servicio: "Láser diodo: Ombligo, dedos de pies o dedos de manos",
-      },
-      { id: 16, servicio: "Láser diodo: Pies, axilas o bikini" },
-      {
-        id: 17,
-        servicio:
-          "Láser diodo: Busto, coxis, cuello, ingles, abdomen, bikini brasileño, glúteos, medias piernas o medios brazos",
-      },
-      {
-        id: 18,
-        servicio:
-          "Láser diodo: Piernas completas, espalda, brazos completos o tronco",
-      },
-      { id: 19, servicio: "Levantamiento de glúteo" },
-      { id: 20, servicio: "Lipoláser" },
-      { id: 21, servicio: "Masaje piedras calientes" },
-      { id: 22, servicio: "Masaje a 4 manos" },
-      { id: 23, servicio: "Masaje rebozo" },
-      { id: 24, servicio: "Masaje sen 1" },
-      {
-        id: 25,
-        servicio:
-          "Masajes (relajante, descontracturante, ventosas o bambuterapia)",
-      },
-      { id: 26, servicio: "Mesoterapia inyectada" },
-      { id: 27, servicio: "Mesoterapia virtual" },
-      { id: 28, servicio: "Moldeado corporal (10 sesiones)" },
-      { id: 29, servicio: "Ondas rusas" },
-      { id: 30, servicio: "Paquete post operatorio (10 sesiones)" },
-      { id: 31, servicio: "Paquete reductivo (10 sesiones)" },
-      { id: 32, servicio: "Radiofrecuencia" },
-      { id: 33, servicio: "Tratamiento calvicie" },
-      { id: 34, servicio: "Ultrasonido clínico" },
-    ];
-
-    const ServFacial = [
-      { id: 1, servicio: "Ácido labios" },
-      { id: 2, servicio: "Ácido nariz" },
-      { id: 3, servicio: "Ácido nazogenianos" },
-      { id: 4, servicio: "BB Glow" },
-      { id: 5, servicio: "Botox por unidad" },
-      { id: 6, servicio: "Dermapen" },
-      { id: 7, servicio: "Facial" },
-      { id: 8, servicio: "Hi-Fu" },
-      { id: 9, servicio: "Hollywood peel" },
-      { id: 10, servicio: "Hydrafacial" },
-      {
-        id: 11,
-        servicio:
-          "Láser diodo: Bigote, entrecejo, nariz, mejillas, orejas o patilla",
-      },
-      { id: 12, servicio: "Láser diodo: Nuca, maxilar o frente" },
-      { id: 13, servicio: "Láser diodo: cuello o cara" },
-      { id: 14, servicio: "Luz pulsada (Rejuvenecimiento, manchas y acné" },
-      { id: 15, servicio: "Oxygeneo" },
-      { id: 16, servicio: "Radio frecuencia con agujas" },
-    ];
-
-    return <Servi ServCorporal={ServCorporal} ServFacial={ServFacial} />;
-  };
   return (
     <div className="flex items-center lg:flex justify-center">
       <div className="w-[40rem] bg-azulNav rounded-lg border-2 border-azul">
@@ -157,9 +34,46 @@ const FormSeleccionServicios = ({ actualizarServicio }) => {
           </label>
         </div>
         <div className="flex">
-          <Serv />
+        <div className="mt-2 w-1/2">
+          <div className="overflow-auto h-[20rem]">
+            {servCor.map((servicio, index) => (
+              <div className="flex justify-left ml-6" key={index}>
+                <label className="p-2 text-justify">
+                  <input
+                    type="radio"
+                    name="grupoServicios"
+                    value={servicio.nombre}
+                    onChange={() => handleSeleccion(servicio)}
+                    checked={servicio.nombre === seleccionado}
+                  />
+                  {servicio.nombre}
+                </label>
+              </div>
+            ))}
+          </div>
         </div>
-        <BotonCalendario BG="turqueza" TC="white" oC={handleActualizarServicio}>Guardar Servicio</BotonCalendario>
+        <div className="mt-2 w-1/2">
+          <div className="overflow-auto h-[20rem]">
+            {servFac.map((servicio, index) => (
+              <div className="flex justify-left ml-6" key={index}>
+                <label className="p-2 text-justify">
+                  <input
+                    type="radio"
+                    name="grupoServicios"
+                    value={servicio.nombre}
+                    onChange={() => handleSeleccion(servicio)}
+                    checked={servicio.nombre === seleccionado}
+                  />
+                  {servicio.nombre}
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+        </div>
+        <BotonCalendario BG="turqueza" TC="white" oC={handleActualizarServicio}>
+          Guardar Servicio
+        </BotonCalendario>
       </div>
     </div>
   );

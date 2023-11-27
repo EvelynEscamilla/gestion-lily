@@ -4,23 +4,30 @@ import Calendar from "../Components/calendar/Calendar";
 import FormSeleccionServicios from "../Components/forms/FormSeleccionServicios";
 import FormHorario from "../Components/forms/FormHorario";
 import { postCita } from "../controllers/citas.controller";
-import { Button } from "@mui/base";
 import moment from "moment/moment";
+import { useAuth } from "../context/authContext";
+import ModUsr from "../Components/modals/modUsr";
+
 const Calendario = () => {
+  const { userData } = useAuth();
   const [Fecha, setFecha] = useState("");
   const [Servicio, setServicio] = useState("");
   const [hora, setHora] = useState("");
-  const [Cliente, setCliente] = useState("Omar");
-  const [Contacto, setContacto] = useState("1234");
+  const [Cliente, setCliente] = useState(null);
+  const [Contacto, setContacto] = useState(null);
   const [Estado, setEstado] = useState("En Espera");
   const [Numero_cliente, setNumero_cliente] = useState("1");
-  const [Total, setTotal] = useState("1000");
+  const [Total, setTotal] = useState("");
+  const [usuario, setusuario] = useState("");
 
   const handleActualizarFecha = (nuevaFecha) => {
     setFecha(nuevaFecha);
   };
   const handleActualizarServicio = (nuevoServicio) => {
     setServicio(nuevoServicio);
+  };
+  const handleActualizarPrecio = (nuevoPrecio) => {
+    setTotal(nuevoPrecio);
   };
   useEffect(() => {
     const hora24 = moment(hora, "hh:mm A").format("HH:mm");
@@ -30,15 +37,20 @@ const Calendario = () => {
     );
 
     setFecha(fechaHora.toDate());
-  }, [ hora]);
+  }, [hora]);
 
+  useEffect(() => {
+    if (userData) {
+      setCliente(userData.nombreCompleto);
+      setContacto(userData.telefono)
+    }
+  }, [userData]); 
   const handleActualizarHora = (nuevaHora) => {
     console.log(
       Fecha +
         " " +
         Servicio +
         " " +
-        
         " " +
         Cliente +
         " " +
@@ -52,7 +64,6 @@ const Calendario = () => {
     );
     setHora(nuevaHora);
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("se sube desde aqui");
@@ -60,7 +71,6 @@ const Calendario = () => {
     await postCita({
       Fecha,
       Servicio,
-      
       Cliente,
       Contacto,
       Estado,
@@ -73,6 +83,7 @@ const Calendario = () => {
 
   return (
     <>
+    {!userData && <ModUsr />}
       <form
         onSubmit={handleSubmit}
         className="w-full lg:flex sm:block justify-center items-center min-h-screen "
@@ -87,6 +98,7 @@ const Calendario = () => {
         <div className=" lg:w-1/2 ">
           <FormSeleccionServicios
             actualizarServicio={handleActualizarServicio}
+            actualizarPrecio={handleActualizarPrecio}
           />
         </div>
         <div className="lg:w-1/6">
