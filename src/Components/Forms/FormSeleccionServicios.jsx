@@ -76,7 +76,6 @@ const FormSeleccionServicios = ({ actualizarServicio, actualizarPrecio }) => {
         </BotonCalendario>
       </div>
       </div>
-    
   );
 };
 
