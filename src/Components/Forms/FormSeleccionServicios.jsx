@@ -75,6 +75,7 @@ const FormSeleccionServicios = ({ actualizarServicio, actualizarPrecio }) => {
           Guardar Servicio
         </BotonCalendario>
       </div>
+      </div>
     </div>
   );
 };

@@ -36,13 +36,13 @@ const FormHorario = ({ actualizarHora, citasFechaServicio }) => {
   return (
     <>
       <div className="flex items-center lg:flex justify-center p-5 ">
-        <div className="w-[10rem] h-[28rem] bg-azulNav rounded-lg border-2 border-azul flex flex-col justify-between">
+        <div className="w-8/9 h-[31rem] bg-azulNav rounded-lg border-2 border-azul flex flex-col justify-between">
           <div className="mb-10 ">
             <div className="flex justify-center">
               <select
                 name="hora"
                 onChange={handleSelectChange}
-                className="w-[9rem] rounded-2xl bg-azulClaro text-white font-bold px-3 py-2 mt-2"
+                className="w-[9rem] rounded-2xl bg-azulClaro text-white text-xl font-bold px-3 py-2 mt-2"
               >
                 <option value="">Horario</option>
                 {datos.map((dato, index) => (
@@ -61,11 +61,11 @@ const FormHorario = ({ actualizarHora, citasFechaServicio }) => {
             </label>
           </div>
 
-          <div className="flex justify-center mb-2">
-
-          </div>
+          <div className="flex justify-center mb-2 ">
           <BotonCalendario BG="turqueza" TC="white" oC={handleActualizarHora}>Guardar Hora</BotonCalendario>
-     
+          </div>
+          
+
         </div>
       </div>
     </>
