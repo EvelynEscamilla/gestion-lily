@@ -1,13 +1,19 @@
 import React from "react";
 import { useAuth } from "../../context/authContext";
+import { useState } from 'react';
 import useForm from "../../hooks/useForm";
 import Boton from "../boton/Boton";
 import TextField from "../TextField/TextField";
 import BtnLink from "../btnLink/BtnLink";
+import ModCrearCuenta from "../modals/ModCrearCuenta";
+import ModCrearCuentaFallida from "../modals/ModCrearCuentaFallida";
+
 
 const FormSignUp = () => {
   const { signUp } = useAuth();
   const { formData, handleFormDataChange } = useForm();
+  const [showModal, setShowModal] = useState(false);
+  const [showModalFailed, setShowModalFailed] = useState(false); // Estado para controlar la visualización del modal
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,10 +22,34 @@ const FormSignUp = () => {
       telefono: formData.telefono,
       email: formData.email,
     };
-    await signUp(userData, formData.email, formData.password);
+
+    try {
+      await signUp(userData, formData.email, formData.password);
+      // Si el registro es exitoso, mostramos el modal
+      setShowModal(true);
+    } catch (error) {
+      // Manejo de errores si el registro falla
+      setShowModalFailed(true);
+      console.error('Error al registrar:', error);
+    }
   };
+
+  const closeModal = () => {
+    // Función para cerrar el modal y resetear el estado
+    setShowModal(false);
+    // Aquí podrías realizar alguna otra lógica adicional después de cerrar el modal
+  };
+
+  const closeModalFailed = () => {
+    // Función para cerrar el modal y resetear el estado
+    setShowModalFailed(false);
+    // Aquí podrías realizar alguna otra lógica adicional después de cerrar el modal
+  };
+
   return (
+    <>
     <form
+    
       onSubmit={handleSubmit}
       className="w-full bg-azulNav bg-opacity-70 lg:bg-opacity-90 text-center p-8 lg:w-1/2 flex flex-col justify-center items-center"
     >
@@ -78,6 +108,22 @@ const FormSignUp = () => {
         </div>
       </div>
     </form>
+
+    {/* Modal */}
+    {showModal && (
+        <ModCrearCuenta onClose={closeModal}>
+          {/* Contenido del modal, por ejemplo un mensaje de éxito */}
+          <p>¡La cuenta se registró correctamente!</p>
+        </ModCrearCuenta>
+      )}
+
+{showModalFailed && (
+        <ModCrearCuentaFallida onClose={closeModalFailed}>
+          {/* Contenido del modal, por ejemplo un mensaje de éxito */}
+          <p>¡La cuenta se registró correctamente!</p>
+        </ModCrearCuentaFallida>
+      )}
+    </>
   );
 };
 
