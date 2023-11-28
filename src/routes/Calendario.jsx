@@ -8,7 +8,7 @@ import moment from "moment/moment";
 import { useAuth } from "../context/authContext";
 import ModUsr from "../Components/modals/modUsr";
 import useCitasFechas from "../hooks/useCitasFechas";
-import useForm from '../hooks/useForm'
+import useForm from "../hooks/useForm";
 
 const Calendario = () => {
   const { userData } = useAuth();
@@ -20,21 +20,26 @@ const Calendario = () => {
   const [Estado, setEstado] = useState("En Espera");
   const [Numero_cliente, setNumero_cliente] = useState("1");
   const [Total, setTotal] = useState("");
+  const { citasFechaServicio } = useCitasFechas(Fecha, Servicio);
 
-  const { citasFechaServicio } = useCitasFechas(Fecha, Servicio)
-
-  const handleActualizarFecha = (nuevaFecha) => {
-    setFecha(nuevaFecha);
-  };
   const handleActualizarServicio = (nuevoServicio) => {
     setServicio(nuevoServicio);
   };
   const handleActualizarPrecio = (nuevoPrecio) => {
     setTotal(nuevoPrecio);
   };
+  //formData.fecha, Servicio
+  const { formData, handleFormDataChange, handleDateChange } = useForm();
 
-  const { formData, handleFormDataChange, handleDateChange } = useForm()
+ 
+  useEffect(() => {
+    if (formData !== null) {
+    setFecha(formData.fecha);
+    setServicio(formData.grupoServicios);
+    }
+  }, [formData]);
 
+  console.log(citasFechaServicio)
   useEffect(() => {
     const hora24 = moment(hora, "hh:mm A").format("HH:mm");
     const fechaHora = moment(
@@ -54,19 +59,19 @@ const Calendario = () => {
   const handleActualizarHora = (nuevaHora) => {
     console.log(
       Fecha +
-      " " +
-      Servicio +
-      " " +
-      " " +
-      Cliente +
-      " " +
-      Contacto +
-      " " +
-      Estado +
-      " " +
-      Numero_cliente +
-      " " +
-      Total
+        " " +
+        Servicio +
+        " " +
+        " " +
+        Cliente +
+        " " +
+        Contacto +
+        " " +
+        Estado +
+        " " +
+        Numero_cliente +
+        " " +
+        Total
     );
     setHora(nuevaHora);
   };
@@ -93,20 +98,14 @@ const Calendario = () => {
         className="w-full lg:flex sm:block justify-center items-center min-h-screen "
       >
         <div className=" lg:w-2/6">
-          <Calendar
-            onChange={handleDateChange}
-          />
+          <Calendar onChange={handleDateChange} />
         </div>
 
         <div className=" lg:w-1/2">
-          <FormSeleccionServicios
-            onChange={handleFormDataChange}
-          />
+          <FormSeleccionServicios onChange={handleFormDataChange} />
         </div>
         <div className="lg:w-1/6">
-          <FormHorario
-            onChange={handleFormDataChange}
-          />
+          <FormHorario onChange={handleFormDataChange} />
         </div>
         <button>Halo</button>
       </form>
