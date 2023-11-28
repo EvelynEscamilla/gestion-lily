@@ -28,11 +28,14 @@ const theme = createTheme(
 );
 const Calendar = ({ actualizarFecha}) => {
   const [nuevaFecha, setNuevaFecha] = useState(null);
-
   const handleActualizarFecha = () => {
     actualizarFecha(nuevaFecha);
   };
-
+  const handleChange = (date) => {
+    // Actualiza el estado con el valor seleccionado del radio button
+    setNuevaFecha(date);
+    handleActualizarFecha()
+  };
   return (
     <>
       <div className=" flex justify-center">
@@ -51,7 +54,7 @@ const Calendar = ({ actualizarFecha}) => {
                 disablePast={true}
                 autoFocus={true}
                 value={nuevaFecha}
-                onChange={setNuevaFecha}
+                onChange={handleChange}
                 sx={{
                   bgcolor: "#EDF8F8",
                 }}
@@ -63,7 +66,15 @@ const Calendar = ({ actualizarFecha}) => {
                     hidden: true,
                   },
                 }}
+                renderInput={(startProps, endProps) =>(
+                  <>
+                  <input {...startProps}/>
+                  </>
+                  
+                )}
               />
+                 <p>Fecha seleccionada: {nuevaFecha?.toLocaleDateString()}</p>
+  
             </LocalizationProvider>
           </ThemeProvider>
           <BotonCalendario BG="turqueza" TC="white" oC={handleActualizarFecha}>Guardar Fecha</BotonCalendario>

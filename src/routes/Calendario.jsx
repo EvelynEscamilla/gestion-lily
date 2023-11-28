@@ -21,7 +21,7 @@ const Calendario = () => {
   const [Total, setTotal] = useState("");
 
   const {citasFechaServicio} = useCitasFechas(Fecha, Servicio)
-console.log(citasFechaServicio)
+
   const handleActualizarFecha = (nuevaFecha) => {
     setFecha(nuevaFecha);
   };
