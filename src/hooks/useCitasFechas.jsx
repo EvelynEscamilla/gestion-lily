@@ -8,7 +8,7 @@ const useCitasFechas = (fecha=null, servicio) => {
     getCitasFechaServicio({ Fecha: fecha, Servicio: servicio })
       .then((allCitas) => setCitasFechaServicio(allCitas))
       .catch((error) => console.error('Error al obtener citas:', error));
-  }, [fecha]); // Agrega fecha y servicio a la dependencia del useEffect
+  }, [fecha, servicio]); // Agrega fecha y servicio a la dependencia del useEffect
 
   return { citasFechaServicio};
 };

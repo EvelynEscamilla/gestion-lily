@@ -49,16 +49,17 @@ export const postCita = async ({
   }
 };
 
-export const getCitasFechaServicio = async ({ Fecha, Servicio }) => {
+export const getCitasFechaServicio = async ({ Fecha, Servicio=null }) => {
   try {
-    if ((Fecha !== null) && (Servicio !== null)) {
-      
+    console.log('Fecha: '+Fecha);
+    console.log('Servicio'+Servicio);
+    if (Fecha !== null && Servicio !== null) {
       const { docs } = await getDocs(
         query(
           collection(db, reference),
           where("Fecha", ">=", Fecha),
           where("Fecha", "<", new Date(Fecha.getTime() + 24 * 60 * 60 * 1000)),
-          where("Servicio", "==", Servicio )
+          where("Servicio", "==", Servicio)
         )
       );
 
