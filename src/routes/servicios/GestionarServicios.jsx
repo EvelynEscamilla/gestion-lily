@@ -40,8 +40,7 @@ const serv=servicios
               <thead className=" bg-turqueza text-base  ">
 
                 <tr className="text-left">
-                  <th className="p-3 text-center ">No. de Servicio</th>
-
+                  
                   <th className="p-3 text-center border-x-2 border-azulClaro">Imagen</th>
 
                   <th className="p-3 text-center">Nombre de Servicio</th>

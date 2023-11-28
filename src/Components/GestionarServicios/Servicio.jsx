@@ -10,9 +10,6 @@ function Servicio({ sendDataToParent, item, handleScreen }) {
     <>
       <tr className="border-b border-opacity-20 border-gray-700 text-black">
         <td className="p-3 text-center">
-          <p>{item.numero}</p>
-        </td>
-        <td className="p-3 text-center">
           <img className=" h-16" src={item.url} />
         </td>
         <td className="p-3">
