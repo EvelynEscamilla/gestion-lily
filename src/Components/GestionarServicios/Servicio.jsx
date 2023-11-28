@@ -2,18 +2,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Servicio({ sendDataToParent, item }) {
-  const navigate = useNavigate();
-
-  const handleEditarClick = () => {
-    console.log("Item desde SERVICIO:", item);
-    const itemWithId = { ...item, id: "TQxrOJzcOWqAmdwIqXcv"};
-    navigate("/gestion-lily/Editar-Servicios", { state: { objeto: item } });
-  };
-
-  const enviarDatosServicios = (data) => {
-    sendDataToParent(data);
-  };
+function Servicio({ handleVisibilityChange, item }) {
 
   return (
     <>
@@ -39,7 +28,8 @@ function Servicio({ sendDataToParent, item }) {
           <div className="flex gap-3 items-center justify-center">
             <button
               className="px-4 py-2 font-semibold rounded-3xl bg-morado text-white my-auto"
-              onClick={handleEditarClick}
+              // onClick={handleEditarClick}
+              onClick={() => handleVisibilityChange(item.id)}
             >
               Editar
             </button>

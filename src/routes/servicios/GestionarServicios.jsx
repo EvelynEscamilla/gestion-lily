@@ -1,19 +1,24 @@
 import Servicio from "../../Components/gestionarServicios/Servicio";
 import { Link } from 'react-router-dom'
 import useServicios from "../../hooks/useServicios";
+import { useState } from "react";
 
 const GestionarServicios = () => {
 
-  const { servicios} = useServicios()
-const serv=servicios
-  console.log(servicios)
-  
+  const { servicios } = useServicios()
 
-  const handleDFC = (data) => {
-    console.log("Datos recibidos desde Mostrar Servicios", data);
-  };
+  const [visibleEditServicio, setVisibleEditServicio] = useState(null)
+
+  console.log(servicios)
+
   return (
     <>
+      {/* Modal de editar */}
+      {visibleEditServicio && (
+        <div className="absolute w-full h-full flex justify-center items-center text-white text-3xl z-20 bg-black">
+          {visibleEditServicio}
+        </div>
+      )}
       <div>
         <div className=" pt-12 mx-auto px-4 pb-4  text-white ">
           <p className="mb-4 text-5xl text-center text-black">Servicios</p>
@@ -52,13 +57,12 @@ const serv=servicios
                 </tr>
               </thead>
               <tbody>
-                {serv.map((item, index) => (
+                {servicios.map((servicio, index) => (
                   <Servicio
                     key={index}
-                    sendDataToParent={handleDFC}
-                    item={item}
-
-                  ></Servicio>
+                    item={servicio}
+                    handleVisibilityChange={setVisibleEditServicio}
+                  />
                 ))}
               </tbody>
             </table>

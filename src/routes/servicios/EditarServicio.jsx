@@ -9,7 +9,6 @@ const EditarServicio = () => {
   console.log("ID del servicio que se pasa a FormUpdateService:", servicioData.id);
 
   return (
-    
     <FormUpdateService servicioData={servicioData} />
   );
 };

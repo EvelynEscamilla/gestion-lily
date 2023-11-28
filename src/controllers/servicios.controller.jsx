@@ -52,7 +52,7 @@ export const getServicios = async () => {
     try {
         const { docs } = await getDocs(collection(db, reference))
         const serviciosFirst = docs.map(async (doc) => {
-            return { ...doc.data(), url: await getServicioImage(doc.id) }
+            return { ...doc.data(), id: doc.id, url: await getServicioImage(doc.id) }
         })
 
         const allServicios = await Promise.all(serviciosFirst)
@@ -64,12 +64,12 @@ export const getServicios = async () => {
 
 export const updateServicio = async (id, newData) => {
     try {
-      const servicioRef = doc(db, 'Servicios', "TQxrOJzcOWqAmdwIqXcv");
-      await updateDoc(servicioRef, newData);
-      console.log('Servicio actualizado exitosamente');
+        const servicioRef = doc(db, 'Servicios', "TQxrOJzcOWqAmdwIqXcv");
+        await updateDoc(servicioRef, newData);
+        console.log('Servicio actualizado exitosamente');
     } catch (error) {
-      console.error('Error al actualizar el servicio: ', error);
-      // Puedes manejar el error de la manera que prefieras (mostrar un mensaje, realizar un rollback, etc.)
+        console.error('Error al actualizar el servicio: ', error);
+        // Puedes manejar el error de la manera que prefieras (mostrar un mensaje, realizar un rollback, etc.)
     }
-  };
+};
 
