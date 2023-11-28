@@ -2,6 +2,7 @@ import Servicio from "../../Components/gestionarServicios/Servicio";
 import { Link } from 'react-router-dom'
 import useServicios from "../../hooks/useServicios";
 import { useState } from "react";
+import FormUpdateService from "../../Components/Forms/FormUpdateService";
 
 const GestionarServicios = () => {
 
@@ -15,8 +16,9 @@ const GestionarServicios = () => {
     <>
       {/* Modal de editar */}
       {visibleEditServicio && (
-        <div className="absolute w-full h-full flex justify-center items-center text-white text-3xl z-20 bg-black">
-          {visibleEditServicio}
+        <div className="absolute w-full h-full flex justify-center items-center text-white text-3xl z-20">
+          <div onClick={()=> setVisibleEditServicio(null)} className="w-full h-full bg-gray-800/40 backdrop-blur-md absolute -z-10"></div>
+          <FormUpdateService idServicio={visibleEditServicio} />
         </div>
       )}
       <div>

@@ -12,7 +12,7 @@ IMAGEN == ID
 }
 */
 
-import { addDoc, collection, getDocs, doc, updateDoc } from 'firebase/firestore'
+import { addDoc, collection, getDocs, doc, updateDoc, getDoc } from 'firebase/firestore'
 import { db, storage } from '../firebase'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 
@@ -57,6 +57,14 @@ export const getServicios = async () => {
 
         const allServicios = await Promise.all(serviciosFirst)
         return allServicios
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getServicio = async (id) => {
+    try {
+        return (await getDoc(doc(db, reference, id))).data()
     } catch (error) {
         console.log(error)
     }
