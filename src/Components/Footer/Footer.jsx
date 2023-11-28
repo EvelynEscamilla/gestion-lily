@@ -9,14 +9,14 @@ import Mapa from "../../assets/Footer/Mapa.svg"
 
 const Footer = () => {
   return (
-    <footer className="Navbar w-full h-auto  flex flex-col items-center sm:text-sm lg:text-base  bg-azulClaro text-white">
+    <footer className="Navbar w-full h-auto  flex flex-col items-center sm:text-sm lg:text-base  bg-turqueza text-white">
       <div className='w-full flex flex-col px-2 sm:flex-row items-center'>
         <div className="flex sm:flex-col w-full h-full sm:w-1/3 sm:h-60 justify-center items-center ">
 
           <img className="Logo h-28 sm:h-32 lg:h-40 w-full" src={Logo2} />
           <div className='w-full flex flex-col items-center'>
             <p className="font-bold">Lilia Ramos S.</p>
-            <p>Cosmiatra</p>
+            <p className="font-medium"> Cosmiatra</p>
           </div>
 
         </div>
@@ -34,10 +34,10 @@ const Footer = () => {
           <div className="flex flex-col items-center pr-2 w-full">
             <p className=" font-bold">Encuentranos en:</p>
 
-            <p>Thomas Alva Edison No. 335</p>
-            <p>Col. Electricistas, C.P. 58290</p>
-            <p className=" pt-6">Morelia, Michoacan</p>
-            <p>44 35 87 60 57</p>
+            <p className=" font-medium">Thomas Alva Edison No. 335</p>
+            <p className=" font-medium">Col. Electricistas, C.P. 58290</p>
+            <p className=" font-medium pt-6">Morelia, Michoacan</p>
+            <p className=" font-medium"> 44 35 87 60 57</p>
 
           </div>
           <div className='w-full flex items-center justify-center'>
@@ -46,8 +46,8 @@ const Footer = () => {
 
         </div>
       </div>
-      <div className=" text-xs md:text-sm w-full h-auto text-center bg-turqueza">
-        <p className="w-full h-1/3" >2023 © Clinica de Belleza Lily. todos los derechos reservados</p>
+      <div className=" text-xs md:text-sm w-full h-auto text-center bg-azulClaro">
+        <p className="font-medium w-full h-1/3" >2023 © Clinica de Belleza Lily. todos los derechos reservados</p>
       </div>
     </footer>
   )
