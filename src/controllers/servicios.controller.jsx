@@ -12,9 +12,9 @@ IMAGEN == ID
 }
 */
 
-import { addDoc, collection, getDocs, getDoc, query } from 'firebase/firestore'
+import { addDoc, collection, getDocs, doc, updateDoc } from 'firebase/firestore'
 import { db, storage } from '../firebase'
-import { ref, uploadBytes } from 'firebase/storage'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 
 const reference = "Servicios"
 const storageReference = "Servicios"
@@ -39,12 +39,37 @@ const postServicioImage = async (file, id) => {
         .then((snapshot) => console.log(snapshot.ref))
 }
 
+export const getServicioImage = async (id) => {
+    try {
+        const url = await getDownloadURL(ref(storage, `Servicios/${id}`))
+        return url
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const getServicios = async () => {
     try {
         const { docs } = await getDocs(collection(db, reference))
-        const allServicios = docs.map((doc) => doc.data())
+        const serviciosFirst = docs.map(async (doc) => {
+            return { ...doc.data(), url: await getServicioImage(doc.id) }
+        })
+
+        const allServicios = await Promise.all(serviciosFirst)
         return allServicios
     } catch (error) {
         console.log(error)
     }
 }
+
+export const updateServicio = async (id, newData) => {
+    try {
+      const servicioRef = doc(db, 'Servicios', "TQxrOJzcOWqAmdwIqXcv");
+      await updateDoc(servicioRef, newData);
+      console.log('Servicio actualizado exitosamente');
+    } catch (error) {
+      console.error('Error al actualizar el servicio: ', error);
+      // Puedes manejar el error de la manera que prefieras (mostrar un mensaje, realizar un rollback, etc.)
+    }
+  };
+

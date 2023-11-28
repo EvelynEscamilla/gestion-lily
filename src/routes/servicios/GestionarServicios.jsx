@@ -1,13 +1,13 @@
-import imagenes from "../../Components/mostrarServicios/Imagenes";
 import Servicio from "../../Components/gestionarServicios/Servicio";
 import { Link } from 'react-router-dom'
 import useServicios from "../../hooks/useServicios";
 
 const GestionarServicios = () => {
 
-  const { servicios } = useServicios()
-
+  const { servicios} = useServicios()
+const serv=servicios
   console.log(servicios)
+  
 
   const handleDFC = (data) => {
     console.log("Datos recibidos desde Mostrar Servicios", data);
@@ -40,7 +40,7 @@ const GestionarServicios = () => {
               <thead className=" bg-turqueza text-base  ">
 
                 <tr className="text-left">
-                  <th className="p-3 text-center ">No. de Servicio</th>
+
 
                   <th className="p-3 text-center border-x-2 border-azulClaro">Imagen</th>
 
@@ -52,7 +52,7 @@ const GestionarServicios = () => {
                 </tr>
               </thead>
               <tbody>
-                {imagenes.map((item, index) => (
+                {serv.map((item, index) => (
                   <Servicio
                     key={index}
                     sendDataToParent={handleDFC}

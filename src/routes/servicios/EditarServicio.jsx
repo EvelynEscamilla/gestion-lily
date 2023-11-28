@@ -1,11 +1,16 @@
 import React from "react";
-import InputImage from "../../Components/inputImage/InputImage";
-import Boton from "../../Components/boton/Boton";
 import FormUpdateService from "../../Components/Forms/FormUpdateService";
-const EditarServicio = ({ item }) => {
-  console.log(item);
+import { useLocation } from "react-router";
+
+const EditarServicio = () => {
+  const location = useLocation();
+  const servicioData = location.state?.objeto || {};
+
+  console.log("ID del servicio que se pasa a FormUpdateService:", servicioData.id);
+
   return (
-    <FormUpdateService/>
+    
+    <FormUpdateService servicioData={servicioData} />
   );
 };
 
