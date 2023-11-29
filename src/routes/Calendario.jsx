@@ -29,17 +29,17 @@ const Calendario = () => {
     setTotal(nuevoPrecio);
   };
   //formData.fecha, Servicio
-  const { formData, handleFormDataChange, handleDateChange } = useForm();
+  const { formData, handleFormDataChange, handleDateChange, handleTimeChange } =
+    useForm();
 
- 
   useEffect(() => {
     if (formData !== null) {
-    setFecha(formData.fecha);
-    setServicio(formData.grupoServicios);
+      setFecha(formData.fecha);
+      setServicio(formData.grupoServicios);
     }
   }, [formData]);
 
-  console.log(citasFechaServicio)
+  console.log(citasFechaServicio);
   useEffect(() => {
     const hora24 = moment(hora, "hh:mm A").format("HH:mm");
     const fechaHora = moment(
@@ -105,9 +105,21 @@ const Calendario = () => {
           <FormSeleccionServicios onChange={handleFormDataChange} />
         </div>
         <div className="lg:w-1/6">
-          <FormHorario onChange={handleFormDataChange} />
+          <div className="flex items-center lg:flex justify-center p-5 ">
+            <div className="w-8/9 h-[31rem] bg-azulNav rounded-lg border-2 border-azul flex flex-col justify-between">
+              <div className="mb-10 ">
+                <div className=" justify-center inline-block">
+                  <FormHorario onChange={handleTimeChange} />
+                  <select name="personas" onChange={handleFormDataChange}>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                  <button>Halo</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <button>Halo</button>
       </form>
     </>
   );

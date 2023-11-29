@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import BotonCalendario from "../boton/BotonCalendario";
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
 const FormHorario = ({ onChange }) => {
   const [datos, setDatos] = useState([]);
-  
+
   useEffect(() => {
     const obtenerDatos = async () => {
       const datosObtenidos = [
@@ -25,30 +29,15 @@ const FormHorario = ({ onChange }) => {
 
     obtenerDatos();
   }, []);
-
-
   return (
     <>
-      <div className="flex items-center lg:flex justify-center p-5 ">
-        <div className="w-8/9 h-[31rem] bg-azulNav rounded-lg border-2 border-azul flex flex-col justify-between">
-          <div className="mb-10 ">
-            <div className="flex justify-center">
-              <select
-                name="hora"
-                onChange={onChange}
-                className="w-[9rem] rounded-2xl bg-azulClaro text-white text-xl font-bold px-3 py-2 mt-2"
-              >
-                <option value="">Horario</option>
-                {datos.map((dato, index) => (
-                  <option disabled key={index} value={dato}>
-                    {dato}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
+
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DemoContainer components={["TimePicker"]}>
+                  <TimePicker label="Basic time picker" onChange={onChange} />
+                </DemoContainer>
+              </LocalizationProvider>
+
     </>
   );
 };
