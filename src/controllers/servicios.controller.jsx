@@ -98,7 +98,6 @@ export const updateServicio = async (id, newData) => {
         console.error('Error al actualizar el servicio: ', error);
         // Puedes manejar el error de la manera que prefieras (mostrar un mensaje, realizar un rollback, etc.)
     }
-};
 
 
   try {
@@ -130,6 +129,7 @@ export const getServiciosPrecioCorporal = async () => {
     console.error(error);
   }
 };
+
 export const getServiciosPrecioFacial = async () => {
   try {
     const { docs } = await getDocs(

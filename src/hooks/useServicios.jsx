@@ -12,8 +12,6 @@ const useServicios = () => {
   const [serviciosPrecioFac, setServiciosPF] = useState([]);
 
 
-    const [servicios, setServicios] = useState([])
-
   useEffect(() => {
     getServicios().then((allServicios) => setServicios(allServicios))
   }, []);
