@@ -14,8 +14,8 @@ const FormSignUp = () => {
   const [passwordConfirmationTextError, setPasswordConfirmationTextError] = useState('')
   const [disabledBoton, setDisabledBoton] = useState(false)
 
-  const findEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-  const wellPassword = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~])(?=.{8,16})/
+  const expresionEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  const expresionPassword = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~])(?=.{8,16})/
 
   const emailErrorMSG = "El correo no es válido."
   const passwordErrorMSG = "La contraseña debe contener mínimo de 8 caractares, una mayúscula, un caracter especial y un número."
@@ -31,7 +31,7 @@ const FormSignUp = () => {
   const dataFieldCheck = (event) => {
     const { name, value } = event.target
     if (name === 'email') {
-      if (!value.match(findEmail) && value.trim() !== '') {
+      if (!value.match(expresionEmail) && value.trim() !== '') {
         setEmailTextError(emailErrorMSG)
         setDisabledBoton(true)
       } else {
@@ -40,7 +40,7 @@ const FormSignUp = () => {
       }
     }
     else if (name === 'password') {
-      if (!value.match(wellPassword) && value.trim() !== '') {
+      if (!value.match(expresionPassword) && value.trim() !== '') {
         setPasswordTextError(passwordErrorMSG)
         setDisabledBoton(true)
       } else {
