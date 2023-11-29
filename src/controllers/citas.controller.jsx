@@ -10,7 +10,59 @@ ID DEL DOCUMENTO === GENERADO AUTOMATICAMENTE
     numeroClientes: Numero de clientes
 }
 */
+import { addDoc, collection, getDocs, getDoc, query , where, Timestamp} from "firebase/firestore";
+import { db, storage } from "../firebase";
+import { ref, uploadBytes } from "firebase/storage";
 
-export const postCita = async (citaData) => { 
+const reference = "Citas";
+
+export const postCita = async ({
+  Fecha,
+  Servicio,
+  Cliente,
+  Contacto,
+  Estado,
+  Numero_cliente,
+  Total,
+}) => {
+  try {
+    const { id } = await addDoc(collection(db, reference), {
+      Fecha,
+      Servicio,
+
+      Cliente,
+      Contacto,
+      Estado,
+      Numero_cliente,
+      Total,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getCitasFechaServicio = async ({ Fecha, Servicio }) => {
+  console.log('Que fecha le doy= '+ new Date(Fecha))
+  try {
+    const { docs } = await getDocs(
+      query(
+        collection(db, reference),
+        where("Fecha", "==", Fecha),
+        where("Servicio", "==", Servicio)
+      )
+    );
+
+    const allCitasFiltered = docs.map((doc) => {
+      const data = doc.data();
+      return {
+        Fecha: data.Fecha.toDate().getHours(),
+        
+      };
+    });
     
-}
+    return allCitasFiltered;
+    
+  } catch (error) {
+    console.error(error);
+  }
+};
