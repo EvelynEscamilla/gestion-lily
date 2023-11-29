@@ -36,6 +36,7 @@ function App() {
         {
           path: "/gestion-lily",
           element: <Inicio />,
+          
         },
         {
           path: "/gestion-lily/nosotros",

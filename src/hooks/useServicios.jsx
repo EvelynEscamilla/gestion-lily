@@ -5,10 +5,14 @@ import {
   getServiciosPrecioFacial,
 } from "../controllers/servicios.controller";
 
+
 const useServicios = () => {
   const [servicios, setServicios] = useState([]);
   const [serviciosPrecioCor, setServiciosPC] = useState([]);
   const [serviciosPrecioFac, setServiciosPF] = useState([]);
+
+
+    const [servicios, setServicios] = useState([])
 
   useEffect(() => {
     getServicios().then((allServicios) => setServicios(allServicios))
@@ -23,6 +27,7 @@ const useServicios = () => {
       setServiciosPF(allServicios)
     );
   }, []);
+
 
   return { servicios, serviciosPrecioCor, serviciosPrecioFac };
 };

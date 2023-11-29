@@ -12,16 +12,11 @@ IMAGEN == ID
 }
 */
 
-import {
-  addDoc,
-  collection,
-  getDocs,
-  getDoc,
-  query,
-  where,
-} from "firebase/firestore";
-import { db, storage } from "../firebase";
-import { ref, uploadBytes } from "firebase/storage";
+
+import { addDoc, collection, getDocs, doc, updateDoc, getDoc } from 'firebase/firestore'
+import { db, storage } from '../firebase'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
+
 
 const reference = "Servicios";
 const storageReference = "Servicios";
@@ -62,7 +57,50 @@ const postServicioImage = async (file, id) => {
   );
 };
 
+export const getServicioImage = async (id) => {
+    try {
+        const url = await getDownloadURL(ref(storage, `Servicios/${id}`))
+        return url
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const getServicios = async () => {
+
+    try {
+        const { docs } = await getDocs(collection(db, reference))
+        const serviciosFirst = docs.map(async (doc) => {
+            return { ...doc.data(), id: doc.id, url: await getServicioImage(doc.id) }
+        })
+
+        const allServicios = await Promise.all(serviciosFirst)
+        return allServicios
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getServicio = async (id) => {
+    try {
+        return (await getDoc(doc(db, reference, id))).data()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const updateServicio = async (id, newData) => {
+    try {
+        const servicioRef = doc(db, 'Servicios', "TQxrOJzcOWqAmdwIqXcv");
+        await updateDoc(servicioRef, newData);
+        console.log('Servicio actualizado exitosamente');
+    } catch (error) {
+        console.error('Error al actualizar el servicio: ', error);
+        // Puedes manejar el error de la manera que prefieras (mostrar un mensaje, realizar un rollback, etc.)
+    }
+};
+
+
   try {
     const { docs } = await getDocs(collection(db, reference));
     const allServicios = docs.map((doc) => doc.data());
@@ -112,3 +150,4 @@ export const getServiciosPrecioFacial = async () => {
     console.error(error);
   }
 };
+
