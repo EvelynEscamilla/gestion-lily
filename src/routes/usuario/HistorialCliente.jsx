@@ -8,7 +8,7 @@ const { citas } = useHistorial();
 const cita=citas
 const auth = useAuth();
 const cliente = auth.userData.nombreCompleto;
-console.log("usuario", cliente)
+
 
   const mesActual = new Date().getMonth() + 1;
   const currentYear = new Date().getFullYear();
