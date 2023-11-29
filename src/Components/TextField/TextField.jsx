@@ -19,6 +19,7 @@ const TextField = ({ name, type, placeholder, value, onChange }) => {
       type={type}
       placeholder={placeholder}
       value={value}
+      required
     />
   );
 };

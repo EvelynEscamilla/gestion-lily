@@ -1,6 +1,6 @@
 import React from "react";
 
-const Boton = ({ BG, children, TC, type = "submit" }) => {
+const Boton = ({ BG, children, TC, type = "submit", disabled }) => {
   const buttonClasses = `
         group
         relative
@@ -37,7 +37,7 @@ const Boton = ({ BG, children, TC, type = "submit" }) => {
             `;
 
   return (
-    <button className={buttonClasses} type={type}>
+    <button className={buttonClasses} type={type} disabled={disabled}>
       <div className={divClasses}></div>
       <span className={divSpan}>{children}</span>
     </button>

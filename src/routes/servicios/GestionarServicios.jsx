@@ -1,19 +1,28 @@
 import Servicio from "../../Components/gestionarServicios/Servicio";
 import { Link } from 'react-router-dom'
 import useServicios from "../../hooks/useServicios";
+import { useState } from "react";
+import FormUpdateService from "../../Components/Forms/FormUpdateService";
 
 const GestionarServicios = () => {
 
-  const { servicios} = useServicios()
-const serv=servicios
+  const { servicios } = useServicios()
+
+  const [visibleEditServicio, setVisibleEditServicio] = useState(null)
+
+
   console.log(servicios)
   
 
-  const handleDFC = (data) => {
-    console.log("Datos recibidos desde Mostrar Servicios", data);
-  };
   return (
     <>
+      {/* Modal de editar */}
+      {visibleEditServicio && (
+        <div className="absolute w-full h-full flex justify-center items-center text-white text-3xl z-20">
+          <div onClick={()=> setVisibleEditServicio(null)} className="w-full h-full bg-gray-800/40 backdrop-blur-md absolute -z-10"></div>
+          <FormUpdateService idServicio={visibleEditServicio} />
+        </div>
+      )}
       <div>
         <div className=" pt-12 mx-auto px-4 pb-4  text-white ">
           <p className="mb-4 text-5xl text-center text-black">Servicios</p>
@@ -40,7 +49,7 @@ const serv=servicios
               <thead className=" bg-turqueza text-base  ">
 
                 <tr className="text-left">
-                  
+
                   <th className="p-3 text-center border-x-2 border-azulClaro">Imagen</th>
 
                   <th className="p-3 text-center">Nombre de Servicio</th>
@@ -51,13 +60,13 @@ const serv=servicios
                 </tr>
               </thead>
               <tbody>
-                {serv.map((item, index) => (
+                {servicios.map((servicio, index) => (
+
                   <Servicio
                     key={index}
-                    sendDataToParent={handleDFC}
-                    item={item}
-
-                  ></Servicio>
+                    item={servicio}
+                    handleVisibilityChange={setVisibleEditServicio}
+                  />
                 ))}
               </tbody>
             </table>
