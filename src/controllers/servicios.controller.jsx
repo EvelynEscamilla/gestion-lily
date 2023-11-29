@@ -12,10 +12,10 @@ IMAGEN == ID
 }
 */
 
-
 import { addDoc, collection, getDocs, doc, updateDoc, getDoc } from 'firebase/firestore'
 import { db, storage } from '../firebase'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
+
 
 
 const reference = "Servicios";
@@ -71,7 +71,9 @@ export const getServicios = async () => {
     try {
         const { docs } = await getDocs(collection(db, reference))
         const serviciosFirst = docs.map(async (doc) => {
+
             return { ...doc.data(), id: doc.id, url: await getServicioImage(doc.id) }
+
         })
 
         const allServicios = await Promise.all(serviciosFirst)

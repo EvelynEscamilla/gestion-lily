@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../context/authContext';
 
 const PerfilCliente = () => {
+    const auth = useAuth();
+
     return (
         <>
             <div className="bg-gray-100 flex justify-center items-center h-screen">
@@ -9,16 +12,17 @@ const PerfilCliente = () => {
                     <div className='grid grid-rows-1 lg:flex justify-center items-center p-8 pb-2'>
                         
                         <div className=" text-white bg-morado px-6 lg:px-5 py-4 rounded-md">
-                            <div className='py-3'>
-                                <p className="text-xl font-bold">Nombre de Usuario Cool</p>
+                            <div className='py-3 flex'>
+                                <p className="text-xl font-bold mr-2">Nombre de Usuario:</p>
+                                <p className="text-xl ">{auth.userData.nombreCompleto}</p>
                             </div>
                             <div className='py-3'>
-                                <span className=" mr-2 text-xl font-bold">Correo electronico: </span>
-                                <span className="  text-xl ">CorreoElectronico@Gmail.com</span>
+                                <span className=" mr-2 text-xl font-bold">Correo electrónico: </span>
+                                <span className="  text-xl ">{auth.userData.email}</span>
                             </div>
                             <div className='py-3'>
-                                <span className="  mr-2 text-xl font-bold">Telefono: </span>
-                                <span className=" text-xl">4412345678</span>
+                                <span className="  mr-2 text-xl font-bold">Teléfono: </span>
+                                <span className=" text-xl">{auth.userData.telefono}</span>
                             </div>
                         </div>
                     </div>

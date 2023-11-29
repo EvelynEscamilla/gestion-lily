@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import {
   getServicios,
@@ -5,12 +6,10 @@ import {
   getServiciosPrecioFacial,
 } from "../controllers/servicios.controller";
 
-
 const useServicios = () => {
   const [servicios, setServicios] = useState([]);
   const [serviciosPrecioCor, setServiciosPC] = useState([]);
   const [serviciosPrecioFac, setServiciosPF] = useState([]);
-
 
   useEffect(() => {
     getServicios().then((allServicios) => setServicios(allServicios))
@@ -29,5 +28,6 @@ const useServicios = () => {
 
   return { servicios, serviciosPrecioCor, serviciosPrecioFac };
 };
+
 
 export default useServicios;

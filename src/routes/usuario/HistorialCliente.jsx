@@ -1,60 +1,97 @@
-const Pasadas = ({ Lista }) => {
-  return (
-    <>
-      <div className="rounded-2xl border-2 mx-auto border-azulClaro md:w-1/2 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
-          <div className="border-2 rounded-2xl text-center bg-morado p-2 w-full h-1/6">
-            <p className="font-bold text-3xl mt-3 text-white">Citas completadas</p>
-          </div>
-        <hr />
-        <div className="scroll-m-0 overflow-y-scroll h-[30rem]">
-          {Lista.map((Lista) => (
-            <div>
-              <div className="border-2 cursor-pointer border-azul rounded-2xl  bg-white p-2 mt-5 mb-4 mr-4 ml-4">
-                <div className="bg-white flex p-2">
-                  <div>
-                  <p className="font-bold mx-2 text-justify text-lg">
-                    {Lista.fecha}
-                  </p>
-                  <p className="font-bold mx-2 mt-2 text-justify text-lg">
-                    {Lista.servicio}
-                  </p>
-                  </div>
-                  <p className="font-bold mt-10 ml-auto text-lg ">
-                Total: ${Lista.precio}
-                  </p>
-                </div>
-                
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
-  );
-};
-
-
-const Citas = () => {
-  const Lista = [
-    { id: 1, fecha: "18/10/2023",  servicio: "Masaje, elimicación de berrugas", precio:"500" },
-    { id: 2, fecha: "18/10/2023",  servicio: "Botox", precio:"300" },
-    { id: 3, fecha: "18/10/2023",  servicio: "Masaje", precio:"300"},
-    { id: 4, fecha: "18/10/2023",  servicio: "Masaje", precio:"300"},
-    { id: 5, fecha: "18/10/2023",  servicio: "Masaje", precio:"300"},
-  ];
-
-  return <Pasadas Lista={Lista} />;
-};
+import useHistorial from "../../hooks/useHistorial";
+import React, { useState} from 'react';
+import Pasadas from "../../Components/citas/HistorialCitasM"
+import { useAuth } from '../../context/authContext';
 
 const HistorialCliente = () => {
+const { citas } = useHistorial();
+const cita=citas
+const auth = useAuth();
+const cliente = auth.userData.nombreCompleto;
+
+
+  const mesActual = new Date().getMonth() + 1;
+  const currentYear = new Date().getFullYear();
+  const [mesSeleccionado, setMesSeleccionado] = useState(mesActual.toString());
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+
+  const handleYearChange = (increment) => {
+    setSelectedYear(selectedYear + increment);
+  };
+
+  const citasFiltradas = cita.filter(item => {
+    const fecha = item.Fecha.toDate();
+    const mesCita = fecha.getMonth() + 1;
+    const añoCita = fecha.getFullYear();
+    const estadoCita = item.Estado;
+
+    return mesCita.toString() === mesSeleccionado && añoCita === selectedYear && estadoCita === "Realizada" && item.Cliente === cliente;
+  });
+
   return (
     <>
       <div className="flex justify-center ml-8 mt-10">
         <p className="font-medium justify-center text-4xl">Historial de citas</p>
       </div>
-      <Citas/>
+      <div className="flex flex-col justify-center items-center">
+                <div className="rounded-2xl  border-2 border-azulClaro w-3/4 lg:w-1/2 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
+                <div className="flex items-center justify-center my-3">
+                    <div className="lg:w-1/3">
+                        <div className="flex items-center justify-center lg:w-32 lg:h-12 md:h-12 sm:h-12 p-2 rounded-2xl  border-2 bg-morado">
+                        <button
+                            className="p-2 mr-2l text-2xl text-white"
+                            onClick={() => handleYearChange(-1)}
+                            disabled={selectedYear <= currentYear - 1}
+                        >
+                            &#9666;
+                        </button>
+                        <span className="font-semibold text-white text-lg">{selectedYear}</span>
+                        <button
+                            className="p-2 ml-2 text-2xl text-white"
+                            onClick={() => handleYearChange(1)}
+                        >
+                            &#9656;
+                        </button>
+                        </div>
+                    </div>
+
+                    <div className="lg:w-1/2">
+                        <select
+                        className="p-2 lg:w-full rounded-2xl font-semibold text-white text-center text-lg border-2 bg-morado"
+                        name="meses"
+                        id=""
+                        value={mesSeleccionado}
+                        onChange={(e) => setMesSeleccionado(e.target.value)}
+                        >
+                        <option value="1">Enero</option>
+                        <option value="2">Febrero</option>
+                        <option value="3">Marzo</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Mayo</option>
+                        <option value="6">Junio</option>
+                        <option value="7">Julio</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div className="scroll-m-0 overflow-y-scroll h-[30rem]">
+                        {citasFiltradas.map((item, index) => (
+                            <Pasadas
+                                key={index}
+                                item={item}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
     </>
   );
 };
+
 
 export default HistorialCliente;

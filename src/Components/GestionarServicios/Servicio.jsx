@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -27,12 +28,14 @@ function Servicio({ handleVisibilityChange, item }) {
         <td className="p-3 text-center">
           <div className="flex gap-3 items-center justify-center">
             <button
+
               className="px-4 py-2 font-semibold rounded-3xl bg-morado text-white my-auto"
               // onClick={handleEditarClick}
               onClick={() => handleVisibilityChange(item.id)}
             >
               Editar
             </button>
+
           </div>
         </td>
       </tr>

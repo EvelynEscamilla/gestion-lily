@@ -10,7 +10,9 @@ const GestionarServicios = () => {
 
   const [visibleEditServicio, setVisibleEditServicio] = useState(null)
 
+
   console.log(servicios)
+  
 
   return (
     <>
@@ -48,7 +50,6 @@ const GestionarServicios = () => {
 
                 <tr className="text-left">
 
-
                   <th className="p-3 text-center border-x-2 border-azulClaro">Imagen</th>
 
                   <th className="p-3 text-center">Nombre de Servicio</th>
@@ -60,6 +61,7 @@ const GestionarServicios = () => {
               </thead>
               <tbody>
                 {servicios.map((servicio, index) => (
+
                   <Servicio
                     key={index}
                     item={servicio}
