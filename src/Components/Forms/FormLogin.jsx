@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from 'react-router-dom'
 import { useAuth } from "../../context/authContext";
 import useForm from "../../hooks/useForm";
 import Boton from "../boton/Boton";
@@ -32,9 +32,9 @@ const FormLogin = () => {
         </div>
       </div>
 
-      <p className="texto-fuente text-center py-3 md:text-base text-turqueza lg:text-xl">
-       
-      </p>
+      <Link to="/gestion-lily/RecuperarContraseña" className="texto-fuente font-medium text-center py-3 lg:text-base text-turqueza">
+       ¿Has olvidado tu contraseña?
+      </Link>
       <div className="flex py-3 w-full items-center">
         <div className=" w-1/2 ">
           

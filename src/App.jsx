@@ -1,3 +1,4 @@
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LayoutPrincipal from "./routes/LayoutPrincipal";
 import Inicio from "./routes/Inicio";
@@ -17,19 +18,16 @@ import HistorialMes from "./routes/administrador/HistorialMes";
 import Login2 from "./routes/Login2";
 import MostrarServicios from "./routes/servicios/MostrarServicios";
 import PerfilCliente from "./routes/usuario/PerfilCliente";
+import RecuperarContraseña from './routes/RecuperarContraseña'
+import CambiarContraseñaRecuperada from './routes/CambiarContraseñaRecuperada'
 import ClientProtectedRoute from "./routes/auth/ClientProtectedRoute";
 import AdminProtectedRoute from "./routes/auth/AdminProtectedRoute";
 import { AuthProvider } from "./context/authContext";
 import Pruebas from "./routes/Pruebas";
 
+
 function App() {
-  // Sugerencias rapidas,
-  //1.- Las rutas se ponen en minusculas, no en mayusculas HECHO
-  //2.- Hacer carpetas en rutas, para hacer una mejor gestion y se organice mejor el proyecto HECHO
-  //3.- NO USAR BR NI HR HECHO
-  //4.- Ya haganlo responsive EN PROCESO
-  //5.- CARPETAS EN MINUSCULAS TAMBIEN, Componentes empiezan en mayuscula, todo lo otro es con camelCase, rutas en minusculas con guiones separando las palabras
-  //6.- No rutas innecesarias, CRUD (servicios) SI CREAR Opciones: MODALS
+ 
   const router = createBrowserRouter([
     {
       path: "/gestion-lily",
@@ -111,6 +109,15 @@ function App() {
             </AdminProtectedRoute>
           ),
         },
+        {
+          path: "/gestion-lily/RecuperarContraseña",
+          element: <RecuperarContraseña />
+        },
+        {
+          path: "/gestion-lily/Recuperacion-CambiarContraseña",
+          element: <CambiarContraseñaRecuperada />
+        },
+        
 
         // Estos dos siguientes son casi la misma misma mamada, modificar
 

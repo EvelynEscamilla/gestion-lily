@@ -8,6 +8,7 @@ import moment from "moment/moment";
 import { useAuth } from "../context/authContext";
 import ModUsr from "../Components/modals/modUsr";
 import useCitasFechas from "../hooks/useCitasFechas";
+import useForm from '../hooks/useForm'
 
 const Calendario = () => {
   const { userData } = useAuth();
@@ -20,8 +21,8 @@ const Calendario = () => {
   const [Numero_cliente, setNumero_cliente] = useState("1");
   const [Total, setTotal] = useState("");
 
-  const {citasFechaServicio} = useCitasFechas(Fecha, Servicio)
-console.log(citasFechaServicio)
+  const { citasFechaServicio } = useCitasFechas(Fecha, Servicio)
+
   const handleActualizarFecha = (nuevaFecha) => {
     setFecha(nuevaFecha);
   };
@@ -31,6 +32,9 @@ console.log(citasFechaServicio)
   const handleActualizarPrecio = (nuevoPrecio) => {
     setTotal(nuevoPrecio);
   };
+
+  const { formData, handleFormDataChange, handleDateChange } = useForm()
+
   useEffect(() => {
     const hora24 = moment(hora, "hh:mm A").format("HH:mm");
     const fechaHora = moment(
@@ -50,19 +54,19 @@ console.log(citasFechaServicio)
   const handleActualizarHora = (nuevaHora) => {
     console.log(
       Fecha +
-        " " +
-        Servicio +
-        " " +
-        " " +
-        Cliente +
-        " " +
-        Contacto +
-        " " +
-        Estado +
-        " " +
-        Numero_cliente +
-        " " +
-        Total
+      " " +
+      Servicio +
+      " " +
+      " " +
+      Cliente +
+      " " +
+      Contacto +
+      " " +
+      Estado +
+      " " +
+      Numero_cliente +
+      " " +
+      Total
     );
     setHora(nuevaHora);
   };
@@ -90,22 +94,18 @@ console.log(citasFechaServicio)
       >
         <div className=" lg:w-2/6">
           <Calendar
-            actualizarFecha={handleActualizarFecha}
-            fechaActual={Fecha}
+            onChange={handleDateChange}
           />
         </div>
 
         <div className=" lg:w-1/2">
           <FormSeleccionServicios
-            actualizarServicio={handleActualizarServicio}
-            actualizarPrecio={handleActualizarPrecio}
+            onChange={handleFormDataChange}
           />
         </div>
         <div className="lg:w-1/6">
           <FormHorario
-            actualizarHora={handleActualizarHora}
-            horaActual={hora}
-            citasFechaServicio={citasFechaServicio}
+            onChange={handleFormDataChange}
           />
         </div>
         <button>Halo</button>

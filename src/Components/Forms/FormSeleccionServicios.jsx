@@ -3,21 +3,11 @@ import BotonCalendario from "../boton/BotonCalendario";
 import useServicios from "../../hooks/useServicios";
 
 
-const FormSeleccionServicios = ({ actualizarServicio, actualizarPrecio }) => {
-  const { serviciosPrecioCor } = useServicios();
-  const { serviciosPrecioFac } = useServicios();
-  const [seleccionado, setSeleccionado] = useState(null);
-  const [precio, setPrecio] = useState(null);
+const FormSeleccionServicios = ({ onChange }) => {
+  const { serviciosPrecioCor, serviciosPrecioFac } = useServicios();
   const servCor = serviciosPrecioCor;
   const servFac = serviciosPrecioFac;
-  const handleSeleccion = (servicio) => {
-    setSeleccionado(servicio.nombre);
-    setPrecio(servicio.precio)
-  };
-  const handleActualizarServicio = () => {
-    actualizarServicio(seleccionado);
-    actualizarPrecio(precio);
-  };
+
 
   return (
     <div className="flex items-center lg:flex justify-center">
@@ -34,48 +24,48 @@ const FormSeleccionServicios = ({ actualizarServicio, actualizarPrecio }) => {
           </label>
         </div>
         <div className="flex">
-        <div className="mt-2 w-1/2">
-          <div className="overflow-auto h-[20rem]">
-            {servCor.map((servicio, index) => (
-              <div className="flex justify-left ml-6" key={index}>
-                <label className="p-2 text-justify">
-                  <input
-                    type="radio"
-                    name="grupoServicios"
-                    value={servicio.nombre}
-                    onChange={() => handleSeleccion(servicio)}
-                    checked={servicio.nombre === seleccionado}
-                  />
-                  {servicio.nombre}
-                </label>
-              </div>
-            ))}
+          <div className="mt-2 w-1/2">
+            <div className="overflow-auto h-[20rem]">
+              {servCor.map((servicio, index) => (
+                <div className="flex justify-left ml-6" key={index}>
+                  <div className="p-2 text-justify">
+                    <input
+                      id={servicio.nombre}
+                      type="radio"
+                      name="grupoServicios"
+                      value={servicio.nombre}
+                      onChange={onChange}
+                    />
+                    <label htmlFor={servicio.nombre}>
+                      {servicio.nombre}
+                    </label>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-2 w-1/2">
+            <div className="overflow-auto h-[20rem]">
+              {servFac.map((servicio, index) => (
+                <div className="flex justify-left ml-6" key={index}>
+                  <label className="p-2 text-justify">
+                    <input
+                      type="radio"
+                      name="grupoServicios"
+                      value={servicio.nombre}
+                      onChange={onChange}
+                    />
+                    {servicio.nombre}
+                  </label>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="mt-2 w-1/2">
-          <div className="overflow-auto h-[20rem]">
-            {servFac.map((servicio, index) => (
-              <div className="flex justify-left ml-6" key={index}>
-                <label className="p-2 text-justify">
-                  <input
-                    type="radio"
-                    name="grupoServicios"
-                    value={servicio.nombre}
-                    onChange={() => handleSeleccion(servicio)}
-                    checked={servicio.nombre === seleccionado}
-                  />
-                  {servicio.nombre}
-                </label>
-              </div>
-            ))}
-          </div>
-        </div>
-        </div>
-        <BotonCalendario BG="turqueza" TC="white" oC={handleActualizarServicio}>
-          Guardar Servicio
-        </BotonCalendario>
       </div>
+
       </div>
+
   );
 };
 

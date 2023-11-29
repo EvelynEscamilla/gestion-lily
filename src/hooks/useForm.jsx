@@ -9,6 +9,11 @@ const useForm = () => {
         console.log(formData)
     }
 
+    const handleDateChange = (date) => {
+        setFormData({ ...formData, fecha: date })
+        console.log(formData)
+    }
+
     const handleFormFileChange = ({ target: { name, files } }) => {
         setFormData({ ...formData, [name]: files[0] })
         console.log(formData)
@@ -16,7 +21,7 @@ const useForm = () => {
 
     const resetForm = () => setFormData(null)
 
-    return { handleFormDataChange, formData, handleFormFileChange, resetForm }
+    return { handleFormDataChange, formData, handleFormFileChange, resetForm, handleDateChange }
 
 }
 

@@ -11,7 +11,7 @@ const useServicios = () => {
   const [serviciosPrecioFac, setServiciosPF] = useState([]);
 
   useEffect(() => {
-    getServicios().then((allServicios) => setServicios(allServicios));
+    getServicios().then((allServicios) => setServicios(allServicios))
   }, []);
   useEffect(() => {
     getServiciosPrecioCorporal().then((allServicios) =>
@@ -19,7 +19,7 @@ const useServicios = () => {
     );
   }, []);
   useEffect(() => {
-     getServiciosPrecioFacial().then((allServicios) =>
+    getServiciosPrecioFacial().then((allServicios) =>
       setServiciosPF(allServicios)
     );
   }, []);
