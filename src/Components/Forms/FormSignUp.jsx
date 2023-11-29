@@ -11,13 +11,15 @@ const FormSignUp = () => {
   const { formData, handleFormDataChange } = useForm([]);
   const [emailTextError, setEmailTextError] = useState('')
   const [passwordTextError, setPasswordTextError] = useState('')
+  const [passwordConfirmationTextError, setPasswordConfirmationTextError] = useState('')
   const [disabledBoton, setDisabledBoton] = useState(false)
 
   const findEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
   const wellPassword = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~])(?=.{8,16})/
 
   const emailErrorMSG = "El correo no es válido."
-  const passwordErrorMSG = "La contraseña debe contener mínimo de 8 caractares, una mayúscula, un caracter especial y un número"
+  const passwordErrorMSG = "La contraseña debe contener mínimo de 8 caractares, una mayúscula, un caracter especial y un número."
+  const passwordConfirmationErrorMSG = "Las contraseñas no coinciden."
   useEffect(() => {
     if (formData !== null) {
       dataFieldCheck(event)
@@ -46,8 +48,29 @@ const FormSignUp = () => {
         setDisabledBoton(false)
       }
     }
-  }
+    else if (name === 'paswordConfirmation') {
+      console.log(formData.password)
+      if (value.match(formData.password) && value.trim() !== '') {
+        setPasswordConfirmationTextError(passwordConfirmationErrorMSG)
+        setDisabledBoton(true)
+      } else {
+        setPasswordConfirmationTextError('')
+        setDisabledBoton(false)
+      }
+    }
 
+    if ((formData!==null)&&(formData.password !== formData.passwordConfirmation)) {
+      console.log(formData.password)
+      console.log(formData.passwordConfirmation)
+      setPasswordConfirmationTextError(passwordConfirmationErrorMSG)
+        setDisabledBoton(true)
+      
+   }else {
+    setPasswordConfirmationTextError('')
+    setDisabledBoton(false)
+  }
+  }
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -108,6 +131,10 @@ const FormSignUp = () => {
             type="password"
             placeholder="Confirmar Contraseña"
           />
+          {passwordConfirmationTextError && (
+            <p className="z-30 text-red-500 text-center text-xs -translate-y-2">{passwordConfirmationTextError}</p>
+
+          )}
 
         </div>
       </div>
@@ -126,8 +153,13 @@ const FormSignUp = () => {
           </Boton>
         </div>
       </div>
+      
+      
+     
     </form>
+    
   );
+  
 };
 
 
