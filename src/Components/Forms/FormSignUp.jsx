@@ -11,6 +11,7 @@ const FormSignUp = () => {
   const { formData, handleFormDataChange } = useForm([]);
   const [emailTextError, setEmailTextError] = useState('')
   const [passwordTextError, setPasswordTextError] = useState('')
+  const [disabledBoton, setDisabledBoton] = useState(false)
 
   const findEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
   const wellPassword = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~])(?=.{8,16})/
@@ -28,12 +29,22 @@ const FormSignUp = () => {
   const dataFieldCheck = (event) => {
     const { name, value } = event.target
     if (name === 'email') {
-      if (!value.match(findEmail) && value.trim() !== '') setEmailTextError(emailErrorMSG)
-      else setEmailTextError('')
+      if (!value.match(findEmail) && value.trim() !== '') {
+        setEmailTextError(emailErrorMSG)
+        setDisabledBoton(true)
+      } else {
+        setEmailTextError('')
+        setDisabledBoton(false)
+      }
     }
     else if (name === 'password') {
-      if (!value.match(wellPassword) && value.trim() !== '') setPasswordTextError(passwordErrorMSG)
-      else setPasswordTextError('')
+      if (!value.match(wellPassword) && value.trim() !== '') {
+        setPasswordTextError(passwordErrorMSG)
+        setDisabledBoton(true)
+      } else {
+        setPasswordTextError('')
+        setDisabledBoton(false)
+      }
     }
   }
 
@@ -79,6 +90,7 @@ const FormSignUp = () => {
           />
           {emailTextError && (
             <p className="text-red-500 text-xs">{emailTextError}</p>
+
           )}
           <TextField
             onChange={handleFormDataChange}
@@ -88,6 +100,7 @@ const FormSignUp = () => {
           />
           {passwordTextError && (
             <p className="z-30 text-red-500 text-center text-xs -translate-y-2">{passwordTextError}</p>
+
           )}
           <TextField
             onChange={handleFormDataChange}
@@ -108,7 +121,7 @@ const FormSignUp = () => {
           </BtnLink>
         </div>
         <div className=" w-1/2 ">
-          <Boton BG="morado" TC="white" type="submit">
+          <Boton BG="morado" TC="white" type="submit" disabled={disabledBoton}>
             Crear Cuenta
           </Boton>
         </div>
