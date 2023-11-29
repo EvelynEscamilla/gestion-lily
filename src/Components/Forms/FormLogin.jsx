@@ -13,6 +13,7 @@ const FormLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await logIn(formData.email, formData.password);
+    window.location.href='/gestion-lily/';
   }
 
   return (
