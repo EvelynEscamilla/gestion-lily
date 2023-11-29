@@ -11,7 +11,7 @@ function Pasadas({item}) {
 
     return (
         <div>
-                            <div className="border-2 relative border-azul rounded-2xl bg-white p-2 mt-5 flex flex-col  mb-2 mr-4 ml-4">
+                            <div className="border-2 relative border-azul rounded-2xl bg-white p-2 mt-2 flex flex-col  mb-5 mr-4 ml-4">
                                 <div className="bg-white p-2 mr-2 flex">
                                     <p className="font-bold flex text-justify text-lg mr-2">
                                      Cliente: 
