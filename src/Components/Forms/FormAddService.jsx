@@ -66,7 +66,7 @@ const FormAddService = () => {
               <select defaultValue={"0"} onChange={handleFormDataChange} name="tipo" className='text-xl' id="tipo">
                 <option value={"0"} hidden></option>
                 <option value="Corporal">Corporal</option>
-                <option value="Facil">Facial</option>
+                <option value="Facial">Facial</option>
               </select>
             </div>
             <div className="col-span-full">

@@ -12,32 +12,50 @@ IMAGEN == ID
 }
 */
 
+
 import { addDoc, collection, getDocs, doc, updateDoc, getDoc } from 'firebase/firestore'
 import { db, storage } from '../firebase'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 
-const reference = "Servicios"
-const storageReference = "Servicios"
+
+const reference = "Servicios";
+const storageReference = "Servicios";
 
 // POST SUBIR
 // GET JALAR DATOS
 // PUT ACTUALIZAR
 // DELETE BORRAR
 
-export const postServicio = async ({ descripcion, duracion, maximoClientes, tipo, precio, nombre, file }) => {
-    try {
-        const { id } = await addDoc(collection(db, reference), { descripcion, duracion, maximoClientes, tipo, precio, nombre })
-        await postServicioImage(file, id)
-    } catch (error) {
-        console.log(error)
-        throw new Error(error.message)
-    }
-}
+export const postServicio = async ({
+  descripcion,
+  duracion,
+  maximoClientes,
+  tipo,
+  precio,
+  nombre,
+  file,
+}) => {
+  try {
+    const { id } = await addDoc(collection(db, reference), {
+      descripcion,
+      duracion,
+      maximoClientes,
+      tipo,
+      precio,
+      nombre,
+    });
+    await postServicioImage(file, id);
+  } catch (error) {
+    console.log(error);
+    throw new Error(error.message);
+  }
+};
 
 const postServicioImage = async (file, id) => {
-    await uploadBytes(ref(storage, storageReference + "/" + id), file)
-        .then((snapshot) => console.log(snapshot.ref))
-}
+  await uploadBytes(ref(storage, storageReference + "/" + id), file).then(
+    (snapshot) => console.log(snapshot.ref)
+  );
+};
 
 export const getServicioImage = async (id) => {
     try {
@@ -49,6 +67,7 @@ export const getServicioImage = async (id) => {
 }
 
 export const getServicios = async () => {
+
     try {
         const { docs } = await getDocs(collection(db, reference))
         const serviciosFirst = docs.map(async (doc) => {
@@ -79,5 +98,56 @@ export const updateServicio = async (id, newData) => {
         console.error('Error al actualizar el servicio: ', error);
         // Puedes manejar el error de la manera que prefieras (mostrar un mensaje, realizar un rollback, etc.)
     }
+};
+
+
+  try {
+    const { docs } = await getDocs(collection(db, reference));
+    const allServicios = docs.map((doc) => doc.data());
+    return allServicios;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getServiciosPrecioCorporal = async () => {
+  try {
+    const { docs } = await getDocs(
+      query(collection(db, reference), where("tipo", "==", "Corporal"))
+    );
+
+    const allServiciosFiltered = docs.map((doc) => {
+      const data = doc.data();
+      return {
+        nombre: data.nombre,
+        precio: data.precio,
+        tipo: data.tipo,
+      };
+    });
+
+    return allServiciosFiltered;
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const getServiciosPrecioFacial = async () => {
+  try {
+    const { docs } = await getDocs(
+      query(collection(db, reference), where("tipo", "==", "Facial"))
+    );
+
+    const allServiciosFiltered = docs.map((doc) => {
+      const data = doc.data();
+      return {
+        nombre: data.nombre,
+        precio: data.precio,
+        tipo: data.tipo,
+      };
+    });
+
+    return allServiciosFiltered;
+  } catch (error) {
+    console.error(error);
+  }
 };
 

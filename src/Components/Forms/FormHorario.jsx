@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import BotonCalendario from "../boton/BotonCalendario";
 
-const FormHorario = ({ actualizarHora }) => {
+const FormHorario = ({ onChange }) => {
   const [datos, setDatos] = useState([]);
-  const [seleccionado, setSeleccionado] = useState("");
-  const handleActualizarHora = () => {
-    actualizarHora(seleccionado);
-  };
-
+  
   useEffect(() => {
     const obtenerDatos = async () => {
       const datosObtenidos = [
@@ -30,9 +26,7 @@ const FormHorario = ({ actualizarHora }) => {
     obtenerDatos();
   }, []);
 
-  const handleSelectChange = (event) => {
-    setSeleccionado(event.target.value);
-  };
+
   return (
     <>
       <div className="flex items-center lg:flex justify-center p-5 ">
@@ -41,31 +35,18 @@ const FormHorario = ({ actualizarHora }) => {
             <div className="flex justify-center">
               <select
                 name="hora"
-                onChange={handleSelectChange}
+                onChange={onChange}
                 className="w-[9rem] rounded-2xl bg-azulClaro text-white text-xl font-bold px-3 py-2 mt-2"
               >
                 <option value="">Horario</option>
                 {datos.map((dato, index) => (
-                  <option key={index} value={dato}>
+                  <option disabled key={index} value={dato}>
                     {dato}
                   </option>
                 ))}
               </select>
             </div>
-            <label
-              className={`rounded-2xl bg-azul text-center text-white font-bold px-2 py-2 mt-2 mx-2 ${
-                seleccionado ? "" : "hidden"
-              }`}
-            >
-              Hora confirmada {seleccionado}
-            </label>
           </div>
-
-          <div className="flex justify-center mb-2 ">
-          <BotonCalendario BG="turqueza" TC="white" oC={handleActualizarHora}>Guardar Hora</BotonCalendario>
-          </div>
-          
-
         </div>
       </div>
     </>
