@@ -8,15 +8,7 @@ import BtnLink from "../btnLink/BtnLink";
 import ModCrearCuenta from "../modals/ModCrearCuenta";
 import ModCrearCuentaFallida from "../modals/ModCrearCuentaFallida";
 
-
-const FormSignUp = () => {
-  const { signUp } = useAuth();
-  const { formData, handleFormDataChange } = useForm();
-  const [showModal, setShowModal] = useState(false);
-  const [showModalFailed, setShowModalFailed] = useState(false); // Estado para controlar la visualización del modal
-
-import { useState } from "react";
-
+  
 const FormSignUp = () => {
   const { signUp } = useAuth();
   const { formData, handleFormDataChange } = useForm([]);
@@ -24,6 +16,8 @@ const FormSignUp = () => {
   const [passwordTextError, setPasswordTextError] = useState('')
   const [passwordConfirmationTextError, setPasswordConfirmationTextError] = useState('')
   const [disabledBoton, setDisabledBoton] = useState(false)
+  const [showModal, setShowModal] = useState(false);
+  const [showModalFailed, setShowModalFailed] = useState(false); 
 
   const expresionEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
   const expresionPassword = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~])(?=.{8,16})/
@@ -102,15 +96,11 @@ const FormSignUp = () => {
   };
 
   const closeModal = () => {
-    // Función para cerrar el modal y resetear el estado
     setShowModal(false);
-    // Aquí podrías realizar alguna otra lógica adicional después de cerrar el modal
   };
 
   const closeModalFailed = () => {
-    // Función para cerrar el modal y resetear el estado
     setShowModalFailed(false);
-    // Aquí podrías realizar alguna otra lógica adicional después de cerrar el modal
   };
 
   return (
@@ -136,14 +126,14 @@ const FormSignUp = () => {
           <TextField
             onChange={handleFormDataChange}
             name="telefono"
-            type="number"
-            placeholder="Numero de Celular"
+            type="text"
+            placeholder="Número de Celular"
           />
           <TextField
             onChange={handleFormDataChange}
             name="email"
             type="email"
-            placeholder="Correo electronico"
+            placeholder="Correo electrónico"
           />
           {emailTextError && (
             <p className="text-red-500 text-xs">{emailTextError}</p>
@@ -178,7 +168,7 @@ const FormSignUp = () => {
       <div className="flex py-3 w-full">
         <div className=" w-1/2 justify-between ">
           <BtnLink BG="morado" TC="white" direccion="/gestion-lily/login">
-            Iniciar Sesion
+            Iniciar Sesión
           </BtnLink>
         </div>
         <div className=" w-1/2 ">
