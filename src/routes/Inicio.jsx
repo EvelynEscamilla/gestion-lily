@@ -15,18 +15,21 @@ const Inicio = () => {
 
     return (
         <>
-            <br></br>
+            <div className='w-full h-screen flex flex-col items-center'>
+                <img className="Logo w-1/2 pt-10" src="Images/Nav/Logo.svg" />
+                <span className='text-3xl font-bold '>Eslogan</span>
+            </div>
             <div id="carouselExample" className="carousel slide">
-            <div className="carousel-inner">
+                <div className="carousel-inner">
                     <div className="carousel-item active">
 
-                    <img src="Images/Inicio/Ca-img1.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 1"></img>
+                        <img src="Images/Inicio/Ca-img1.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 1"></img>
                     </div>
                     <div className="carousel-item">
-                    <img src="Images/Inicio/Ca-img2.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 2"></img>
+                        <img src="Images/Inicio/Ca-img2.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 2"></img>
                     </div>
                     <div className="carousel-item">
-                    <img src="Images/Inicio/ins13.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 3"></img>
+                        <img src="Images/Inicio/ins13.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 3"></img>
                     </div>
                     <div className="carousel-item">
                         <img src="Images/Inicio/Ca-img3.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 4"></img>
@@ -108,7 +111,7 @@ const Inicio = () => {
                     </div>
                 }
             </div>
-            
+
         </>
     )
 }
