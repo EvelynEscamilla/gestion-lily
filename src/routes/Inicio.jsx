@@ -1,9 +1,15 @@
-import React, { useState } from 'react'
-
-
+import React, { useState, useEffect } from 'react'
+import { Transition } from '@headlessui/react'
+import btnDesplegar from '../assets/Inicio/desplegar.png'
 const Inicio = () => {
 
+    const [isShowing, setIsShowing] = useState(false)
     const [infoDiv, setInfoDiv] = useState(1);
+    useEffect(() => {
+
+        setIsShowing((isShowing) => true)
+
+    }, [])
 
     const handleClick = () => {
         setInfoDiv(infoDiv + 1);
@@ -13,13 +19,32 @@ const Inicio = () => {
         setInfoDiv(infoDiv - 1);
     }
 
+
     return (
         <>
-            <div className='w-full h-screen flex flex-col items-center'>
-                <img className="Logo w-1/2 pt-10" src="Images/Nav/Logo.svg" />
-                <span className='text-3xl font-bold '>Eslogan</span>
+
+
+
+
+            <div className='Bienvenida w-full flex flex-col items-center pb-24 justify-center h-screen'>
+                <Transition className='w-full flex flex-col items-center pb-24 justify-center h-screen '
+                    show={isShowing}
+                    enter="transition-opacity duration-1000"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100 "
+                    leave="transition-opacity duration-150"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                >
+                    <img className="Logo w-10/12 sm:w-8/12 md:1/2 lg:w-5/12 " src="Images/Nav/Logo.svg" />
+                    
+                    <p className='text-lg sm:text-xl lg:text-4xl font-bold text-turqueza'>Cuidando tu belleza,<span className='text-[#3370b1]'> cuidamos de tí</span></p>
+                </Transition>
+                <img src={btnDesplegar} alt="desplegar" className='absolute bottom-5 w-16 hover:scale-110 duration-500'  onClick={() => document.getElementById("carouselExample").scrollIntoView({ behavior: 'smooth' })} />
+                
             </div>
-            <div id="carouselExample" className="carousel slide">
+
+            <div id="carouselExample" className="carousel slide ">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
 
