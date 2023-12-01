@@ -12,7 +12,20 @@ import ResumenFormulario from "../modals/ResumenFormulario";
 import { useAuth } from "../../context/authContext";
 import { postCita } from "../../controllers/citas.controller";
 import ContendorElementosCal from "../citas/ContendorElementosCal";
+import { setHours } from "date-fns";
 const FormCalendar = () => {
+  const [valDia, setValDia] = useState(false);
+  const [valServ, setValServ] = useState(false);
+  const [valHora, setValHora] = useState(false);
+  const [valForm, setValForm] = useState(false);
+
+  const div2Ref = useRef(null);
+  const div3Ref = useRef(null);
+  const showAndScroll = (ref) => {
+    ref.current.style.display = "block";
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   const [activeComponent, setActiveComponent] = useState(0);
   const componentRef1 = useRef(null);
   const componentRef2 = useRef(null);
@@ -59,7 +72,6 @@ const FormCalendar = () => {
     handleTimeChange,
     handleFormPrecioDataChange,
     formCliente,
-    resetForm,
   } = useForm();
 
   const { serviciosBy } = useServicios(Servicio);
@@ -97,8 +109,11 @@ const FormCalendar = () => {
       );
     });
     if (!cantidadServHoras) {
+      setValForm(true)
       alert("La nueva cita es aceptable");
+      
     } else {
+      setValForm(false)
       alert(
         "La nueva cita se superpone con una cita existente. Por favor, elija otro horario."
       );
@@ -107,10 +122,15 @@ const FormCalendar = () => {
   useEffect(() => {
     if (formData !== null) {
       if (formData.fecha !== undefined) {
+
         setFecha(formData.fecha);
+        setValDia(true)
       }
       if (formData.grupoServicios !== undefined) {
         setServicio(formData.grupoServicios);
+        if (formData.personas !== undefined) {
+          setValServ(true)
+        }
       }
     }
   }, [formData]);
@@ -156,117 +176,120 @@ const FormCalendar = () => {
   ));
   const hayHorasParaRenderizar =
     horasRenderizadas && horasRenderizadas.length > 0;
-  
+
   return (
     <div className="form flex flex-col justify-center items-center">
       <botton onClick={() => scrollToComponent(1)}>Boton</botton>
       <div className="progressbar"></div>
       <div className="form-container  w-full sm:w-11/12 md:w-10/12 lg:w-8/12 ">
-        {activeComponent === 1 && (
-          <ContendorElementosCal
-            ref={componentRef1}
-            titulo="Escoge el dia de que mas se ajuste a ti"
-            consejos="No es posible agendar citas para fechas pasadas, No se pueden programar citas los sábados y domingos"
-          >
-            <CitasCalendario onChange={handleDateChange} />
-            <div>
-              <BotonCalendario
-                oC={() => scrollToComponent(2)}
-                
-                disabled={activeComponent === 2}
-                BG="morado"
-                TC="white"
-              >
-                <p>Seleccionar Servicio</p>
-              </BotonCalendario>
-            </div>
-          </ContendorElementosCal>
-        )}
-
-        {activeComponent === 2 && (
-          <ContendorElementosCal
-            ref={componentRef2}
-            titulo="Selecciona el servicio que quieras"
-            consejos="Cada servicio es por persona individual. Para seleccionar la cantidad de personas primero escoge un Servicio"
-          >
-            <CitasServicios onChange={handleFormPrecioDataChange} />
-            <div className="flex w-full justify-center items-center px-5">
-              {" "}
-              <p className=" text-lg font-semibold leading-tight">
-                Numero de Personas:
-              </p>
-              <label className=" w-full   ">
-                <select
-                  name="personas"
-                  onChange={handleFormDataChange}
-                  className=" block py-2.5 px-3 w-full   border-2 border-azul  focus:outline-none focus:ring-0 focus:border-gray-200 rounded "
-                >
-                  {opciones}
-                </select>
-              </label>
-            </div>
-            <div className="flex">
-              <BotonCalendario
-                oC={() => scrollToComponent(1)}
-                disabled={activeComponent === 1}
-                BG="morado"
-                TC="white"
-              >
-                <p>Atras</p>
-              </BotonCalendario>
-              <BotonCalendario
-                oC={() => scrollToComponent(3)}
-                
-                disabled={activeComponent === 3}
-                BG="morado"
-                TC="white"
-              >
-                <p>Seleccionar Horario</p>
-              </BotonCalendario>
-            </div>
-          </ContendorElementosCal>
-        )}
-        {activeComponent === 3 && (
-          <ContendorElementosCal
-            ref={componentRef3}
-            titulo="Escoge el horario que quieras"
-            consejos="No es posible agendar citas para fechas pasadas, No se pueden programar citas los sábados y domingos"
-          >
-            <div className="flex justify-between px-10 md:pl-5 md:pr-0 w-full">
-              <div className=" w-full block  ">
-                <CitasHorarios onChange={handleTimeChange} />
-              </div>
-
-              {hayHorasParaRenderizar && (
-                <>
-                  <div className="p-2 ">
-                    <p className="p-2">
-                      Estos horarios YA ESTAN OCUPADOS, elige un horario que no
-                      se interponga entre estos
-                    </p>
-                    <div className="flex">{horasRenderizadas}</div>
-                  </div>
-                </>
-              )}
-            </div>
-            <div className="flex">
-              <BotonCalendario
-                oC={() => scrollToComponent(2)}
-                disabled={activeComponent === 2}
-                BG="morado"
-                TC="white"
-              >
-                <p>Atras</p>
-              </BotonCalendario>
-              <BotonCalendario oC={VerificarServ} BG="morado" TC="white">
-                <p>Verificar Horario</p>
-              </BotonCalendario>
-            </div>
-            <BotonCalendario oC={mostrarDatosEnModal} BG="morado" TC="white">
-              <p>Confirmar Cita</p>
+        <ContendorElementosCal
+          ref={componentRef1}
+          titulo="Escoge el dia de que mas se ajuste a ti"
+          consejos="No es posible agendar citas para fechas pasadas, No se pueden programar citas los sábados y domingos"
+        >
+          <CitasCalendario onChange={handleDateChange} />
+          <div>
+            <BotonCalendario
+              oC={() => scrollToComponent(2)}
+              desa={valDia}
+              BG="morado"
+              TC="white"
+            >
+              <p>Seleccionar Servicio</p>
             </BotonCalendario>
-          </ContendorElementosCal>
-        )}
+          </div>
+        </ContendorElementosCal>
+
+        <ContendorElementosCal
+          ref={componentRef2}
+          titulo="Selecciona el servicio que quieras"
+          consejos="Cada servicio es por persona individual. Para seleccionar la cantidad de personas primero escoge un Servicio"
+        >
+          <CitasServicios onChange={handleFormPrecioDataChange} />
+          <div className="flex w-full justify-center items-center px-5">
+            {" "}
+            <p className=" text-lg font-semibold leading-tight">
+              Numero de Personas:
+            </p>
+            <label className=" w-full   ">
+              <select
+                name="personas"
+                onChange={handleFormDataChange}
+                className=" block py-2.5 px-3 w-full   border-2 border-azul  focus:outline-none focus:ring-0 focus:border-gray-200 rounded "
+              >
+                {opciones}
+              </select>
+            </label>
+          </div>
+          <div className="flex">
+            <BotonCalendario
+              oC={() => scrollToComponent(1)}
+              BG="morado"
+              TC="white"
+              desa={true}
+            >
+              <p>Atras</p>
+            </BotonCalendario>
+            <BotonCalendario
+              oC={() => scrollToComponent(3)}
+              desa={valServ}
+              BG="morado"
+              TC="white"
+            >
+              <p>Seleccionar Horario</p>
+            </BotonCalendario>
+          </div>
+        </ContendorElementosCal>
+
+        <ContendorElementosCal
+          ref={componentRef3}
+          titulo="Escoge el horario que quieras"
+          consejos="No es posible agendar citas para fechas pasadas, No se pueden programar citas los sábados y domingos"
+        >
+          <div className="flex justify-between px-10 md:pl-5 md:pr-0 w-full">
+            <div className=" w-full block  ">
+              <CitasHorarios onChange={(date) =>{handleTimeChange(date), setValHora(true)}} />
+            </div>
+
+            {hayHorasParaRenderizar && (
+              <>
+                <div className="p-2 ">
+                  <p className="p-2">
+                    Estos horarios YA ESTAN OCUPADOS, elige un horario que no se
+                    interponga entre estos
+                  </p>
+                  <div className="flex">{horasRenderizadas}</div>
+                </div>
+              </>
+            )}
+          </div>
+          <div className="flex">
+            <BotonCalendario
+              oC={() => scrollToComponent(2)}
+              BG="morado"
+              TC="white"
+              desa={true}
+            >
+              <p>Atras</p>
+            </BotonCalendario>
+            <BotonCalendario
+              oC={VerificarServ}
+              desa={valHora}
+              BG="morado"
+              TC="white"
+            >
+              <p>Verificar Horario</p>
+            </BotonCalendario>
+          </div>
+          <BotonCalendario
+            oC={mostrarDatosEnModal}
+            desa={valForm}
+            BG="morado"
+            TC="white"
+          >
+            <p>Confirmar Cita</p>
+          </BotonCalendario>
+        </ContendorElementosCal>
 
         <Transition show={isOpen} as={React.Fragment}>
           <Dialog onClose={cerrarModal} as="div" className="relative z-10">

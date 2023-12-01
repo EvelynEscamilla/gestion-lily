@@ -3,7 +3,7 @@ import React from "react";
  const ContendorElementosCal = React.forwardRef(function ContendorElementosCal({ children, titulo, consejos }, ref) {
   return (
     <div>
-      <div ref={ref}  className=" flex justify-center items-center py-5 md:py-0 w-full">
+      <div ref={ref}  className="  flex justify-center items-center py-5 md:py-0 w-full">
         <div className=" py-4 border-2 border-azul rounded-3xl md:flex md:flex-row-reverse md:justify-between bg-azulNav w-full">
           <div className="md:w-5/12 flex flex-col">
             <div className="flex  md:h-1/3 justify-center items-center w-full">
