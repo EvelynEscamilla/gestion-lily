@@ -39,43 +39,42 @@ const Inicio = () => {
                     <img className="Logo w-10/12 sm:w-8/12 md:1/2 lg:w-5/12 " src="Images/Nav/Logo.svg" />
                     
                     <p className='text-lg sm:text-xl lg:text-4xl font-bold text-turqueza'>Cuidando tu belleza,<span className='text-[#3370b1]'> cuidamos de tí</span></p>
-                </Transition>
-                <img src={btnDesplegar} alt="desplegar" className='absolute bottom-5 w-16 hover:scale-110 duration-500'  onClick={() => document.getElementById("carouselExample").scrollIntoView({ behavior: 'smooth' })} />
+                    <img src={btnDesplegar} alt="desplegar" className='absolute bottom-5 w-16 hover:scale-110 duration-500'  onClick={() => document.getElementById("carouselExample").scrollIntoView({ behavior: 'smooth' })} />
                 
+                </Transition>
+               
             </div>
 
             <div id="carouselExample" className="carousel slide ">
-                <div className="carousel-inner">
+                <div className="carousel-inner max-h-[315px] items-center justify-center">
                     <div className="carousel-item active">
 
-                        <img src="Images/Inicio/Ca-img1.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 1"></img>
+                        <img src="Images/Inicio/Ca-img1.jpg" className=" w-full object-cover " alt="Ca 1"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/Ca-img2.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 2"></img>
+                        <img src="Images/Inicio/Ca-img2.jpg" className=" w-full object-cover" alt="Ca 2"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/ins13.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 3"></img>
+                        <img src="Images/Inicio/ins13.jpg" className=" w-full object-cover " alt="Ca 3"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/Ca-img3.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 4"></img>
+                        <img src="Images/Inicio/Ca-img3.jpg" className=" w-full object-cover" alt="Ca 4"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/ins9.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 5"></img>
+                        <img src="Images/Inicio/ins9.jpg" className=" w-full object-cover " alt="Ca 5"></img>
                     </div>
                     <div className="carousel-item ">
-                        <img src="Images/Inicio/ins3.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 6"></img>
+                        <img src="Images/Inicio/ins3.jpg" className=" w-full object-cover" alt="Ca 6"></img>
 
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/Ca-img3.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 3"></img>
+                        <img src="Images/Inicio/Ca-img3.jpg" className=" w-full object-cover" alt="Ca 3"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/ins9.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 1"></img>
+                        <img src="Images/Inicio/ins9.jpg" className=" w-full object-cover " alt="Ca 1"></img>
                     </div>
 
-                    <div className="carousel-item ">
-                        <img src="Images/Inicio/Ca-img1.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 1"></img>
-                    </div>
+            
 
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
