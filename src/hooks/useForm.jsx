@@ -1,20 +1,38 @@
 import React, { useState } from "react";
 import moment from "moment/moment";
 const useForm = () => {
-  const [formData, setFormData] = useState(null);
+  const [formData, setFormData] = useState([]);
+
+  const handleFormPrecioDataChange = ({ target: { name, value, dataset } }) => {
+    setFormData({ ...formData, [name]: value, precio: dataset.precio });
+    console.log(formData);
+  };
+
+  const formCliente = ({ userData }) => {
+    
+    setFormData({ ...formData, Cliente: userData.nombreCompleto, Contacto: userData.telefono });
+  };
 
   const handleFormDataChange = ({ target: { name, value } }) => {
     setFormData({ ...formData, [name]: value });
     console.log(formData);
   };
-
   const handleDateChange = (date) => {
     setFormData({ ...formData, fecha: date });
     console.log(formData);
   };
   const handleTimeChange = (date) => {
     const hora24 = moment(date, "hh:mm A").format("HH:mm");
-    setFormData({ ...formData, hora: hora24 });
+    if (formData.fecha !== null) {
+      const fechaHora = moment(
+        `${moment(formData.fecha).format("YYYY-MM-DD")} ${hora24}`,
+        "YYYY-MM-DD HH:mm"
+      );
+
+      setFormData({ ...formData, fecha: fechaHora.toDate() });
+    } else {
+      console.log("todavia no existe una fecha");
+    }
     console.log(formData);
   };
 
@@ -32,6 +50,8 @@ const useForm = () => {
     resetForm,
     handleDateChange,
     handleTimeChange,
+    handleFormPrecioDataChange,
+    formCliente
   };
 };
 

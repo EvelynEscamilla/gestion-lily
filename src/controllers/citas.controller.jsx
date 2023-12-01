@@ -25,25 +25,27 @@ import { ref, uploadBytes } from "firebase/storage";
 const reference = "Citas";
 
 export const postCita = async ({
-  Fecha,
-  Servicio,
+  fecha,
+  grupoServicios,
   Cliente,
   Contacto,
-  Estado,
-  Numero_cliente,
-  Total,
+  
+  personas,
+  precio,
 }) => {
   try {
+    
     const { id } = await addDoc(collection(db, reference), {
-      Fecha,
-      Servicio,
+      Fecha: fecha,
+      Servicio: grupoServicios,
 
       Cliente,
       Contacto,
-      Estado,
-      Numero_cliente,
-      Total,
+      Estado: "en espera",
+      Numero_cliente: personas,
+      Total: precio,
     });
+    console.log('la cita a sido creada con exito')
   } catch (error) {
     console.log(error);
   }
@@ -51,14 +53,14 @@ export const postCita = async ({
 
 export const getCitasFechaServicio = async ({ Fecha, Servicio=null }) => {
   try {
-    console.log('Fecha: '+Fecha);
-    console.log('Servicio'+Servicio);
     if (Fecha !== null && Servicio !== null) {
+      var FechaOr = new Date(Fecha)
+      FechaOr.setHours(0,0,0,0)
       const { docs } = await getDocs(
         query(
           collection(db, reference),
-          where("Fecha", ">=", Fecha),
-          where("Fecha", "<", new Date(Fecha.getTime() + 24 * 60 * 60 * 1000)),
+          where("Fecha", ">=", FechaOr),
+          where("Fecha", "<", new Date(FechaOr.getTime() + 24 * 60 * 60 * 1000)),
           where("Servicio", "==", Servicio)
         )
       );
@@ -66,7 +68,7 @@ export const getCitasFechaServicio = async ({ Fecha, Servicio=null }) => {
       const allCitasFiltered = docs.map((doc) => {
         const data = doc.data();
         return {
-          Fecha: data.Fecha.toDate().getHours(),
+          Fecha: data.Fecha.toDate(),
           Servicio: data.Servicio,
         };
       });

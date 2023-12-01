@@ -112,3 +112,26 @@ export const getServiciosPrecioFacial = async () => {
     console.error(error);
   }
 };
+
+export const getServiciosBy = async ({ nombre }) => {
+  try {
+    if (nombre !== undefined) {
+      const { docs } = await getDocs(
+        query(collection(db, reference), where("nombre", "==", nombre))
+      );
+
+      const allServiciosFiltered = docs.map((doc) => {
+        const data = doc.data();
+        return {
+          nombre: data.nombre,
+          precio: data.precio,
+          max: data.maximoClientes,
+          duracion: data.duracion,
+        };
+      });
+      return allServiciosFiltered;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};

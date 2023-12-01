@@ -1,6 +1,6 @@
 import React from "react";
 
-const BotonCalendario = ({ BG, children, TC, type = "button", oC }) => {
+const BotonCalendario = ({ BG, children, TC, type = "button", oC, desa }) => {
   const buttonClasses = `
           group
           relative
@@ -9,14 +9,14 @@ const BotonCalendario = ({ BG, children, TC, type = "button", oC }) => {
           px-3 
           py-2 
           rounded-2xl 
-          w-[9rem] 
+           
           font-bold 
           overflow-hidden
           hover:-translate-y-1 
           hover:scale-100 
           duration-200 
           cursor-pointer
-          md:text-sm 
+          md:text-lg 
           `;
 
   const divClasses = `
@@ -38,7 +38,7 @@ const BotonCalendario = ({ BG, children, TC, type = "button", oC }) => {
             
   return (
     <div className="p-2">
-      <button className={buttonClasses} type={type} onClick={oC}>
+      <button className={buttonClasses} type={type} onClick={oC} disabled={desa}>
         <div className={divClasses}></div>
         <span className={divSpan}>{children}</span>
       </button>

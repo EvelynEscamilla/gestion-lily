@@ -4,6 +4,7 @@ import Inicio from "./routes/Inicio";
 import Nosotros from "./routes/Nosotros";
 import AgregarServicio from "./routes/servicios/AgregarServicio";
 import Calendario from "./routes/Calendario";
+import FormCalendar from "./Components/Forms/FormCalendar";
 import CancelarCita from "./routes/usuario/CancelarCita";
 import CrearCuenta from "./routes/CrearCuenta";
 import EditarAdmin from "./routes/administrador/EditarAdmin";
@@ -50,7 +51,7 @@ function App() {
         {
           //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/calendario",
-          element: <Calendario />,
+          element: <FormCalendar />,
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
