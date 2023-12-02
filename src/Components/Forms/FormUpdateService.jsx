@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import InputImage from "../../Components/inputImage/InputImage";
 import Boton from "../../Components/boton/Boton";
 import { updateServicio } from '../../controllers/servicios.controller';
+import { deleteServicio } from '../../controllers/servicios.controller';
+
 import useServicio from '../../hooks/useServicio'
 
 const FormUpdateService = ({ idServicio }) => {
@@ -87,9 +89,7 @@ const FormUpdateService = ({ idServicio }) => {
           <div className="col-span-full sm:col-span-2 relative w-full">
             <div className="absolute bottom-0 space-x-1 w-full flex">
               <button onClick={(e) => { e.preventDefault(); console.log("ID del servicio:", servicioData.id); handleUpdateServicio(); }}>Actualizar</button>
-              <Boton BG="red-600" TC="white">
-                Eliminar
-              </Boton>
+              <button onClick={(e)=>{e.preventDefault(); deleteServicio(idServicio)}}>Eliminar</button>
             </div>
           </div>
         </fieldset>

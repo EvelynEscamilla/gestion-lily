@@ -9,7 +9,7 @@ import CancelarCita from "./routes/usuario/CancelarCita";
 import CrearCuenta from "./routes/CrearCuenta";
 import EditarAdmin from "./routes/administrador/EditarAdmin";
 import EditarCliente from "./routes/usuario/EditarCliente";
-import EditarServicio from "./routes/servicios/EditarServicio";
+
 import EliminarCuenta from "./routes/usuario/EliminarCuenta";
 import GestionarServicios from "./routes/servicios/GestionarServicios";
 import GestionCitas from "./routes/administrador/GestionCitas";
@@ -85,11 +85,7 @@ function App() {
             </ClientProtectedRoute>
           ),
         },
-        {
-          path: "/gestion-lily/editar-servicios",
-
-          element: <EditarServicio />,
-        },
+        
         {
           //Error, volvieron a declarar body dentro del componente
           path: "/gestion-lily/eliminar-cuenta",
