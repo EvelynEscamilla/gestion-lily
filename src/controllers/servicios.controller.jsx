@@ -71,11 +71,8 @@ export const getServicios = async () => {
   try {
     const { docs } = await getDocs(collection(db, reference))
     const serviciosFirst = docs.map(async (doc) => {
-
       return { ...doc.data(), id: doc.id, url: await getServicioImage(doc.id) }
-
     })
-
     const allServicios = await Promise.all(serviciosFirst)
     return allServicios
   } catch (error) {
@@ -85,7 +82,7 @@ export const getServicios = async () => {
 
 export const getServicio = async (id) => {
   try {
-    
+
     return (await getDoc(doc(db, reference, id))).data()
   } catch (error) {
     console.log(error)
@@ -112,6 +109,17 @@ export const updateServicio = async (id, newData) => {
   }
 };
 
+export const putServicio = async (id, { nombre, precio, tipo, descripcion, duracion, maximoClientes, file }) => {
+  try {
+    //Objeto json data, y el id es idServicio
+    await updateDoc(doc(db, "Servicios", id), { nombre, precio, tipo, descripcion, duracion, maximoClientes })
+    //Con el mismo id se sobrescribe la imagen
+    await postServicioImage(file, id)
+  } catch (error) {
+    console.log(error)
+    throw new Error("Error al actualizar")
+  }
+}
 
 export const deleteServicio = async (uid) => {
   try {

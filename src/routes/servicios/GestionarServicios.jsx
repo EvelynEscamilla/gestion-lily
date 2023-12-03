@@ -9,11 +9,7 @@ const GestionarServicios = () => {
   const { servicios } = useServicios()
 
   const [visibleEditServicio, setVisibleEditServicio] = useState(null)
-
-
-  console.log(servicios)
   
-
   return (
     <>
       {/* Modal de editar */}
@@ -61,7 +57,6 @@ const GestionarServicios = () => {
               </thead>
               <tbody>
                 {servicios.map((servicio, index) => (
-
                   <Servicio
                     key={index}
                     item={servicio}

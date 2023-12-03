@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import InputImage from "../../Components/inputImage/InputImage";
 import Boton from "../../Components/boton/Boton";
-import { updateServicio } from '../../controllers/servicios.controller';
+import { putServicio, updateServicio } from '../../controllers/servicios.controller';
 import { deleteServicio } from '../../controllers/servicios.controller';
 
 import useServicio from '../../hooks/useServicio'
+import useForm from '../../hooks/useForm';
 
 const FormUpdateService = ({ idServicio }) => {
 
   const { servicio } = useServicio(idServicio)
 
+  const { formData, handleFormDataChange, handleFormFileChange } = useForm(servicio)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await putServicio(idServicio, formData)
+
+  }
 
   return (
     <section className="p-6 text-black">
-      <form action="" className="container flex flex-col mx-auto space-y-12">
+      <form onSubmit={handleSubmit} action="" className="container flex flex-col mx-auto space-y-12">
         <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-azulClaro">
           <div className="col-span-full lg:col-span-1 justify-center">
             <div className="flex flex-col h-full">
               <div className='lg:w-full h-full'>
-                <InputImage id={0} />
+                <InputImage onChange={handleFormFileChange} id={0} />
               </div>
             </div>
           </div>
@@ -28,68 +36,77 @@ const FormUpdateService = ({ idServicio }) => {
               <input
                 id="nombre"
                 type="text"
+                name='nombre'
                 placeholder=""
                 className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 p-2"
-                value={servicio?.nombre}
-                onChange={(e) => setNombre(e.target.value)}
+                value={formData?.nombre}
+                onChange={handleFormDataChange}
               />
             </div>
             <div className="col-span-full sm:col-span-3">
               <label className="text-xl">Precio</label>
               <input
                 id="precio"
+                name='precio'
                 type="text"
                 className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 p-2"
-                value={servicio?.precio}
-                onChange={(e) => setPrecio(e.target.value)}
+                value={formData?.precio}
+                onChange={handleFormDataChange}
               />
             </div>
             <div className="col-span-full sm:col-span-3">
               <label className="text-xl">Tipo del Servicio</label>
-              <input
+              <select
+                name='tipo'
                 id="tipo"
                 type="text"
                 className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 p-2"
-                value={servicio?.tipo}
-                onChange={(e) => setTipo(e.target.value)}
-              />
+                value={formData?.tipo}
+                onChange={handleFormDataChange}
+              >
+                <option value="corporal">Corporal</option>
+                <option value="facial">Facial</option>
+              </select>
             </div>
             <div className="col-span-full">
               <label className="text-xl">Descripción del Servicio</label>
               <textarea
+                name='descripcion'
                 id="descripcion"
                 placeholder=""
                 className="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 p-2"
-                value={servicio?.descripcion}
-                onChange={(e) => setDescripcion(e.target.value)}
+                value={formData?.descripcion}
+                onChange={handleFormDataChange}
               ></textarea>
             </div>
             <div className="col-span-full sm:col-span-2">
               <label className="text-xl">Duración</label>
               <input
+                name='duracion'
                 id="duracion"
                 type="text"
                 className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 p-2"
-                value={servicio?.duracion}
-                onChange={(e) => setDuracion(e.target.value)}
+                value={formData?.duracion}
+                onChange={handleFormDataChange}
               />
             </div>
             <div className="col-span-full sm:col-span-2">
               <label className="text-xl">Número Máximo de Personas</label>
               <input
+                name='maximoClientes'
                 id="max"
                 type="text"
                 placeholder=""
                 className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 p-2"
-                value={servicio?.maximoClientes}
-                onChange={(e) => setMax(e.target.value)}
+                value={formData?.maximoClientes}
+                onChange={handleFormDataChange}
               />
             </div>
           </div>
           <div className="col-span-full sm:col-span-2 relative w-full">
             <div className="absolute bottom-0 space-x-1 w-full flex">
-              <button onClick={(e) => { e.preventDefault(); console.log("ID del servicio:", servicioData.id); handleUpdateServicio(); }}>Actualizar</button>
-              <button onClick={(e)=>{e.preventDefault(); deleteServicio(idServicio)}}>Eliminar</button>
+              <button type='submit'>Actualizar</button>
+              <button onClick={(e) => { e.preventDefault(); deleteServicio(idServicio) }}>Eliminar</button>
             </div>
           </div>
         </fieldset>
