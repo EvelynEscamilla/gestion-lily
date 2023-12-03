@@ -14,6 +14,7 @@ import { postCita } from "../../controllers/citas.controller";
 import ContendorElementosCal from "../citas/ContendorElementosCal";
 import { setHours } from "date-fns";
 const FormCalendar = () => {
+  const [selected, setSelected] = useState(0);
   const [valDia, setValDia] = useState(false);
   const [valServ, setValServ] = useState(false);
   const [valHora, setValHora] = useState(false);
@@ -78,10 +79,13 @@ const FormCalendar = () => {
   const [maxVariableLocal, setMaxVariableLocal] = useState(null);
 
   useEffect(() => {
+    setMaxVariableLocal(0);
+    setValServ(false)
     if (serviciosBy && serviciosBy.length > 0) {
       const { max } = serviciosBy[0];
       const parsedMax = parseInt(max, 10);
       setMaxVariableLocal(parsedMax);
+
     }
   }, [serviciosBy]);
   const VerificarServ = () => {
@@ -109,11 +113,10 @@ const FormCalendar = () => {
       );
     });
     if (!cantidadServHoras) {
-      setValForm(true)
+      setValForm(true);
       alert("La nueva cita es aceptable");
-      
     } else {
-      setValForm(false)
+      setValForm(false);
       alert(
         "La nueva cita se superpone con una cita existente. Por favor, elija otro horario."
       );
@@ -122,22 +125,26 @@ const FormCalendar = () => {
   useEffect(() => {
     if (formData !== null) {
       if (formData.fecha !== undefined) {
-
         setFecha(formData.fecha);
-        setValDia(true)
+        setValDia(true);
       }
       if (formData.grupoServicios !== undefined) {
         setServicio(formData.grupoServicios);
         if (formData.personas !== undefined) {
-          setValServ(true)
+          if(formData.personas!=='0'){
+            setValServ(true);
+          }else if(formData.personas==='0'){
+            console.log('Ponga otro valor')
+            setValServ(false)
+          }
         }
       }
     }
   }, [formData]);
   const opciones = maxVariableLocal
     ? [
-        <option key="0" value="1" disabled selected>
-          Seleccione el máximo
+        <option key="0" value="0" selected>
+          0
         </option>,
         ...Array.from({ length: maxVariableLocal }, (_, index) => (
           <option key={index + 1} value={index + 1}>
@@ -205,9 +212,9 @@ const FormCalendar = () => {
           titulo="Selecciona el servicio que quieras"
           consejos="Cada servicio es por persona individual. Para seleccionar la cantidad de personas primero escoge un Servicio"
         >
-          <CitasServicios onChange={handleFormPrecioDataChange} />
-          <div className="flex w-full justify-center items-center px-5">
-            {" "}
+          <div className="flex w-full flex-col justify-center items-center px-5">
+          <CitasServicios onChange={(event)=>{handleFormPrecioDataChange(event), setMaxVariableLocal(0)}} />
+            
             <p className=" text-lg font-semibold leading-tight">
               Numero de Personas:
             </p>
@@ -248,7 +255,11 @@ const FormCalendar = () => {
         >
           <div className="flex justify-between px-10 md:pl-5 md:pr-0 w-full">
             <div className=" w-full block  ">
-              <CitasHorarios onChange={(date) =>{handleTimeChange(date), setValHora(true)}} />
+              <CitasHorarios
+                onChange={(date) => {
+                  handleTimeChange(date), setValHora(true);
+                }}
+              />
             </div>
 
             {hayHorasParaRenderizar && (
@@ -318,23 +329,25 @@ const FormCalendar = () => {
                     leaveTo="opacity-0 scale-95"
                   >
                     <Dialog.Panel className="  w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                      <Dialog.Title className="">
-                        Resumen del Formulario
+                      <Dialog.Title className=" font-bold text-4xl text-center">
+                        Verifica tu cita
+                        <p className=" text-sm font-normal ">(Recuerda que puedes cambiar el nombre y numero para alguien mas)</p>
                       </Dialog.Title>
                       <Dialog.Description>
-                        <input
-                          type="text"
-                          placeholder={formData.Cliente}
-                          onChange={handleFormDataChange}
-                          name="Cliente"
-                        ></input>
-                        <input
-                          type="number"
-                          placeholder={formData.Contacto}
-                          onChange={handleFormDataChange}
-                          name="Contacto"
-                        ></input>
-                        <ResumenFormulario formData={formData} />
+                        <div className=" flex flex-col justify-center items-center w-full">
+                        <img className="Logo h-[5rem]" src="Images/Nav/Logo.svg" />
+                          <div className="">
+                            <div className="flex pb-1 border-b-2 w-full">
+                              <p className=" font-bold w-1/2">Nombre del Cliente: </p>
+
+                            </div>
+                            <div className="flex pb-1 border-b-2 w-full">
+                              <p className=" font-bold w-1/2">Telefono de Contacto: </p>
+
+                            </div>
+                            <ResumenFormulario formData={formData} />
+                          </div>
+                        </div>
                       </Dialog.Description>
                       <button type="button" onClick={cerrarModal}>
                         Cerrar Modal
