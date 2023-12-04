@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import {
   getServicios,
@@ -25,12 +26,15 @@ const useServicios = (nombre) => {
       setServiciosPF(allServicios)
     );
   }, []);
+
   useEffect(() => {
     getServiciosBy({nombre: nombre}).then((allServicios) =>
       setServiciosBy(allServicios)
     );
   }, [nombre]);
   return { servicios, serviciosPrecioCor, serviciosPrecioFac, serviciosBy };
+
 };
+
 
 export default useServicios;

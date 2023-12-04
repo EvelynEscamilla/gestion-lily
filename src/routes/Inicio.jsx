@@ -1,10 +1,15 @@
-import React, { useState } from 'react'
-
-//Falta importar imagenes
-
+import React, { useState, useEffect } from 'react'
+import { Transition } from '@headlessui/react'
+import btnDesplegar from '../assets/Inicio/desplegar.png'
 const Inicio = () => {
 
+    const [isShowing, setIsShowing] = useState(false)
     const [infoDiv, setInfoDiv] = useState(1);
+    useEffect(() => {
+
+        setIsShowing((isShowing) => true)
+
+    }, [])
 
     const handleClick = () => {
         setInfoDiv(infoDiv + 1);
@@ -14,41 +19,62 @@ const Inicio = () => {
         setInfoDiv(infoDiv - 1);
     }
 
+
     return (
         <>
-            <br></br>
-            <div id="carouselExample" className="carousel slide">
-            <div className="carousel-inner">
+
+
+
+
+            <div className='Bienvenida w-full flex flex-col items-center pb-24 justify-center h-screen'>
+                <Transition className='w-full flex flex-col items-center pb-24 justify-center h-screen '
+                    show={isShowing}
+                    enter="transition-opacity duration-1000"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100 "
+                    leave="transition-opacity duration-150"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                >
+                    <img className="Logo w-10/12 sm:w-8/12 md:1/2 lg:w-5/12 " src="Images/Nav/Logo.svg" />
+                    
+                    <p className='text-lg sm:text-xl lg:text-4xl font-bold text-turqueza'>Cuidando tu belleza,<span className='text-[#3370b1]'> cuidamos de tí</span></p>
+                    <img src={btnDesplegar} alt="desplegar" className='absolute bottom-5 w-16 hover:scale-110 duration-500'  onClick={() => document.getElementById("carouselExample").scrollIntoView({ behavior: 'smooth' })} />
+                
+                </Transition>
+               
+            </div>
+
+            <div id="carouselExample" className="carousel slide ">
+                <div className="carousel-inner max-h-[315px] items-center justify-center">
                     <div className="carousel-item active">
 
-                    <img src="Images/Inicio/Ca-img1.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 1"></img>
+                        <img src="Images/Inicio/Ca-img1.jpg" className=" w-full object-cover " alt="Ca 1"></img>
                     </div>
                     <div className="carousel-item">
-                    <img src="Images/Inicio/Ca-img2.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 2"></img>
+                        <img src="Images/Inicio/Ca-img2.jpg" className=" w-full object-cover" alt="Ca 2"></img>
                     </div>
                     <div className="carousel-item">
-                    <img src="Images/Inicio/ins13.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 3"></img>
+                        <img src="Images/Inicio/ins13.jpg" className=" w-full object-cover " alt="Ca 3"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/Ca-img3.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 4"></img>
+                        <img src="Images/Inicio/Ca-img3.jpg" className=" w-full object-cover" alt="Ca 4"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/ins9.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 5"></img>
+                        <img src="Images/Inicio/ins9.jpg" className=" w-full object-cover " alt="Ca 5"></img>
                     </div>
                     <div className="carousel-item ">
-                        <img src="Images/Inicio/ins3.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 6"></img>
+                        <img src="Images/Inicio/ins3.jpg" className=" w-full object-cover" alt="Ca 6"></img>
 
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/Ca-img3.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 3"></img>
+                        <img src="Images/Inicio/Ca-img3.jpg" className=" w-full object-cover" alt="Ca 3"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/ins9.jpg" className="max-h-[315px] w-full object-cover " alt="Ca 1"></img>
+                        <img src="Images/Inicio/ins9.jpg" className=" w-full object-cover " alt="Ca 1"></img>
                     </div>
 
-                    <div className="carousel-item ">
-                        <img src="Images/Inicio/Ca-img1.jpg" className="max-h-[315px] w-full object-cover" alt="Ca 1"></img>
-                    </div>
+            
 
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -63,7 +89,7 @@ const Inicio = () => {
             <div className="bg-blue-100 p-4 text-2xl text-center text-black ">
                 Tratamientos más populares
             </div>
-            <div className="flex justify-center text-center items-center h-full w-full mb-12 mt-8">
+            <div className="flex justify-center text-center items-center h-full w-full mb-14 mt-14">
                 <div className=" justify-center items-center text-center max-w-screen-lg w-full grid grid-rows-3 gap-y-6 lg:grid-cols-3 lg:grid-rows-1 lg:gap-[11%]">
                     <div className="text-center rounded-[10%] overflow-hidden bg-morado h-96 relative hover:-translate-y-1 hover:scale-110 duration-200 w-64">
                         <img src="Images/Inicio/Mp-img1.jpg" alt="Imagen 1" className="w-full h-full object-cover" />
@@ -109,7 +135,7 @@ const Inicio = () => {
                     </div>
                 }
             </div>
-            
+
         </>
     )
 }

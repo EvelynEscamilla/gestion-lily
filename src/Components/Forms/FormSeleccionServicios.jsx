@@ -63,7 +63,8 @@ const FormSeleccionServicios = ({ onChange }) => {
           </div>
         </div>
       </div>
-    </div>
+
+      </div>
 
   );
 };
