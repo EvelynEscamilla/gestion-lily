@@ -18,7 +18,7 @@ const FormUpdateService = ({ idServicio }) => {
     await putServicio(idServicio, formData)
     window.location.reload()
   }
-
+//holo
   return (
     <section className=" text-black w-10/12 ">
       <form onSubmit={handleSubmit} action="" className="container flex flex-col ">

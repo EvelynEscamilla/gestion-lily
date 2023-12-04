@@ -16,7 +16,7 @@ import { addDoc, collection, getDocs, doc, updateDoc, deleteDoc, getDoc, query, 
 import { db, storage } from '../firebase'
 import { getDownloadURL, ref, uploadBytes, deleteObject } from 'firebase/storage'
 
-
+//hola
 
 const reference = "Servicios";
 const storageReference = "Servicios";
