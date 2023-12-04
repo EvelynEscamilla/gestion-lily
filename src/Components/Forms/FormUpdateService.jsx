@@ -9,9 +9,9 @@ import useForm from '../../hooks/useForm';
 
 const FormUpdateService = ({ idServicio }) => {
 
-  const { servicio } = useServicio(idServicio)
+  const { formData, handleFormDataChange, handleFormFileChange, setInitialState } = useForm()
+  useServicio(idServicio, setInitialState)
 
-  const { formData, handleFormDataChange, handleFormFileChange } = useForm(servicio)
 
   const handleSubmit = async (e) => {
     e.preventDefault()

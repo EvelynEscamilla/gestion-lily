@@ -114,7 +114,9 @@ export const putServicio = async (id, { nombre, precio, tipo, descripcion, durac
     //Objeto json data, y el id es idServicio
     await updateDoc(doc(db, "Servicios", id), { nombre, precio, tipo, descripcion, duracion, maximoClientes })
     //Con el mismo id se sobrescribe la imagen
-    await postServicioImage(file, id)
+    if (file) {
+      await postServicioImage(file, id)
+    }
   } catch (error) {
     console.log(error)
     throw new Error("Error al actualizar")

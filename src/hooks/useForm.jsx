@@ -4,10 +4,7 @@ const useForm = (data = null) => {
 
     const [formData, setFormData] = useState(null)
 
-    useEffect(() => {
-        setFormData(data)
-    }, [])
-
+    const setInitialState = (initialState)=>setFormData(initialState)
 
     const handleFormDataChange = ({ target: { name, value } }) => {
         setFormData({ ...formData, [name]: value })
@@ -27,7 +24,7 @@ const useForm = (data = null) => {
 
     const resetForm = () => setFormData(null)
 
-    return { handleFormDataChange, formData, handleFormFileChange, resetForm, handleDateChange }
+    return { handleFormDataChange, formData, handleFormFileChange, resetForm, handleDateChange, setInitialState }
 
 }
 
