@@ -21,6 +21,7 @@ const FormAddService = () => {
 
     resetForm()
     e.target.reset()
+    window.history.back();
   }
 
 
@@ -118,7 +119,7 @@ const FormAddService = () => {
             </div>
             <div className="col-span-full sm:col-span-2 relative w-full">
               <div className="absolute bottom-0 space-x-1 w-full flex flex-col">
-                <Boton BG="morado" TC="white">
+                <Boton BG="morado" TC="white" type="submit">
                   Agregar
                 </Boton>
               </div>
