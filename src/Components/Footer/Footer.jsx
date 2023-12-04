@@ -46,7 +46,7 @@ const Footer = () => {
 
         </div>
       </div>
-      <div className=" text-xs md:text-sm w-full h-auto text-center bg-azulClaro">
+      <div className=" text-xs md:text-sm w-full h-auto text-center bg-[#3b96a8]">
         <p className="font-medium w-full h-1/3" >2023 © Clinica de Belleza Lily. todos los derechos reservados</p>
       </div>
     </footer>

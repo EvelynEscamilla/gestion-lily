@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCitasFechaServicio } from "../controllers/citas.controller";
 
-const useCitasFechas = (fecha, servicio) => {
+const useCitasFechas = (fecha=null, servicio) => {
   const [citasFechaServicio, setCitasFechaServicio] = useState([]);
 
   useEffect(() => {
