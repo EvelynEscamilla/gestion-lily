@@ -3,7 +3,7 @@ import DropCliente from './DropCliente'
 
 const NavbarCliente = () => {
   return (
-    <nav className="Navbar w-full h-24 relative shadow flex items-center text-[11px] md:text-sm lg:text-base justify-between bg-azulNav">
+    <nav className="Navbar w-full h-24 sticky top-0 shadow flex items-center text-[11px] md:text-sm lg:text-base justify-between bg-azulNav">
       <div Link to="/gestion-lily/" className="Logo w-[23%] sm:w-[20%] h-20  justify-center items-center inline-flex cursor-pointer">
         <img className="Logo h-[5rem]" src="Images/Nav/Logo.svg" />
       </div>
