@@ -37,6 +37,12 @@ const FormLogin = () => {
        ¿Has olvidado tu contraseña?
       </Link>
       <div className="flex py-3 w-full items-center">
+      <div className=" w-1/2 ">
+          <Boton type="submit" BG="morado" TC="white">
+            Iniciar Sesion
+          </Boton>
+        </div>
+
         <div className=" w-1/2 ">
           
         <BtnLink BG="" TC="turqueza" direccion="/gestion-lily/crear-cuenta">
@@ -44,11 +50,7 @@ const FormLogin = () => {
             </BtnLink>
           
         </div>
-        <div className=" w-1/2 ">
-          <Boton BG="morado" TC="white">
-            Iniciar Sesion
-          </Boton>
-        </div>
+        
       </div>
     </form>
   );
