@@ -19,7 +19,7 @@ const FormCalendar = () => {
   const [valServ, setValServ] = useState(false);
   const [valHora, setValHora] = useState(false);
   const [valForm, setValForm] = useState(false);
-
+  
   const div2Ref = useRef(null);
   const div3Ref = useRef(null);
   const showAndScroll = (ref) => {
@@ -32,20 +32,6 @@ const FormCalendar = () => {
   const componentRef2 = useRef(null);
   const componentRef3 = useRef(null);
 
-  const scrollToComponent = (component) => {
-    setActiveComponent(component);
-    const targetRef =
-      component === 1
-        ? componentRef1
-        : component === 2
-        ? componentRef2
-        : componentRef3;
-
-    console.log(component);
-    if (targetRef.current) {
-      targetRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
   const { userData } = useAuth();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -77,15 +63,16 @@ const FormCalendar = () => {
 
   const { serviciosBy } = useServicios(Servicio);
   const [maxVariableLocal, setMaxVariableLocal] = useState(null);
+  const [duracionServicio, setduracionServicio] = useState('')
 
   useEffect(() => {
     setMaxVariableLocal(0);
-    setValServ(false)
+    setValServ(false);
     if (serviciosBy && serviciosBy.length > 0) {
       const { max } = serviciosBy[0];
       const parsedMax = parseInt(max, 10);
       setMaxVariableLocal(parsedMax);
-
+      setduracionServicio(serviciosBy[0].duracion)
     }
   }, [serviciosBy]);
   const VerificarServ = () => {
@@ -131,11 +118,11 @@ const FormCalendar = () => {
       if (formData.grupoServicios !== undefined) {
         setServicio(formData.grupoServicios);
         if (formData.personas !== undefined) {
-          if(formData.personas!=='0'){
+          if (formData.personas !== "0") {
             setValServ(true);
-          }else if(formData.personas==='0'){
-            console.log('Ponga otro valor')
-            setValServ(false)
+          } else if (formData.personas === "0") {
+            console.log("Ponga otro valor");
+            setValServ(false);
           }
         }
       }
@@ -143,7 +130,7 @@ const FormCalendar = () => {
   }, [formData]);
   const opciones = maxVariableLocal
     ? [
-        <option key="0" value="0" selected>
+        <option key="0" value="0">
           0
         </option>,
         ...Array.from({ length: maxVariableLocal }, (_, index) => (
@@ -186,7 +173,6 @@ const FormCalendar = () => {
 
   return (
     <div className="form flex flex-col justify-center items-center">
-      <botton onClick={() => scrollToComponent(1)}>Boton</botton>
       <div className="progressbar"></div>
       <div className="form-container  w-full sm:w-11/12 md:w-10/12 lg:w-8/12 ">
         <ContendorElementosCal
@@ -197,7 +183,7 @@ const FormCalendar = () => {
           <CitasCalendario onChange={handleDateChange} />
           <div>
             <BotonCalendario
-              oC={() => scrollToComponent(2)}
+              // oC={}
               desa={valDia}
               BG="morado"
               TC="white"
@@ -213,13 +199,18 @@ const FormCalendar = () => {
           consejos="Cada servicio es por persona individual. Para seleccionar la cantidad de personas primero escoge un Servicio"
         >
           <div className="flex w-full flex-col justify-center items-center px-5">
-          <CitasServicios onChange={(event)=>{handleFormPrecioDataChange(event), setMaxVariableLocal(0)}} />
-            
+            <CitasServicios
+              onChange={(event) => {
+                handleFormPrecioDataChange(event), setMaxVariableLocal(0);
+              }}
+            />
+
             <p className=" text-lg font-semibold leading-tight">
               Numero de Personas:
             </p>
             <label className=" w-full   ">
               <select
+                defaultValue={"0"}
                 name="personas"
                 onChange={handleFormDataChange}
                 className=" block py-2.5 px-3 w-full   border-2 border-azul  focus:outline-none focus:ring-0 focus:border-gray-200 rounded "
@@ -230,7 +221,7 @@ const FormCalendar = () => {
           </div>
           <div className="flex">
             <BotonCalendario
-              oC={() => scrollToComponent(1)}
+              //oC={() => scrollToComponent(1)}
               BG="morado"
               TC="white"
               desa={true}
@@ -238,7 +229,7 @@ const FormCalendar = () => {
               <p>Atras</p>
             </BotonCalendario>
             <BotonCalendario
-              oC={() => scrollToComponent(3)}
+              //oC={() => scrollToComponent(3)}
               desa={valServ}
               BG="morado"
               TC="white"
@@ -255,7 +246,7 @@ const FormCalendar = () => {
         >
           <div className="flex justify-between px-10 md:pl-5 md:pr-0 w-full">
             <div className=" w-full block  ">
-              <CitasHorarios
+              <CitasHorarios duracion={duracionServicio}
                 onChange={(date) => {
                   handleTimeChange(date), setValHora(true);
                 }}
@@ -276,7 +267,7 @@ const FormCalendar = () => {
           </div>
           <div className="flex">
             <BotonCalendario
-              oC={() => scrollToComponent(2)}
+              //oC={() => scrollToComponent(2)}
               BG="morado"
               TC="white"
               desa={true}
@@ -298,7 +289,7 @@ const FormCalendar = () => {
             BG="morado"
             TC="white"
           >
-            <p>Confirmar Cita</p>
+            Confirmar Cita
           </BotonCalendario>
         </ContendorElementosCal>
 
@@ -331,23 +322,33 @@ const FormCalendar = () => {
                     <Dialog.Panel className="  w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                       <Dialog.Title className=" font-bold text-4xl text-center">
                         Verifica tu cita
-                        <p className=" text-sm font-normal ">(Recuerda que puedes cambiar el nombre y numero para alguien mas)</p>
+                        <p className=" text-sm font-normal ">
+                          (Recuerda que puedes cambiar el nombre y numero para
+                          alguien mas)
+                        </p>
                       </Dialog.Title>
                       <Dialog.Description>
                         <div className=" flex flex-col justify-center items-center w-full">
-                        <img className="Logo h-[5rem]" src="Images/Nav/Logo.svg" />
-                          <div className="">
-                            <div className="flex pb-1 border-b-2 w-full">
-                              <p className=" font-bold w-1/2">Nombre del Cliente: </p>
-
-                            </div>
-                            <div className="flex pb-1 border-b-2 w-full">
-                              <p className=" font-bold w-1/2">Telefono de Contacto: </p>
-
-                            </div>
-                            <ResumenFormulario formData={formData} />
-                          </div>
+                          <img
+                            className="Logo h-[5rem]"
+                            src="Images/Nav/Logo.svg"
+                          />
                         </div>
+
+                        <div className="   ">
+                          <p className=" font-bold  ">Nombre de Contacto: </p>
+                          <input type="text" defaultValue={formData.Cliente} name="Cliente" onChange={handleFormDataChange} />
+                        </div>
+                        <div className="   ">
+                          <p className=" font-bold  ">Telefono de Contacto: </p>
+                          <input type="text" defaultValue={formData.Contacto} name="Cliente" onChange={handleFormDataChange} />
+                        </div>
+                        <div className="   ">
+                          <p className=" font-bold  ">Correo de Contacto: </p>
+                          <input type="text" defaultValue={formData.Correo} name="Cliente" onChange={handleFormDataChange} />
+                        </div>
+
+                        <ResumenFormulario formData={formData} />
                       </Dialog.Description>
                       <button type="button" onClick={cerrarModal}>
                         Cerrar Modal

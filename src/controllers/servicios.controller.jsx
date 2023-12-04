@@ -83,6 +83,7 @@ export const getServiciosPrecioCorporal = async () => {
       return {
         nombre: data.nombre,
         precio: data.precio,
+        duracion: data.duracion,
         tipo: data.tipo,
       };
     });

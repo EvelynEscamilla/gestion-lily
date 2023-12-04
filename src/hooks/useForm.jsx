@@ -10,7 +10,7 @@ const useForm = () => {
 
   const formCliente = ({ userData }) => {
     
-    setFormData({ ...formData, Cliente: userData.nombreCompleto, Contacto: userData.telefono });
+    setFormData({ ...formData, Cliente: userData.nombreCompleto, Contacto: userData.telefono, Correo: userData.email });
   };
 
   const handleFormDataChange = ({ target: { name, value } }) => {

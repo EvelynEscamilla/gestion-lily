@@ -29,38 +29,42 @@ export const postCita = async ({
   grupoServicios,
   Cliente,
   Contacto,
-  
+  Correo,
   personas,
   precio,
 }) => {
   try {
-    
+    const total = precio && personas ? precio * personas : null;
     const { id } = await addDoc(collection(db, reference), {
       Fecha: fecha,
       Servicio: grupoServicios,
-
+      Correo,
       Cliente,
       Contacto,
       Estado: "en espera",
       Numero_cliente: personas,
-      Total: precio,
+      Total: total,
     });
-    console.log('la cita a sido creada con exito')
+    console.log("la cita a sido creada con exito");
   } catch (error) {
     console.log(error);
   }
 };
 
-export const getCitasFechaServicio = async ({ Fecha, Servicio=null }) => {
+export const getCitasFechaServicio = async ({ Fecha, Servicio = null }) => {
   try {
     if (Fecha !== null && Servicio !== null) {
-      var FechaOr = new Date(Fecha)
-      FechaOr.setHours(0,0,0,0)
+      var FechaOr = new Date(Fecha);
+      FechaOr.setHours(0, 0, 0, 0);
       const { docs } = await getDocs(
         query(
           collection(db, reference),
           where("Fecha", ">=", FechaOr),
-          where("Fecha", "<", new Date(FechaOr.getTime() + 24 * 60 * 60 * 1000)),
+          where(
+            "Fecha",
+            "<",
+            new Date(FechaOr.getTime() + 24 * 60 * 60 * 1000)
+          ),
           where("Servicio", "==", Servicio)
         )
       );

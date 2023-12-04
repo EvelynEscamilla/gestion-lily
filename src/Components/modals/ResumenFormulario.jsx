@@ -14,7 +14,6 @@ const ResumenFormulario = ({ formData }) => {
     mostrarDia = <p> {fecha.toLocaleDateString()}</p>;
     mostrarHoraYMinutos = (
       <p>
-        {" "}
         {fecha.toLocaleTimeString([], {
           hour: "numeric",
           minute: "2-digit",
@@ -33,29 +32,27 @@ const ResumenFormulario = ({ formData }) => {
   return (
     <>
       <div className=" ">
-        <div className=" flex border-b-2 ">
-          <p className=" font-bold w-1/2 pb-1">Fecha: </p>
+        <div className="   ">
+          <p className=" font-bold  ">Fecha: </p>
           {mostrarDia}
         </div>
-        <div className=" flex border-b-2 ">
-          <p className=" font-bold w-1/2 pb-1">Hora: </p>
+        <div className="   ">
+          <p className=" font-bold  ">Hora: </p>
           {mostrarHoraYMinutos}
         </div>
-        <div className=" flex border-b-2 ">
-          <p className=" font-bold w-1/2 pb-1">Servicio: </p>
+        <div className="   ">
+          <p className=" font-bold  ">Servicio: </p>
           {mostrarGrupoServicios}
         </div>
-        <div className=" flex border-b-2 ">
-          <p className=" font-bold w-1/2 pb-1">Precio del Servicio:</p>
+        <div className="   ">
+          <p className=" font-bold  ">Precio del Servicio:</p>
           {mostrarPrecio}
         </div>
-        <div className=" flex border-b-2 ">
-          <p className=" font-bold w-1/2 pb-1">Cantidad de Personas:</p>
+        <div className="   ">
+          <p className=" font-bold  ">Cantidad de Personas:</p>
           {mostrarPersonas}
         </div>
-        <div className=" flex border-t-2 text-2xl ">
-        {total && <p>Total: {total}</p>}
-        </div>
+        <div className="   text-2xl ">{total && <p>Total: {total}</p>}</div>
       </div>
     </>
   );

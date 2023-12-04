@@ -50,7 +50,7 @@ const CitasServicios = ({ onChange }) => {
                         id="helper-radio-text"
                         className="text-xs font-normal text-left"
                       >
-                        Precio: {servicio.precio}$
+                        Duracion: {servicio.duracion}
                       </p>
                     </div>
                   </label>
