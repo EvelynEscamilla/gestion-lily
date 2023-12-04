@@ -9,16 +9,12 @@ const GestionarServicios = () => {
   const { servicios } = useServicios()
 
   const [visibleEditServicio, setVisibleEditServicio] = useState(null)
-
-
-  console.log(servicios)
   
-
   return (
     <>
       {/* Modal de editar */}
       {visibleEditServicio && (
-        <div className="absolute w-full h-full flex justify-center items-center text-white text-3xl z-20">
+        <div className="absolute w-full h-fit  sm:h-full flex justify-center items-center text-white text-xl z-20">
           <div onClick={()=> setVisibleEditServicio(null)} className="w-full h-full bg-gray-800/40 backdrop-blur-md absolute -z-10"></div>
           <FormUpdateService idServicio={visibleEditServicio} />
         </div>
@@ -44,7 +40,7 @@ const GestionarServicios = () => {
           <div>
             <div>o</div>
           </div>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto h-[60vh] overflow-y-auto">
             <table className="min-w-full border-2 border-azulClaro ">
               <thead className=" bg-turqueza text-base  ">
 
@@ -54,14 +50,14 @@ const GestionarServicios = () => {
 
                   <th className="p-3 text-center">Nombre de Servicio</th>
                   <th className="p-3 text-center border-x-2 border-azulClaro">Descripcion y Tipo</th>
-                  <th className="p-3 text-center">Duracion y Personas</th>
+                  <th className="p-3 text-centerborder-x-2">Duracion y Maximo de personas</th>
+                  <th className="p-3 text-center">Maximo de servicios al  mismo tiempo</th>
                   <th className="p-3 text-center border-x-2 border-azulClaro">Precio</th>
                   <th className="p-3 text-center">Opciones</th>
                 </tr>
               </thead>
               <tbody>
                 {servicios.map((servicio, index) => (
-
                   <Servicio
                     key={index}
                     item={servicio}
