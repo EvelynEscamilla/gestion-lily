@@ -25,7 +25,7 @@ const FormSignUp = () => {
   const emailErrorMSG = "El correo no es válido."
   const passwordErrorMSG = "La contraseña debe contener mínimo de 8 caractares, una mayúscula, un caracter especial y un número."
   const passwordConfirmationErrorMSG = "Las contraseñas no coinciden."
-  useEffect(() => {
+  useEffect(() => { 
     if (formData !== null) {
       dataFieldCheck(event)
     }
