@@ -133,8 +133,9 @@ export const deleteServicio = async (uid) => {
 
     // Eliminar la imagen del storage
     await deleteServicioImage(uid);
-
+    window.location.reload()
     return 'Servicio eliminado exitosamente';
+    
   } catch (error) {
     console.error('Error al eliminar servicio:', error);
     throw new Error('Error al eliminar servicio');

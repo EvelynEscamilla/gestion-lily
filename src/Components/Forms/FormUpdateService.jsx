@@ -16,7 +16,7 @@ const FormUpdateService = ({ idServicio }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await putServicio(idServicio, formData)
-
+    window.location.reload()
   }
 
   return (
@@ -104,7 +104,7 @@ const FormUpdateService = ({ idServicio }) => {
                 onChange={handleFormDataChange}
               />
             </div>
-            <div className="col-span-full sm:col-span-2">
+            <div className="col-span-full sm:col-span-2 ">
               <label className="text-xl">Número Máximo de Personas</label>
               <input
                 name='maximoClientes'
@@ -117,10 +117,14 @@ const FormUpdateService = ({ idServicio }) => {
               />
             </div>
           </div>
-          <div className="col-span-full sm:col-span-2 relative w-full">
-            <div className="absolute bottom-0 space-x-1 w-full flex">
-              <button type='submit'>Actualizar</button>
-              <button onClick={(e) => { e.preventDefault(); deleteServicio(idServicio) }}>Eliminar</button>
+          <div className="col-span-full sm:col-span-2 relative pb-10 w-full">
+            <div className="absolute bottom-0 justify-center sm:justify-normal space-x-2 w-full flex">
+              <Boton BG="morado" type="submit" TC="white">
+                Actualizar
+              </Boton>
+              <Boton BG="red-500" onClickEvent={(e) => { e.preventDefault(); deleteServicio(idServicio) }} TC="white">
+                Eliminar
+              </Boton>
             </div>
           </div>
         </fieldset>
