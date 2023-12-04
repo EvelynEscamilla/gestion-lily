@@ -122,6 +122,7 @@ export const getServiciosPrecioCorporal = async () => {
       return {
         nombre: data.nombre,
         precio: data.precio,
+        duracion: data.duracion,
         tipo: data.tipo,
       };
     });
@@ -143,11 +144,38 @@ export const getServiciosPrecioFacial = async () => {
       return {
         nombre: data.nombre,
         precio: data.precio,
+        duracion: data.duracion,
         tipo: data.tipo,
+        
       };
     });
 
     return allServiciosFiltered;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
+export const getServiciosBy = async ({ nombre }) => {
+  try {
+    if (nombre !== undefined) {
+      const { docs } = await getDocs(
+        query(collection(db, reference), where("nombre", "==", nombre))
+      );
+
+      const allServiciosFiltered = docs.map((doc) => {
+        const data = doc.data();
+        return {
+          nombre: data.nombre,
+          precio: data.precio,
+          max: data.maximoClientes,
+          duracion: data.duracion,
+          max: data.max
+        };
+      });
+      return allServiciosFiltered;
+    }
   } catch (error) {
     console.error(error);
   }
