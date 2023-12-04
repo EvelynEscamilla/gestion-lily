@@ -17,11 +17,25 @@ const FormCalendar = () => {
   const [valServ, setValServ] = useState(false);
   const [valHora, setValHora] = useState(false);
   const [valForm, setValForm] = useState(false);
-
+  const [activeComponent, setActiveComponent] = useState(1);
 
   const componentRef1 = useRef(null);
   const componentRef2 = useRef(null);
   const componentRef3 = useRef(null);
+
+  const scrollToComponent = (component) => {
+    setActiveComponent(component);
+    const targetRef =
+      component === 1
+        ? componentRef1
+        : component === 2
+        ? componentRef2
+        : componentRef3;
+
+    if (targetRef.current) {
+      targetRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const { userData } = useAuth();
 
@@ -72,7 +86,7 @@ const FormCalendar = () => {
     // Verificar si la nueva cita se sobrepone con las citas existentes
     const duracion = serviciosBy[0].duracion;
     const maxServicios = serviciosBy[0].max;
-    
+
     let maximoServicios = maxServicios;
 
     const newAppointmentStartTime = new Date(Fecha);
@@ -81,7 +95,6 @@ const FormCalendar = () => {
     );
 
     const cantidadServHoras = citasFechaServicio.some((serv) => {
-      
       const appointmentStartTime = new Date(serv.Fecha);
       const appointmentEndTime = new Date(
         appointmentStartTime.getTime() + duracion * 60000
@@ -100,7 +113,7 @@ const FormCalendar = () => {
         maximoServicios -= 1;
       }
     });
-    if (maximoServicios>0) {
+    if (maximoServicios > 0) {
       setValForm(true);
       alert("La nueva cita es aceptable");
     } else {
@@ -207,6 +220,7 @@ const FormCalendar = () => {
           <div>
             <BotonCalendario
               // oC={}
+              oC={() => scrollToComponent(2)}
               desa={valDia}
               BG="morado"
               TC="white"
@@ -245,6 +259,8 @@ const FormCalendar = () => {
           <div className="flex">
             <BotonCalendario
               //oC={() => scrollToComponent(1)}
+
+              oC={() => scrollToComponent(1)}
               BG="morado"
               TC="white"
               desa={true}
@@ -253,6 +269,8 @@ const FormCalendar = () => {
             </BotonCalendario>
             <BotonCalendario
               //oC={() => scrollToComponent(3)}
+
+              oC={() => scrollToComponent(3)}
               desa={valServ}
               BG="morado"
               TC="white"
@@ -293,6 +311,8 @@ const FormCalendar = () => {
           <div className="flex">
             <BotonCalendario
               //oC={() => scrollToComponent(2)}
+
+              oC={() => scrollToComponent(2)}
               BG="morado"
               TC="white"
               desa={true}
@@ -360,17 +380,17 @@ const FormCalendar = () => {
                           />
                         </div>
 
-                        <div className=" bg-slate-400   ">
+                        <div className="    ">
                           <p className=" font-bold  ">Nombre de Contacto: </p>
                           <input
-                          className=" w-full"
+                            className=" w-full"
                             type="text"
                             defaultValue={formData.Cliente}
                             name="Cliente"
                             onChange={handleFormDataChange}
                           />
                         </div>
-                        <div className=" bg-zinc-500   ">
+                        <div className="    ">
                           <p className=" font-bold  ">Telefono de Contacto: </p>
                           <input
                             type="text"
@@ -380,7 +400,7 @@ const FormCalendar = () => {
                           />
                         </div>
                         <div className="   ">
-                          <p className=" font-bold  ">Correo de Contacto: </p>
+                          <p className=" font-bold   ">Correo de Contacto: </p>
                           <input
                             type="text"
                             defaultValue={formData.Correo}
@@ -391,10 +411,23 @@ const FormCalendar = () => {
 
                         <ResumenFormulario formData={formData} />
                       </Dialog.Description>
-                      <button type="button" onClick={cerrarModal}>
-                        Cerrar Modal
-                      </button>
-                      <button type="submit">Enviar</button>
+                      <div className=" flex justify-center items-center">
+                        {" "}
+                        <BotonCalendario
+                          type="button"
+                          oC={cerrarModal}
+                          desa={true}
+                        >
+                          Atras
+                        </BotonCalendario>
+                        <BotonCalendario
+                          type="submit"
+                          oC={cerrarModal}
+                          desa={true}
+                        >
+                          Enviar
+                        </BotonCalendario>
+                      </div>
                     </Dialog.Panel>
                   </Transition.Child>
                 </div>
