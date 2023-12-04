@@ -13,6 +13,7 @@ const useForm = () => {
     
     setFormData({ ...formData, Cliente: userData.nombreCompleto, Contacto: userData.telefono, Correo: userData.email });
   };
+  const setInitialState = (initialState)=>setFormData(initialState)
 
   const handleFormDataChange = ({ target: { name, value } }) => {
     setFormData({ ...formData, [name]: value });
@@ -52,7 +53,8 @@ const useForm = () => {
     handleDateChange,
     handleTimeChange,
     handleFormPrecioDataChange,
-    formCliente
+    formCliente,
+    setInitialState
   };
 };
 
