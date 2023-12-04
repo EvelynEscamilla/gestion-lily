@@ -34,6 +34,7 @@ export const postServicio = async ({
   precio,
   nombre,
   file,
+  max,
 }) => {
   try {
     const { id } = await addDoc(collection(db, reference), {
@@ -43,6 +44,7 @@ export const postServicio = async ({
       tipo,
       precio,
       nombre,
+      max,
     });
     await postServicioImage(file, id);
   } catch (error) {
@@ -109,10 +111,10 @@ export const updateServicio = async (id, newData) => {
   }
 };
 
-export const putServicio = async (id, { nombre, precio, tipo, descripcion, duracion, maximoClientes, file }) => {
+export const putServicio = async (id, { nombre, precio, tipo, descripcion, duracion, maximoClientes, file, max }) => {
   try {
     //Objeto json data, y el id es idServicio
-    await updateDoc(doc(db, "Servicios", id), { nombre, precio, tipo, descripcion, duracion, maximoClientes })
+    await updateDoc(doc(db, "Servicios", id), { nombre, precio, tipo, descripcion, duracion, maximoClientes, max })
     //Con el mismo id se sobrescribe la imagen
     if (file) {
       await postServicioImage(file, id)

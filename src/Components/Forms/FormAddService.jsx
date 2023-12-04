@@ -61,13 +61,28 @@ const FormAddService = () => {
                 className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 p-2 "
               />
             </div>
+
+
+
             <div className="col-span-full sm:col-span-3">
-              <label htmlFor='tipo' className="text-xl">Tipo del Servicio</label>
+              <label htmlFor='tipo' className="text-xl">Tipo del Servicio</label><br />
               <select defaultValue={"0"} onChange={handleFormDataChange} name="tipo" className='text-xl' id="tipo">
                 <option value={"0"} hidden></option>
                 <option value="Corporal">Corporal</option>
                 <option value="Facial">Facial</option>
               </select>
+            </div>
+
+            <div className="col-span-full sm:col-span-2">
+              <label className="text-xl">Numero maximo de servicios al mismo tiempo</label>
+              <input
+                onChange={handleFormDataChange}
+                name='max'
+                id="max"
+                min="0"
+                type="number"
+                className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 p-2 "
+              />
             </div>
             <div className="col-span-full">
               <label className="text-xl">Descripcion del Servicio</label>
@@ -90,7 +105,7 @@ const FormAddService = () => {
                 className="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900 p-2"
               />
             </div>
-            <div className="col-span-full sm:col-span-2">
+            <div className="col-span-full sm:col-span-2 pb-12 sm:pb-0">
               <label className="text-xl">Numero Maximo de Personas</label>
               <input
                 onChange={handleFormDataChange}
