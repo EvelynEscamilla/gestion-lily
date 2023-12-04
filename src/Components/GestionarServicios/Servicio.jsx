@@ -19,8 +19,12 @@ function Servicio({ handleVisibilityChange, item }) {
           <p className="dark:text-gray-400">{item.tipo}</p>
         </td>
         <td className="p-3">
-          <p>{item.duracion}</p>
-          <p className="dark:text-gray-400">{item.max} Personas</p>
+          <p>{item.duracion} Minutos</p>
+          <p className="dark:text-gray-400">{item.maximoClientes} Personas</p>
+        </td>
+        <td className="p-3">
+          <p>{item.max} Servicios al mismo tiempo</p>
+          
         </td>
         <td className="p-3 text-center">
           <p>{item.precio}</p>

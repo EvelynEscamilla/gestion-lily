@@ -12,9 +12,9 @@ IMAGEN == ID
 }
 */
 
-import { addDoc, collection, getDocs, doc, updateDoc, getDoc } from 'firebase/firestore'
+import { addDoc, collection, getDocs, doc, updateDoc, deleteDoc, getDoc } from 'firebase/firestore'
 import { db, storage } from '../firebase'
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
+import { getDownloadURL, ref, uploadBytes, deleteObject } from 'firebase/storage'
 
 
 
@@ -34,6 +34,7 @@ export const postServicio = async ({
   precio,
   nombre,
   file,
+  max,
 }) => {
   try {
     const { id } = await addDoc(collection(db, reference), {
@@ -43,6 +44,7 @@ export const postServicio = async ({
       tipo,
       precio,
       nombre,
+      max,
     });
     await postServicioImage(file, id);
   } catch (error) {
@@ -58,48 +60,46 @@ const postServicioImage = async (file, id) => {
 };
 
 export const getServicioImage = async (id) => {
-    try {
-        const url = await getDownloadURL(ref(storage, `Servicios/${id}`))
-        return url
-    } catch (error) {
-        console.log(error)
-    }
+  try {
+    const url = await getDownloadURL(ref(storage, `Servicios/${id}`))
+    return url
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export const getServicios = async () => {
 
-    try {
-        const { docs } = await getDocs(collection(db, reference))
-        const serviciosFirst = docs.map(async (doc) => {
-
-            return { ...doc.data(), id: doc.id, url: await getServicioImage(doc.id) }
-
-        })
-
-        const allServicios = await Promise.all(serviciosFirst)
-        return allServicios
-    } catch (error) {
-        console.log(error)
-    }
+  try {
+    const { docs } = await getDocs(collection(db, reference))
+    const serviciosFirst = docs.map(async (doc) => {
+      return { ...doc.data(), id: doc.id, url: await getServicioImage(doc.id) }
+    })
+    const allServicios = await Promise.all(serviciosFirst)
+    return allServicios
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export const getServicio = async (id) => {
-    try {
-        return (await getDoc(doc(db, reference, id))).data()
-    } catch (error) {
-        console.log(error)
-    }
+  try {
+
+    return (await getDoc(doc(db, reference, id))).data()
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export const updateServicio = async (id, newData) => {
-    try {
-        const servicioRef = doc(db, 'Servicios', "TQxrOJzcOWqAmdwIqXcv");
-        await updateDoc(servicioRef, newData);
-        console.log('Servicio actualizado exitosamente');
-    } catch (error) {
-        console.error('Error al actualizar el servicio: ', error);
-        // Puedes manejar el error de la manera que prefieras (mostrar un mensaje, realizar un rollback, etc.)
-    }
+  try {
+    const servicioRef = doc(db, 'Servicios', "TQxrOJzcOWqAmdwIqXcv");
+    await updateDoc(servicioRef, newData);
+    console.log('Servicio actualizado exitosamente');
+  } catch (error) {
+    console.error('Error al actualizar el servicio: ', error);
+    // Puedes manejar el error de la manera que prefieras (mostrar un mensaje, realizar un rollback, etc.)
+  }
 
 
   try {
@@ -110,6 +110,52 @@ export const updateServicio = async (id, newData) => {
     console.log(error);
   }
 };
+
+export const putServicio = async (id, { nombre, precio, tipo, descripcion, duracion, maximoClientes, file, max }) => {
+  try {
+    //Objeto json data, y el id es idServicio
+    await updateDoc(doc(db, "Servicios", id), { nombre, precio, tipo, descripcion, duracion, maximoClientes, max })
+    //Con el mismo id se sobrescribe la imagen
+    if (file) {
+      await postServicioImage(file, id)
+    }
+  } catch (error) {
+    console.log(error)
+    throw new Error("Error al actualizar")
+  }
+}
+
+export const deleteServicio = async (uid) => {
+  try {
+    // Eliminar el documento de la colección
+    const servicioRef = doc(db, reference, uid);
+    await deleteDoc(servicioRef);
+
+    // Eliminar la imagen del storage
+    await deleteServicioImage(uid);
+    window.location.reload()
+    return 'Servicio eliminado exitosamente';
+    
+  } catch (error) {
+    console.error('Error al eliminar servicio:', error);
+    throw new Error('Error al eliminar servicio');
+  }
+};
+
+// Función para eliminar la imagen del servicio
+const deleteServicioImage = async (uid) => {
+  try {
+    // Eliminar la imagen del storage
+    const imageRef = ref(storage, `${storageReference}/${uid}`);
+    await deleteObject(imageRef);
+
+    console.log('Imagen del servicio eliminada');
+  } catch (error) {
+    console.error('Error al eliminar imagen del servicio:', error);
+    throw new Error('Error al eliminar imagen del servicio');
+  }
+};
+
 
 export const getServiciosPrecioCorporal = async () => {
   try {
