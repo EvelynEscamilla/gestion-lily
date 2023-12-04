@@ -74,16 +74,40 @@ const CitasServicios = ({ onChange }) => {
                 </div>*/}
           <div className="mt-2 w-1/2">
             <div className="overflow-auto h-[20rem]">
-              {servFac.map((servicio, index) => (
-                <div className="flex justify-left ml-6" key={index}>
-                  <label className="p-2 text-justify">
+            {servFac.map((servicio, index) => (
+                <div
+                  className="flex p-2 items-center ps-4 border border-gray-200 rounded dark:border-gray-700 hover:bg-azulClaro hover:duration-150 mt-2"
+                  key={index}
+                >
+                  <div className="flex items-center h-5">
                     <input
-                      type="radio"
-                      name="grupoServicios"
+                      id={servicio.nombre}
                       value={servicio.nombre}
                       onChange={onChange}
+                      data-precio={servicio.precio}
+                      name="grupoServicios"
+                      type="radio"
+                      className="w-4 h-4"
                     />
-                    {servicio.nombre}
+                  </div>
+                  <label htmlFor={servicio.nombre} className="font-medium w-full  ">
+                    <div className="ms-2 block justify-between   ">
+                      {servicio.nombre}
+
+                      <p
+                        id="helper-radio-text"
+                        className="text-xs font-normal text-left"
+                      >
+                        Precio: {servicio.precio}$
+                      </p>
+                      
+                      <p
+                        id="helper-radio-text"
+                        className="text-xs font-normal text-left"
+                      >
+                        Duracion: {servicio.duracion}
+                      </p>
+                    </div>
                   </label>
                 </div>
               ))}

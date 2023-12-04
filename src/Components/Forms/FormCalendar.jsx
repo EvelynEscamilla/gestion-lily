@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import useForm from "../../hooks/useForm";
 import CitasCalendario from "../citas/CitasCalendario";
-import ModalCitas from "../citas/ModalCitas";
 import BotonCalendario from "../boton/BotonCalendario";
 import CitasServicios from "../citas/CitasServicios";
 import CitasHorarios from "../citas/CitasHorarios";
@@ -12,22 +11,14 @@ import ResumenFormulario from "../modals/ResumenFormulario";
 import { useAuth } from "../../context/authContext";
 import { postCita } from "../../controllers/citas.controller";
 import ContendorElementosCal from "../citas/ContendorElementosCal";
-import { setHours } from "date-fns";
+
 const FormCalendar = () => {
-  const [selected, setSelected] = useState(0);
   const [valDia, setValDia] = useState(false);
   const [valServ, setValServ] = useState(false);
   const [valHora, setValHora] = useState(false);
   const [valForm, setValForm] = useState(false);
-  
-  const div2Ref = useRef(null);
-  const div3Ref = useRef(null);
-  const showAndScroll = (ref) => {
-    ref.current.style.display = "block";
-    ref.current.scrollIntoView({ behavior: "smooth" });
-  };
 
-  const [activeComponent, setActiveComponent] = useState(0);
+
   const componentRef1 = useRef(null);
   const componentRef2 = useRef(null);
   const componentRef3 = useRef(null);
@@ -63,7 +54,7 @@ const FormCalendar = () => {
 
   const { serviciosBy } = useServicios(Servicio);
   const [maxVariableLocal, setMaxVariableLocal] = useState(null);
-  const [duracionServicio, setduracionServicio] = useState('')
+  const [duracionServicio, setduracionServicio] = useState("");
 
   useEffect(() => {
     setMaxVariableLocal(0);
@@ -72,34 +63,44 @@ const FormCalendar = () => {
       const { max } = serviciosBy[0];
       const parsedMax = parseInt(max, 10);
       setMaxVariableLocal(parsedMax);
-      setduracionServicio(serviciosBy[0].duracion)
+      setduracionServicio(serviciosBy[0].duracion);
+      console.log(serviciosBy);
     }
   }, [serviciosBy]);
   const VerificarServ = () => {
     console.log(citasFechaServicio);
     // Verificar si la nueva cita se sobrepone con las citas existentes
     const duracion = serviciosBy[0].duracion;
+    const maxServicios = serviciosBy[0].max;
+    
+    let maximoServicios = maxServicios;
+
     const newAppointmentStartTime = new Date(Fecha);
     const newAppointmentEndTime = new Date(
       newAppointmentStartTime.getTime() + duracion * 60000
     );
 
     const cantidadServHoras = citasFechaServicio.some((serv) => {
+      
       const appointmentStartTime = new Date(serv.Fecha);
       const appointmentEndTime = new Date(
         appointmentStartTime.getTime() + duracion * 60000
       );
 
-      return (
+      const superposicion =
         (newAppointmentStartTime >= appointmentStartTime &&
           newAppointmentStartTime < appointmentEndTime) ||
         (newAppointmentEndTime > appointmentStartTime &&
           newAppointmentEndTime <= appointmentEndTime) ||
         (newAppointmentStartTime <= appointmentStartTime &&
-          newAppointmentEndTime >= appointmentEndTime)
-      );
+          newAppointmentEndTime >= appointmentEndTime);
+
+      if (superposicion) {
+        // Restar uno a maximoServicios si hay superposición
+        maximoServicios -= 1;
+      }
     });
-    if (!cantidadServHoras) {
+    if (maximoServicios>0) {
       setValForm(true);
       alert("La nueva cita es aceptable");
     } else {
@@ -151,6 +152,7 @@ const FormCalendar = () => {
       formCliente({ userData });
     }
   }, [userData]);
+
   const horas12 = citasFechaServicio.map((cita) => {
     const fecha = new Date(cita.Fecha);
     const horas = fecha.toLocaleTimeString("en-US", {
@@ -161,13 +163,34 @@ const FormCalendar = () => {
     return horas;
   });
 
-  const horasRenderizadas = horas12.map((hora, index) => (
-    <div key={index} className="p-1">
-      <div className=" bg-gray-300 px-3 py-1 mb-1 rounded-full w-fit">
-        {hora}
+  const horasRenderizadas = horas12.map((hora, index) => {
+    // Parsear la hora actual en formato "h:mm A" a un objeto de tipo Date
+    const horaInicio = new Date(`01/01/2023 ${hora}`);
+
+    // Calcular la hora de finalización sumando la duración del servicio en minutos
+    const horaFin = new Date(horaInicio.getTime() + duracionServicio * 60000);
+
+    // Formatear las horas para mostrar en el componente
+    const horaInicioFormateada = horaInicio.toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
+    const horaFinFormateada = horaFin.toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
+
+    return (
+      <div key={index} className="p-1">
+        <div className=" bg-gray-300 px-3 py-1 mb-1 rounded-2xl w-fit">
+          {`${horaInicioFormateada} a ${horaFinFormateada}`}
+        </div>
       </div>
-    </div>
-  ));
+    );
+  });
+
   const hayHorasParaRenderizar =
     horasRenderizadas && horasRenderizadas.length > 0;
 
@@ -246,9 +269,11 @@ const FormCalendar = () => {
         >
           <div className="flex justify-between px-10 md:pl-5 md:pr-0 w-full">
             <div className=" w-full block  ">
-              <CitasHorarios duracion={duracionServicio}
+              <CitasHorarios
+                duracion={duracionServicio}
+                setValHora={setValHora}
                 onChange={(date) => {
-                  handleTimeChange(date), setValHora(true);
+                  handleTimeChange(date);
                 }}
               />
             </div>
@@ -319,7 +344,7 @@ const FormCalendar = () => {
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-95"
                   >
-                    <Dialog.Panel className="  w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                    <Dialog.Panel className=" w-11/12 md:w-3/4 lg:w-2/3 transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                       <Dialog.Title className=" font-bold text-4xl text-center">
                         Verifica tu cita
                         <p className=" text-sm font-normal ">
@@ -335,17 +360,33 @@ const FormCalendar = () => {
                           />
                         </div>
 
-                        <div className="   ">
+                        <div className=" bg-slate-400   ">
                           <p className=" font-bold  ">Nombre de Contacto: </p>
-                          <input type="text" defaultValue={formData.Cliente} name="Cliente" onChange={handleFormDataChange} />
+                          <input
+                          className=" w-full"
+                            type="text"
+                            defaultValue={formData.Cliente}
+                            name="Cliente"
+                            onChange={handleFormDataChange}
+                          />
                         </div>
-                        <div className="   ">
+                        <div className=" bg-zinc-500   ">
                           <p className=" font-bold  ">Telefono de Contacto: </p>
-                          <input type="text" defaultValue={formData.Contacto} name="Cliente" onChange={handleFormDataChange} />
+                          <input
+                            type="text"
+                            defaultValue={formData.Contacto}
+                            name="Cliente"
+                            onChange={handleFormDataChange}
+                          />
                         </div>
                         <div className="   ">
                           <p className=" font-bold  ">Correo de Contacto: </p>
-                          <input type="text" defaultValue={formData.Correo} name="Cliente" onChange={handleFormDataChange} />
+                          <input
+                            type="text"
+                            defaultValue={formData.Correo}
+                            name="Cliente"
+                            onChange={handleFormDataChange}
+                          />
                         </div>
 
                         <ResumenFormulario formData={formData} />

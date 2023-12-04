@@ -104,7 +104,9 @@ export const getServiciosPrecioFacial = async () => {
       return {
         nombre: data.nombre,
         precio: data.precio,
+        duracion: data.duracion,
         tipo: data.tipo,
+        
       };
     });
 
@@ -128,6 +130,7 @@ export const getServiciosBy = async ({ nombre }) => {
           precio: data.precio,
           max: data.maximoClientes,
           duracion: data.duracion,
+          max: data.max
         };
       });
       return allServiciosFiltered;
