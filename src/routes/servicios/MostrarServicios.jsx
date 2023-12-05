@@ -63,7 +63,7 @@ console.log(servicios)
             {divVisible && (
               <div>
                 {" "}
-                <div className="  h-72 text-2xl">
+                <div className="  h-72 ">
                   <p className="lg:mr-10 text-justify  py-2 leading-none">
                     <p className=" font-semibold text-lg">DESCRIPCION:</p>{" "}
                     {descripcion}
