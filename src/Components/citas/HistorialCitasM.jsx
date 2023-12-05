@@ -1,5 +1,4 @@
 function Pasadas({item}) {
-    console.log(item)
 
     const fecha = item.Fecha.toDate();
 

@@ -117,11 +117,7 @@ function App() {
           element: <CambiarContraseñaRecuperada />
         },
         
-
-        // Estos dos siguientes son casi la misma misma mamada, modificar
-
         {
-          //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/historial",
           element: (
             <ClientProtectedRoute>
@@ -130,7 +126,6 @@ function App() {
           ),
         },
         {
-          //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/historial-mes",
           element: (
             <AdminProtectedRoute>
