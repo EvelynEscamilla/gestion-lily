@@ -22,8 +22,8 @@ function DropAdministrador() {
         >
           <Popover.Group>
             <div className=" absolute  top-full right-0    w-[200px] bg-white shadow-md mt-1 rounded transition flex flex-col items-center z-20">
-              <LinkNavbar direccion={"/gestion-lily/gestion-citas"}>
-                Citas Programadas
+              <LinkNavbar direccion={"/gestion-lily/editar-admin"}>
+                Perfil
               </LinkNavbar>
               <LinkNavbar direccion={"/gestion-lily/historial-mes"}>
                 Historial de Citas

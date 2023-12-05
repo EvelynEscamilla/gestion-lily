@@ -67,7 +67,11 @@ function App() {
         },
         {
           path: "/gestion-lily/editar-admin",
-          element: <EditarAdmin />,
+          element: (
+            <AdminProtectedRoute>
+              <EditarAdmin />
+            </AdminProtectedRoute>
+          ),
         },
 
         // Estos dos siguientes son casi la misma misma mamada, modificar

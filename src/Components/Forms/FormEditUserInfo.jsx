@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import Boton from '../boton/Boton';
 import useForm from '../../hooks/useForm';
 import { putNombre} from '../../controllers/user.controller';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth} from "firebase/auth";
 import { useAuth } from '../../context/authContext';
 
 const FormEditClient = () => {
@@ -13,10 +14,7 @@ const FormEditClient = () => {
     const [correo, setValorCorreo]=useState(auth.userData.email)
     const [tel, setValorNumero]=useState(auth.userData.telefono)
     const a = getAuth();
-    console.log(a.currentUser.uid);
-
     
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         await putNombre(a.currentUser.uid, formData)
@@ -131,7 +129,9 @@ const FormEditClient = () => {
                     <div className="flex justify-between items-center px-4 pt-2">
                         <div className='text-left'>
                             <Boton BG="red-600" TC="white">
+                                <Link to= "/gestion-lily/perfil">
                                 Cancelar
+                                </Link>
                             </Boton>
                         </div>
                         <div className='text-right'>
