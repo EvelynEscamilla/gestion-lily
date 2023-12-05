@@ -72,12 +72,12 @@ const CitasA = () => {
     return (
         <>
             <div className="rounded-2xl border-azulClaro border-2 justify-center w-[90%] h-[35rem] bg-azulNav lg:ml-6 ml-auto mr-auto mt-5 mb-20 overflow-hidden">
-                <div className="flex justify-items-stretch mb-5">
-                    <div className="border-2 rounded-2xl bg-morado p-2 lg:mt-5 mt-2 w-full lg:flex grid grid-rows-1 items-center mx-2">
-                        <p className="font-bold text-xl text-white">Datos de la cita</p>
+                <div className="flex justify-items-stretch mb-3">
+                    <div className="border-2 rounded-2xl bg-morado p-2 lg:w-full lg:h-24 lg:flex grid grid-rows-1 items-center">
+                        <p className="font-bold text-xl flex justify-center text-white">Datos de la cita</p>
                     </div>
                 </div>
-                <hr />
+            
                 <div className="scroll-m-0 overflow-y-scroll h-[30rem]">
                 {citasFiltradasA.map((item, index) => (
                     <CitasAceptadas
@@ -85,7 +85,7 @@ const CitasA = () => {
                     item={item}
                     />
                     ))}
-                    <div className='mb-48 lg:mb-11'></div>
+                    
                 </div>
 
 

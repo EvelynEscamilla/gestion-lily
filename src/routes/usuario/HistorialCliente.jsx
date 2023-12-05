@@ -24,10 +24,10 @@ const cliente = auth.userData.correo;
     const mesCita = fecha.getMonth() + 1;
     const añoCita = fecha.getFullYear();
     const estadoCita = item.Estado;
-
-    return mesCita.toString() === mesSeleccionado && añoCita === selectedYear && estadoCita === "Realizada" && item.correo === cliente;
+    
+    return mesCita.toString() === mesSeleccionado && añoCita === selectedYear && estadoCita === "Realizada" && item.Correo === cliente;
   });
-
+  
   return (
     <>
       <div className="flex justify-center ml-8 mt-10">

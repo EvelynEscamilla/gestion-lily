@@ -27,7 +27,7 @@ function Aceptadas ({item}){
 
     return(
         <form form onSubmit={handleSubmit} action="">
-            <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 mt-5 items-center mb-2 mr-2 ml-2">
+            <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 items-center mb-2 mr-2 ml-2">
                 <div className="bg-white p-2 lg:flex grid grid-rows-1 items-center mr-2">
                     <div className='flex'>
                         <p className="font-bold text-justify text-lg mr-2">{fechaFormateada}</p>
