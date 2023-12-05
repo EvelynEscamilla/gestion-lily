@@ -1,8 +1,16 @@
 import React from 'react'
 import { useState } from 'react';
 import Boton from '../../Components/boton/Boton';
+import { delUser } from '../../controllers/user.controller';
+import { getAuth } from "firebase/auth";
+import { useAuth } from "../../context/authContext";
 
 const EliminarCuenta = () => {
+
+    const auth = getAuth();
+    
+    const user = auth.currentUser;
+    const { logOut } = useAuth();
     // Estado para almacenar el valor del input
     const [NombreUsuario, setValorNombre] = useState('');
     const [Contraseña, setValorContraseña] = useState('');
@@ -17,7 +25,7 @@ const EliminarCuenta = () => {
         setValorContraseña(event.target.value);
     };
 
-
+console.log(user)
     return (
         <>
             <body className="bg-gray-100 flex justify-center items-center h-screen">
@@ -29,7 +37,7 @@ const EliminarCuenta = () => {
                     </div>
                     <div className="flex justify-between items-center px-4 space-x-5">
                         <Boton BG="morado" TC="white" onClickEvent={(e) => { e.preventDefault(); window.history.back()}}>Cancelar</Boton>
-                        <Boton BG="red-600" TC="white">Eliminar cuenta</Boton>
+                        <Boton BG="red-600" TC="white" onClickEvent={ (e) => { e.preventDefault();  delUser(user); logOut(); window.history.back(); }}>Eliminar cuenta </Boton>
                     </div>
                 </div>
             </body>

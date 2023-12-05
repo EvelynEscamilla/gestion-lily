@@ -50,7 +50,7 @@ export default function ModCrearCuenta() {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-center text-gray-500">
-                      Tu cuenta ha sido registrada, ahora tienes la sesión iniciada.
+                      Tu cuenta ha sido registrada, has iniciado sesion de forma automática.
                     </p>
                   </div>
 

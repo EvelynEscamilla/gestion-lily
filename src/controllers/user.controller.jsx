@@ -15,8 +15,9 @@ IMAGEN == UID
 }
 */
 
-import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore'
 import { db } from '../firebase'
+import { getAuth, deleteUser } from "firebase/auth";
 
 const reference = "Clientes"
 
@@ -35,7 +36,7 @@ export const getUser = async (uid) => {
         if (docSnap.exists()) {
             console.log(docSnap.data())
             return docSnap.data()
-        }else{
+        } else {
             throw new Error("No se encontro el documento")
         }
     } catch (error) {
@@ -43,8 +44,18 @@ export const getUser = async (uid) => {
     }
 }
 
-export const deleteUser = async () => {
+export const delUser = (user) => {
+    console.log(user)
+    deleteUser(user).then(async () => {
+        console.log(user)
+        const ClienteRef = doc(db, reference, user.uid);
+        await deleteDoc(ClienteRef);
+        console.log("usuario borrado exitosamente!")
+    
 
+    }).catch((error) => {
+        console.log("error al eliminar usuario: " + error)
+    });
 }
 
 export const updateUser = async () => {
