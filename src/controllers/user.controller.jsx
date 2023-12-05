@@ -15,7 +15,7 @@ IMAGEN == UID
 }
 */
 
-import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
 import { db } from '../firebase'
 
 const reference = "Clientes"
@@ -47,9 +47,43 @@ export const deleteUser = async () => {
 
 }
 
-export const updateUser = async () => {
 
+export const putNombre = async (uid, { nombreCompleto }) => {
+  try {
+    //Objeto json data, y el id es idServicio
+    await updateDoc(doc(db, "Clientes", uid), { nombreCompleto })
+    //Con el mismo id se sobrescribe la imagen
+    
+  } catch (error) {
+    console.log(error)
+    throw new Error("Error al actualizar")
+  }
 }
+
+export const putEmail = async (uid, { email }) => {
+    try {
+      //Objeto json data, y el id es idServicio
+      await updateDoc(doc(db, "Clientes", uid), { email})
+      //Con el mismo id se sobrescribe la imagen
+      
+    } catch (error) {
+      console.log(error)
+      throw new Error("Error al actualizar")
+    }
+  }
+
+  export const putTelefono = async (uid, { telefono}) => {
+    try {
+      //Objeto json data, y el id es idServicio
+      await updateDoc(doc(db, "Clientes", uid), { telefono })
+      //Con el mismo id se sobrescribe la imagen
+      
+    } catch (error) {
+      console.log(error)
+      throw new Error("Error al actualizar")
+    }
+  }
+
 
 
 export const getUsers = async () => {
