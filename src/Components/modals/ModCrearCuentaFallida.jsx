@@ -45,7 +45,7 @@ export default function ModCrearCuentaFallida() {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Creacion de cuenta fallida :(
+                    Creacion de cuenta fallida.
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
