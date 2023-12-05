@@ -25,14 +25,14 @@ function DropAdministrador() {
               <LinkNavbar direccion={"/gestion-lily/editar-admin"}>
                 Perfil
               </LinkNavbar>
-              <LinkNavbar direccion={"/gestion-lily/historial-mes"}>
-                Historial de Citas
+              <LinkNavbar direccion={"/gestion-lily/gestion-citas"}>
+                Administrar citas
               </LinkNavbar>
               <LinkNavbar direccion={"/gestion-lily/gestion-servicios"}>
                 Administrar servicios
               </LinkNavbar>
-              <LinkNavbar direccion={"/gestion-lily/gestion-citas"}>
-                Administrar citas
+              <LinkNavbar direccion={"/gestion-lily/historial-mes"}>
+                Historial de Citas
               </LinkNavbar>
 
               <BtnLogOut />
