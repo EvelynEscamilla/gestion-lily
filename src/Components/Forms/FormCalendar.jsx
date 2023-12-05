@@ -11,6 +11,8 @@ import ResumenFormulario from "../modals/ResumenFormulario";
 import { useAuth } from "../../context/authContext";
 import { postCita } from "../../controllers/citas.controller";
 import ContendorElementosCal from "../citas/ContendorElementosCal";
+import ModCitaCreada from "../modals/ModCitaCreada";
+import ModValidacion from "../modals/ModValidacion";
 
 const FormCalendar = () => {
   const [valDia, setValDia] = useState(false);
@@ -18,6 +20,9 @@ const FormCalendar = () => {
   const [valHora, setValHora] = useState(false);
   const [valForm, setValForm] = useState(false);
   const [activeComponent, setActiveComponent] = useState(1);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpenCita, setModalOpenCita] = useState(false);
+  const [modalContent, setModalContent] = useState({});
 
   const componentRef1 = useRef(null);
   const componentRef2 = useRef(null);
@@ -74,16 +79,14 @@ const FormCalendar = () => {
     setMaxVariableLocal(0);
     setValServ(false);
     if (serviciosBy && serviciosBy.length > 0) {
-      const { max } = serviciosBy[0];
-      const parsedMax = parseInt(max, 10);
+      const { maximoClientes } = serviciosBy[0];
+      const parsedMax = parseInt(maximoClientes, 10);
       setMaxVariableLocal(parsedMax);
       setduracionServicio(serviciosBy[0].duracion);
       console.log(serviciosBy);
     }
   }, [serviciosBy]);
   const VerificarServ = () => {
-    console.log(citasFechaServicio);
-    // Verificar si la nueva cita se sobrepone con las citas existentes
     const duracion = serviciosBy[0].duracion;
     const maxServicios = serviciosBy[0].max;
 
@@ -115,12 +118,19 @@ const FormCalendar = () => {
     });
     if (maximoServicios > 0) {
       setValForm(true);
-      alert("La nueva cita es aceptable");
+      setModalContent({
+        title: "Nueva cita aceptable",
+        content: "La nueva cita es aceptable.",
+      });
+      setModalOpen(true);
     } else {
       setValForm(false);
-      alert(
-        "La nueva cita se superpone con una cita existente. Por favor, elija otro horario."
-      );
+      setModalContent({
+        title: "Cita superpuesta",
+        content:
+          "La nueva cita se superpone con una cita existente. Por favor, elija otro horario.",
+      });
+      setModalOpen(true);
     }
   };
   useEffect(() => {
@@ -156,13 +166,36 @@ const FormCalendar = () => {
     : [];
   const handleOnSubmit = async (event) => {
     event.preventDefault();
-    // Lógica onSubmit
-    console.log("Formulario enviado");
-    await postCita(formData);
+    try {
+      // Lógica onSubmit
+      console.log("Formulario enviado");
+      const result = await postCita(formData);
+      console.log(result);
+      if (result.success) {
+        setModalOpenCita(true);
+        // Abre el modal si la cita se ha creado con éxito
+      } else {
+        console.error("Error al crear la cita:", result.error);
+        // Puedes manejar el error de otra manera si lo necesitas
+      }
+    } catch (error) {
+      console.error("Error al procesar el formulario:", error);
+      // Puedes manejar el error de otra manera si lo necesitas
+    }
   };
+
   useEffect(() => {
     if (userData) {
       formCliente({ userData });
+    } else {
+      console.log("No hay usuario");
+      {
+        /*      setModalContent({
+        title: "Cita superpuesta",
+        content: "La nueva cita se superpone con una cita existente. Por favor, elija otro horario."
+      });
+    setModalOpen(true);*/
+      }
     }
   }, [userData]);
 
@@ -197,7 +230,7 @@ const FormCalendar = () => {
 
     return (
       <div key={index} className="p-1">
-        <div className=" bg-gray-300 px-3 py-1 mb-1 rounded-2xl w-fit">
+        <div className=" bg-gray-300 px-3 py-1 mb-1 rounded-2xl w-full">
           {`${horaInicioFormateada} a ${horaFinFormateada}`}
         </div>
       </div>
@@ -303,7 +336,7 @@ const FormCalendar = () => {
                     Estos horarios YA ESTAN OCUPADOS, elige un horario que no se
                     interponga entre estos
                   </p>
-                  <div className="flex">{horasRenderizadas}</div>
+                  <div>{horasRenderizadas}</div>
                 </div>
               </>
             )}
@@ -436,6 +469,21 @@ const FormCalendar = () => {
           </Dialog>
         </Transition>
       </div>
+      <ModValidacion
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        title={modalContent.title}
+        content={modalContent.content}
+      />
+      <ModCitaCreada
+        isOpen={modalOpenCita}
+        onClose={() => {
+          setModalOpenCita(false),
+            (window.location.href = "/gestion-lily/calendario");
+        }}
+        title="Cita creada con éxito"
+        content="La cita ha sido creada con éxito."
+      />
     </div>
   );
 };

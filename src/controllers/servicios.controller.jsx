@@ -231,7 +231,7 @@ export const getServiciosBy = async ({ nombre }) => {
         return {
           nombre: data.nombre,
           precio: data.precio,
-          max: data.maximoClientes,
+          maximoClientes: data.maximoClientes,
           duracion: data.duracion,
           max: data.max
         };

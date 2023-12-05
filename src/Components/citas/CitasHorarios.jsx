@@ -9,8 +9,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 
 const CitasHorarios = ({ onChange, duracion, setValHora }) => {
   const [turno, setTurno] = useState("manana"); // Valor predeterminado en "manana"
-  const [inicioManana, setInicioManana] = useState(new Date(0, 0, 0, 0, 0)); // 7 AM
-  const [inicioTarde, setInicioTarde] = useState(new Date(0, 0, 0, 0, 0)); // 4 PM
+  const [inicioManana, setInicioManana] = useState(new Date(0, 0, 0, 6, 0)); // 7 AM
+  const [inicioTarde, setInicioTarde] = useState(new Date(0, 0, 0, 13, 0)); // 4 PM
 
   const handleTimeChangeManana = (newValue) => {
     // Verificar si la hora seleccionada está dentro del rango de la mañana
@@ -26,7 +26,7 @@ const CitasHorarios = ({ onChange, duracion, setValHora }) => {
 
   const handleTimeChangeTarde = (newValue) => {
     // Verificar si la hora seleccionada está dentro del rango de la tarde
-    const isValid = newValue.getHours() >= 16 && newValue.getHours() <= 19;
+    const isValid = newValue.getHours() >= 16 && newValue.getHours() <= 18;
 
     if (isValid) {
       setInicioTarde(newValue);
@@ -75,7 +75,7 @@ const CitasHorarios = ({ onChange, duracion, setValHora }) => {
               label="Hora de Inicio (Tarde)"
               onChange={handleTimeChangeTarde}
               minTime={new Date(0, 0, 0, 16, 0)} // 4 PM
-              maxTime={new Date(0, 0, 0, 19, 0)} // 7 PM
+              maxTime={new Date(0, 0, 0, 18, 0)} // 7 PM
               sx={{ width: "100%" }}
             />
           )}
