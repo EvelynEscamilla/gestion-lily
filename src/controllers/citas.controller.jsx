@@ -45,9 +45,11 @@ export const postCita = async ({
       Numero_cliente: personas,
       Total: total,
     });
-    console.log("la cita a sido creada con exito");
+    console.log("La cita ha sido creada con éxito");
+    return { success: true, id }; // Devuelve un objeto indicando éxito y el ID de la cita
   } catch (error) {
     console.log(error);
+    return { success: false, error }; // Devuelve un objeto indicando error si la creación falla
   }
 };
 

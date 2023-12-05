@@ -9,8 +9,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 
 const CitasHorarios = ({ onChange, duracion, setValHora }) => {
   const [turno, setTurno] = useState("manana"); // Valor predeterminado en "manana"
-  const [inicioManana, setInicioManana] = useState(new Date(0, 0, 0, 0, 0)); // 7 AM
-  const [inicioTarde, setInicioTarde] = useState(new Date(0, 0, 0, 0, 0)); // 4 PM
+  const [inicioManana, setInicioManana] = useState(new Date(0, 0, 0, 6, 0)); // 7 AM
+  const [inicioTarde, setInicioTarde] = useState(new Date(0, 0, 0, 13, 0)); // 4 PM
 
   const handleTimeChangeManana = (newValue) => {
     // Verificar si la hora seleccionada está dentro del rango de la mañana

@@ -11,6 +11,8 @@ import ResumenFormulario from "../modals/ResumenFormulario";
 import { useAuth } from "../../context/authContext";
 import { postCita } from "../../controllers/citas.controller";
 import ContendorElementosCal from "../citas/ContendorElementosCal";
+import ModCitaCreada from "../modals/ModCitaCreada";
+import ModValidacion from "../modals/ModValidacion";
 
 const FormCalendar = () => {
   const [valDia, setValDia] = useState(false);
@@ -18,6 +20,9 @@ const FormCalendar = () => {
   const [valHora, setValHora] = useState(false);
   const [valForm, setValForm] = useState(false);
   const [activeComponent, setActiveComponent] = useState(1);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpenCita, setModalOpenCita] = useState(false);
+  const [modalContent, setModalContent] = useState({});
 
   const componentRef1 = useRef(null);
   const componentRef2 = useRef(null);
@@ -74,16 +79,14 @@ const FormCalendar = () => {
     setMaxVariableLocal(0);
     setValServ(false);
     if (serviciosBy && serviciosBy.length > 0) {
-      const { max } = serviciosBy[0];
-      const parsedMax = parseInt(max, 10);
+      const { maximoClientes } = serviciosBy[0];
+      const parsedMax = parseInt(maximoClientes, 10);
       setMaxVariableLocal(parsedMax);
       setduracionServicio(serviciosBy[0].duracion);
       console.log(serviciosBy);
     }
   }, [serviciosBy]);
   const VerificarServ = () => {
-    console.log(citasFechaServicio);
-    // Verificar si la nueva cita se sobrepone con las citas existentes
     const duracion = serviciosBy[0].duracion;
     const maxServicios = serviciosBy[0].max;
 
@@ -115,12 +118,19 @@ const FormCalendar = () => {
     });
     if (maximoServicios > 0) {
       setValForm(true);
-      alert("La nueva cita es aceptable");
+      setModalContent({
+        title: "Nueva cita aceptable",
+        content: "La nueva cita es aceptable.",
+      });
+      setModalOpen(true);
     } else {
       setValForm(false);
-      alert(
-        "La nueva cita se superpone con una cita existente. Por favor, elija otro horario."
-      );
+      setModalContent({
+        title: "Cita superpuesta",
+        content:
+          "La nueva cita se superpone con una cita existente. Por favor, elija otro horario.",
+      });
+      setModalOpen(true);
     }
   };
   useEffect(() => {
@@ -156,13 +166,36 @@ const FormCalendar = () => {
     : [];
   const handleOnSubmit = async (event) => {
     event.preventDefault();
-    // Lógica onSubmit
-    console.log("Formulario enviado");
-    await postCita(formData);
+    try {
+      // Lógica onSubmit
+      console.log("Formulario enviado");
+      const result = await postCita(formData);
+      console.log(result);
+      if (result.success) {
+        setModalOpenCita(true);
+        // Abre el modal si la cita se ha creado con éxito
+      } else {
+        console.error("Error al crear la cita:", result.error);
+        // Puedes manejar el error de otra manera si lo necesitas
+      }
+    } catch (error) {
+      console.error("Error al procesar el formulario:", error);
+      // Puedes manejar el error de otra manera si lo necesitas
+    }
   };
+
   useEffect(() => {
     if (userData) {
       formCliente({ userData });
+    } else {
+      console.log("No hay usuario");
+      {
+        /*      setModalContent({
+        title: "Cita superpuesta",
+        content: "La nueva cita se superpone con una cita existente. Por favor, elija otro horario."
+      });
+    setModalOpen(true);*/
+      }
     }
   }, [userData]);
 
@@ -197,7 +230,7 @@ const FormCalendar = () => {
 
     return (
       <div key={index} className="p-1">
-        <div className=" bg-gray-300 px-3 py-1 mb-1 rounded-2xl w-fit">
+        <div className=" bg-gray-300 px-3 py-1 mb-1 rounded-2xl w-full">
           {`${horaInicioFormateada} a ${horaFinFormateada}`}
         </div>
       </div>
@@ -213,8 +246,8 @@ const FormCalendar = () => {
       <div className="form-container  w-full sm:w-11/12 md:w-10/12 lg:w-8/12 ">
         <ContendorElementosCal
           ref={componentRef1}
-          titulo="Escoge el dia de que mas se ajuste a ti"
-          consejos="No es posible agendar citas para fechas pasadas, No se pueden programar citas los sábados y domingos"
+          titulo="Escoge el dia de que mas se ajuste a tu horario"
+          consejos="No es posible agendar citas para fechas pasadas, No se pueden programar citas los sábados y domingos."
         >
           <CitasCalendario onChange={handleDateChange} />
           <div>
@@ -232,8 +265,8 @@ const FormCalendar = () => {
 
         <ContendorElementosCal
           ref={componentRef2}
-          titulo="Selecciona el servicio que quieras"
-          consejos="Cada servicio es por persona individual. Para seleccionar la cantidad de personas primero escoge un Servicio"
+          titulo="Selecciona el servicio que desees"
+          consejos="Cada servicio es por persona. Para seleccionar la cantidad de personas primero escoge un servicio, Cada que se cambie el servicio se debera escoger la cantidad de personas nuevamente."
         >
           <div className="flex w-full flex-col justify-center items-center px-5">
             <CitasServicios
@@ -282,8 +315,8 @@ const FormCalendar = () => {
 
         <ContendorElementosCal
           ref={componentRef3}
-          titulo="Escoge el horario que quieras"
-          consejos="No es posible agendar citas para fechas pasadas, No se pueden programar citas los sábados y domingos"
+          titulo="Escoge el horario que desees"
+          consejos="El horario de la mañana va desde las 7:00 AM hasta las 2:00 PM. El horario de la tarde va desde las 4:00 PM hasta las 7:00 PM. Antes de confirmar tu cita, deberas verificar si hay cupo disponible en el horario escogido para tu cita. En caso de que no, selecciona otro horario."
         >
           <div className="flex justify-between px-10 md:pl-5 md:pr-0 w-full">
             <div className=" w-full block  ">
@@ -300,10 +333,10 @@ const FormCalendar = () => {
               <>
                 <div className="p-2 ">
                   <p className="p-2">
-                    Estos horarios YA ESTAN OCUPADOS, elige un horario que no se
+                    Estos horarios ya estan ocupados, elige un horario que no se
                     interponga entre estos
                   </p>
-                  <div className="flex">{horasRenderizadas}</div>
+                  <div>{horasRenderizadas}</div>
                 </div>
               </>
             )}
@@ -368,8 +401,7 @@ const FormCalendar = () => {
                       <Dialog.Title className=" font-bold text-4xl text-center">
                         Verifica tu cita
                         <p className=" text-sm font-normal ">
-                          (Recuerda que puedes cambiar el nombre y numero para
-                          alguien mas)
+                          (Recuerda que puedes cambiar la informacion de contacto para alguien mas)
                         </p>
                       </Dialog.Title>
                       <Dialog.Description>
@@ -436,6 +468,21 @@ const FormCalendar = () => {
           </Dialog>
         </Transition>
       </div>
+      <ModValidacion
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        title={modalContent.title}
+        content={modalContent.content}
+      />
+      <ModCitaCreada
+        isOpen={modalOpenCita}
+        onClose={() => {
+          setModalOpenCita(false),
+            (window.location.href = "/gestion-lily/calendario");
+        }}
+        title="Cita creada con éxito"
+        content="La cita ha sido creada con éxito."
+      />
     </div>
   );
 };
