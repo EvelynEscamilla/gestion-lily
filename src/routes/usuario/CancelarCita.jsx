@@ -1,51 +1,7 @@
-const Programadas = ({ Lista }) => {
-  return (
-    <>
-      <div className="rounded-2xl border-2 border-azulClaro justify-center lg:w-[80%] w-screen h-[35rem] bg-azulNav lg:ml-8 mt-5 mb-20 overflow-hidden">
-        <div className="flex justify-items-stretch mb-5">
-          <div className="border-2 rounded-2xl bg-morado p-2 mt-5 lg:mx-4 mx-2 flex items-center lg:mr-6">
-            <p className="font-bold text-xl text-white">FECHA</p>
-          </div>
-          <div className="border-2 rounded-2xl bg-morado p-2 mt-5 lg:mx-4 mx-2 flex items-center lg:mr-6">
-            <p className="font-bold text-xl text-white">HORA</p>
-          </div>
-          <div className="border-2 rounded-2xl bg-morado p-2 mt-5 lg:mx-4 mx-2 flex items-center lg:mr-6">
-            <p className="font-bold text-xl text-white">SERVICIOS</p>
-          </div>
-        </div>
-        <hr />
-        <div className="scroll-m-0 overflow-y-scroll h-[30rem]">
-          {Lista.map((Lista) => (
-            <div>
-              <div className="border-2 cursor-pointer border-azul rounded-2xl bg-white p-2 mt-5 flex items-center mb-2 mr-4 ml-4">
-                <div className="bg-white p-2 flex items-center mr-2">
-                  <p className="font-bold text-justify md:text-lg text-sm ">
-                    {Lista.fecha} |{" "}
-                  </p>
-                </div>
-                <div className="bg-white p-2 flex items-center mr-2">
-                  <p className="font-bold text-justify md:text-lg text-sm">
-                    {Lista.hora} |{" "}
-                  </p>
-                </div>
-                <div className="bg-white p-2 flex items-center mr-2">
-                  <p className="font-bold text-justify md:text-lg text-sm">
-                    {Lista.servicio}
-                  </p>
-                </div>
-              </div>
-              <div className="flex justify-end mr-4 mb-4">
-                <button className="mr-4 border-2 rounded-2xl bg-white text-red-700 text-bold p-2">
-                  Cancelar
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
-  );
-};
+import Programadas from "../../Components/citas/CitasAgendadas";
+import { useAuth } from '../../context/authContext';
+import useHistorial from "../../hooks/useHistorial";
+import React, { useState} from 'react';
 
 const Advertencia = () => {
   return (
@@ -59,19 +15,20 @@ const Advertencia = () => {
   );
 };
 
-const CitasP = () => {
-  const Lista = [
-    { id: 1, fecha: "18/10/2023", hora: "10:00 am", servicio: "Masaje" },
-    { id: 2, fecha: "18/10/2023", hora: "10:00 am", servicio: "Masaje" },
-    { id: 3, fecha: "18/10/2023", hora: "10:00 am", servicio: "Masaje" },
-    { id: 4, fecha: "18/10/2023", hora: "10:00 am", servicio: "Masaje" },
-    { id: 5, fecha: "18/10/2023", hora: "10:00 am", servicio: "Masaje" },
-  ];
-
-  return <Programadas Lista={Lista} />;
-};
 
 const CancelarCita = () => {
+  const { citas } = useHistorial();
+  const cita=citas
+  const auth = useAuth();
+  const cliente = auth.userData.email;
+
+  const citasFiltradas = cita.filter(item => {
+    const estadoCita = item.Estado;
+    
+    return (estadoCita === "en espera" || estadoCita === "aceptada") && item.Correo === cliente;
+    
+  });
+
   return (
     <>
       <div className="flex justify-center w-1/2 ml-8 mt-10">
@@ -79,7 +36,24 @@ const CancelarCita = () => {
       </div>
       <div className="lg:flex grid grid-rows-1">
         <div className="w-full">
-          <CitasP />
+        <div className="rounded-2xl border-2 border-azulClaro justify-center lg:w-[80%] w-screen h-[35rem] bg-azulNav lg:ml-8 mt-5 mb-20 overflow-hidden">
+          <div className="flex justify-items-stretch">
+            <div className="border-2 rounded-2xl bg-morado p-2 flex items-center lg:h-24 lg:w-full ">
+            <p className="font-bold text-xl text-white ml-4 mr-4">NOMBRE </p>
+              <p className="font-bold text-xl text-white ml-4 mr-4">FECHA </p>
+              <p className="font-bold text-xl text-white ml-6 mr-12"> HORA </p>
+              <p className="font-bold text-xl text-white ml-4"> SERVICIOS</p>
+            </div>
+          </div>
+        <div className="scroll-m-0 overflow-y-scroll h-[30rem]"> 
+        {citasFiltradas.map((item, index) => (
+          <Programadas 
+          key={index}
+          item={item}
+        />
+        ))}
+        </div>
+        </div>
         </div>
         <div className="w-full lg:w-1/2 lg:mr-11"> 
           <Advertencia />

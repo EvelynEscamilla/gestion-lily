@@ -7,7 +7,7 @@ const HistorialCliente = () => {
 const { citas } = useHistorial();
 const cita=citas
 const auth = useAuth();
-const cliente = auth.userData.nombreCompleto;
+const cliente = auth.userData.correo;
 
 
   const mesActual = new Date().getMonth() + 1;
@@ -25,7 +25,7 @@ const cliente = auth.userData.nombreCompleto;
     const añoCita = fecha.getFullYear();
     const estadoCita = item.Estado;
 
-    return mesCita.toString() === mesSeleccionado && añoCita === selectedYear && estadoCita === "Realizada" && item.Cliente === cliente;
+    return mesCita.toString() === mesSeleccionado && añoCita === selectedYear && estadoCita === "Realizada" && item.correo === cliente;
   });
 
   return (
