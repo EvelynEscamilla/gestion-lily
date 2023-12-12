@@ -20,25 +20,7 @@ const Citas = () => {
         <>
             <div className="rounded-2xl border-azulClaro border-2 justify-center w-[90%] h-[35rem] bg-azulNav lg:ml-8 ml-auto mr-auto mt-5 mb-20 overflow-hidden">
                 <div className="flex justify-items-center lg:mb-5 mb-2">
-                    <div className="border-2 rounded-2xl bg-morado p-2  lg:w-full lg:h-24 lg:flex grid grid-rows-1 items-center">
-                        <div className='flex'>
-                            <p className="font-bold text-xl  text-white mr-4">FECHA </p>
-                            <p className="font-bold text-xl text-white mr-4"> |</p>
-                            <p className="font-bold text-xl text-white mr-4">  HORA</p>
-                            <p className="font-bold text-xl text-white mr-4 hidden lg:block"> |</p>
-                        </div>
-                        <div className='flex'>
-                            <p className="font-bold text-xl text-white mr-4">CONTACTO</p>
-                            <p className="font-bold text-xl text-white mr-4 hidden lg:block"> |</p>
-                        </div>
-                        <div className='flex'>
-                            <p className="font-bold text-xl text-white mr-4">CLIENTE</p>
-                            <p className="font-bold text-xl text-white mr-4 hidden lg:block"> |</p>
-                        </div>
-                        <div className='flex'>
-                            <p className="font-bold text-xl text-white">SERVICIOS</p>
-                        </div>
-                    </div>
+
                 </div>
                 
                 <div className="scroll-m-0 overflow-y-scroll lg:h-[30rem] h-[100%] mb-11">
