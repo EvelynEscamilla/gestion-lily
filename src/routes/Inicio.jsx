@@ -1,15 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Transition } from '@headlessui/react'
 import btnDesplegar from '../assets/Inicio/desplegar.png'
 const Inicio = () => {
 
     const [isShowing, setIsShowing] = useState(false)
     const [infoDiv, setInfoDiv] = useState(1);
+
+    const [selectedOption, setSelectedOption] = useState('');
+    const [chatState, setChatState] = useState('initial');
+    const [responses, setResponses] = useState(['¡Hola! ¿En qué puedo ayudarte?']); // Inicializa con la primera pregunta
+    const [response, setResponse] = useState();
+    const chatContainerRef = useRef(null);
+
     useEffect(() => {
-
         setIsShowing((isShowing) => true)
-
-    }, [])
+        if (chatContainerRef.current) {
+            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+          }
+        }, [responses]);
 
     const handleClick = () => {
         setInfoDiv(infoDiv + 1);
@@ -17,15 +25,44 @@ const Inicio = () => {
 
     const handleClick1 = () => {
         setInfoDiv(infoDiv - 1);
+        setSelectedOption('');
+        setChatState('initial');
+        setResponse('');
     }
+
+
+
+    const handleOptionChange = (e) => {
+        setSelectedOption(e.target.value);
+      };
+        
+
+      const handleSendMessage = () => {
+        let newResponse;
+      
+        switch (selectedOption) {
+          case '1':
+            newResponse = 'La clínica se ubica en...';
+            break;
+          case '2':
+            newResponse = 'Ofrecemos servicios como...';
+            break;
+          case '3':
+            newResponse = 'Aceptamos métodos de pago como...';
+            break;
+          default:
+            newResponse = 'Lo siento, no entiendo esa opción.';
+            break;
+        }
+      
+        setResponse(newResponse);
+        setResponses((prevResponses) => [...prevResponses, newResponse]);
+        setChatState('answered');
+      };
 
 
     return (
         <>
-
-
-
-
             <div className='Bienvenida w-full flex flex-col items-center pb-24 justify-center h-screen'>
                 <Transition className='w-full flex flex-col items-center pb-24 justify-center h-screen '
                     show={isShowing}
@@ -114,30 +151,56 @@ const Inicio = () => {
                 {infoDiv == 1 ?
                     <img className=" fixed bottom-0 rounded-full bg-azulNav border-3 border-morado shadow-lg p-2 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200 " src="Images/Inicio/logosolito.svg" alt="Mi Imagen Fija" onClick={() => handleClick()}></img>
                     :
-                    <div className=' z-50'>
-                        <img className=" fixed bottom-[19rem] rounded-full p-2 right-0 w-12 mx-2 mb-[2rem] hover:-translate-y-1 hover:scale-110 duration-200 bg-azulClaro" src="Images/Inicio/delete-button.png" alt="Mi Imagen Fija" onClick={() => handleClick1()}></img>
-                        <div className='chatScreen fixed bottom-0 right-0 m-2 rounded-xl shadow-2xl border-3 h-[20rem] w-80 bg-azulNav border-morado text-white' >
-                            <p className='bg-turqueza p-1 m-3 rounded-lg w-36 selection:bg-morado' >
-                                ¡Hola! ¿En qué puedo ayudarte?
-                            </p>
-                            <div className='Preg absolute bottom-0 bg-azulClaro rounded-b-xl w-full h-21'>
-                                <p className=' ml-1'>Preguntas Frecuentes:</p>
-                                <div className='flex flex-row pb-2'>
-                                    <select className='pregFrec bg-azulClaro selection:bg-morado rounded-2xl p-1 w-48'>
-                                        <option value="1">¿Donde se ubica la clinica?</option>
-                                        <option value="2">¿Que servicios ofrecen?</option>
-                                        <option value="3">¿Que metodos de pago se aceptan?</option>
-                                    </select>
-                                    <button className=' bg-morado hover:bg-[#6f789f] p-3 rounded-2xl text-lg w-full mx-2'>Enviar</button>
-                                </div>
+                    <div className='z-50'>
+                    <img
+                      className="fixed bottom-[19rem] rounded-full p-2 right-0 w-12 mx-2 mb-[2rem] hover:-translate-y-1 hover:scale-110 duration-200 bg-azulClaro"
+                      src="Images/Inicio/delete-button.png"
+                      alt="Mi Imagen Fija"
+                      onClick={handleClick1}
+                    />
+                    <div className='chatScreen fixed bottom-0 right-0 m-2 rounded-xl shadow-2xl border-3 h-[20rem] w-80 bg-azulNav border-morado text-white'>
+                        
+                        <div className='Preg absolute bottom-0 bg-azulClaro rounded-b-xl w-full h-21'>
+                            <p className='lg:w-full bg-turqueza'>Preguntas Frecuentes:</p>
+                            <div className='flex flex-row pb-2'>
+                            <select
+                                className='pregFrec bg-turqueza lg:h-12 lg:mt-2 lg:ml-1 selection:bg-morado rounded-2xl p-1 w-48'
+                                onChange={handleOptionChange}
+                            >
+                                <option value="1">¿Donde se ubica la clinica?</option>
+                                <option value="2">¿Que servicios ofrecen?</option>
+                                <option value="3">¿Que métodos de pago se aceptan?</option>
+                            </select>
+                            <button
+                            className='bg-morado hover:bg-[#6f789f] p-3 lg:h-12 lg:mt-2 flex justify-center items-center rounded-2xl text-lg w-full mx-2'
+                            onClick={handleSendMessage}
+                            >
+                            Enviar
+                            </button>
                             </div>
                         </div>
-                    </div>
+                        <div className="bg-max-h-[15rem] overflow-y-auto">
+                            {responses.map((msg, index) => (
+                            <ChatMessage key={index} text={msg} isUser={false} />
+                            ))}
+                        </div>
+                        </div>
+                  </div>
                 }
             </div>
 
         </>
     )
 }
+
+const ChatMessage = ({ text, isUser }) => {
+    const messageClass = isUser ? 'bg-turqueza' : 'bg-azulClaro border-turqueza border-1';
+  
+    return (
+        <div className={`${messageClass} p-1 m-3 rounded-lg w-36 selection:bg-morado overflow-y-auto`}>
+        {text}
+      </div>
+    );
+  };
 
 export default Inicio
