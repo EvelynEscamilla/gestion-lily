@@ -8,16 +8,18 @@ const Inicio = () => {
 
     const [selectedOption, setSelectedOption] = useState('');
     const [chatState, setChatState] = useState('initial');
-    const [responses, setResponses] = useState(['¡Hola! ¿En qué puedo ayudarte?']); // Inicializa con la primera pregunta
+    const [responses, setResponses] = useState([]);
     const [response, setResponse] = useState();
     const chatContainerRef = useRef(null);
 
+    const [selectedQuestions, setSelectedQuestions] = useState([]);
+
     useEffect(() => {
-        setIsShowing((isShowing) => true)
+        setIsShowing(true);
         if (chatContainerRef.current) {
             chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-          }
-        }, [responses]);
+        }
+    }, []);
 
     const handleClick = () => {
         setInfoDiv(infoDiv + 1);
@@ -33,7 +35,10 @@ const Inicio = () => {
 
 
     const handleOptionChange = (e) => {
+        const newSelectedQuestion = e.target.options[e.target.selectedIndex].text;
+
         setSelectedOption(e.target.value);
+        setSelectedQuestions((prevQuestions) => [...prevQuestions, newSelectedQuestion]);
       };
         
 
@@ -151,38 +156,42 @@ const Inicio = () => {
                 {infoDiv == 1 ?
                     <img className=" fixed bottom-0 rounded-full bg-azulNav border-3 border-morado shadow-lg p-2 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200 " src="Images/Inicio/logosolito.svg" alt="Mi Imagen Fija" onClick={() => handleClick()}></img>
                     :
-                    <div className='z-50'>
+                    <div className="z-50">
                     <img
-                      className="fixed bottom-[19rem] rounded-full p-2 right-0 w-12 mx-2 mb-[2rem] hover:-translate-y-1 hover:scale-110 duration-200 bg-azulClaro"
-                      src="Images/Inicio/delete-button.png"
-                      alt="Mi Imagen Fija"
-                      onClick={handleClick1}
+                        className="fixed bottom-[19rem] rounded-full p-2 right-0 w-12 mx-2 mb-[2rem] hover:-translate-y-1 hover:scale-110 duration-200 bg-azulClaro"
+                        src="Images/Inicio/delete-button.png"
+                        alt="Mi Imagen Fija"
+                        onClick={handleClick1}
                     />
-                    <div className='chatScreen fixed bottom-0 right-0 m-2 rounded-xl shadow-2xl border-3 h-[20rem] w-80 bg-azulNav border-morado text-white overflow-hidden'>
-                        
-                        <div className='Preg absolute bottom-0 bg-azulClaro rounded-b-xl w-full h-21'>
-                            <p className='lg:w-full bg-turqueza'>Preguntas Frecuentes:</p>
-                            <div className='flex flex-row pb-2'>
-                            <select
-                                className='pregFrec bg-turqueza lg:h-12 lg:mt-2 lg:ml-1 selection:bg-morado rounded-2xl p-1 w-48'
-                                onChange={handleOptionChange}
-                            >
-                                <option value="1">¿Donde se ubica la clinica?</option>
-                                <option value="2">¿Que servicios ofrecen?</option>
-                                <option value="3">¿Que métodos de pago se aceptan?</option>
-                            </select>
-                            <button
-                            className='bg-morado hover:bg-[#6f789f] p-3 lg:h-12 lg:mt-2 flex justify-center items-center rounded-2xl text-lg w-full mx-2'
-                            onClick={handleSendMessage}
-                            >
-                            Enviar
-                            </button>
+                    <div className="chatScreen fixed bottom-0 right-0 m-2 rounded-xl shadow-2xl border-3 h-[20rem] w-80 bg-azulNav border-morado text-white overflow-hidden">
+                        <div className="Preg absolute bottom-0 bg-azulClaro rounded-b-xl w-full h-21">
+                            <p className="lg:w-full bg-turqueza">Preguntas Frecuentes:</p>
+                            <div className="flex flex-row pb-2">
+                                <select
+                                    className="pregFrec bg-turqueza lg:h-12 lg:mt-2 lg:ml-1 selection:bg-morado rounded-2xl p-1 w-48"
+                                    onChange={handleOptionChange}
+                                >
+                                    <option value="1">¿Donde se ubica la clinica?</option>
+                                    <option value="2">¿Que servicios ofrecen?</option>
+                                    <option value="3">¿Que métodos de pago se aceptan?</option>
+                                </select>
+                                <button
+                                    className="bg-morado hover:bg-[#6f789f] p-3 lg:h-12 lg:mt-2 flex justify-center items-center rounded-2xl text-lg w-full mx-2"
+                                    onClick={handleSendMessage}
+                                >
+                                    Enviar
+                                </button>
                             </div>
                         </div>
-                        <div className='max-h-[15rem] overflow-y-auto'>
-                            {responses.map((msg, index) => (
+                        <div className="max-h-[15rem] overflow-y-auto">
+                        <ChatMessage  text="¡Hola! ¿En qué puedo ayudarte?" isUser={false}/>
+                            {selectedQuestions.map((question, index) => (
+                            <QuestionMessage key={index} text={question} />
+                            ))}
+                            {responses.slice(1).map((msg, index) => (
                                 <ChatMessage key={index} text={msg} isUser={false} />
                             ))}
+                            
                         </div>
                         </div>
                   </div>
@@ -195,12 +204,18 @@ const Inicio = () => {
 
 const ChatMessage = ({ text, isUser }) => {
     const messageClass = isUser ? 'bg-turqueza' : 'bg-azulClaro border-turqueza border-1';
-  
+
     return (
         <div className={`${messageClass} p-1 m-3 rounded-lg w-36 selection:bg-morado`}>
-        {text}
-      </div>
+            {text}
+        </div>
     );
-  };
+};
+
+  const QuestionMessage = ({ text }) => (
+    <div className="bg-morado text-white p-1 ml-40 rounded-lg w-36 selection:bg-morado">
+        {text}
+    </div>
+);
 
 export default Inicio
