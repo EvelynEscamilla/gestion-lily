@@ -158,7 +158,7 @@ const Inicio = () => {
                       alt="Mi Imagen Fija"
                       onClick={handleClick1}
                     />
-                    <div className='chatScreen fixed bottom-0 right-0 m-2 rounded-xl shadow-2xl border-3 h-[20rem] w-80 bg-azulNav border-morado text-white'>
+                    <div className='chatScreen fixed bottom-0 right-0 m-2 rounded-xl shadow-2xl border-3 h-[20rem] w-80 bg-azulNav border-morado text-white overflow-hidden'>
                         
                         <div className='Preg absolute bottom-0 bg-azulClaro rounded-b-xl w-full h-21'>
                             <p className='lg:w-full bg-turqueza'>Preguntas Frecuentes:</p>
@@ -179,9 +179,9 @@ const Inicio = () => {
                             </button>
                             </div>
                         </div>
-                        <div className="bg-max-h-[15rem] overflow-y-auto">
+                        <div className='max-h-[15rem] overflow-y-auto'>
                             {responses.map((msg, index) => (
-                            <ChatMessage key={index} text={msg} isUser={false} />
+                                <ChatMessage key={index} text={msg} isUser={false} />
                             ))}
                         </div>
                         </div>
@@ -197,7 +197,7 @@ const ChatMessage = ({ text, isUser }) => {
     const messageClass = isUser ? 'bg-turqueza' : 'bg-azulClaro border-turqueza border-1';
   
     return (
-        <div className={`${messageClass} p-1 m-3 rounded-lg w-36 selection:bg-morado overflow-y-auto`}>
+        <div className={`${messageClass} p-1 m-3 rounded-lg w-36 selection:bg-morado`}>
         {text}
       </div>
     );
