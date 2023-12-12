@@ -1,13 +1,15 @@
 import { putCancelar } from "../../controllers/historial.controller";
 
-function Gestion({ item }) {
+function Gestion({ item, aceptada }) {
   const fecha = item.Fecha.toDate();
   const dia = fecha.getDate();
   const mes = fecha.getMonth() + 1;
   const año = fecha.getFullYear();
 
   const fechaFormateada = `${dia}/${mes}/${año}`;
-
+  if (aceptada === true) {
+    console.log("esta cita esta aceptada");
+  }
   let hours = fecha.getHours();
   const minutes = fecha.getMinutes();
   const amPm = hours >= 12 ? "PM" : "AM";
@@ -28,6 +30,17 @@ function Gestion({ item }) {
     window.location.reload();
   };
 
+  const handleCancelar = async (e) => {
+    e.preventDefault();
+    await putCancelar({
+      Correo: item.Correo,
+      Servicio: item.Servicio,
+      Fecha: item.Fecha,
+      Estado: "cancelada",
+    });
+    window.location.reload();
+  };
+
   const handleAceptar = async (e) => {
     e.preventDefault();
     await putCancelar({
@@ -42,8 +55,8 @@ function Gestion({ item }) {
   return (
     <form>
       <div className="border-2 cursor-pointer border-azul rounded-2xl bg-azulClaro m-3 p-2 ">
-        <div className=" p-2 grid grid-rows-1 bg-white rounded-2xl items-center ">
-          <div className="flex ">
+        <div className=" p-2 grid grid-rows-1 bg-white rounded-2xl items-center text-base md:text-lg ">
+          <div className="flex border-b-2 border-azul ">
             <p className="flex pr-2 justify-center items-center">
               <p className="font-bold pr-1">Fecha: </p> {fechaFormateada}
             </p>
@@ -54,6 +67,12 @@ function Gestion({ item }) {
             </p>
           </div>
           <div className="flex">
+            <p className="flex pr-2 justify-center items-center ">
+              <p className="font-bold pr-1">Servicio: </p>
+              {item.Servicio}
+            </p>
+          </div>
+          <div className="flex">
             <p className=" flex pr-2 justify-center items-center">
               <p className="font-bold pr-1">Teléfono de Contacto: </p>
               {item.Contacto}{" "}
@@ -61,31 +80,71 @@ function Gestion({ item }) {
           </div>
           <div className="flex">
             <p className="flex pr-2 justify-center items-center ">
-              <p className="font-bold pr-1">Nombre del cliente: </p>
+              <p className="font-bold pr-1">Nombre del Cliente: </p>
               {item.Cliente}
             </p>
           </div>
-          <div className="flex">
-            <p className="flex pr-2 justify-center items-center ">
-              <p className="font-bold pr-1">Servicio: </p>
-              {item.Servicio}
-            </p>
-          </div>
         </div>
-        <div className="flex justify-end mt-2 ">
-          <button
-            className="mr-4 border-2 rounded-2xl bg-white text-red-700 text-bold p-2"
-            onClick={handleRechazar}
-          >
-            Rechazar
-          </button>
 
-          <button
-            className="mr-4 border-2 rounded-2xl bg-white text-lime-500 text-bold  p-2"
-            onClick={handleAceptar}
-          >
-            Aceptar
-          </button>
+        <div>
+          <div className="flex justify-between mt-2 text-end ">
+            {aceptada ? (
+              <>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="white"
+                  className="w-10 h-10 "
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <button
+                  className="mr-4 border-2 rounded-2xl bg-white text-red-700 text-bold p-2"
+                  onClick={handleCancelar}
+                >
+                  Cancelar
+                </button>
+              </>
+            ) : (
+              <>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="white"
+                  className="w-10 h-10"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+
+                <div>
+                  <button
+                    className="mr-4 border-2 rounded-2xl bg-white text-red-700 text-bold p-2"
+                    onClick={handleRechazar}
+                  >
+                    Rechazar
+                  </button>
+                  <button
+                    className="mr-4 border-2 rounded-2xl bg-white text-lime-500 text-bold p-2"
+                    onClick={handleAceptar}
+                  >
+                    Aceptar
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </form>
