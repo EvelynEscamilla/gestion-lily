@@ -4,7 +4,7 @@ import Servicios from "../../Components/mostrarServicios/Servicios";
 import { useState } from "react";
 import useServicios from "../../hooks/useServicios";
 import ModMostrarServicios from "../../Components/modals/ModMostrarServicios";
-
+ 
 export const MostrarServicios = ({ handleScreen }) => {
   const { servicios } = useServicios();
   console.log(servicios)

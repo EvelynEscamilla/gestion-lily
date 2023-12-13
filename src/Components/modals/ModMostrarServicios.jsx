@@ -27,7 +27,7 @@ const ModMostrarServicios = ({ isOpen, onClose, title, descripcion, duracion, ma
               enterTo="opacity-100 translate-y-0"
               leave="ease-in duration-200"
               leaveFrom="opacity-100 translate-y-0"
-              leaveTo="opacity-0 translate-y-4"
+              leaveTo="opacity-0 translate-y-4" 
             >
               <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden transition-all transform bg-white shadow-xl rounded-2xl">
                 <Dialog.Title className=" font-bold text-4xl text-center">
