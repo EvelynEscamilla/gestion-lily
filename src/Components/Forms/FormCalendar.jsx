@@ -268,7 +268,7 @@ const FormCalendar = () => {
           titulo="Selecciona el servicio que desees"
           consejos="Cada servicio es por persona. Para seleccionar la cantidad de personas primero escoge un servicio, Cada que se cambie el servicio se debera escoger la cantidad de personas nuevamente."
         >
-          <div className="flex w-full flex-col justify-center items-center px-5">
+          <div className="flex w-full flex-col justify-center items-center ">
             <CitasServicios
               onChange={(event) => {
                 handleFormPrecioDataChange(event), setMaxVariableLocal(0);
@@ -278,7 +278,7 @@ const FormCalendar = () => {
             <p className=" text-lg font-semibold leading-tight">
               Numero de Personas:
             </p>
-            <label className=" w-full   ">
+            <label className=" w-full px-5   ">
               <select
                 defaultValue={"0"}
                 name="personas"
@@ -401,7 +401,8 @@ const FormCalendar = () => {
                       <Dialog.Title className=" font-bold text-4xl text-center">
                         Verifica tu cita
                         <p className=" text-sm font-normal ">
-                          (Recuerda que puedes cambiar la informacion de contacto para alguien mas)
+                          (Recuerda que puedes cambiar la informacion de
+                          contacto para alguien mas)
                         </p>
                       </Dialog.Title>
                       <Dialog.Description>
@@ -412,33 +413,46 @@ const FormCalendar = () => {
                           />
                         </div>
 
-                        <div className="    ">
-                          <p className=" font-bold  ">Nombre de Contacto: </p>
-                          <input
-                            className=" w-full"
-                            type="text"
-                            defaultValue={formData.Cliente}
-                            name="Cliente"
-                            onChange={handleFormDataChange}
-                          />
-                        </div>
-                        <div className="    ">
-                          <p className=" font-bold  ">Telefono de Contacto: </p>
-                          <input
-                            type="text"
-                            defaultValue={formData.Contacto}
-                            name="Cliente"
-                            onChange={handleFormDataChange}
-                          />
-                        </div>
-                        <div className="   ">
-                          <p className=" font-bold   ">Correo de Contacto: </p>
-                          <input
-                            type="text"
-                            defaultValue={formData.Correo}
-                            name="Cliente"
-                            onChange={handleFormDataChange}
-                          />
+                        <div className=" grid lg:grid-cols-2">
+                          <div className="    ">
+                            <p className=" font-bold  ">Nombre de Contacto: </p>
+                            <input
+                              required
+                              className=" w-full"
+                              type="text"
+                              defaultValue={formData.Cliente}
+                              name="Cliente"
+                              onChange={handleFormDataChange}
+                            />
+                          </div>
+                          <div className="    ">
+                            <p className=" font-bold  ">
+                              Telefono de Contacto:{" "}
+                            </p>
+                            <input
+                              required
+                              inputMode="numeric" step="1"
+                              className="w-full"
+                              type="number"
+                              pattern="[0-9]{10}"
+                              defaultValue={formData.Contacto}
+                              name="Contacto"
+                              onChange={handleFormDataChange}
+                            />
+                          </div>
+                          <div className="   ">
+                            <p className=" font-bold   ">
+                              Correo de Contacto:{" "}
+                            </p>
+                            <input
+                              required
+                              className="w-full"
+                              type="text"
+                              defaultValue={formData.Correo}
+                              name="Correo"
+                              onChange={handleFormDataChange}
+                            />
+                          </div>
                         </div>
 
                         <ResumenFormulario formData={formData} />

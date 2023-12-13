@@ -67,7 +67,8 @@ export const getCitasFechaServicio = async ({ Fecha, Servicio = null }) => {
             "<",
             new Date(FechaOr.getTime() + 24 * 60 * 60 * 1000)
           ),
-          where("Servicio", "==", Servicio)
+          where("Servicio", "==", Servicio),
+          
         )
       );
 
