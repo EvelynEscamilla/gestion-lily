@@ -5,6 +5,7 @@ const Inicio = () => {
 
     const [isShowing, setIsShowing] = useState(false)
     const [infoDiv, setInfoDiv] = useState(1);
+    const [showQuestions, setShowQuestions] = useState(false);
 
     const [selectedOption, setSelectedOption] = useState('');
     const [chatState, setChatState] = useState('initial');
@@ -23,6 +24,7 @@ const Inicio = () => {
 
     const handleClick = () => {
         setInfoDiv(infoDiv + 1);
+        
     }
 
     const handleClick1 = () => {
@@ -35,35 +37,50 @@ const Inicio = () => {
 
 
     const handleOptionChange = (e) => {
-        const newSelectedQuestion = e.target.options[e.target.selectedIndex].text;
-
         setSelectedOption(e.target.value);
-        setSelectedQuestions((prevQuestions) => [...prevQuestions, newSelectedQuestion]);
-      };
+    };
+    
         
 
-      const handleSendMessage = () => {
+    const handleSendMessage = () => {
         let newResponse;
-      
-        switch (selectedOption) {
-          case '1':
-            newResponse = 'La clínica se ubica en...';
-            break;
-          case '2':
-            newResponse = 'Ofrecemos servicios como...';
-            break;
-          case '3':
-            newResponse = 'Aceptamos métodos de pago como...';
-            break;
-          default:
-            newResponse = 'Lo siento, no entiendo esa opción.';
-            break;
+        setShowQuestions(true);
+    
+        // Agrega la pregunta seleccionada solo si hay una opción seleccionada
+        if (selectedOption) {
+            const newSelectedQuestion = selectedOption === '1'
+                ? '¿Donde se ubica la clinica?'
+                : selectedOption === '2'
+                    ? '¿Que servicios ofrecen?'
+                    : selectedOption === '3'
+                        ? '¿Que métodos de pago se aceptan?'
+                        : '';
+    
+            setSelectedQuestions((prevQuestions) => [...prevQuestions, newSelectedQuestion]);
         }
-      
+    
+        // Lógica para obtener la respuesta basada en la opción seleccionada
+        switch (selectedOption) {
+            case '1':
+                newResponse = 'La clínica se ubica en...';
+                break;
+            case '2':
+                newResponse = 'Ofrecemos servicios como...';
+                break;
+            case '3':
+                newResponse = 'Aceptamos métodos de pago como...';
+                break;
+            default:
+                newResponse = 'Lo siento, no entiendo esa opción.';
+                break;
+        }
+    
         setResponse(newResponse);
         setResponses((prevResponses) => [...prevResponses, newResponse]);
         setChatState('answered');
-      };
+        setSelectedOption('');
+    };
+    
 
 
     return (
@@ -167,31 +184,32 @@ const Inicio = () => {
                         <div className="Preg absolute bottom-0 bg-azulClaro rounded-b-xl w-full h-21">
                             <p className="lg:w-full bg-turqueza">Preguntas Frecuentes:</p>
                             <div className="flex flex-row pb-2">
-                                <select
-                                    className="pregFrec bg-turqueza lg:h-12 lg:mt-2 lg:ml-1 selection:bg-morado rounded-2xl p-1 w-48"
-                                    onChange={handleOptionChange}
-                                >
-                                    <option value="1">¿Donde se ubica la clinica?</option>
-                                    <option value="2">¿Que servicios ofrecen?</option>
-                                    <option value="3">¿Que métodos de pago se aceptan?</option>
-                                </select>
-                                <button
-                                    className="bg-morado hover:bg-[#6f789f] p-3 lg:h-12 lg:mt-2 flex justify-center items-center rounded-2xl text-lg w-full mx-2"
-                                    onClick={handleSendMessage}
-                                >
-                                    Enviar
-                                </button>
+                            <select
+                                className="pregFrec bg-turqueza h-12 lg:h-12 lg:mt-2 lg:ml-1 selection:bg-morado rounded-2xl p-1 w-full sm:w-48"
+                                onChange={handleOptionChange}
+                            >
+                                <option value="1">¿Dónde se ubica la clínica?</option>
+                                <option value="2">¿Qué servicios ofrecen?</option>
+                                <option value="3">¿Que métodos de pago se aceptan?</option>
+                            </select>
+                            <button
+                                className="bg-morado hover:bg-[#6f789f] p-3 sm:p-2 lg:h-12 lg:mt-2 flex justify-center items-center rounded-2xl text-lg lg:w-full lg:ml-2"
+                                onClick={handleSendMessage}
+                            >
+                                Enviar
+                            </button>
                             </div>
                         </div>
                         <div className="max-h-[15rem] overflow-y-auto">
-                        <ChatMessage  text="¡Hola! ¿En qué puedo ayudarte?" isUser={false}/>
+                            <ChatMessage text="¡Hola! ¿En qué puedo ayudarte?" isUser={false} />
                             {selectedQuestions.map((question, index) => (
-                            <QuestionMessage key={index} text={question} />
+                                <React.Fragment key={index}>
+                                    <QuestionMessage text={question} />
+                                    {responses[index] && (
+                                        <ChatMessage key={index} text={responses[index]} isUser={false} />
+                                    )}
+                                </React.Fragment>
                             ))}
-                            {responses.slice(1).map((msg, index) => (
-                                <ChatMessage key={index} text={msg} isUser={false} />
-                            ))}
-                            
                         </div>
                         </div>
                   </div>
@@ -206,15 +224,17 @@ const ChatMessage = ({ text, isUser }) => {
     const messageClass = isUser ? 'bg-turqueza' : 'bg-azulClaro border-turqueza border-1';
 
     return (
-        <div className={`${messageClass} p-1 m-3 rounded-lg w-36 selection:bg-morado`}>
+        <div className={`${messageClass} p-1 m-3 font-semibold rounded-lg w-36 selection:bg-morado`}>
             {text}
         </div>
     );
 };
 
   const QuestionMessage = ({ text }) => (
-    <div className="bg-morado text-white p-1 ml-40 rounded-lg w-36 selection:bg-morado">
+    <div className='flex justify-end'>
+    <div className="bg-morado text-white p-1 m-1 font-semibold rounded-lg w-36 selection:bg-morado">
         {text}
+    </div>
     </div>
 );
 
