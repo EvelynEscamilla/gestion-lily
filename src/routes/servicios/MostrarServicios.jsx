@@ -1,11 +1,13 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import Servicios from "../../Components/mostrarServicios/Servicios";
 import { useState } from "react";
 import useServicios from "../../hooks/useServicios";
+import ModMostrarServicios from "../../Components/modals/ModMostrarServicios";
 
 export const MostrarServicios = ({ handleScreen }) => {
   const { servicios } = useServicios();
-console.log(servicios)
+  console.log(servicios)
   const [nombre, setNombre] = useState("Elige el Servicio que gustes");
   const [descripcion, setdescripcion] = useState(
     "Te dara una breve descripcion de lo que es cada servicio"
@@ -28,13 +30,28 @@ console.log(servicios)
     setDuracion(data.duracion);
     setMaximoPer(data.maximoClientes);
     console.log("Datos recibidos desde Mostrar Servicios", data);
+
+
+
   };
+
+  const [modalAbierto, setModalAbierto] = useState(false);
+
+  const abrirModal = () => {
+    setModalAbierto(true);
+  };
+
+  const cerrarModal = () => {
+    setModalAbierto(false);
+  };
+
 
   return (
     <>
       <div className="lg:flex grid grid-rows-1 justify-center text-center">
         <div className=" lg:w-1/2 w-[95%] lg:p-3 lg:pl-2 justify-center">
-          <div className=" grid lg:grid-cols-3 grid-cols-2 place-content-center py-2">
+          <div onClick={abrirModal} className=" grid lg:grid-cols-3 grid-cols-2 place-content-center py-2">
+
             {servicios.map((item, index) => (
               <Servicios
                 key={index}
@@ -43,6 +60,7 @@ console.log(servicios)
                 oC={toggleDiv}
               ></Servicios>
             ))}
+
           </div>
         </div>
         <div className="lg:w-1/2 w-[90%] ml-auto mr-auto items-center justify-center pb-5 lg:pb-0">
@@ -94,6 +112,23 @@ console.log(servicios)
           </div>
         </div>
       </div>
+
+      <div>
+
+
+        {/* Componente del modal */}
+        <ModMostrarServicios
+          isOpen={modalAbierto}
+          onClose={cerrarModal}
+          title={nombre}
+          descripcion={descripcion}
+          duracion={duracion}
+          maxPer={maximoPer}
+          precio={precio}
+        />
+      </div>
+
+
     </>
   );
 };
