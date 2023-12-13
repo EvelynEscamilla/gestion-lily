@@ -31,7 +31,7 @@ const ResumenFormulario = ({ formData }) => {
   const total = precio && personas ? precio * personas : null;
   return (
     <>
-      <div className=" ">
+      <div className=" grid lg:grid-cols-2 ">
         <div className="   ">
           <p className=" font-bold  ">Fecha: </p>
           {mostrarDia}
@@ -52,8 +52,8 @@ const ResumenFormulario = ({ formData }) => {
           <p className=" font-bold  ">Cantidad de Personas:</p>
           {mostrarPersonas}
         </div>
-        <div className="   text-2xl ">{total && <p>Total: {total}</p>}</div>
       </div>
+      <div className="   text-2xl ">{total && <p>Total: {total}</p>}</div>
     </>
   );
 };
