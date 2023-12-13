@@ -136,19 +136,21 @@ const Inicio = () => {
                 }
             </div>
 
-            <div className='flex w-auto lg:h-[50%] h-80 bg-morado drop-shadow-2xl '>
-                <div className='relative overflow-hidden lg:w-[100%]'>
+            <div className='flex w-auto lg:h-[50%] h-[27rem] bg-morado drop-shadow-2xl overflow-hidden'>
+                <div className='relative lg:w-[100%]'>
                     <img className="h-full" src="Images/Inicio/ins3.jpg" alt="Datos" />
-                    <div className="absolute top-0 left-0 w-screen h-full bg-gradient-to-r lg:from-transparent lg:to-violet-500 from-violet-500 to-fuchsia-500 opacity-60 lg:opacity-100 float-right"></div>
-                </div>
-                <div className='overflow-y-auto lg:w-[50%] pt-3 absolute text-white text-lg justify-center text-justify mr-5 ml-3 right-0 float-right'>
-                    <p className='font-bold'>
-                        ¡Bienvenido a la Clínica de Belleza Lily!
-                    </p>
-                    <p className='  '>
-                        Donde la excelencia se fusiona con la salud y la belleza, nuestro compromiso es ofrecerte lo mejor en tratamientos tanto corporales como faciales. En nuestra clínica, encontrarás una gama diversa de servicios diseñados para realzar tu bienestar y resaltar tu belleza natural.
-                        Nuestra filosofía se basa en la fusión de la experiencia médica y la especialización en estética. Contamos con un equipo de expertos y médicos altamente capacitados, dispuestos a brindarte los tratamientos más avanzados y personalizados para lograr resultados excepcionales.
-                    </p>
+                    <div className="absolute top-0 left-0 w-screen h-full bg-gradient-to-r lg:from-transparent lg:to-violet-500 from-violet-500 to-fuchsia-500 opacity-60 lg:opacity-100 float-right overflow-y-auto">
+
+                        <div className=' lg:w-[50%] pt-3 text-white text-lg justify-center text-justify lg:mr-6 px-2 right-0 float-right'>
+                            <p className='font-bold'>
+                                ¡Bienvenido a la Clínica de Belleza Lily!
+                            </p>
+                            <p className=' font-semibold lg:font-normal'>
+                                Donde la excelencia se fusiona con la salud y la belleza, nuestro compromiso es ofrecerte lo mejor en tratamientos tanto corporales como faciales. En nuestra clínica, encontrarás una gama diversa de servicios diseñados para realzar tu bienestar y resaltar tu belleza natural.
+                                Nuestra filosofía se basa en la fusión de la experiencia médica y la especialización en estética. Contamos con un equipo de expertos y médicos altamente capacitados, dispuestos a brindarte los tratamientos más avanzados y personalizados para lograr resultados excepcionales.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
 
