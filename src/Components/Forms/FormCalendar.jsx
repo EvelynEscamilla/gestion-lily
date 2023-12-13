@@ -268,7 +268,7 @@ const FormCalendar = () => {
           titulo="Selecciona el servicio que desees"
           consejos="Cada servicio es por persona. Para seleccionar la cantidad de personas primero escoge un servicio, Cada que se cambie el servicio se debera escoger la cantidad de personas nuevamente."
         >
-          <div className="flex w-full flex-col justify-center items-center px-5">
+          <div className="flex w-full flex-col justify-center items-center ">
             <CitasServicios
               onChange={(event) => {
                 handleFormPrecioDataChange(event), setMaxVariableLocal(0);
@@ -278,7 +278,7 @@ const FormCalendar = () => {
             <p className=" text-lg font-semibold leading-tight">
               Numero de Personas:
             </p>
-            <label className=" w-full   ">
+            <label className=" w-full px-5   ">
               <select
                 defaultValue={"0"}
                 name="personas"
