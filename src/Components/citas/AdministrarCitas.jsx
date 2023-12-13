@@ -1,6 +1,6 @@
 import { putCancelar } from "../../controllers/historial.controller";
 
-function Gestion({ item, aceptada }) {
+function AdministrarCitas({ item, aceptada }) {
   const fecha = item.Fecha.toDate();
   const dia = fecha.getDate();
   const mes = fecha.getMonth() + 1;
@@ -84,26 +84,19 @@ function Gestion({ item, aceptada }) {
               {item.Cliente}
             </p>
           </div>
+          <div className="flex">
+            <p className="flex pr-2 justify-center items-center ">
+              <p className="font-bold pr-1">Estatus: </p>
+              {item.Estado}
+            </p>
+          </div>
         </div>
 
         <div>
-          <div className="flex justify-between mt-2 text-end ">
+          <div className="flex justify-end mt-2 text-end  ">
             {aceptada ? (
               <>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="white"
-                  className="w-10 h-10 "
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+
                 <button
                   className="mr-4 border-2 rounded-2xl bg-white text-red-700 text-bold p-2"
                   onClick={handleCancelar}
@@ -113,20 +106,6 @@ function Gestion({ item, aceptada }) {
               </>
             ) : (
               <>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="white"
-                  className="w-10 h-10"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
 
                 <div>
                   <button
@@ -150,4 +129,4 @@ function Gestion({ item, aceptada }) {
     </form>
   );
 }
-export default Gestion;
+export default AdministrarCitas;
