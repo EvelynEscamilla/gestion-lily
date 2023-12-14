@@ -3,12 +3,12 @@ import { useState } from 'react';
 import Boton from '../Components/boton/Boton';
 import { auth } from '../firebase';
 import { sendPasswordResetEmail } from 'firebase/auth';
+import ModalRecuperacionPassw from '../Components/modals/ModalRecuperacionPassw';
 
 const RecuperarContraseña = () => {
     // Estado para almacenar el valor del input
     const [CorreoE, setValorCorreo] = useState('');
-
-
+    const [showModal, setShowModal] = useState(false);
 
     // Función para manejar cambios en el input
     const handleChangeCorreo = (event) => {
@@ -16,14 +16,16 @@ const RecuperarContraseña = () => {
         console.log(CorreoE)
     };
 
+    const closeModal = () => {
+        setShowModal(false);
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        sendPasswordResetEmail(auth,CorreoE).then((data)=>{
-            alert("Si el correo existe, recibiras un correo para reestablecer tu contraseña, no olvides revisar la bandeja de SPAM ")
+        setShowModal(true);
+        sendPasswordResetEmail(auth, CorreoE).then(() => {
             history("/")
-        }).catch(err=>{
-            alert(err.code)
+        }).catch(err => {
+            
         })
 
     }
@@ -54,6 +56,12 @@ const RecuperarContraseña = () => {
                             </Boton>
                         </div>
                     </form>
+                    {/* Modal */}
+                    {showModal && (
+                        <ModalRecuperacionPassw onClose={closeModal}>
+                            {/* Contenido del modal, por ejemplo un mensaje de éxito */}
+                        </ModalRecuperacionPassw>
+                    )}
                 </div>
             </div>
         </>
