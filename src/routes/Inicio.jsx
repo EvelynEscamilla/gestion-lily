@@ -1,31 +1,113 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Transition } from '@headlessui/react'
 import btnDesplegar from '../assets/Inicio/desplegar.png'
 const Inicio = () => {
 
     const [isShowing, setIsShowing] = useState(false)
     const [infoDiv, setInfoDiv] = useState(1);
+    const [showQuestions, setShowQuestions] = useState(false);
+
+    const [selectedOption, setSelectedOption] = useState('');
+    const [chatState, setChatState] = useState('initial');
+    const [responses, setResponses] = useState([]);
+    const [response, setResponse] = useState();
+    const chatContainerRef = useRef(null);
+
+    const [selectedQuestions, setSelectedQuestions] = useState([]);
+
     useEffect(() => {
-
-        setIsShowing((isShowing) => true)
-
-    }, [])
+        if (chatContainerRef.current) {
+            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+        }
+    }, [selectedQuestions, responses]);
 
     const handleClick = () => {
         setInfoDiv(infoDiv + 1);
+        
     }
 
     const handleClick1 = () => {
         setInfoDiv(infoDiv - 1);
+        setSelectedOption('');
+        setChatState('initial');
+        setResponse('');
     }
+
+
+
+    const handleOptionChange = (e) => {
+        setSelectedOption(e.target.value);
+    };
+    
+        
+
+    const handleSendMessage = () => {
+        let newResponse;
+
+        if (selectedOption) {
+            const newSelectedQuestion = selectedOption === '1'
+                ? '¿Dónde se ubica la clínica?'
+                : selectedOption === '2'
+                    ? '¿Qué servicios ofrecen?'
+                    : selectedOption === '3'
+                        ? '¿Qué duración tienen los servicios?'
+                        : selectedOption === '4'
+                            ? '¿Cuál es el costo de los tratamientos?'
+                            : selectedOption === '5'
+                                ? '¿Cómo puedo verificar si mi cita fue aceptada?'
+                                : selectedOption === '6'
+                                    ? '¿Cómo puedo agendar una cita?'
+                                    : selectedOption === '7'
+                                        ? '¿Puedo cancelar mi cita?'
+                                        : selectedOption === '8'
+                                            ? '¿Cómo puedo comunicarme con la clínica?'
+                                            : '';
+    
+            setSelectedQuestions((prevQuestions) => [...prevQuestions, newSelectedQuestion]);
+        }
+    
+        switch (selectedOption) {
+            case '1':
+                newResponse = "La clínica se ubica en Thomas Alva Edison No.335 Col. Electricistas, C.P. 58290";
+                break;
+            case '2':
+                newResponse = 'Ofrecemos servicios como masajes, botox. eliminación de verrugas y tatuajes, bb glow, lipoláser, ácido de labios, entre muchos otros que puedes encontrar en el apartado "Servicios" ubicado en la parte superior en la página.';
+                break;
+            case '3':
+                newResponse = 'La duración de los servicios puede ser desde los 15 minutos, 30 minutos e incluso 1 hora, dependiendo del tratamiento, puedes consultar la duración exacta de cada tratamiento en el apartado "servicios" ubicado en la parte superior de la página.';
+                break;
+            case '4':
+                newResponse = 'El costo depende del tratamiento, puedes consultar el costo exacto de cada tratamiento en el apartado "servicios" ubicado en la parte superior de la página.';
+                break;
+            case '5':
+                newResponse = 'Una vez iniciada sesión en la página, selecciona el icono del perfil ubicado en la parte superior derecha de la página, se desplegará un menú de opciones, selecciona "Citas programadas" y una vez ahí te muestra las citas que tienes agendadas y el estatus en el que se encuentra, ahí te mostrará si tu cita ha sido aceptada, rechazada o cancelada. Recuerda verificar continuamente tus citas.';
+                break;
+            case '6':
+                newResponse = 'Inicia sesión y dirígete al apartado "Citas" ubicado en la parte superior de la página, ahí te mostrará un calendario para que selecciones el día de tu cita, así como la hora y el tratamiento que deseas.';
+                break;
+            case '7':
+                newResponse = 'Sí, para eso selecciona el icono del perfil ubicado en la parte superior derecha de la página, se desplegará un menú de opciones, selecciona "Citas programadas" y una vez ahí te muestra las citas que tienes agendadas, presiona el botón "Cancelar" que se encuentra debajo de los detalles de la cita y tu cita quedará cancelada. Recuerda cancelar tu cita por lo menos 1 día antes de su realización.';
+                break;
+            case '8':
+                newResponse = 'Puedes comunicarte con nosotros a través del número de teléfono: 44 35 87 60 57';
+                break;
+            default:
+                newResponse = 'Lo siento, no entiendo esa pregunta.';
+                break;
+        }
+    
+        
+        setResponse(newResponse);
+        setResponses((prevResponses) => [...prevResponses, newResponse]);
+        setChatState('answered');
+        setSelectedOption('');
+    };
+    
+    
 
 
     return (
         <>
-
-
-
-
             <div className='Bienvenida w-full flex flex-col items-center pb-24 justify-center h-screen'>
                 <Transition className='w-full flex flex-col items-center pb-24 justify-center h-screen '
                     show={isShowing}
@@ -114,30 +196,77 @@ const Inicio = () => {
                 {infoDiv == 1 ?
                     <img className=" fixed bottom-0 rounded-full bg-azulNav border-3 border-morado shadow-lg p-2 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200 " src="Images/Inicio/logosolito.svg" alt="Mi Imagen Fija" onClick={() => handleClick()}></img>
                     :
-                    <div className=' z-50'>
-                        <img className=" fixed bottom-[19rem] rounded-full p-2 right-0 w-12 mx-2 mb-[2rem] hover:-translate-y-1 hover:scale-110 duration-200 bg-azulClaro" src="Images/Inicio/delete-button.png" alt="Mi Imagen Fija" onClick={() => handleClick1()}></img>
-                        <div className='chatScreen fixed bottom-0 right-0 m-2 rounded-xl shadow-2xl border-3 h-[20rem] w-80 bg-azulNav border-morado text-white' >
-                            <p className='bg-turqueza p-1 m-3 rounded-lg w-36 selection:bg-morado' >
-                                ¡Hola! ¿En qué puedo ayudarte?
-                            </p>
-                            <div className='Preg absolute bottom-0 bg-azulClaro rounded-b-xl w-full h-21'>
-                                <p className=' ml-1'>Preguntas Frecuentes:</p>
-                                <div className='flex flex-row pb-2'>
-                                    <select className='pregFrec bg-azulClaro selection:bg-morado rounded-2xl p-1 w-48'>
-                                        <option value="1">¿Donde se ubica la clinica?</option>
-                                        <option value="2">¿Que servicios ofrecen?</option>
-                                        <option value="3">¿Que metodos de pago se aceptan?</option>
-                                    </select>
-                                    <button className=' bg-morado hover:bg-[#6f789f] p-3 rounded-2xl text-lg w-full mx-2'>Enviar</button>
-                                </div>
+                    <div className="z-10">
+                    <img
+                        className="fixed bottom-[19rem] rounded-full p-2 right-0 w-12 mx-2 mb-[2rem] hover:-translate-y-1 hover:scale-110 duration-200 bg-azulClaro"
+                        src="Images/Inicio/delete-button.png"
+                        alt="Mi Imagen Fija"
+                        onClick={handleClick1}
+                    />
+                    <div className="chatScreen fixed bottom-0 right-0 m-2 rounded-xl shadow-2xl border-3 h-[20rem] w-80 bg-azulNav border-morado text-white overflow-hidden">
+                        <div className="Preg absolute bottom-0 bg-azulClaro rounded-b-xl w-full h-21 z-10">
+                            <p className="lg:w-full bg-turqueza">Preguntas Frecuentes:</p>
+                            <div className="flex flex-row pb-2 relative">
+                                <select
+                                    className="pregFrec bg-turqueza h-12 mt-2 lg:h-12 lg:mt-2 lg:ml-1 selection:bg-morado rounded-2xl p-1 w-full sm:w-48 z-50 origin-top"
+                                    onChange={handleOptionChange}
+                                >
+                                    <option value="1">¿Dónde se ubica la clínica?</option>
+                                    <option value="2">¿Qué servicios ofrecen?</option>
+                                    <option value="3">¿Qué duración tienen los servicios?</option>
+                                    <option value="4">¿Cuál es el costo de los tratamientos?</option>
+                                    <option value="5">¿Cómo puedo verificar si mi cita fue aceptada?</option>
+                                    <option value="6">¿Cómo puedo agendar una cita?</option>
+                                    <option value="7">¿Puedo cancelar mi cita?</option>
+                                    <option value="8">¿Cómo puedo comunicarme con la clínica?</option>
+                                </select>
+                                <button
+                                    className="bg-morado hover:bg-[#6f789f] p-3 h-12 mt-2 lg:h-12 lg:mt-2 flex justify-center items-center rounded-2xl text-lg lg:w-full lg:ml-2"
+                                    onClick={handleSendMessage}
+                                >
+                                    Enviar
+                                </button>
                             </div>
+
                         </div>
-                    </div>
+                        <div className="max-h-[15rem] overflow-y-auto">
+                            <ChatMessage text="¡Hola! ¿En qué puedo ayudarte?" isUser={false} />
+                            {selectedQuestions.length === responses.length &&
+                            selectedQuestions.map((question, index) => (
+                                <React.Fragment key={index}>
+                                    <QuestionMessage text={question} />
+                                    {responses[index] && (
+                                        <ChatMessage key={index} text={responses[index]} isUser={false} />
+                                    )}
+                                </React.Fragment>
+                            ))}
+
+                        </div>
+                        </div>
+                  </div>
                 }
             </div>
 
         </>
     )
 }
+
+const ChatMessage = ({ text, isUser }) => {
+    const messageClass = isUser ? 'bg-turqueza' : 'bg-azulClaro border-turqueza border-1';
+
+    return (
+        <div className={`${messageClass} p-1 m-3 font-semibold rounded-lg w-36 selection:bg-morado`}>
+            {text}
+        </div>
+    );
+};
+
+  const QuestionMessage = ({ text }) => (
+    <div className='flex justify-end'>
+    <div className="bg-morado text-white p-1 m-1 font-semibold rounded-lg w-36 selection:bg-morado">
+        {text}
+    </div>
+    </div>
+);
 
 export default Inicio
