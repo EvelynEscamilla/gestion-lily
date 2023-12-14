@@ -19,31 +19,7 @@ const HistorialMes = () => {
         setSelectedYear(selectedYear + increment);
     };
 
-    const Actualizar = async (item) => {
-        
-        await putCancelar({
-            Correo: item.Correo,
-            Servicio: item.Servicio,
-            Fecha: item.Fecha,
-            Estado: "Realizada",
-        });
-    };
-
-    useEffect(() => {
-        const filteredCitas = cita.filter((item) => {
-            const estadoCita = item.Estado;
-            const fechaCita = item.Fecha.toDate();
-            return estadoCita === "aceptada" && fechaCita < new Date();
-        });
-
-        setCitasActualizadas(filteredCitas);
-
-        filteredCitas.forEach((item) => {
-            Actualizar(item);
-        });
-    }, []);
-
-    
+  
 
     const citasFiltradas = cita.filter(item => {
         const fecha = item.Fecha.toDate();
@@ -51,7 +27,7 @@ const HistorialMes = () => {
         const añoCita = fecha.getFullYear();
         const estadoCita = item.Estado;
 
-        return mesCita.toString() === mesSeleccionado && añoCita === selectedYear && estadoCita === "Realizada";
+        return mesCita.toString() === mesSeleccionado && añoCita === selectedYear && estadoCita === "aceptada" && fecha < new Date();
     });
  
 
