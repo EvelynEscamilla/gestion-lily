@@ -9,15 +9,17 @@ const LayoutPrincipal = () => {
 
   const { userData, loading } = useAuth()
 
-  if (loading) return<div>Loading...</div>
+  if (loading) return <div className="h-screen w-screen flex flex-col items-center justify-center">
+    <img className="w-3/4" src="Images/Nav/Logo.svg" />
+  </div>
 
 
 
   return (
     <>
-      <Navbar rol = {userData && userData.rol} />
+      <Navbar rol={userData && userData.rol} />
       <div className="w-full min-h-screen bg-white">
-      <ScrollToTop/>
+        <ScrollToTop />
         <Outlet />
       </div>
       <Footer />
