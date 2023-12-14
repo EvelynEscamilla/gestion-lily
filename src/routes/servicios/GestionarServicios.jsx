@@ -35,10 +35,10 @@ const GestionarServicios = () => {
         <div className=" pt-12 mx-auto px-4 pb-4  text-white ">
           <p className=" text-5xl text-center text-black">Servicios</p>
 
-          <div className=" flex flex-col md:flex-row items-center justify-center p-5 w-full text-black md:space-x-16">
+          <div className=" flex flex-col md:flex-row items-center justify-center py-5 w-full text-black md:space-x-16">
 
             <Link to="/gestion-lily/agregar-servicios">
-              <button className=" shadow-md rounded-3xl border border-black mb-2 font-semibold">
+              <button className=" shadow-md rounded-3xl border border-black mb-4 md:mb-0 font-semibold">
                 <div className=" flex p-3 justify-center items-center">
                   <p className=" text-2xl px-2">+</p>
                   <p className=" ">Agregar Servicio</p>
