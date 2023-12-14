@@ -19,7 +19,7 @@ const RecuperarContraseña = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        sendPasswordResetEmail(auth,CorreoE).then(data=>{
+        sendPasswordResetEmail(auth,CorreoE).then((data)=>{
             alert("Si el correo existe, recibiras un correo para reestablecer tu contraseña, no olvides revisar la bandeja de SPAM ")
             history("/")
         }).catch(err=>{
