@@ -248,16 +248,16 @@ const Inicio = () => {
                 }
             </div>
 
-            <div className='flex w-auto lg:h-[50%] h-[21rem] bg-morado drop-shadow-2xl overflow-hidden mb-5 '>
+            <div className='flex w-auto lg:h-[60%] h-[25rem] bg-morado drop-shadow-2xl overflow-hidden mb-5 lg:rounded-none rounded-lg'>
                 <div className='relative lg:w-[100%]'>
                     <img className=" h-full w-full object-cover object-bottom" src="Images/Inicio/ins3.jpg" alt="Datos" />
-                    <div className="absolute top-0 left-0 w-screen h-full bg-gradient-to-r lg:from-transparent lg:to-violet-500 from-violet-500 to-fuchsia-500 opacity-60 lg:opacity-100 float-right overflow-y-auto">
+                    <div className="absolute top-0 left-0 w-screen h-full bg-gradient-to-r lg:from-transparent lg:to-violet-500 from-violet-500 to-violet-500 opacity-80 lg:opacity-100 float-right overflow-y-auto">
 
                         <div className=' lg:w-[50%] pt-3 text-white lg:text-lg text-base justify-center text-justify lg:mr-6 px-2 right-0 float-right'>
-                            <p className='font-bold'>
+                            <p className='font-bold pb-3 lg:pb-0'>
                                 ¡Bienvenido a la Clínica de Belleza Lily!
                             </p>
-                            <p className=' font-semibold lg:font-normal'>
+                            <p className='  lg:font-normal lg:text-base'>
                                 Donde la excelencia se fusiona con la salud y la belleza, nuestro compromiso es ofrecerte lo mejor en tratamientos tanto corporales como faciales. En nuestra clínica, encontrarás una gama diversa de servicios diseñados para realzar tu bienestar y resaltar tu belleza natural.
                                 Nuestra filosofía se basa en la fusión de la experiencia médica y la especialización en estética. Contamos con un equipo de expertos y médicos altamente capacitados, dispuestos a brindarte los tratamientos más avanzados y personalizados para lograr resultados excepcionales.
                             </p>
