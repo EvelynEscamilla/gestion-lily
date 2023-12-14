@@ -195,9 +195,9 @@ const Inicio = () => {
                 </div>
 
                 {infoDiv == 1 ?
-                    <img className=" fixed bottom-0 rounded-full bg-azulNav border-3 border-morado shadow-lg p-2 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200 " src="Images/Inicio/logosolito.svg" alt="Mi Imagen Fija" onClick={() => handleClick()}></img>
+                    <img className="fixed bottom-0 rounded-full bg-azulNav border-3 border-morado shadow-lg p-2 right-0 h-24 mx-2 my-4 hover:-translate-y-1 hover:scale-110 duration-200 " src="Images/Inicio/logosolito.svg" alt="Mi Imagen Fija" onClick={() => handleClick()}></img>
                     :
-                    <div className="z-10">
+                    <div className="z-50">
                     <img
                         className="fixed bottom-[19rem] rounded-full p-2 right-0 w-12 mx-2 mb-[2rem] hover:-translate-y-1 hover:scale-110 duration-200 bg-azulClaro"
                         src="Images/Inicio/delete-button.png"
@@ -248,7 +248,7 @@ const Inicio = () => {
                 }
             </div>
 
-            <div className='flex w-auto lg:h-[50%] h-[21rem] bg-morado drop-shadow-2xl overflow-hidden'>
+            <div className='flex w-auto lg:h-[50%] h-[21rem] bg-morado drop-shadow-2xl overflow-hidden mb-5 '>
                 <div className='relative lg:w-[100%]'>
                     <img className=" h-full w-full object-cover object-bottom" src="Images/Inicio/ins3.jpg" alt="Datos" />
                     <div className="absolute top-0 left-0 w-screen h-full bg-gradient-to-r lg:from-transparent lg:to-violet-500 from-violet-500 to-fuchsia-500 opacity-60 lg:opacity-100 float-right overflow-y-auto">
@@ -264,11 +264,9 @@ const Inicio = () => {
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
-            <div className='pt-5'></div>
+            
         </>
     )
 }
