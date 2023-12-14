@@ -48,9 +48,9 @@ export const MostrarServicios = ({ handleScreen }) => {
 
   return (
     <>
-      <div className="lg:flex grid grid-rows-1 justify-center text-center">
-        <div className=" lg:w-1/2 w-[95%] lg:p-3 lg:pl-2 justify-center">
-          <div onClick={abrirModal} className=" grid lg:grid-cols-3 grid-cols-2 place-content-center py-2">
+      <div className="lg:flex grid grid-rows-1 justify-center text-center ">
+        <div className=" lg:w-1/2 w-[95%] lg:p-3 lg:pl-2 justify-center lg:h-screen lg:overflow-y-auto ">
+          <div onClick={abrirModal} className=" grid lg:grid-cols-3 grid-cols-2 place-content-center pt-2 lg:pb-28 ">
 
             {servicios.map((item, index) => (
               <Servicios
