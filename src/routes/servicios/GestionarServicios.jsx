@@ -38,7 +38,7 @@ const GestionarServicios = () => {
           <div className=" flex flex-col md:flex-row items-center justify-center p-5 w-full text-black md:space-x-16">
 
             <Link to="/gestion-lily/agregar-servicios">
-              <button className=" shadow-md rounded-3xl border border-black  font-semibold">
+              <button className=" shadow-md rounded-3xl border border-black mb-2 font-semibold">
                 <div className=" flex p-3 justify-center items-center">
                   <p className=" text-2xl px-2">+</p>
                   <p className=" ">Agregar Servicio</p>
