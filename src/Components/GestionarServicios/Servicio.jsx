@@ -8,8 +8,8 @@ function Servicio({ handleVisibilityChange, item }) {
   return (
     <>
       <tr className="border-b border-opacity-20 border-gray-700 text-black">
-        <td className="p-3 text-center">
-          <img className="h-16" src={item.url} alt={item.nombre} />
+        <td className=" text-center w-fit" >
+          <img className="h-16 " src={item.url} alt={item.nombre} />
         </td>
         <td className="p-3">
           <p>{item.nombre}</p>

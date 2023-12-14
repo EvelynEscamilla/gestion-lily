@@ -5,6 +5,7 @@ import {
   getServiciosBy,
   getServiciosPrecioCorporal,
   getServiciosPrecioFacial,
+  getServiciosSearch
 } from "../controllers/servicios.controller";
 
 const useServicios = (nombre) => {
@@ -12,6 +13,7 @@ const useServicios = (nombre) => {
   const [serviciosPrecioCor, setServiciosPC] = useState([]);
   const [serviciosPrecioFac, setServiciosPF] = useState([]);
   const [serviciosBy, setServiciosBy] = useState([])
+  const [serviciosSearch, setServiciosSearch] = useState([])
 
   useEffect(() => {
     getServicios().then((allServicios) => setServicios(allServicios))
@@ -32,7 +34,14 @@ const useServicios = (nombre) => {
       setServiciosBy(allServicios)
     );
   }, [nombre]);
-  return { servicios, serviciosPrecioCor, serviciosPrecioFac, serviciosBy };
+
+  useEffect(() => {
+    getServiciosSearch({nombre: nombre}).then((allServicios) =>
+      setServiciosSearch(allServicios)
+    );
+  }, [nombre]);
+
+  return { servicios, serviciosPrecioCor, serviciosPrecioFac, serviciosBy, serviciosSearch };
 
 };
 
