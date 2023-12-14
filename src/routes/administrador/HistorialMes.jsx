@@ -1,10 +1,13 @@
 import useHistorial from "../../hooks/useHistorial";
 import Pasadas from "../../Components/citas/HistorialCitasM"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { putCancelar } from "../../controllers/historial.controller";
+
 
 const HistorialMes = () => {
     const { citas } = useHistorial();
     const cita = citas;
+    const [citasActualizadas, setCitasActualizadas] = useState([]);
 
     const mesActual = new Date().getMonth() + 1;
     const currentYear = new Date().getFullYear();
@@ -16,26 +19,28 @@ const HistorialMes = () => {
         setSelectedYear(selectedYear + increment);
     };
 
+  
+
     const citasFiltradas = cita.filter(item => {
         const fecha = item.Fecha.toDate();
         const mesCita = fecha.getMonth() + 1;
         const añoCita = fecha.getFullYear();
         const estadoCita = item.Estado;
 
-        return mesCita.toString() === mesSeleccionado && añoCita === selectedYear && estadoCita === "Realizada";
+        return mesCita.toString() === mesSeleccionado && añoCita === selectedYear && estadoCita === "aceptada" && fecha < new Date();
     });
  
 
     return (
-        <>
-            <div className="flex justify-center ml-8 mt-10">
+        <> 
+            <div className="flex justify-center text-center mt-10">
                 <p className="font-medium justify-center text-4xl">Historial de Citas Realizadas</p>
             </div>
             <div className="flex flex-col justify-center items-center">
                 <div className="rounded-2xl  border-2 border-azulClaro w-3/4 lg:w-1/2 h-[35rem] bg-azulNav ml-8 mt-5 mb-20 overflow-hidden">
                 <div className="flex items-center justify-center my-3">
                     <div className="lg:w-1/3">
-                        <div className="flex items-center justify-center lg:w-32 lg:h-12 p-2 rounded-2xl  border-2 bg-morado">
+                        <div className="flex items-center justify-center lg:w-32 lg:h-12 h-12 p-2 rounded-2xl  border-2 bg-morado">
                         <button
                             className="p-2 mr-2l text-2xl text-white"
                             onClick={() => handleYearChange(-1)}
