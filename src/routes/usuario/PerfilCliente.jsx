@@ -17,16 +17,16 @@ const PerfilCliente = () => {
               
               <div className=" py-3 border-b-2 md:border-b-0 md:px-6">
                 <p className=" text-sm md:text-base">Nombre</p>
-                <p className=" md:text-xl ">{auth.userData.nombreCompleto}</p>
+                <p className="md:text-xl w-full p-2  ">{auth.userData.nombreCompleto}</p>
               </div>
 
               <div className=" py-3 border-b-2 md:border-b-0 md:px-6">
                 <p className=" text-sm md:text-base">Correo:</p>
-                <p className=" md:text-xl ">{auth.userData.email}</p>
+                <p className="md:text-xl w-full p-2  ">{auth.userData.email}</p>
               </div>
               <div className=" py-3 border-b-2 md:border-b-0 md:px-6">
                 <p className=" text-sm md:text-base">Telefono de Contacto:</p>
-                <p className=" md:text-xl ">{auth.userData.telefono}</p>
+                <p className="md:text-xl w-full p-2  ">{auth.userData.telefono}</p>
               </div>
             </div>
             <div className=" flex md:justify-end w-full">

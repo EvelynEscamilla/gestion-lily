@@ -1,9 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 import Boton from '../boton/Boton';
-
+import { useAuth } from '../../context/authContext';
 
 const FormEditAdminInfo = () => {
+    const auth = useAuth();
     const [NombreUsuario, setValorNombre] = useState('Nombre de usuario cool');
     const [CorreoElectronico, setValorCorreo] = useState('CorreoElectronico@Gmail.com');
     const [Contraseña, setValorContraseña] = useState('');
@@ -27,79 +29,32 @@ const FormEditAdminInfo = () => {
 
     return (
         <>
-            <form className="bg-gray-100 flex flex-col justify-center items-center h-[200%] lg:h-screen ">
-                <div className="bg-white rounded-lg pb-2 lg:p-10 shadow-lg ">
+      <div className=" flex  items-center flex-col md:pt-60 pt-40 bg-gray-100 min-h-screen">
+        
+        <div className=" px-2 pt-5 w-full sm:w-11/12 md:w-10/12 lg:w-8/12">
+          <div className=" px-4 md:py-5  border-2 rounded-2xl bg-white">
+            <p className=" md:text-3xl text-2xl md:px-6 py-4 font-bold">Informacion Basica</p>
+            <p className=" md:px-6 py-2">Encontrarás tu información de perfil. </p>
+            <div className=" grid md:grid-cols-2">
+              
+              <div className=" py-3 border-b-2 md:border-b-0 md:px-6">
+                <p className=" text-sm md:text-base">Nombre</p>
+                <p className="md:text-xl w-full p-2  ">{auth.userData.nombreCompleto}</p>
+              </div>
 
-                    <div className="  text-white bg-morado px-2 lg:px-5 lg:py-2 rounded-md items-center justify-center text-center">
-                        <div className='lg:flex grid grid-rows-2'>
-                            <div className=''>
-                                <p className="text-xl   font-bold">Modificar Nombre de usuario</p>
-                                <div className='pt-2'>
-                                    <input
-                                        className="w-[300px] text-black h-10 bg-azulNav text-center  rounded-full mb-4"
-                                        type="text"
-                                        placeholder='Nuevo nombre de usuario'
-                                        onChange={handleChangeNom}
-                                        value={NombreUsuario}
-                                    ></input>
-                                </div>
-                            </div>
-                            <div className='lg:ml-4'>
-                                <span className="text-xl pr-2 font-bold">Modificar Correo Electronico</span>
-                                <div className='pt-2'>
-                                    <input
-                                        className="w-[300px] text-black h-10 bg-azulNav text-center  rounded-full mb-4"
-                                        type="text"
-                                        placeholder='Nuevo correo'
-                                        onChange={handleChangeCorr}
-                                        value={CorreoElectronico}
-                                    ></input>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div className='lg:flex grid grid-rows-2'>
-                            <div className=''>
-                                <p className="text-xl   font-bold">Nueva contraseña</p>
-                                <div className='pt-2'>
-                                    <input
-                                        className="w-[300px] text-black h-10 bg-azulNav text-center  rounded-full mb-4"
-                                        type="password"
-                                        placeholder='Nueva contraseña'
-                                        onChange={handleChangeCon}
-                                        value={Contraseña}
-                                    ></input>
-                                </div>
-                            </div>
-                            <div className='lg:ml-4'>
-                                <span className="text-xl   font-bold">Confirmar contraseña</span>
-                                <div className='pt-2'>
-                                    <input
-                                        className="w-[300px] text-black h-10 bg-azulNav text-center  rounded-full mb-4"
-                                        type="password"
-                                        placeholder='Confirmar contraseña'
-                                        onChange={handleChangeConf}
-                                        value={ConfContraseña}
-                                    ></input>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              <div className=" py-3 border-b-2 md:border-b-0 md:px-6">
+                <p className=" text-sm md:text-base">Correo:</p>
+                <p className="md:text-xl w-full p-2  ">{auth.userData.email}</p>
+              </div>
+              <div className=" py-3 border-b-2 md:border-b-0 md:px-6">
+                <p className=" text-sm md:text-base">Telefono de Contacto:</p>
+                <p className="md:text-xl w-full p-2  ">{auth.userData.telefono}</p>
+              </div>
+            </div>
 
-                    <div className="flex justify-between items-center px-4 pt-2">
-                        <div className='text-left'>
-                            <Boton BG="red-600" TC="white">
-                                Cancelar
-                            </Boton>
-                        </div>
-                        <div className='text-right'>
-                        <Boton BG="morado" TC="white">
-                                Guardar
-                            </Boton>
-                        </div>
-                    </div>
-                </div>
-            </form>
+          </div>
+        </div>
+      </div>
         </>
     )
 }
