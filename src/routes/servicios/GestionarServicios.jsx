@@ -17,10 +17,10 @@ const GestionarServicios = () => {
     setNombre(event.target.value);
     console.log(nombre)
   };
-  
-  const { servicios, Setservicios } = useServicios()
-  const { serviciosby, Setserviciosby } = useServicios(nombre)
-  console.log(serviciosby)
+
+
+  const {servicios, serviciosSearch } = useServicios(nombre)
+  console.log(serviciosSearch)
 
   return (
     <>
@@ -66,20 +66,22 @@ const GestionarServicios = () => {
                   <th className="md:p-3 text-center">Nombre de Servicio</th>
                   <th className="md:p-3 text-center border-x-2 border-azulClaro">Descripcion y Tipo</th>
                   <th className="md:p-3 text-center border-x-2">Duracion y Maximo de personas</th>
-                  <th className="md:p-3 text-center">Maximo de servicios al  mismo tiempo</th>
+                  <th className="md:p-3 text-center">Maximo de servicios al mismo tiempo</th>
                   <th className="md:p-3 text-center border-x-2 border-azulClaro">Precio</th>
                   <th className="md:p-3 text-center">Opciones</th>
                 </tr>
               </thead>
               <tbody>
-                {servicios.map((servicio, index) => (
-                  <Servicio
-                    key={index}
-                    item={servicio}
-                    handleVisibilityChange={setVisibleEditServicio}
-                  />
-                ))
-                
+                {
+                  
+                    serviciosSearch.map((servicio, index) => (
+                      <Servicio
+                        key={index}
+                        item={servicio}
+                        handleVisibilityChange={setVisibleEditServicio}
+                      />
+                    ))
+                    
                 }
               </tbody>
             </table>

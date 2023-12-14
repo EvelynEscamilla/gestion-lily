@@ -91,6 +91,50 @@ export const getServicios = async () => {
   }
 }
 
+export const getServiciosSearch = async ({ nombre }) => {
+  console.log(nombre);
+  try {
+    if (nombre !== undefined) {
+      const { docs } = await getDocs(collection(db, reference));
+
+      const serviciosWithImages = await Promise.all(
+        docs.map(async (doc) => {
+          const servicioData = doc.data();
+          const servicioId = doc.id;
+          const servicioImage = await getServicioImage(servicioId);
+
+          return {
+            ...servicioData,
+            id: servicioId,
+            url: servicioImage,
+          };
+        })
+      );
+
+      const filteredServicios = serviciosWithImages
+        .filter((servicio) =>
+          servicio.nombre.toLowerCase().includes(nombre.toLowerCase())
+        )
+        .map((servicio) => ({
+          nombre: servicio.nombre,
+          precio: servicio.precio,
+          descripcion: servicio.descripcion,
+          tipo:servicio.tipo,
+          maximoClientes: servicio.maximoClientes,
+          duracion: servicio.duracion,
+          max: servicio.max,
+          id: servicio.id,
+          url: servicio.url,
+        }));
+
+      console.log(filteredServicios);
+      return filteredServicios;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const getServicio = async (id) => {
   try {
     return (await getDoc(doc(db, reference, id))).data()
