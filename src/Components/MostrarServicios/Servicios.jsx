@@ -5,7 +5,7 @@ function Servicios({ sendDataToParent, item, oC }) {
   };
   return (
     <div
-      className="col-span-1 flex justify-center items-center h-40 relative p-3"
+      className="col-span-1 cursor-pointer flex justify-center items-center h-40 relative p-3"
       onClick={() => {enviarDatosServicios(item)}}
     >
       <div className="bg-gray-200 h-36 rounded-3xl  w-52 relative hover:-translate-y-1 hover:scale-110 duration-200">

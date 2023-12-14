@@ -1,22 +1,14 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
-export default function ModCrearCuentaFallida() {
-  let [isOpen, setIsOpen] = useState(true)
+export default function ModCrearCuentaFallida({ children, onClose }) {
 
-  function closeModal() {
-    setIsOpen(false)
-  }
-
-  function openModal() {
-    setIsOpen(true)
-  }
 
   return (
     <>
 
-      <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+      <Transition appear show={true} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={onClose}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -49,7 +41,7 @@ export default function ModCrearCuentaFallida() {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Asegurate de que tus datos esten correctamente escritos y cumplir con las condiciones de cada campo.
+                      {children }
                     </p>
                   </div>
 
@@ -57,7 +49,7 @@ export default function ModCrearCuentaFallida() {
                     <button
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={closeModal}
+                      onClick={onClose}
                     >
                       Aceptar
                     </button>

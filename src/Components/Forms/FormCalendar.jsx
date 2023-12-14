@@ -34,8 +34,8 @@ const FormCalendar = () => {
       component === 1
         ? componentRef1
         : component === 2
-        ? componentRef2
-        : componentRef3;
+          ? componentRef2
+          : componentRef3;
 
     if (targetRef.current) {
       targetRef.current.scrollIntoView({ behavior: "smooth" });
@@ -154,15 +154,12 @@ const FormCalendar = () => {
   }, [formData]);
   const opciones = maxVariableLocal
     ? [
-        <option key="0" value="0">
-          0
-        </option>,
-        ...Array.from({ length: maxVariableLocal }, (_, index) => (
-          <option key={index + 1} value={index + 1}>
-            {index + 1}
-          </option>
-        )),
-      ]
+      ...Array.from({ length: maxVariableLocal }, (_, index) => (
+        <option key={index + 1} value={index + 1}>
+          {index + 1}
+        </option>
+      )),
+    ]
     : [];
   const handleOnSubmit = async (event) => {
     event.preventDefault();
@@ -285,6 +282,9 @@ const FormCalendar = () => {
                 onChange={handleFormDataChange}
                 className=" block py-2.5 px-3 w-full   border-2 border-azul  focus:outline-none focus:ring-0 focus:border-gray-200 rounded "
               >
+                <option className="hidden" value="0">
+                  0
+                </option>
                 {opciones}
               </select>
             </label>

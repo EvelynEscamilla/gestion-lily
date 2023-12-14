@@ -1,17 +1,16 @@
 
 import NavbarCliente from "../Components/Navbar/NavbarCliente"
-import Footer from "../Components/footer/Footer"
-import Navbar from "../Components/navbar/Navbar"
+import Footer from "../Components/Footer/Footer"
+import Navbar from "../Components/Navbar/Navbar"
 import { Outlet } from "react-router-dom"
 import { useAuth } from '../context/authContext'
 import ScrollToTop from "../hooks/ScrollToTop"
+import LoadingScreen from "../Components/LoadingScreen/LoadingScreen"
 const LayoutPrincipal = () => {
 
   const { userData, loading } = useAuth()
 
-  if (loading) return <div className="h-screen w-screen flex flex-col items-center justify-center">
-    <img className="w-3/4" src="Images/Nav/Logo.svg" />
-  </div>
+  if (loading) return <LoadingScreen />
 
 
 

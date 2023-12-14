@@ -28,7 +28,7 @@ import Pruebas from "./routes/Pruebas";
 
 
 function App() {
- 
+
   const router = createBrowserRouter([
     {
       path: "/gestion-lily",
@@ -37,7 +37,7 @@ function App() {
         {
           path: "/gestion-lily",
           element: <Inicio />,
-          
+
         },
         {
           path: "/gestion-lily/nosotros",
@@ -50,7 +50,8 @@ function App() {
         {
           //Error en el componente, pasar keys en componentes que se repitan
           path: "/gestion-lily/calendario",
-          element: <FormCalendar />,
+          element: 
+            <FormCalendar />,
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
@@ -90,7 +91,7 @@ function App() {
             </ClientProtectedRoute>
           ),
         },
-        
+
         {
           //Error, volvieron a declarar body dentro del componente
           path: "/gestion-lily/eliminar-cuenta",
@@ -99,9 +100,9 @@ function App() {
         {
           //Col group dentro de thead, solucionar
           path: "/gestion-lily/gestion-servicios",
-          element:<AdminProtectedRoute>
-          <GestionarServicios />
-        </AdminProtectedRoute> ,
+          element: <AdminProtectedRoute>
+            <GestionarServicios />
+          </AdminProtectedRoute>,
         },
         {
           //Error en el componente, pasar keys en componentes que se repitan
@@ -120,7 +121,7 @@ function App() {
           path: "/gestion-lily/Recuperacion-CambiarContraseña",
           element: <CambiarContraseñaRecuperada />
         },
-        
+
         {
           path: "/gestion-lily/historial",
           element: (

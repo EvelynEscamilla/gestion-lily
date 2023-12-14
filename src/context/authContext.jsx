@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
                 })
         } catch (error) {
             console.log(error)
-            throw new Error(error.name)
+            throw new Error(error)
         }
     }
 

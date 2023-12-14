@@ -4,10 +4,9 @@ import Servicios from "../../Components/mostrarServicios/Servicios";
 import { useState } from "react";
 import useServicios from "../../hooks/useServicios";
 import ModMostrarServicios from "../../Components/modals/ModMostrarServicios";
- 
-export const MostrarServicios = ({ handleScreen }) => {
+
+export const MostrarServicios = () => {
   const { servicios } = useServicios();
-  console.log(servicios)
   const [nombre, setNombre] = useState("Elige el Servicio que gustes");
   const [descripcion, setdescripcion] = useState(
     "Te dara una breve descripcion de lo que es cada servicio"
@@ -29,10 +28,6 @@ export const MostrarServicios = ({ handleScreen }) => {
     setimagenSer(data.url);
     setDuracion(data.duracion);
     setMaximoPer(data.maximoClientes);
-    console.log("Datos recibidos desde Mostrar Servicios", data);
-
-
-
   };
 
   const [modalAbierto, setModalAbierto] = useState(false);
@@ -49,9 +44,9 @@ export const MostrarServicios = ({ handleScreen }) => {
   return (
     <>
       <div className="lg:flex grid grid-rows-1 justify-center text-center ">
+        {/* Servicios */}
         <div className=" lg:w-1/2 w-[95%] lg:p-3 lg:pl-2 justify-center lg:h-screen lg:overflow-y-auto ">
-          <div onClick={abrirModal} className=" grid lg:grid-cols-3 grid-cols-2 place-content-center pt-2 lg:pb-28 ">
-
+          <div onClick={abrirModal} className=" grid md:hidden lg:grid-cols-3 grid-cols-2 place-content-center pt-2 lg:pb-28 ">
             {servicios.map((item, index) => (
               <Servicios
                 key={index}
@@ -60,10 +55,19 @@ export const MostrarServicios = ({ handleScreen }) => {
                 oC={toggleDiv}
               ></Servicios>
             ))}
-
+          </div>
+          <div className="hidden md:grid lg:grid-cols-3 grid-cols-2 place-content-center pt-2 lg:pb-28 ">
+            {servicios.map((item, index) => (
+              <Servicios
+                key={index}
+                sendDataToParent={handleDFC}
+                item={item}
+                oC={toggleDiv}
+              ></Servicios>
+            ))}
           </div>
         </div>
-        <div className="lg:w-1/2 w-[90%] ml-auto mr-auto items-center justify-center pb-5 lg:pb-0">
+        <div className="md:block hidden lg:w-1/2 w-[90%] ml-auto mr-auto items-center justify-center pb-5 lg:pb-0">
           <div className="lg:p-3 lg:pr-14 justify-center items-center">
             <div className=" lg:mr-10 py-4 flex justify-center items-center text-center">
               <img

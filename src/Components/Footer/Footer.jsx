@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 import Logo2 from "../../assets/Footer/Logo2.svg"
@@ -6,10 +6,13 @@ import Fb from "../../assets/Footer/fb.svg"
 import Ig from "../../assets/Footer/ig.svg"
 import Mapa from "../../assets/Footer/Mapa.svg"
 
-
 const Footer = () => {
+  const [credits, setCredits] = useState(false)
+
+  const handleChange = () => setCredits(!credits)
+
   return (
-    <footer className="Navbar w-full h-auto  flex flex-col items-center sm:text-sm lg:text-base  bg-turqueza text-white">
+    <footer className="w-full h-auto relative  flex flex-col items-center sm:text-sm lg:text-base  bg-turqueza text-white">
       <div className='w-full flex flex-col px-2 sm:flex-row items-center'>
         <div className="flex sm:flex-col w-full h-full sm:w-1/3 sm:h-60 justify-center items-center ">
 
@@ -46,9 +49,19 @@ const Footer = () => {
 
         </div>
       </div>
-      <div className=" text-xs md:text-sm w-full h-auto text-center bg-[#3b96a8]">
-        <p className="font-medium w-full h-1/3" >2023 © Clinica de Belleza Lily. todos los derechos reservados</p>
+      <div layout className=" text-xs md:text-sm w-full h-auto text-center bg-[#3b96a8]">
+        <p layout className="font-medium w-full h-1/3" >2023 © Clinica de Belleza Lily. todos los derechos reservados</p>
+        {credits &&
+          <div className='w-full flex justify-around items-center'>
+            <a href="https://github.com/kaiomar4321">kaiomar4321</a>
+            <a href="https://github.com/Rodrik-09">Rodrik-09</a>
+            <a href="https://github.com/EvelynEscamilla">EvelynEscamilla</a>
+            <a href="https://github.com/dgaDave">dgaDave</a>
+            <a href="https://github.com/AngheloX09">AngheloX09</a>
+          </div>
+        }
       </div>
+      <div className='absolute bottom-0 left-0 w-5 h-5 ' onClick={handleChange} />
     </footer>
   )
 }
