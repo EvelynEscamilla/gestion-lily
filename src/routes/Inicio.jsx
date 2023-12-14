@@ -16,6 +16,7 @@ const Inicio = () => {
     const [selectedQuestions, setSelectedQuestions] = useState([]);
 
     useEffect(() => {
+        setIsShowing((isShowing) => true)
         if (chatContainerRef.current) {
             chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
         }
