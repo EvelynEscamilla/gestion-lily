@@ -25,8 +25,8 @@ const Footer = () => {
           <p className=' pb-2 font-semibold'>Siguenos en Nuestras Redes Sociales:</p>
 
           <div className="flex flex-row w-full items-center ">
-            <div className=' flex items-center justify-center pl-[20%] w-full'><a href="https://www.facebook.com/clinicadebellezaenmorelia" ><img className="Logo h-11  sm:h-12 lg:h-14" src={Fb} /></a></div>
-            <div className=' flex items-center justify-center pr-[20%] w-full'><a href="https://www.instagram.com/clinica_de_belleza_lily" ><img className="Logo h-11  sm:h-12 lg:h-14" src={Ig} /></a></div>
+            <div className=' flex items-center justify-center pl-[20%] w-full'><a className='hover:scale-125 transition-all duration-200' href="https://www.facebook.com/clinicadebellezaenmorelia" ><img className="Logo h-11  sm:h-12 lg:h-14" src={Fb} /></a></div>
+            <div className=' flex items-center justify-center pr-[20%] w-full'><a className='hover:scale-125 transition-all duration-200' href="https://www.instagram.com/clinica_de_belleza_lily" ><img className="Logo h-11  sm:h-12 lg:h-14" src={Ig} /></a></div>
           </div>
         </div>
         <div className="Ubic flex flex-row w-full py-3 sm:w-4/12 sm:h-40 items-center ">

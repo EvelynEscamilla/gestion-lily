@@ -122,7 +122,7 @@ const Inicio = () => {
                     <img className="Logo w-10/12 sm:w-8/12 md:1/2 lg:w-5/12 " src="Images/Nav/Logo.svg" />
 
                     <p className='text-lg sm:text-xl lg:text-4xl font-bold text-turqueza'>Cuidando tu belleza,<span className='text-[#3370b1]'> cuidamos de tí</span></p>
-                    <img src={btnDesplegar} alt="desplegar" className='absolute bottom-5 w-16 hover:scale-110 duration-500' onClick={() => document.getElementById("carouselExample").scrollIntoView({ behavior: 'smooth' })} />
+                    <img src={btnDesplegar} alt="desplegar" className='absolute bottom-5 cursor-pointer w-16 hover:scale-110 duration-500' onClick={() => document.getElementById("carouselExample").scrollIntoView({ behavior: 'smooth' })} />
 
                 </Transition>
 
@@ -169,7 +169,7 @@ const Inicio = () => {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
-            <div className="bg-blue-100 p-4 text-2xl text-center text-black ">
+            <div className="bg-blue-100 font-semibold p-4 text-2xl text-center text-black ">
                 Tratamientos más populares
             </div>
             <div className="flex justify-center text-center items-center h-full w-full mb-14 mt-14">

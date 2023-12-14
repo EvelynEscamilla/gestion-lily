@@ -4,7 +4,7 @@ import DropAdministrador from "./DropAdministrador";
 
 const Navbar = ({ rol }) => {
   return (
-    <nav className="Navbar w-full h-24 sticky top-0 shadow flex items-center text-[11px] md:text-sm lg:text-base justify-between bg-azulNav z-20">
+    <nav className="w-full px-2 md:px-0 h-16 md:h-24 sticky top-0 shadow flex items-center text-[11px] md:text-sm lg:text-base justify-between bg-azulNav z-20">
       <Link
         className="Logo w-[23%] sm:w-[20%] h-20  justify-center items-center inline-flex cursor-pointer"
         to="/gestion-lily/"
@@ -13,7 +13,7 @@ const Navbar = ({ rol }) => {
       </Link>
       <div className="Lista h-20 flex justify-center items-center ">
         <Link
-          className="Servicios sm:px-10  text-center text-black font-normal cursor-pointer"
+          className="Servicios sm:px-10   text-center text-black font-normal cursor-pointer"
           to="/gestion-lily/servicios"
         >
           SERVICIOS
