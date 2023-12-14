@@ -56,8 +56,8 @@ const GestionarServicios = () => {
           <div>
 
           </div>
-          <div className="overflow-x-auto h-[60vh] overflow-y-auto">
-            <table className="min-w-full border-2 text-sm md:text-base border-azulClaro ">
+          <div className="overflow-x-auto h-[60vh] overflow-y-auto mb-5">
+            <table className="min-w-full border-2 text-sm md:text-base border-azulClaro">
               <thead className=" bg-turqueza ">
 
                 <tr className="text-left">
