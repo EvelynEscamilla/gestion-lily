@@ -177,7 +177,7 @@ const Inicio = () => {
                     <div className="text-center rounded-[10%] overflow-hidden bg-morado h-96 relative hover:-translate-y-1 hover:scale-110 duration-200 w-64">
                         <img src="Images/Inicio/Mp-img4.jpg" alt="Imagen 1" className="w-full h-full object-cover" />
                         <div className="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full flex justify-center items-center">
-                            <p className="text-lg font-bold">Reduccion de Medicas</p>
+                            <p className="text-lg font-bold">Reduccion de Medidas</p>
                         </div>
                     </div>
                     <div className="rounded-[10%] overflow-hidden w-64 h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
