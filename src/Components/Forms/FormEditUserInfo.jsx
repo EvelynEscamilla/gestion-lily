@@ -1,149 +1,112 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useState } from 'react';
-import Boton from '../boton/Boton';
-import useForm from '../../hooks/useForm';
-import { putNombre} from '../../controllers/user.controller';
-import { getAuth} from "firebase/auth";
-import { useAuth } from '../../context/authContext';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import useForm from "../../hooks/useForm";
+import {
+  putNombre,
+  putTelefono,
+} from "../../controllers/user.controller";
+import { getAuth } from "firebase/auth";
+import { useAuth } from "../../context/authContext";
 
 const FormEditClient = () => {
-    const auth = useAuth();   
-    const { formData, handleFormDataChange } = useForm()
-    const [nomUsr, setValorNombre]=useState(auth.userData.nombreCompleto)
-    const [correo, setValorCorreo]=useState(auth.userData.email)
-    const [tel, setValorNumero]=useState(auth.userData.telefono)
-    const a = getAuth();
-    
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        await putNombre(a.currentUser.uid, formData)
-        window.location.reload()
-      }
+  const auth = useAuth();
+  const { formData, handleFormDataChange } = useForm();
 
-    const handleChangeNom = (event) => {
-        handleFormDataChange(event);
-        setValorNombre(event.target.value);
-       
-    };
+  const [nomUsr, setValorNombre] = useState(auth.userData.nombreCompleto);
 
-    const handleChangeCorr = (event) => {
-        handleFormDataChange(event);
-        setValorCorreo(event.target.value);
-    };
+  const [tel, setValorNumero] = useState(auth.userData.telefono);
+  const a = getAuth();
 
-    const handleChangeNum = (event) => {
-        handleFormDataChange(event);
-        setValorNumero(event.target.value);
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (formData.telefono) {
+      await putTelefono(a.currentUser.uid, formData);
+    }
 
-    const handleChangeCon = (event) => {
-        handleFormDataChange(event);
-        setValorContraseña(event.target.value);
-    };
+    if (formData.nombreCompleto) {
+      await putNombre(a.currentUser.uid, formData);
+    }
+    window.location.reload();
+  };
 
-    const handleChangeConf = (event) => {
-        handleFormDataChange(event);
-        setValorConfContraseña(event.target.value);
-    };
+  const handleChangeNom = (event) => {
+    handleFormDataChange(event);
+    setValorNombre(event.target.value);
+  };
 
-    return (
-        <>
-            <form onSubmit={handleSubmit} action="" className="bg-gray-100 flex flex-col justify-center items-center h-[200%] lg:h-screen ">
-                <div className="bg-white rounded-lg pb-2 lg:p-10 shadow-lg ">
 
-                    <div className="  text-white bg-morado px-2 lg:px-5 lg:py-2 rounded-md items-center justify-center text-center">
-                        <div className='lg:flex grid grid-rows-2'>
-                            <div className=''>
-                                <p className="text-xl   font-bold">Modificar Nombre de usuario</p>
-                                <div className='pt-2'>
-                                    <input
-                                        className="w-[300px] text-black h-10 bg-azulNav text-center  rounded-full mb-4"
-                                        type="text"
-                                        id="nombreCompleto"
-                                        name="nombreCompleto"
-                                        placeholder=''
-                                        onChange={handleChangeNom}
-                                        value={nomUsr}
-                                    ></input>
-                                </div>
-                            </div>
-                            <div className='lg:ml-4'>
-                                <span className="text-xl pr-2 font-bold">Modificar Correo Electronico</span>
-                                <div className='pt-2'>
-                                    <input
-                                        className="w-[300px] text-black h-10 bg-azulNav text-center  rounded-full mb-4"
-                                        type="text"
-                                        id="email"
-                                        name="email"
-                                        placeholder='Nuevo correo'
-                                        onChange={handleChangeCorr}
-                                        value={correo}
-                                    ></input>
-                                </div>
-                            </div>
-                        </div>
-                        <div className=' lg:text-left '>
-                            <span className="text-xl   font-bold">Modificar Numero de Telefono</span>
-                            <div className='pt-2'>
-                                <input
-                                    className="w-[300px] text-black h-10 bg-azulNav text-center  rounded-full mb-4"
-                                    type="text"
-                                    id="telefono"
-                                    name="telefono"
-                                    placeholder='Nuevo numero de telefono'
-                                    onChange={handleChangeNum}
-                                    value={tel}
-                                ></input>
-                            </div>
-                        </div>
+  const handleChangeNum = (event) => {
+    handleFormDataChange(event);
+    setValorNumero(event.target.value);
+  };
 
-                        <div className='lg:flex grid grid-rows-2'>
-                            <div className=''>
-                                <p className="text-xl   font-bold">Nueva contraseña</p>
-                                <div className='pt-2'>
-                                    <input
-                                        className="w-[300px] text-black h-10 bg-azulNav text-center  rounded-full mb-4"
-                                        type="password"
-                                        placeholder='Nueva contraseña'
-                                        onChange={handleFormDataChange}
-                                        value={""}
-                                    ></input>
-                                </div>
-                            </div>
-                            <div className='lg:ml-4'>
-                                <span className="text-xl   font-bold">Confirmar contraseña</span>
-                                <div className='pt-2'>
-                                    <input
-                                        className="w-[300px] text-black h-10 bg-azulNav text-center  rounded-full mb-4"
-                                        type="password"
-                                        placeholder='Confirmar contraseña'
-                                        onChange={handleFormDataChange}
-                                        value={""}
-                                    ></input>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  return (
+    <>
+      <form
+        onSubmit={handleSubmit}
+        action=""
+        className=" flex  items-center flex-col md:pt-60 pt-40 bg-gray-100 min-h-screen"
+      >
+        {" "}
+        <div className=" px-2 pt-5 w-full sm:w-11/12 md:w-10/12 lg:w-8/12">
+          <div className=" px-4 md:py-5  border-2 rounded-2xl bg-white">
+            <p className=" md:text-3xl text-2xl md:px-6 py-4 font-bold">
+              Edita tus Datos
+            </p>
+            <p className=" md:px-6 py-2">
+              Edita tu Nombre y numero de Telefono
+            </p>
+            <div className=" grid md:grid-cols-2">
+              <div className=" py-3 border-b-2 md:border-b-0 md:px-6">
+                <p className=" text-sm md:text-base">Nombre</p>
+                <input
+                  className="md:text-xl bg-azulNav w-full p-2 border-2 "
+                  type="text"
+                  id="nombreCompleto"
+                  name="nombreCompleto"
+                  placeholder=""
+                  onChange={handleChangeNom}
+                  value={nomUsr}
+                />
+              </div>
 
-                    <div className="flex justify-between items-center px-4 pt-2">
-                        <div className='text-left'>
-                            <Boton BG="red-600" TC="white">
-                                <Link to= "/gestion-lily/perfil">
-                                Cancelar
-                                </Link>
-                            </Boton>
-                        </div>
-                        <div className='text-right'>
-                        <Boton BG="morado" TC="white" type="submit">
-                                Guardar
-                            </Boton>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </>
-    )
-}
+              <div className=" py-3 border-b-2 md:border-b-0 md:px-6">
+                <p className=" text-sm md:text-base">Telefono de Contacto:</p>
+                <input
+                  className="md:text-xl bg-azulNav w-full p-2 border-2"
+                  type="text"
+                  id="telefono"
+                  name="telefono"
+                  placeholder="Nuevo numero de telefono"
+                  onChange={handleChangeNum}
+                  value={tel}
+                />
+              </div>
+            </div>
+            <div className=" flex md:justify-end w-full">
+              <div className=" py-3  w-full flex items-center justify-between md:w-96 ">
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white px-4 py-2 rounded-full flex"
+                >
+                  Guardar
+                </button>
+                <Link to="/gestion-lily/perfil">
+                  <button
+                    value="Eliminar cuenta"
+                    className="bg-red-600 text-white px-4 py-2 rounded-full flex"
+                  >
+                    Cancelar
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </>
+  );
+};
 
-export default FormEditClient
+export default FormEditClient;
