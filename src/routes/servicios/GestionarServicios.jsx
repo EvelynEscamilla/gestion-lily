@@ -15,12 +15,12 @@ const GestionarServicios = () => {
 
   const handleChangeBuscar = (event) => {
     setNombre(event.target.value);
-    console.log(nombre)
+    
   };
 
 
   const {servicios, serviciosSearch } = useServicios(nombre)
-  console.log(serviciosSearch)
+  
 
   return (
     <>
@@ -35,7 +35,7 @@ const GestionarServicios = () => {
         <div className=" pt-12 mx-auto px-4 pb-4  text-white ">
           <p className=" text-5xl text-center text-black">Servicios</p>
 
-          <div className=" flex flex-col md:flex-row items-center justify-center p-5 w-full text-black md: space-x-16">
+          <div className=" flex flex-col md:flex-row items-center justify-center p-5 w-full text-black md:space-x-16">
 
             <Link to="/gestion-lily/agregar-servicios">
               <button className=" shadow-md rounded-3xl border border-black  font-semibold">
@@ -46,8 +46,8 @@ const GestionarServicios = () => {
               </button>
             </Link>
 
-            <div className=" w-full md:w-[30rem] px-4 flex flex-row items-center justify-center">
-              <label className="text-black font-semibold">Buscar servicio:</label>
+            <div className=" w-full md:w-[40rem] px-4 flex flex-row items-center justify-center bg-turqueza rounded-md">
+              <label className="text-white font-semibold">Buscar servicio:</label>
               <TextField onChange={handleChangeBuscar} />
             </div>
           </div>
@@ -58,7 +58,7 @@ const GestionarServicios = () => {
           </div>
           <div className="overflow-x-auto h-[60vh] overflow-y-auto">
             <table className="min-w-full border-2 text-sm md:text-base border-azulClaro ">
-              <thead className=" bg-turqueza   ">
+              <thead className=" bg-turqueza ">
 
                 <tr className="text-left">
 

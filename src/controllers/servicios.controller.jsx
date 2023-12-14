@@ -92,7 +92,7 @@ export const getServicios = async () => {
 }
 
 export const getServiciosSearch = async ({ nombre }) => {
-  console.log(nombre);
+  
   try {
     if (nombre !== undefined) {
       const { docs } = await getDocs(collection(db, reference));
@@ -127,7 +127,7 @@ export const getServiciosSearch = async ({ nombre }) => {
           url: servicio.url,
         }));
 
-      console.log(filteredServicios);
+      
       return filteredServicios;
     }
   } catch (error) {
