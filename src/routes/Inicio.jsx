@@ -120,12 +120,12 @@ const Inicio = () => {
                     leaveTo="opacity-0"
                 >
                     <img className="Logo w-10/12 sm:w-8/12 md:1/2 lg:w-5/12 " src="Images/Nav/Logo.svg" />
-                    
+
                     <p className='text-lg sm:text-xl lg:text-4xl font-bold text-turqueza'>Cuidando tu belleza,<span className='text-[#3370b1]'> cuidamos de tí</span></p>
-                    <img src={btnDesplegar} alt="desplegar" className='absolute bottom-5 w-16 hover:scale-110 duration-500'  onClick={() => document.getElementById("carouselExample").scrollIntoView({ behavior: 'smooth' })} />
-                
+                    <img src={btnDesplegar} alt="desplegar" className='absolute bottom-5 w-16 hover:scale-110 duration-500' onClick={() => document.getElementById("carouselExample").scrollIntoView({ behavior: 'smooth' })} />
+
                 </Transition>
-               
+
             </div>
 
             <div id="carouselExample" className="carousel slide ">
@@ -157,7 +157,7 @@ const Inicio = () => {
                         <img src="Images/Inicio/ins9.jpg" className=" w-full object-cover " alt="Ca 1"></img>
                     </div>
 
-            
+
 
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -175,21 +175,21 @@ const Inicio = () => {
             <div className="flex justify-center text-center items-center h-full w-full mb-14 mt-14">
                 <div className=" justify-center items-center text-center max-w-screen-lg w-full grid grid-rows-3 gap-y-6 lg:grid-cols-3 lg:grid-rows-1 lg:gap-[11%]">
                     <div className="text-center rounded-[10%] overflow-hidden bg-morado h-96 relative hover:-translate-y-1 hover:scale-110 duration-200 w-64">
-                        <img src="Images/Inicio/Mp-img1.jpg" alt="Imagen 1" className="w-full h-full object-cover" />
+                        <img src="Images/Inicio/Mp-img4.jpg" alt="Imagen 1" className="w-full h-full object-cover" />
                         <div className="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full flex justify-center items-center">
-                            <p className="text-lg font-bold">Botox Facial</p>
+                            <p className="text-lg font-bold">Reduccion de Medicas</p>
                         </div>
                     </div>
                     <div className="rounded-[10%] overflow-hidden w-64 h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
-                        <img src="Images/Inicio/Mp-img2.jpg" alt="Imagen 2" className="w-full h-full object-cover" />
+                        <img src="Images/Inicio/Mp-img5.jpg" alt="Imagen 2" className="w-full h-full object-cover" />
                         <div className="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full flex justify-center items-center">
-                            <p className="text-lg font-bold">Oxígeno</p>
+                            <p className="text-lg font-bold">Facial Anti-Manchas</p>
                         </div>
                     </div>
                     <div className="rounded-[10%] overflow-hidden w-64 h-96 relative hover:-translate-y-1 hover:scale-110 duration-200">
-                        <img src="Images/Inicio/Mp-img3.jpg" alt="Imagen 3" className="w-full h-full object-cover" />
+                        <img src="Images/Inicio/Mp-img6.jpg" alt="Imagen 3" className="w-full h-full object-cover" />
                         <div className="bg-morado bg-opacity-70 text-white text-center p-2 absolute bottom-0 left-0 w-full flex justify-center items-center">
-                            <p className="text-lg font-bold">Carboxiterapia</p>
+                            <p className="text-lg font-bold">Facial Anti-Edad</p>
                         </div>
                     </div>
                 </div>
@@ -248,6 +248,27 @@ const Inicio = () => {
                 }
             </div>
 
+            <div className='flex w-auto lg:h-[50%] h-[21rem] bg-morado drop-shadow-2xl overflow-hidden'>
+                <div className='relative lg:w-[100%]'>
+                    <img className=" h-full w-full object-cover object-bottom" src="Images/Inicio/ins3.jpg" alt="Datos" />
+                    <div className="absolute top-0 left-0 w-screen h-full bg-gradient-to-r lg:from-transparent lg:to-violet-500 from-violet-500 to-fuchsia-500 opacity-60 lg:opacity-100 float-right overflow-y-auto">
+
+                        <div className=' lg:w-[50%] pt-3 text-white lg:text-lg text-base justify-center text-justify lg:mr-6 px-2 right-0 float-right'>
+                            <p className='font-bold'>
+                                ¡Bienvenido a la Clínica de Belleza Lily!
+                            </p>
+                            <p className=' font-semibold lg:font-normal'>
+                                Donde la excelencia se fusiona con la salud y la belleza, nuestro compromiso es ofrecerte lo mejor en tratamientos tanto corporales como faciales. En nuestra clínica, encontrarás una gama diversa de servicios diseñados para realzar tu bienestar y resaltar tu belleza natural.
+                                Nuestra filosofía se basa en la fusión de la experiencia médica y la especialización en estética. Contamos con un equipo de expertos y médicos altamente capacitados, dispuestos a brindarte los tratamientos más avanzados y personalizados para lograr resultados excepcionales.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div className='pt-5'></div>
         </>
     )
 }
