@@ -6,7 +6,7 @@ const useForm = () => {
 
   const handleFormPrecioDataChange = ({ target: { name, value, dataset } }) => {
     setFormData({ ...formData, [name]: value, precio: dataset.precio });
-    console.log(formData);
+    
   };
 
   const formCliente = ({ userData }) => {
@@ -17,11 +17,11 @@ const useForm = () => {
 
   const handleFormDataChange = ({ target: { name, value } }) => {
     setFormData({ ...formData, [name]: value });
-    console.log(formData);
+    
   };
   const handleDateChange = (date) => {
     setFormData({ ...formData, fecha: date });
-    console.log(formData);
+    
   };
   const handleTimeChange = (date) => {
     const hora24 = moment(date, "hh:mm A").format("HH:mm");
@@ -35,12 +35,12 @@ const useForm = () => {
     } else {
       console.log("todavia no existe una fecha");
     }
-    console.log(formData);
+    
   };
 
   const handleFormFileChange = ({ target: { name, files } }) => {
     setFormData({ ...formData, [name]: files[0] });
-    console.log(formData);
+    
   };
 
   const resetForm = () => setFormData(null);

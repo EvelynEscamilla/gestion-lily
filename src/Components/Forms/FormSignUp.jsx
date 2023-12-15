@@ -7,11 +7,12 @@ import TextField from "../TextField/TextField";
 import BtnLink from "../btnLink/BtnLink";
 import ModCrearCuenta from "../modals/ModCrearCuenta";
 import ModCrearCuentaFallida from "../modals/ModCrearCuentaFallida";
+import { set } from "date-fns";
 
 
 const FormSignUp = () => {
   const { signUp } = useAuth();
-  const { formData, handleFormDataChange } = useForm([]);
+  const { formData, handleFormDataChange , resetForm} = useForm([]);
   const [emailTextError, setEmailTextError] = useState('')
   const [passwordTextError, setPasswordTextError] = useState('')
   const [passwordConfirmationTextError, setPasswordConfirmationTextError] = useState('')
@@ -25,6 +26,8 @@ const FormSignUp = () => {
   const emailErrorMSG = "El correo no es válido."
   const passwordErrorMSG = "La contraseña debe contener mínimo de 8 caractares, una mayúscula, un caracter especial y un número."
   const passwordConfirmationErrorMSG = "Las contraseñas no coinciden."
+
+  const [error, setError] = useState(null)
   useEffect(() => {
     if (formData !== null) {
       dataFieldCheck(event)
@@ -54,7 +57,7 @@ const FormSignUp = () => {
       }
     }
     else if (name === 'paswordConfirmation') {
-      console.log(formData.password)
+      
       if (value.match(formData.password) && value.trim() !== '') {
         setPasswordConfirmationTextError(passwordConfirmationErrorMSG)
         setDisabledBoton(true)
@@ -65,8 +68,7 @@ const FormSignUp = () => {
     }
 
     if ((formData !== null) && (formData.password !== formData.passwordConfirmation)) {
-      console.log(formData.password)
-      console.log(formData.passwordConfirmation)
+      
       setPasswordConfirmationTextError(passwordConfirmationErrorMSG)
       setDisabledBoton(true)
 
@@ -82,6 +84,8 @@ const FormSignUp = () => {
       nombreCompleto: formData.nombreCompleto,
       telefono: formData.telefono,
       email: formData.email,
+
+      
     };
 
     try {
@@ -89,9 +93,13 @@ const FormSignUp = () => {
       // Si el registro es exitoso, mostramos el modal
       setShowModal(true);
     } catch (error) {
+      
       // Manejo de errores si el registro falla
-      setShowModalFailed(error.message);
+      setShowModalFailed("Hubo un error al procesar tus datos. "+error.message);
     }
+
+    
+  
   };
 
   const closeModal = () => {
@@ -113,6 +121,7 @@ const FormSignUp = () => {
           className="lg:w-1/2 mx-auto py-3 w-3/4 "
           src="Images/Login/Lily-hor.png"
         ></img>
+        {error && <p>{error.message == "Firebase: Error (auth/invalid-login-credentials)." && "Los datos ingresados son incorrectos"}</p>}
         <p className=" text-3xl py-3">Crea una cuenta en nuestro sitio</p>
         <div className=" w-full justify-center items-center flex">
           <div className=" lg:w-4/5 block">

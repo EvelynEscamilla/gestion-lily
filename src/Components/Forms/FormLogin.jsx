@@ -6,25 +6,35 @@ import Boton from "../boton/Boton";
 import TextField from "../TextField/TextField";
 import BtnLink from "../btnLink/BtnLink";
 import { useNavigate } from 'react-router-dom'
+import ModalInicioSesionFallida from "../modals/ModalInicioSesionFallida";
+
 
 const FormLogin = () => {
   const { logIn } = useAuth();
   const { formData, handleFormDataChange, resetForm } = useForm();
   const [error, setError] = useState(null)
   const navigate = useNavigate()
+  const [showModalFailed, setShowModalFailed] = useState(null);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      
       await logIn(formData.email, formData.password);
+      
       navigate('/gestion-lily/')
     } catch (error) {
       setError(error)
+      setShowModalFailed("Revisa que hayas escrito tus datos correctamente. "+error.message)
     }
-    resetForm()
-    e.target.reset()
+
   }
 
+  const closeModalFailed = () => {
+    setShowModalFailed(null);
+  };
   return (
+    <>
     <form
       onSubmit={handleSubmit}
       className="w-full bg-azulNav bg-opacity-70 lg:bg-opacity-90 text-center p-8 lg:w-1/2 flex flex-col justify-center items-center"
@@ -62,6 +72,14 @@ const FormLogin = () => {
 
       </div>
     </form>
+
+{showModalFailed && (
+  <ModalInicioSesionFallida onClose={closeModalFailed}>
+    {/* Contenido del modal, por ejemplo un mensaje de éxito */}
+    {showModalFailed}
+  </ModalInicioSesionFallida>
+)}
+</>
   );
 };
 
