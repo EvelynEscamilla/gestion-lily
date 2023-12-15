@@ -129,32 +129,26 @@ const Inicio = () => {
             </div>
 
             <div id="carouselExample" className="carousel slide ">
-                <div className="carousel-inner max-h-[315px] items-center justify-center">
+                <div className="carousel-inner max-h-[600px] w-screen items-center justify-center">
                     <div className="carousel-item active">
 
-                        <img src="Images/Inicio/Ca-img1.jpg" className=" w-full object-cover " alt="Ca 1"></img>
+                        <img src="Images/Inicio/Ca-img9.jpg" className=" md:w-full md:h-auto h-[300px] w-auto object-cover object-left lg:object-cover" alt="Ca 1"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/Ca-img2.jpg" className=" w-full object-cover" alt="Ca 2"></img>
+                        <img src="Images/Inicio/Ca-img5.jpg" className=" md:w-full md:h-auto h-[300px] w-auto object-cover" alt="Ca 2"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/ins13.jpg" className=" w-full object-cover " alt="Ca 3"></img>
+                        <img src="Images/Inicio/Ca-img6.jpg" className=" md:w-full md:h-auto h-[300px] w-auto object-cover " alt="Ca 3"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/Ca-img3.jpg" className=" w-full object-cover" alt="Ca 4"></img>
+                        <img src="Images/Inicio/Ca-img7.jpg" className=" md:w-full md:h-auto h-[300px] w-auto object-cover" alt="Ca 4"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/ins9.jpg" className=" w-full object-cover " alt="Ca 5"></img>
+                        <img src="Images/Inicio/Ca-img8.jpg" className=" md:w-full md:h-auto h-[300px] w-auto object-cover " alt="Ca 5"></img>
                     </div>
                     <div className="carousel-item ">
-                        <img src="Images/Inicio/ins3.jpg" className=" w-full object-cover" alt="Ca 6"></img>
+                        <img src="Images/Inicio/Ca-img4.jpg" className=" md:w-full md:h-auto h-[300px] w-auto object-cover" alt="Ca 6"></img>
 
-                    </div>
-                    <div className="carousel-item">
-                        <img src="Images/Inicio/Ca-img3.jpg" className=" w-full object-cover" alt="Ca 3"></img>
-                    </div>
-                    <div className="carousel-item">
-                        <img src="Images/Inicio/ins9.jpg" className=" w-full object-cover " alt="Ca 1"></img>
                     </div>
 
 
