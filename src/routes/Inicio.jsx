@@ -122,53 +122,49 @@ const Inicio = () => {
                     <img className="Logo w-10/12 sm:w-8/12 md:1/2 lg:w-5/12 " src="Images/Nav/Logo.svg" />
 
                     <p className='text-lg sm:text-xl lg:text-4xl font-bold text-turqueza'>Cuidando tu belleza,<span className='text-[#3370b1]'> cuidamos de tí</span></p>
-                    <img src={btnDesplegar} alt="desplegar" className='absolute bottom-5 cursor-pointer w-16 hover:scale-110 duration-500' onClick={() => document.getElementById("carouselExample").scrollIntoView({ behavior: 'smooth' })} />
+                    <img src={btnDesplegar} alt="desplegar" className='absolute bottom-5 cursor-pointer w-16 hover:scale-110 duration-500' onClick={() => document.getElementById("carouselExampleAutoplaying").scrollIntoView({ behavior: 'smooth' })} />
 
                 </Transition>
 
             </div>
 
-            <div id="carouselExample" className="carousel slide ">
-                <div className="carousel-inner max-h-[315px] items-center justify-center">
+            <div id="carouselExampleAutoplaying" className="carousel slide " data-bs-ride="carousel">
+                <div className="carousel-inner max-h-[600px] w-screen items-center justify-center">
                     <div className="carousel-item active">
 
-                        <img src="Images/Inicio/Ca-img1.jpg" className=" w-full object-cover " alt="Ca 1"></img>
+                        <img src="Images/Inicio/Ca-img9.jpg" className=" md:w-full md:h-auto h-[300px] w-auto object-cover object-left lg:object-cover" alt="Ca 1"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/Ca-img2.jpg" className=" w-full object-cover" alt="Ca 2"></img>
+                        <img src="Images/Inicio/Ca-img5.jpg" className=" md:w-full md:h-auto h-[300px] w-auto object-cover" alt="Ca 2"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/ins13.jpg" className=" w-full object-cover " alt="Ca 3"></img>
+                        <img src="Images/Inicio/Ca-img6.jpg" className=" md:w-full md:h-auto h-[300px] w-auto object-cover " alt="Ca 3"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/Ca-img3.jpg" className=" w-full object-cover" alt="Ca 4"></img>
+                        <img src="Images/Inicio/Ca-img7.jpg" className=" md:w-full md:h-auto h-[300px] w-auto object-cover" alt="Ca 4"></img>
                     </div>
                     <div className="carousel-item">
-                        <img src="Images/Inicio/ins9.jpg" className=" w-full object-cover " alt="Ca 5"></img>
+                        <img src="Images/Inicio/Ca-img8.jpg" className=" md:w-full md:h-auto h-[300px] w-auto object-cover " alt="Ca 5"></img>
                     </div>
                     <div className="carousel-item ">
-                        <img src="Images/Inicio/ins3.jpg" className=" w-full object-cover" alt="Ca 6"></img>
+                        <img src="Images/Inicio/Ca-img4.jpg" className=" md:w-full md:h-auto h-[300px] w-auto object-cover" alt="Ca 6"></img>
 
-                    </div>
-                    <div className="carousel-item">
-                        <img src="Images/Inicio/Ca-img3.jpg" className=" w-full object-cover" alt="Ca 3"></img>
-                    </div>
-                    <div className="carousel-item">
-                        <img src="Images/Inicio/ins9.jpg" className=" w-full object-cover " alt="Ca 1"></img>
                     </div>
 
 
 
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
+
+
             <div className="bg-blue-100 font-semibold p-4 text-2xl text-center text-black ">
                 Tratamientos más populares
             </div>
@@ -248,16 +244,16 @@ const Inicio = () => {
                 }
             </div>
 
-            <div className='flex w-auto lg:h-[50%] h-[21rem] bg-morado drop-shadow-2xl overflow-hidden mb-5 '>
+            <div className='flex w-auto lg:h-[60%] h-[25rem] bg-morado drop-shadow-2xl overflow-hidden mb-5 lg:rounded-none rounded-lg'>
                 <div className='relative lg:w-[100%]'>
                     <img className=" h-full w-full object-cover object-bottom" src="Images/Inicio/ins3.jpg" alt="Datos" />
-                    <div className="absolute top-0 left-0 w-screen h-full bg-gradient-to-r lg:from-transparent lg:to-violet-500 from-violet-500 to-fuchsia-500 opacity-60 lg:opacity-100 float-right overflow-y-auto">
+                    <div className="absolute top-0 left-0 w-screen h-full bg-gradient-to-r lg:from-transparent lg:to-violet-500 from-violet-500 to-violet-500 opacity-80 lg:opacity-100 float-right overflow-y-auto">
 
                         <div className=' lg:w-[50%] pt-3 text-white lg:text-lg text-base justify-center text-justify lg:mr-6 px-2 right-0 float-right'>
-                            <p className='font-bold'>
+                            <p className='font-bold pb-3 lg:pb-0'>
                                 ¡Bienvenido a la Clínica de Belleza Lily!
                             </p>
-                            <p className=' font-semibold lg:font-normal'>
+                            <p className='  lg:font-normal lg:text-base'>
                                 Donde la excelencia se fusiona con la salud y la belleza, nuestro compromiso es ofrecerte lo mejor en tratamientos tanto corporales como faciales. En nuestra clínica, encontrarás una gama diversa de servicios diseñados para realzar tu bienestar y resaltar tu belleza natural.
                                 Nuestra filosofía se basa en la fusión de la experiencia médica y la especialización en estética. Contamos con un equipo de expertos y médicos altamente capacitados, dispuestos a brindarte los tratamientos más avanzados y personalizados para lograr resultados excepcionales.
                             </p>
