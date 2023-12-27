@@ -34,8 +34,8 @@ const FormCalendar = () => {
       component === 1
         ? componentRef1
         : component === 2
-          ? componentRef2
-          : componentRef3;
+        ? componentRef2
+        : componentRef3;
 
     if (targetRef.current) {
       targetRef.current.scrollIntoView({ behavior: "smooth" });
@@ -152,12 +152,12 @@ const FormCalendar = () => {
   }, [formData]);
   const opciones = maxVariableLocal
     ? [
-      ...Array.from({ length: maxVariableLocal }, (_, index) => (
-        <option key={index + 1} value={index + 1}>
-          {index + 1}
-        </option>
-      )),
-    ]
+        ...Array.from({ length: maxVariableLocal }, (_, index) => (
+          <option key={index + 1} value={index + 1}>
+            {index + 1}
+          </option>
+        )),
+      ]
     : [];
   const handleOnSubmit = async (event) => {
     event.preventDefault();
@@ -181,7 +181,6 @@ const FormCalendar = () => {
     if (userData) {
       formCliente({ userData });
     } else {
-      
       {
         /*      setModalContent({
         title: "Cita superpuesta",
@@ -427,7 +426,8 @@ const FormCalendar = () => {
                             </p>
                             <input
                               required
-                              inputMode="numeric" step="1"
+                              inputMode="numeric"
+                              step="1"
                               className="w-full"
                               type="number"
                               pattern="[0-9]{10}"
