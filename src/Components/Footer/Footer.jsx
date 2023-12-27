@@ -77,7 +77,7 @@ const Footer = () => {
             <a href="https://github.com/kaiomar4321">kaiomar4321</a>
             <a href="https://github.com/Rodrik-09">Rodrik-09</a>
             <a href="https://github.com/EvelynEscamilla">EvelynEscamilla</a>
-            <a href="https://github.com/dgaDave">dgaDave</a>
+            <a href="https://github.com/godavdev">dgaDave</a>
             <a href="https://github.com/AngheloX09">AngheloX09</a>
           </div>
         )}
