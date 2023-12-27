@@ -8,7 +8,7 @@ export const getCitas = async () => {
     try {
       const { docs } = await getDocs(collection(db, reference));
       const allCitas = docs.map((doc) => doc.data());
-      console.log(allCitas)
+      
       return allCitas;
       
     } catch (error) {

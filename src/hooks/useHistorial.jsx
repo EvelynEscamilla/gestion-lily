@@ -9,7 +9,7 @@ const useHistorial = () => {
     useEffect( () => {
          getCitas().then ((allCitas) => setCitas(allCitas))
     }, [])
-    console.log(citas)
+    
     return { citas}
 }
 

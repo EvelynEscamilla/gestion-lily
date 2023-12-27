@@ -185,7 +185,7 @@ const FormCalendar = () => {
     if (userData) {
       formCliente({ userData });
     } else {
-      console.log("No hay usuario");
+      
       {
         /*      setModalContent({
         title: "Cita superpuesta",

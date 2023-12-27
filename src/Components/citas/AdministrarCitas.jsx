@@ -7,9 +7,7 @@ function AdministrarCitas({ item, aceptada }) {
   const año = fecha.getFullYear();
 
   const fechaFormateada = `${dia}/${mes}/${año}`;
-  if (aceptada === true) {
-    console.log("esta cita esta aceptada");
-  }
+  
   let hours = fecha.getHours();
   const minutes = fecha.getMinutes();
   const amPm = hours >= 12 ? "PM" : "AM";

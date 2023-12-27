@@ -8,14 +8,12 @@ import Mapa from "../../assets/Footer/Mapa.svg"
 
 const Footer = () => {
   const [credits, setCredits] = useState(false)
-
   const handleChange = () => setCredits(!credits)
 
   return (
     <footer className="w-full h-auto relative  flex flex-col items-center sm:text-sm lg:text-base  bg-turqueza text-white">
       <div className='w-full flex flex-col px-2 sm:flex-row items-center'>
         <div className="flex sm:flex-col w-full h-full sm:w-1/3 sm:h-60 justify-center items-center ">
-
           <img className="Logo h-24 sm:h-32 lg:h-40 w-full" src={Logo2} />
           <div className='w-full flex flex-col items-center'>
             <p className="font-bold">Lilia Ramos S.</p>
