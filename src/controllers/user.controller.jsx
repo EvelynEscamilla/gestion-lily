@@ -35,7 +35,7 @@ export const getUser = async (uid) => {
     try {
         const docSnap = await getDoc(doc(db, `${reference}/${uid}`))
         if (docSnap.exists()) {
-            console.log(docSnap.data())
+            
             return docSnap.data()
         } else {
             throw new Error("No se encontro el documento")

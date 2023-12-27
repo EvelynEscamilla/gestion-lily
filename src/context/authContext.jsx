@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }) => {
                 setUser(null)
             }
             setLoading(false)
-            console.log(currentUser)
+            
         })
 
         return () => {
