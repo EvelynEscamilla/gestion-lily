@@ -13,7 +13,6 @@ const RecuperarContraseña = () => {
     // Función para manejar cambios en el input
     const handleChangeCorreo = (event) => {
         setValorCorreo(event.target.value);
-        console.log(CorreoE)
     };
 
     const closeModal = () => {

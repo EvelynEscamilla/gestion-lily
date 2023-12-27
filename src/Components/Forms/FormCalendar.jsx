@@ -83,7 +83,6 @@ const FormCalendar = () => {
       const parsedMax = parseInt(maximoClientes, 10);
       setMaxVariableLocal(parsedMax);
       setduracionServicio(serviciosBy[0].duracion);
-      console.log(serviciosBy);
     }
   }, [serviciosBy]);
   const VerificarServ = () => {
@@ -145,7 +144,6 @@ const FormCalendar = () => {
           if (formData.personas !== "0") {
             setValServ(true);
           } else if (formData.personas === "0") {
-            console.log("Ponga otro valor");
             setValServ(false);
           }
         }
@@ -165,9 +163,7 @@ const FormCalendar = () => {
     event.preventDefault();
     try {
       // Lógica onSubmit
-      console.log("Formulario enviado");
       const result = await postCita(formData);
-      console.log(result);
       if (result.success) {
         setModalOpenCita(true);
         // Abre el modal si la cita se ha creado con éxito

@@ -4,9 +4,7 @@ import useServicios from "../../hooks/useServicios";
 
 const FormSeleccionServicios = ({ actualizarServicio }) => {
   const { serviciosPrecioCor } = useServicios();
-  console.log(serviciosPrecioCor);
   const { serviciosPrecioFac } = useServicios();
-  console.log(serviciosPrecioFac);
   const [seleccionado, setSeleccionado] = useState(null);
   const [servicios, setServicios] = useState([]); // Estado para almacenar los resultados de la consulta
   useEffect(() => {

@@ -1,18 +1,14 @@
-
-import NavbarCliente from "../Components/Navbar/NavbarCliente"
-import Footer from "../Components/Footer/Footer"
-import Navbar from "../Components/Navbar/Navbar"
-import { Outlet } from "react-router-dom"
-import { useAuth } from '../context/authContext'
-import ScrollToTop from "../hooks/ScrollToTop"
-import LoadingScreen from "../Components/LoadingScreen/LoadingScreen"
+import NavbarCliente from "../Components/Navbar/NavbarCliente";
+import Footer from "../Components/Footer/Footer";
+import Navbar from "../Components/Navbar/Navbar";
+import { Outlet } from "react-router-dom";
+import { useAuth } from "../context/authContext";
+import ScrollToTop from "../hooks/ScrollToTop";
+import LoadingScreen from "../Components/LoadingScreen/LoadingScreen";
 const LayoutPrincipal = () => {
+  const { userData, loading } = useAuth();
 
-  const { userData, loading } = useAuth()
-
-  if (loading) return <LoadingScreen />
-
-
+  if (loading) return <LoadingScreen />;
 
   return (
     <>
@@ -23,8 +19,7 @@ const LayoutPrincipal = () => {
       </div>
       <Footer />
     </>
-  )
+  );
+};
 
-}
-
-export default LayoutPrincipal
+export default LayoutPrincipal;

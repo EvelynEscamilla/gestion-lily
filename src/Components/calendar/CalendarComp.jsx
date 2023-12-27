@@ -45,9 +45,6 @@ const CalendarComp = () => {
 
   const manejarEnvio = (evento) => {
     evento.preventDefault();
-    console.log("Fecha", value)
-    console.log("Texto:", texto);
-    console.log("Selección:", seleccion);
   };
 
   return (

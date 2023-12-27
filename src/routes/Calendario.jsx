@@ -31,11 +31,10 @@ const Calendario = () => {
       newAppointmentStartTime.getTime() + duracion * 60000
     );
     
-    console.log(newAppointmentEndTime.toString());
 
 
     const cantidadServHoras = citasFechaServicio.some((serv) => {
-      console.log(serv.Fecha);
+      
       const appointmentStartTime = new Date(serv.Fecha);
       const appointmentEndTime = new Date(
         appointmentStartTime.getTime() + duracion * 60000
@@ -73,7 +72,6 @@ const Calendario = () => {
     }
   }, [formData]);
 
-  console.log(citasFechaServicio);
 
   useEffect(() => {
     if (userData) {
@@ -84,24 +82,8 @@ const Calendario = () => {
 
   const { serviciosBy } = useServicios(Servicio);
 
-  console.log(serviciosBy);
   const handleActualizarHora = (nuevaHora) => {
-    console.log(
-      Fecha +
-        " " +
-        Servicio +
-        " " +
-        " " +
-        Cliente +
-        " " +
-        Contacto +
-        " " +
-        Estado +
-        " " +
-        Numero_cliente +
-        " " +
-        Total
-    );
+  
     setHora(nuevaHora);
   };
   const handleSubmit = async (e) => {

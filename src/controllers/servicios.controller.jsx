@@ -147,7 +147,6 @@ export const updateServicio = async (id, newData) => {
   try {
     const servicioRef = doc(db, 'Servicios', "TQxrOJzcOWqAmdwIqXcv");
     await updateDoc(servicioRef, newData);
-    console.log('Servicio actualizado exitosamente');
   } catch (error) {
     console.error('Error al actualizar el servicio: ', error);
     // Puedes manejar el error de la manera que prefieras (mostrar un mensaje, realizar un rollback, etc.)
@@ -155,7 +154,6 @@ export const updateServicio = async (id, newData) => {
   try {
     const servicioRef = doc(db, 'Servicios', "TQxrOJzcOWqAmdwIqXcv");
     await updateDoc(servicioRef, newData);
-    console.log('Servicio actualizado exitosamente');
   } catch (error) {
     console.error('Error al actualizar el servicio: ', error);
     // Puedes manejar el error de la manera que prefieras (mostrar un mensaje, realizar un rollback, etc.)
@@ -208,8 +206,6 @@ const deleteServicioImage = async (uid) => {
     // Eliminar la imagen del storage
     const imageRef = ref(storage, `${storageReference}/${uid}`);
     await deleteObject(imageRef);
-
-    console.log('Imagen del servicio eliminada');
   } catch (error) {
     console.error('Error al eliminar imagen del servicio:', error);
     throw new Error('Error al eliminar imagen del servicio');

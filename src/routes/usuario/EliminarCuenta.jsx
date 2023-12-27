@@ -25,7 +25,6 @@ const EliminarCuenta = () => {
         setValorContraseña(event.target.value);
     };
 
-console.log(user)
     return (
         <>
             <body className="bg-gray-100 flex justify-center items-center h-screen">

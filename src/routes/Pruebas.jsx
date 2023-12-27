@@ -29,8 +29,6 @@ const Pruebas = () => {
     const newAppointmentEndTime = new Date(
       newAppointmentStartTime.getTime() + newAppointment.duration * 60000
     );
-console.log(newAppointmentStartTime)
-console.log(newAppointmentEndTime)
     const isOverlapping = appointments.some((appointment) => {
       const appointmentStartTime = new Date(appointment.startTime);
       const appointmentEndTime = new Date(

@@ -51,7 +51,6 @@ export const delUser = (user) => {
         console.log(user)
         const ClienteRef = doc(db, reference, user.uid);
         await deleteDoc(ClienteRef);
-        console.log("usuario borrado exitosamente!")
     
 
     }).catch((error) => {

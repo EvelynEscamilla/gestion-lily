@@ -33,7 +33,6 @@ const useForm = () => {
 
       setFormData({ ...formData, fecha: fechaHora.toDate() });
     } else {
-      console.log("todavia no existe una fecha");
     }
     
   };

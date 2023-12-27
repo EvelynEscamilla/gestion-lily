@@ -18,7 +18,6 @@ export const getCitas = async () => {
 
   export const putCancelar = async ({ Correo, Servicio, Fecha, Estado }) => {
     try {
-      console.log("Fecha antes de la consulta:", Estado);
       // Realizar una consulta para obtener el documento que cumple con las condiciones
       const querySnapshot = await getDocs(query(collection(db, "Citas"), 
         where("Correo", "==", Correo),
