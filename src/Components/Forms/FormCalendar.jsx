@@ -258,7 +258,7 @@ const FormCalendar = () => {
         <ContendorElementosCal
           ref={componentRef2}
           titulo="Selecciona el servicio que desees"
-          consejos="Cada servicio es por persona. Para seleccionar la cantidad de personas primero escoge un servicio, Cada que se cambie el servicio se debera escoger la cantidad de personas nuevamente."
+          consejos="Elige una categoria para ver todos sus servicios. Cada servicio es por persona. Para seleccionar la cantidad de personas primero escoge un servicio, Cada que se cambie el servicio se debera escoger la cantidad de personas nuevamente."
         >
           <div className="flex w-full flex-col justify-center items-center ">
             <CitasServicios

@@ -18,7 +18,7 @@ const CitasServicios = ({ onChange }) => {
             {" "}
             {/* Espacio entre los grupos de botones */}
             <button
-              className=" h-16 w-full border-2 flex justify-center items-center rounded bg-azul  font-semibold  border-azulNav"
+              className=" h-16 w-full border-2 flex justify-center hover:bg-white items-center rounded bg-azul  font-semibold  border-gray-200 hover:duration-150"
               onClick={() => toggleButtonGroup("group1")}
             >
               Servicios Corporales
@@ -27,7 +27,7 @@ const CitasServicios = ({ onChange }) => {
 
           <div className="w-1/2 ">
             <button
-              className=" h-16 w-full border-2 flex justify-center items-center rounded bg-azul  font-semibold  border-azulNav"
+              className=" h-16 w-full border-2 flex justify-center hover:bg-white items-center rounded bg-azul  font-semibold  border-gray-200 hover:duration-150"
               onClick={() => toggleButtonGroup("group2")}
             >
               Servicios Faciales
