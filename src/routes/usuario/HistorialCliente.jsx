@@ -25,7 +25,7 @@ const cliente = auth.userData.correo;
     const añoCita = fecha.getFullYear();
     const estadoCita = item.Estado;
     
-    return mesCita.toString() === mesSeleccionado && añoCita === selectedYear && estadoCita === "Realizada" && item.Correo === cliente;
+    return mesCita.toString() === mesSeleccionado && añoCita === selectedYear && estadoCita === "Realizada" && fecha < new Date();
   });
   
   return (
