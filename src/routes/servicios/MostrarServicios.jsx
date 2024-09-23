@@ -4,7 +4,7 @@ import Servicios from "../../Components/mostrarServicios/Servicios";
 import useServicios from "../../hooks/useServicios";
 import ModMostrarServicios from "../../Components/modals/ModMostrarServicios";
 
-// Product (Producto)
+// Product 
 const Servicio = ({ nombre, descripcion, precio, duracion, maximoPer, url, sendDataToParent, oC, tipo }) => {
   return (
     <div className={`servicio ${tipo}`}>
@@ -17,26 +17,26 @@ const Servicio = ({ nombre, descripcion, precio, duracion, maximoPer, url, sendD
   );
 };
 
-// Concrete Products (Productos Concretos)
+// Concrete Products
 const ServicioTipoA = (props) => <Servicio {...props} />;
 const ServicioTipoB = (props) => <Servicio {...props} />;
 
-// Creator (Creador)
+// Creator 
 const ServicioFactory = (tipo) => {
   switch (tipo) {
-    case 'tipoA':
+    case 'facial':
       return ServicioTipoA;
-    case 'tipoB':
+    case 'corporal':
       return ServicioTipoB;
     default:
       return Servicio;
   }
 };
 
-// Concrete Creator (Creador Concreto)
+// Concrete Creator
 export const MostrarServicios = () => {
   const { servicios } = useServicios();
-  const [tipoServicio, setTipoServicio] = useState('todos');
+  const [tipoServicio, setTipoServicio] = useState(''); 
   const [nombre, setNombre] = useState("Elige el Servicio que gustes");
   const [descripcion, setdescripcion] = useState("Te dará una breve descripción de lo que es cada servicio");
   const [precio, setprecio] = useState("");
@@ -60,21 +60,29 @@ export const MostrarServicios = () => {
   const abrirModal = () => setModalAbierto(true);
   const cerrarModal = () => setModalAbierto(false);
 
-  const filteredServicios = tipoServicio === 'todos'
-    ? servicios
-    : servicios.filter(item => item.tipo === tipoServicio);
+  // Filtrar servicios 
+  const filteredServicios = tipoServicio
+    ? servicios.filter(item => item.tipo.toLowerCase() === tipoServicio.toLowerCase())
+    : servicios;
 
   return (
     <>
-      <div className="filter-buttons">
-        <button onClick={() => setTipoServicio('tipoA')}>Tipo A</button>
-        <button onClick={() => setTipoServicio('tipoB')}>Tipo B</button>
-        <button onClick={() => setTipoServicio('todos')}>Mostrar Todos</button>
-      </div>
       
-      <div className="lg:flex grid grid-rows-1 justify-center text-center ">
-        <div className="lg:w-1/2 w-[95%] lg:p-3 lg:pl-2 justify-center lg:h-screen lg:overflow-y-auto ">
-          <div onClick={abrirModal} className="grid md:hidden lg:grid-cols-3 grid-cols-2 place-content-center pt-2 lg:pb-28 ">
+      <div className="filter-buttons flex justify-start mb-4 ml-6 mt-2">
+        <button onClick={() => setTipoServicio('facial')} className="mx-2 p-2 bg-blue-500 text-white rounded">
+          Facial
+        </button>
+        <button onClick={() => setTipoServicio('corporal')} className="mx-2 p-2 bg-green-500 text-white rounded">
+          Corporal
+        </button>
+        <button onClick={() => setTipoServicio('')} className="mx-2 p-2 bg-gray-500 text-white rounded">
+          Mostrar Todos
+        </button>
+      </div>
+
+      <div className="lg:flex grid grid-rows-1 justify-center text-center">
+        <div className="lg:w-1/2 w-[95%] lg:p-3 lg:pl-2 justify-center lg:h-screen lg:overflow-y-auto">
+          <div onClick={abrirModal} className="grid md:hidden lg:grid-cols-3 grid-cols-2 place-content-center pt-2 lg:pb-28">
             {filteredServicios.map((item, index) => {
               const ServicioComponente = ServicioFactory(item.tipo);
               return (
@@ -87,7 +95,7 @@ export const MostrarServicios = () => {
               );
             })}
           </div>
-          <div className="hidden md:grid lg:grid-cols-3 grid-cols-2 place-content-center pt-2 lg:pb-28 ">
+          <div className="hidden md:grid lg:grid-cols-3 grid-cols-2 place-content-center pt-2 lg:pb-28">
             {filteredServicios.map((item, index) => {
               const ServicioComponente = ServicioFactory(item.tipo);
               return (
@@ -136,7 +144,7 @@ export const MostrarServicios = () => {
         </div>
       </div>
 
-      {/* Componente del modal */}
+     
       <ModMostrarServicios
         isOpen={modalAbierto}
         onClose={cerrarModal}
