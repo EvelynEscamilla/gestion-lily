@@ -1,22 +1,99 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Transition } from '@headlessui/react'
 import btnDesplegar from '../assets/Inicio/desplegar.png'
-const Inicio = () => {
 
-    const [isShowing, setIsShowing] = useState(false)
+// interfaz Command
+class Command {
+    execute() {
+        throw new Error("Method 'execute()' must be implemented.");
+    }
+}
+
+// comandos concretos para cada respuesta del bot
+class UbicacionCommand extends Command {
+    execute() {
+        return "La clínica se ubica en Thomas Alva Edison No.335 Col. Electricistas, C.P. 58290";
+    }
+}
+
+class ServiciosCommand extends Command {
+    execute() {
+        return "Ofrecemos servicios como masajes, botox. eliminación de verrugas y tatuajes, bb glow, lipoláser, ácido de labios, entre muchos otros que puedes encontrar en el apartado 'Servicios' ubicado en la parte superior en la página.";
+    }
+}
+
+class DuracionCommand extends Command {
+    execute() {
+        return "La duración de los servicios puede ser desde los 15 minutos, 30 minutos e incluso 1 hora, dependiendo del tratamiento, puedes consultar la duración exacta de cada tratamiento en el apartado 'servicios' ubicado en la parte superior de la página.";
+    }
+}
+
+class CostoCommand extends Command {
+    execute() {
+        return "El costo depende del tratamiento, puedes consultar el costo exacto de cada tratamiento en el apartado 'servicios' ubicado en la parte superior de la página.";
+    }
+}
+
+class VerificarCitaCommand extends Command {
+    execute() {
+        return "Una vez iniciada sesión en la página, selecciona el icono del perfil ubicado en la parte superior derecha de la página, se desplegará un menú de opciones, selecciona 'Citas programadas' y una vez ahí te muestra las citas que tienes agendadas y el estatus en el que se encuentra.";
+    }
+}
+
+class AgendarCitaCommand extends Command {
+    execute() {
+        return "Inicia sesión y dirígete al apartado 'Citas' ubicado en la parte superior de la página, ahí te mostrará un calendario para que selecciones el día de tu cita, así como la hora y el tratamiento que deseas.";
+    }
+}
+
+class CancelarCitaCommand extends Command {
+    execute() {
+        return "Sí, selecciona el icono del perfil ubicado en la parte superior derecha de la página, se desplegará un menú de opciones, selecciona 'Citas programadas' y una vez ahí te muestra las citas que tienes agendadas. Presiona el botón 'Cancelar' para cancelar tu cita.";
+    }
+}
+
+class ContactoCommand extends Command {
+    execute() {
+        return "Puedes comunicarte con nosotros a través del número de teléfono: 44 35 87 60 57";
+    }
+}
+
+class UnknownCommand extends Command {
+    execute() {
+        return "Lo siento, no entiendo esa pregunta.";
+    }
+}
+
+//Crear el invoker
+class ChatBotInvoker {
+    constructor() {
+        this.commands = {};
+    }
+
+    register(commandName, command) {
+        this.commands[commandName] = command;
+    }
+
+    execute(commandName) {
+        const command = this.commands[commandName] || new UnknownCommand();
+        return command.execute();
+    }
+}
+
+const Inicio = () => {
+    const [isShowing, setIsShowing] = useState(false);
     const [infoDiv, setInfoDiv] = useState(1);
     const [showQuestions, setShowQuestions] = useState(false);
-
     const [selectedOption, setSelectedOption] = useState('');
     const [chatState, setChatState] = useState('initial');
     const [responses, setResponses] = useState([]);
-    const [response, setResponse] = useState();
+    const [response, setResponse] = useState('');
     const chatContainerRef = useRef(null);
 
     const [selectedQuestions, setSelectedQuestions] = useState([]);
 
     useEffect(() => {
-        setIsShowing((isShowing) => true)
+        setIsShowing(true);
         if (chatContainerRef.current) {
             chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
         }
@@ -24,80 +101,56 @@ const Inicio = () => {
 
     const handleClick = () => {
         setInfoDiv(infoDiv + 1);
-        
-    }
+    };
 
     const handleClick1 = () => {
         setInfoDiv(infoDiv - 1);
         setSelectedOption('');
         setChatState('initial');
         setResponse('');
-    }
-
-
+    };
 
     const handleOptionChange = (e) => {
         setSelectedOption(e.target.value);
     };
-    
-        
 
     const handleSendMessage = () => {
-        let newResponse;
+        const invoker = new ChatBotInvoker();
 
-        if (selectedOption) {
-            const newSelectedQuestion = selectedOption === '1'
-                ? '¿Dónde se ubica la clínica?'
-                : selectedOption === '2'
-                    ? '¿Qué servicios ofrecen?'
-                    : selectedOption === '3'
-                        ? '¿Qué duración tienen los servicios?'
-                        : selectedOption === '4'
-                            ? '¿Cuál es el costo de los tratamientos?'
-                            : selectedOption === '5'
-                                ? '¿Cómo puedo verificar si mi cita fue aceptada?'
-                                : selectedOption === '6'
-                                    ? '¿Cómo puedo agendar una cita?'
-                                    : selectedOption === '7'
-                                        ? '¿Puedo cancelar mi cita?'
-                                        : selectedOption === '8'
-                                            ? '¿Cómo puedo comunicarme con la clínica?'
-                                            : '';
-    
-            setSelectedQuestions((prevQuestions) => [...prevQuestions, newSelectedQuestion]);
-        }
-    
-        switch (selectedOption) {
-            case '1':
-                newResponse = "La clínica se ubica en Thomas Alva Edison No.335 Col. Electricistas, C.P. 58290";
-                break;
-            case '2':
-                newResponse = 'Ofrecemos servicios como masajes, botox. eliminación de verrugas y tatuajes, bb glow, lipoláser, ácido de labios, entre muchos otros que puedes encontrar en el apartado "Servicios" ubicado en la parte superior en la página.';
-                break;
-            case '3':
-                newResponse = 'La duración de los servicios puede ser desde los 15 minutos, 30 minutos e incluso 1 hora, dependiendo del tratamiento, puedes consultar la duración exacta de cada tratamiento en el apartado "servicios" ubicado en la parte superior de la página.';
-                break;
-            case '4':
-                newResponse = 'El costo depende del tratamiento, puedes consultar el costo exacto de cada tratamiento en el apartado "servicios" ubicado en la parte superior de la página.';
-                break;
-            case '5':
-                newResponse = 'Una vez iniciada sesión en la página, selecciona el icono del perfil ubicado en la parte superior derecha de la página, se desplegará un menú de opciones, selecciona "Citas programadas" y una vez ahí te muestra las citas que tienes agendadas y el estatus en el que se encuentra, ahí te mostrará si tu cita ha sido aceptada, rechazada o cancelada. Recuerda verificar continuamente tus citas.';
-                break;
-            case '6':
-                newResponse = 'Inicia sesión y dirígete al apartado "Citas" ubicado en la parte superior de la página, ahí te mostrará un calendario para que selecciones el día de tu cita, así como la hora y el tratamiento que deseas.';
-                break;
-            case '7':
-                newResponse = 'Sí, para eso selecciona el icono del perfil ubicado en la parte superior derecha de la página, se desplegará un menú de opciones, selecciona "Citas programadas" y una vez ahí te muestra las citas que tienes agendadas, presiona el botón "Cancelar" que se encuentra debajo de los detalles de la cita y tu cita quedará cancelada. Recuerda cancelar tu cita por lo menos 1 día antes de su realización.';
-                break;
-            case '8':
-                newResponse = 'Puedes comunicarte con nosotros a través del número de teléfono: 44 35 87 60 57';
-                break;
-            default:
-                newResponse = 'Lo siento, no entiendo esa pregunta.';
-                break;
-        }
-    
-        
+        // Registrar comandos con el invoker
+        invoker.register('1', new UbicacionCommand());
+        invoker.register('2', new ServiciosCommand());
+        invoker.register('3', new DuracionCommand());
+        invoker.register('4', new CostoCommand());
+        invoker.register('5', new VerificarCitaCommand());
+        invoker.register('6', new AgendarCitaCommand());
+        invoker.register('7', new CancelarCitaCommand());
+        invoker.register('8', new ContactoCommand());
+
+        // Obtener la pregunta seleccionada por el usuario
+        const newSelectedQuestion = selectedOption === '1'
+            ? '¿Dónde se ubica la clínica?'
+            : selectedOption === '2'
+                ? '¿Qué servicios ofrecen?'
+                : selectedOption === '3'
+                    ? '¿Qué duración tienen los servicios?'
+                    : selectedOption === '4'
+                        ? '¿Cuál es el costo de los tratamientos?'
+                        : selectedOption === '5'
+                            ? '¿Cómo puedo verificar si mi cita fue aceptada?'
+                            : selectedOption === '6'
+                                ? '¿Cómo puedo agendar una cita?'
+                                : selectedOption === '7'
+                                    ? '¿Puedo cancelar mi cita?'
+                                    : selectedOption === '8'
+                                        ? '¿Cómo puedo comunicarme con la clínica?'
+                                        : '';
+
+        setSelectedQuestions((prevQuestions) => [...prevQuestions, newSelectedQuestion]);
+
+        // Ejecutar el comando basado en la opción seleccionada
+        const newResponse = invoker.execute(selectedOption);
+
         setResponse(newResponse);
         setResponses((prevResponses) => [...prevResponses, newResponse]);
         setChatState('answered');
